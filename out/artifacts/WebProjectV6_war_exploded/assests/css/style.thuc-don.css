@@ -1,0 +1,137 @@
+#navbar-absolute {
+    width: 100%;
+    background-color: #000 !important;
+    color: #fff;
+}
+
+.my-breadcrumb {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 0.8rem 0;
+}
+
+.my-breadcrumb * {
+    color: #fff;
+}
+
+.my-breadcrumb > li {
+    display: inline;
+}
+
+.my-breadcrumb > li + li:before {
+    content: " | ";
+}
+
+.my-breadcrumb-item-current {
+    color: #e2e2e2;
+}
+
+.top-menus {
+    padding: 3.2rem 0;
+    text-align: center;
+}
+
+.top-menu-item .menu-image img {
+    width: 100%;
+}
+
+.top-menu-item .row * {
+    padding: 0;
+    margin: 0;
+}
+
+.top-menu-item .menu-price {
+    text-align: right;
+    font-size: 20px;
+    font-family: "blonde script";
+}
+
+.top-menu-item .menu-name {
+    font-size: 24px;
+    text-align: left;
+    font-family: "blonde script";
+}
+
+.menu {
+    padding: 0 0.4rem;
+    margin-top: 2.8rem;
+}
+
+#menu-1, #menu-2 {
+    background: linear-gradient(to left, #fff, rgb(255, 255, 255), rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0)), url("../images/paralax2.png");
+}
+
+.food-menu, .menu-title {
+    margin: 1.6rem 0;
+}
+
+.menu-by-day {
+    padding: 2.8rem 0;
+}
+
+.food-image img {
+    width: 100%;
+}
+
+.menu-by-day-title {
+    padding: 1.8rem;
+}
+
+.footer {
+    padding: 64px 0;
+    color: #fff;
+}
+
+.footer .row {
+    margin-top: 32px;
+}
+
+.footer-title {
+    text-align: center;
+}
+
+.send-contact form .form-row {
+    padding-bottom: 10px;
+}
+
+.send-contact form textarea {
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.content-header {
+    margin-bottom: 32px;
+}
+
+.send-contact input[type = submit], .send-contact input[type = button] {
+    margin-top: 10px;
+}
+
+.table, tr {
+    border-top: none;
+    border-bottom: 1px solid;
+}
+
+.email-input input[type = text] {
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+
+.email-input input[type = submit] {
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.footer-content *:not(h1) {
+    font-size: 14px;
+}
+
+.footer-content table td {
+    padding-left: 0;
+    padding-right: 0;
+    border: unset;
+}

@@ -12,6 +12,32 @@
         </p>
         <form action="/admin/sua-quan-tri-vien" method="post">
             <div class="form-row">
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="allow">Trạng thái tài khoản</label>
+                        <div class="form-check form-check-flat">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" id="allow" name="chkChoPhep"
+                                        <c:if test="${requestScope.nguoiDung.choPhep}">checked</c:if> />
+                                Cho phép hoạt động
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <label for="allow">Trạng thái hoạt động</label>
+                        <div class="form-check form-check-flat">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" id="kich-hoat" name="chkKichHoat"
+                                        <c:if test="${requestScope.nguoiDung.kichHoat}">checked</c:if> readonly/>
+                                Đã kích hoạt
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="ho-dem">Họ đệm (bắt buộc)</label>
                     <input type="text" class="form-control" id="ho-dem" placeholder="Họ đệm"
@@ -52,14 +78,14 @@
                         <div class="col form-radio">
                             <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="radNam"
-                                        id="nam" checked>Nam
+                                        id="nam" <c:if test="${requestScope.qtv.nu ne false}">checked</c:if>Nam />
                                 <i class="input-helper"></i>
                             </label>
                         </div>
                         <div class="col form-radio">
                             <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="radNu"
-                                        id="nu">Nữ
+                                        id="nu" <c:if test="${requestScope.qtv.nu}">checked</c:if> />Nữ
                                 <i class="input-helper"></i>
                             </label>
                         </div>

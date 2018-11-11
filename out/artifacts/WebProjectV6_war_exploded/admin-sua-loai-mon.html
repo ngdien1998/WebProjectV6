@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sửa loại món</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assests/node_modules/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assests/node_modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assests/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="assests/node_modules/jvectormap/jquery-jvectormap.css"/>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assests/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="assests/images/favicon.png"/>
+</head>
+<body style="background: #F6F8FA;">
+<div class="container">
+    <div class="card" style="margin: 16px 0;">
+        <div class="card-body">
+            <h3 class="card-title">Sửa loại món</h3>
+            <!--<p class="card-description">
+                Vui lòng nhập đầy đủ thông tin yêu cầu
+            </p>-->
+            <form class="forms-sample">
+                <div class="form-row">
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <label for="ID-loai-mon">ID loại món</label>
+                        <input type="text" class="form-control" id="ID-loai-mon" placeholder="Mã loại món" value="1">
+                        <small class="text-danger" id="validate-id-loai-mon"></small>
+                    </div>
+                    <div class="col-md-6 col-sm-12 form-group">
+                        <label for="ten">Tên loại món(bắt buộc)</label>
+                        <input type="text" class="form-control" id="ten" placeholder="Tên" value="Món nướng">
+                        <small class="text-danger" id="validate-ten"></small>
+                    </div>
+                </div>
+                <label for="mota">Mô tả</label>
+                <textarea rows="5" class="form-control" id="mota" placeholder="Mô tả">Chưa mô tả</textarea>
+                <small class="text-danger" id="validate-mota"></small>
+                <br>
+                <div class="form-row">
+                    <input type="submit" class="btn btn-primary btn-rounded mr-2" id="btn-submit" value="Sửa loại món"/>
+                    <a href="admin-loai-mon.html" class="btn btn-primary btn-rounded">Quay về trang chủ</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- container-scroller -->
+
+<!-- plugins:js -->
+<script src="assests/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="assests/node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="assests/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assests/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="assests/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="assests/js/off-canvas.js"></script>
+<script src="assests/js/hoverable-collapse.js"></script>
+<script src="assests/js/misc.js"></script>
+<script src="assests/js/settings.js"></script>
+<script src="assests/js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="assests/js/todolist.js"></script>
+<script src="assests/js/dashboard.js"></script>
+<!-- End custom js for this page-->
+
+<script type="text/javascript">
+    function validateForIDLoaiMon() {
+        let hodem = $("#ID-loai-mon").val().trim();
+        if (hodem === "") {
+            $("#validate-id-loai-mon").html("Bạn chưa nhập ID loại món");
+            return false;
+        }
+        $("#validate-id-loai-mon").html("");
+        return true;
+    }
+
+    $("#ID-loai-mon").blur(() => validateForIDLoaiMon());
+
+    function validateForTen() {
+        let ten = $("#ten").val().trim();
+        if (ten === "") {
+            $("#validate-ten").html("Bạn chưa nhập tên");
+            return false;
+        }
+        $("#validate-ten").html("");
+        return true;
+    }
+
+    $("#ten").blur(() => validateForTen());
+    $("#ID-loai-mon").blur(() => validateForIDLoaiMon());
+
+    function validateForMota() {
+        let ten = $("#mota").val().trim();
+        if (ten === "") {
+            $("#validate-mota").html("Bạn chưa nhập mô tả");
+            return false;
+        }
+        $("#validate-mota").html("");
+        return true;
+    }
+
+    $("#mota").blur(() => validateForMota());
+
+    $("#btn-submit").click(() => {
+        let res = validateForIDLoaiMon() & validateForTen() & validateForMota();
+        if (res === 0) {
+            return false;
+        }
+        return true;
+    });
+</script>
+</body>
+
+</html>
