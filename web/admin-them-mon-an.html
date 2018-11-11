@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Thêm món ăn</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assests/node_modules/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assests/node_modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assests/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="assests/node_modules/jvectormap/jquery-jvectormap.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assests/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="assests/images/favicon.png" />
+    <script src="./assests/js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body style="background: #F6F8FA;">
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="" style="color: #616161;">
+                    <b>ADMINISTRATOR</b>
+                </a>
+                <a class="navbar-brand brand-logo-mini" href=""><img src="assests/images/logo.png" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="mdi mdi-reload"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
+                            <h6 class="p-3 mb-0 text-center">Thông báo</h6>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assests/images/faces/face4.jpg" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="mb-0">Dany Miles <span class="text-small text-muted">commented on your
+                                            photo</span></p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assests/images/faces/face3.jpg" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="mb-0">James <span class="text-small text-muted">posted a photo on your
+                                            wall</span></p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <img src="assests/images/faces/face2.jpg" class="profile-pic">
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="mb-0">Alex <span class="text-small text-muted">just mentioned you in his
+                                            post</span></p>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <p class="p-3 mb-0 text-center">View all activities</p>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-search">
+                        <form class="nav-link form-inline mt-2 mt-md-0 d-none d-lg-flex">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="mdi mdi-magnify"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Tìm kiếm">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item  nav-profile dropdown">
+                        <a class="nav-link" href="#">
+                            <i class="mdi mdi-home-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close mdi mdi-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                        <div class="img-ss rounded-circle bg-light border mr-3"></div>
+                        Light
+                    </div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>
+                        Dark
+                    </div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles light"></div>
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles pink"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <span class="nav-profile-image">
+                                <img src="assests/images/faces/face1.jpg" alt="profile">
+                                <span class="login-status online"></span>
+                                <!--change to offline or busy as needed-->
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">
+                        <span class="nav-link"><b>QUẢN TRỊ WEBSITE</b></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./admin-dashboard.html">
+                            <i class="mdi mdi-compass-outline menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">
+                        <span class="nav-link"><b>DANH MỤC QUẢN LÝ</b></span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./admin-quan-ly-mon-an.html">
+                            <i class="mdi mdi-food-fork-drink menu-icon"></i>
+                            <span class="menu-title">Quản Lý Món Ăn</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./admin-quan-ly-hoa-don.html">
+                            <i class="mdi mdi-content-paste menu-icon"></i>
+                            <span class="menu-title">Quản Lý Hóa Đơn</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./admin-quan-ly-dat-ban.html">
+                            <i class="mdi mdi-table menu-icon"></i>
+                            <span class="menu-title">Quản Lý Đặt Bàn</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-thuc-don.html">
+                            <i class="mdi mdi-silverware-variant menu-icon"></i>
+                            <span class="menu-title">Quản Lý Thực Đơn</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
+                            aria-controls="page-layouts">
+                            <i class="mdi mdi-arrow-expand-all menu-icon"></i>
+                            <span class="menu-title">Quản Lý Người Dùng</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="page-layouts">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item d-none d-lg-block"><a class="nav-link" href="admin-nguoi-dung.html">Người
+                                        Dùng</a></li>
+                                <li class="nav-item"><a class="nav-link" href="admin-quan-tri-vien.html">Quản Trị Viên</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-bai-viet.html">
+                            <i class="mdi mdi-account-key menu-icon"></i>
+                            <span class="menu-title">Quản Lý Bài viết</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-nghiep-vu.html">
+                            <i class="mdi mdi-account-key menu-icon"></i>
+                            <span class="menu-title">Quản Nghiệp vụ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-quyen.html">
+                            <i class="mdi mdi-account-key menu-icon"></i>
+                            <span class="menu-title">Quản Lý Quyền</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="card" style="margin: 16px 0;">
+                        <div class="card-body">
+                            <h3 class="card-title">Thêm Món Ăn Mới</h3>
+                            <p class="card-description">
+                                Vui lòng nhập đầy đủ thông tin yêu cầu
+                            </p>
+                            <form class="forms-sample">
+                                <div class="form-row">
+                                    <div class="col-md-6 col-sm-12 form-group">
+                                        <label for="ten-mon-an">Tên Món Ăn (bắt buộc)</label>
+                                        <input type="text" class="form-control" id="ten-mon-an" placeholder="Tên món ăn">
+                                        <small class="text-danger" id="validate-ten-mon-an"></small>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 form-group">
+                                        <label for="">Đơn Vị Tính</label>
+                                        <select class="form-control">
+                                            <option>Dĩa</option>
+                                            <option>Tô</option>
+                                            <option>Chén</option>
+                                            <option>Con</option>
+                                            <option>Nồi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Mô Tả</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                        placeholder="Mô Tả"></textarea>
+                                    <small class="text-danger" id="validate-email"></small>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label for="gia-tien">Giá (bắt buộc)</label>
+                                        <input type="number" class="form-control" id="gia-tien" placeholder="150.000">
+                                        <small class="text-danger" id="validate-gia-tien"></small>
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-12">
+                                        <label for="xac-nhan-mat-khau">Phần Trăm Khuyến Mãi</label>
+                                        <input type="number" class="form-control" id="" placeholder="10%">
+                                        <small class="text-danger" id="validate-xac-nhan-mat-khau"></small>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4 col-sm-6 col-12">
+                                        <label>Ngày Thêm</label>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='date' class="form-control" id="today" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            document.querySelector("#today").valueAsDate = new Date();
+                                        </script>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-6 col-12">
+                                        <label for="">ID Loại Món Ăn</label>
+                                        <select class="form-control">
+                                            <option>Loại 1</option>
+                                            <option>Loại 2</option>
+                                            <option>Loại 3</option>
+                                            <option>Loại 4</option>
+                                            <option>Loại 5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4 col-sm-12">
+                                        <label for="xac-nhan-mat-khau">ID Thực Đơn</label>
+                                        <select class="form-control">
+                                            <option>Thực Đơn Sáng</option>
+                                            <option>Thực Đơn Trưa</option>
+                                            <option> Thực Đơn Tối</option>
+                                            <option>Thực Đơn Tiệc 1</option>
+                                            <option>Thực Đơn Tiệc 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="exampleFormControlFile1">Ảnh</label>
+                                    <div class="input-group input-file" name="Fichier1">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-choose" type="button">Choose</button>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder='Chọn ảnh' />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-warning btn-reset" type="button">Reset</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <script>
+                                    function bs_input_file() {
+                                        $(".input-file").before(
+                                            function () {
+                                                if (!$(this).prev().hasClass('input-ghost')) {
+                                                    var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+                                                    element.attr("name", $(this).attr("name"));
+                                                    element.change(function () {
+                                                        element.next(element).find('input').val((element.val()).split('\\').pop());
+                                                    });
+                                                    $(this).find("button.btn-choose").click(function () {
+                                                        element.click();
+                                                    });
+                                                    $(this).find("button.btn-reset").click(function () {
+                                                        element.val(null);
+                                                        $(this).parents(".input-file").find('input').val('');
+                                                    });
+                                                    $(this).find('input').css("cursor", "pointer");
+                                                    $(this).find('input').mousedown(function () {
+                                                        $(this).parents('.input-file').prev().click();
+                                                        return false;
+                                                    });
+                                                    return element;
+                                                }
+                                            }
+                                        );
+                                    }
+                                    $(function () {
+                                        bs_input_file();
+                                    });
+                                </script>
+                                <input type="submit" class="btn btn-primary btn-rounded" id="btn-submit" value="Thêm Món Ăn" />
+                                <a href="./admin-quan-ly-mon-an.html" class="btn btn-primary btn-rounded"> Về Trang
+                                    Quản Lý Món
+                                    Ăn</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="assests/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assests/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assests/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assests/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="assests/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="assests/js/off-canvas.js"></script>
+    <script src="assests/js/hoverable-collapse.js"></script>
+    <script src="assests/js/misc.js"></script>
+    <script src="assests/js/settings.js"></script>
+    <script src="assests/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="assests/js/todolist.js"></script>
+    <script src="assests/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+
+    <script type="text/javascript">
+        function validateForTenMonAn() {
+            let hodem = $("#ten-mon-an").val().trim();
+            if (hodem === "") {
+                $("#validate-ten-mon-an").html("Bạn chưa nhập tên món ăn");
+                return false;
+            }
+            $("#validate-ten-mon-an").html("");
+            return true;
+        }
+
+        $("#ten-mon-an").blur(() => validateForTenMonAn());
+
+        function validateForGiaTien() {
+            let ten = $("#gia-tien").val().trim();
+            if (ten === "") {
+                $("#validate-gia-tien").html("Bạn chưa nhập giá tiền");
+                return false;
+            }
+            $("#validate-gia-tien").html("");
+            return true;
+        }
+
+        $("#gia-tien").blur(() => validateForGiaTien());
+
+        $("#btn-submit").click(() => {
+            let res = validateForTenMonAn() & validateForGiaTien();
+            if (res === 0) {
+                return false;
+            }
+            return true;
+        });
+    </script>
+</body>
+
+</html>
