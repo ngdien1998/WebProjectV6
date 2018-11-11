@@ -41,7 +41,7 @@
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="ho-dem">Họ đệm (bắt buộc)</label>
                     <input type="text" class="form-control" id="ho-dem" placeholder="Họ đệm"
-                            value="${requestScope.qtv.diaChhoDem}" name="txtHoDem">
+                            value="${requestScope.qtv.HoDem}" name="txtHoDem">
                     <small class="text-danger" id="validate-ho-dem"></small>
                 </div>
                 <div class="col-md-6 col-sm-12 form-group">

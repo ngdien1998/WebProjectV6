@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public interface Businesses<TDataModel> {
     ArrayList<TDataModel> getData() throws SQLException, ClassNotFoundException;
-
     int add(TDataModel model) throws SQLException, ClassNotFoundException;
     int delete(TDataModel model);
     int modify(TDataModel model) throws SQLException, ClassNotFoundException;
