@@ -62,7 +62,7 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
     }
 
     @Override
-    public int delete(NguoiDung model) {
+    public int delete(Object... keys) {
         return 0;
     }
 

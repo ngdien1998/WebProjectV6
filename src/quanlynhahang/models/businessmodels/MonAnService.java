@@ -43,7 +43,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
     }
 
     @Override
-    public int delete(MonAn monAn) {
+    public int delete(Object... keys) {
         return 0;
     }
 

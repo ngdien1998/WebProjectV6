@@ -22,11 +22,9 @@ public class XoaLoaiBaiVietServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            LoaiBaiViet loaiBaiViet = new LoaiBaiViet();
-            loaiBaiViet.setIdLoaiBaiViet(Integer.parseInt(id));
 
             LoaiBaiVietService service = new LoaiBaiVietService();
-            service.delete(loaiBaiViet);
+            service.delete(Integer.parseInt(id));
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

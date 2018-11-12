@@ -48,14 +48,14 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
     }
 
     @Override
-    public int delete(LoaiBaiViet loaiBaiViet) throws SQLException, ClassNotFoundException {
+    public int delete(Object... keys) throws SQLException, ClassNotFoundException {
         openConnection();
         String sql = "EXEC XoaLoaiBaiViet ?";
 
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1, loaiBaiViet.getIdLoaiBaiViet());
+        statement.setInt(1, (int)keys[0]);
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;

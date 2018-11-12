@@ -85,7 +85,7 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
     }
 
     @Override
-    public int delete(NguoiDung model) {
+    public int delete(Object... keys) {
         return 0;
     }
 
