@@ -85,8 +85,20 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
     }
 
     @Override
-    public int delete(Object... keys) {
-        return 0;
+    public int delete(Object... keys) throws SQLException, ClassNotFoundException {
+        if (keys.length <= 0) {
+            return 0;
+        }
+        openConnection();
+
+        String sql = "EXEC XoaNguoiDung ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, (String)keys[0]);
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override

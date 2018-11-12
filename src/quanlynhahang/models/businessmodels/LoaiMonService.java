@@ -52,7 +52,7 @@ public class LoaiMonService extends ConnectDatabase implements Businesses<LoaiMo
     }
 
     @Override
-    public int delete(LoaiMon loaiMon) {
+    public int delete(Object... keys) {
         return 0;
     }
 
