@@ -56,7 +56,18 @@
 .color-for-table {
     background-color: #D3D3D3;
 }
-
+#btnUpdate{
+    float: right;
+}
+table.table.table-bordered {
+    margin: 10% 10% 5% 10%;
+}
+h2{
+    text-align: center;
+}
+input.form-control{
+    margin:0 5% 0 20%;
+}
 /*.text-ali {
     text-align: center;
     position: absolute;
@@ -66,13 +77,13 @@
     margin-left: 40%;
     padding-left: 10%;
     padding-right: 10%;
-    border-radius: 24px;
+
 }
 
-button.btn.btn-dark.border-radius {
+button.btn.btn-dark {
     padding-left: 20%;
     padding-right: 20%;
-    border-radius: 24px;
+
 }
 
 #coupon button {
@@ -124,7 +135,18 @@ table.table.table-bordered.font-blonde-script {
 .content-header {
     margin-bottom: 32px;
 }
-
+#txt-tim-kiem {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 14px;
+}
+#btn-tim-kiem {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 14px;
+}
 .send-contact input[type = submit], .send-contact input[type = button] {
     margin-top: 10px;
 }
