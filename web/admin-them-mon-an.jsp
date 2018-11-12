@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="_shared/admin/top-of-page.jsp" flush="true" />
-<title>Thêm món ăn</title>
-<jsp:include page="_shared/admin/page-header.jsp" flush="true" />
+<jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
+<title>Quản lý món ăn</title>
+<jsp:include page="_shared/admin/page-header.jsp" flush="true"/>
 
 <div class="card" style="margin: 16px 0;">
     <div class="card-body">
@@ -10,7 +10,7 @@
         <p class="card-description">
             Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>
-        <form class="forms-sample">
+        <form action="/admin/them-mon-an" method="post" class="forms-sample" >
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="ten-mon-an">Tên Món Ăn (bắt buộc)</label>
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="mo-ta">Mô Tả</label>
                 <textarea class="form-control" id="mo-ta" rows="3"
-                        placeholder="Mô Tả" name="txtMoTa"></textarea>
+                          placeholder="Mô Tả" name="txtMoTa"></textarea>
                 <small class="text-danger" id="validate-email"></small>
             </div>
             <div class="form-row">
@@ -35,9 +35,9 @@
                     <small class="text-danger" id="validate-gia-tien"></small>
                 </div>
                 <div class="form-group col-md-6 col-sm-12">
-                    <label for="khuyen-mai">Phần Trăm Khuyến Mãi</label>
-                    <input type="number" class="form-control" id="khuyen-mai" placeholder="10%" name="txtKhuyenMai">
-                    <small class="text-danger" id="validate-khuyen-mai"></small>
+                    <label for="xac-nhan-mat-khau">Phần Trăm Khuyến Mãi</label>
+                    <input type="number" class="form-control" id="xac-nhan-mat-khau" placeholder="10%" name="txtKhuyenMai">
+                    <small class="text-danger" id="validate-xac-nhan-mat-khau"></small>
                 </div>
             </div>
             <div class="form-row">
@@ -47,8 +47,8 @@
                         <div class='input-group date' id='datetimepicker2'>
                             <input type='date' class="form-control" id="today" name="dteNgayThem"/>
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
                         </div>
                     </div>
                     <script type="text/javascript">
@@ -58,21 +58,21 @@
                 <div class="form-group col-md-4 col-sm-6 col-12">
                     <label for="loai-mon">ID Loại Món Ăn</label>
                     <select class="form-control" id="loai-mon" name="cmbLoaiMon">
-                        <option>Loại 1</option>
-                        <option>Loại 2</option>
-                        <option>Loại 3</option>
-                        <option>Loại 4</option>
-                        <option>Loại 5</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4 col-sm-12">
                     <label for="thuc-don">ID Thực Đơn</label>
                     <select class="form-control" id="thuc-don" name="cmbThucDon">
-                        <option>Thực Đơn Sáng</option>
-                        <option>Thực Đơn Trưa</option>
-                        <option> Thực Đơn Tối</option>
-                        <option>Thực Đơn Tiệc 1</option>
-                        <option>Thực Đơn Tiệc 2</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
                     </select>
                 </div>
             </div>
@@ -81,14 +81,14 @@
                 <input type="file" class="file-upload-default">
                 <div class="input-group col-xs-12">
                     <input type="text" class="form-control file-upload-info" readonly
-                            placeholder="Hình món ăn" name="txtHinhMonAn">
+                           placeholder="Hình món ăn" name="txtHinhMonAn">
                     <span class="input-group-append">
-                        <button class="btn btn-primary" type="button">Duyệt Server</button>
-                    </span>
+                                        <button class="btn btn-primary" type="button">Duyệt Server</button>
+                                    </span>
                 </div>
             </div>
             <input type="submit" class="btn btn-primary btn-rounded" id="btn-submit"
-                    value="Thêm Món Ăn"/>
+                   value="Thêm Món Ăn"/>
             <a href="./admin-quan-ly-mon-an.html" class="btn btn-primary btn-rounded"> Về Trang
                 Quản Lý Món
                 Ăn</a>
@@ -96,7 +96,7 @@
     </div>
 </div>
 
-<jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
+<jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
 <script type="text/javascript">
     function validateForTenMonAn() {
         let hodem = $("#ten-mon-an").val().trim();
@@ -130,4 +130,4 @@
         return true;
     });
 </script>
-<jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />
+<jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>
