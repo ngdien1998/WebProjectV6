@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import static com.ckfinder.connector.ServletContextFactory.getServletContext;
+
 @WebServlet(name = "NguoiDung", urlPatterns = { "/admin/nguoi-dung" })
 public class NguoiDungServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
