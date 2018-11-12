@@ -19,10 +19,9 @@ import java.util.Date;
 @WebServlet(name = "ThemQuanTriVienServlet", urlPatterns = { "/admin/them-quan-tri-vien" })
 public class ThemQuanTriVienServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
-            request.setCharacterEncoding("utf-8");
-            response.setContentType("text/html;charset=UTF-8");
-
             NguoiDung qtv = new NguoiDung();
             qtv.setEmail(request.getParameter("txtEmail"));
             qtv.setHoDem(request.getParameter("txtHoDem"));

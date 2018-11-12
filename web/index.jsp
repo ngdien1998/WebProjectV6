@@ -5,6 +5,6 @@
     <title>Index</title>
 </head>
 <body>
-<c:redirect url="/admin/mon-an" />
+<c:redirect url="/admin/xoa-loai-bai-viet" />
 </body>
 </html>
