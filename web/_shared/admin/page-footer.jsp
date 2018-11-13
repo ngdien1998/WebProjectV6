@@ -24,6 +24,9 @@
 <script src="<%= request.getContextPath() + "/" %>../../assests/node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="<%= request.getContextPath() + "/" %>../../assests/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<%= request.getContextPath() + "/" %>../../assests/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+
+<script src="<%= request.getContextPath() %>/assests/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <script src="<%= request.getContextPath() + "/" %>../../assests/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
@@ -39,3 +42,5 @@
 <script src="<%= request.getContextPath() + "/" %>../../assests/js/todolist.js"></script>
 <script src="<%= request.getContextPath() + "/" %>../../assests/js/dashboard.js"></script>
 <!-- End custom js for this page-->
+<script src="<%= request.getContextPath() %>/assests/js/toastDemo.js"></script>
+<script src="<%= request.getContextPath() %>/assests/js/desktop-notification.js"></script>

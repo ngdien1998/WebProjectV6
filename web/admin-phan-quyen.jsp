@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
+<jsp:include page="_shared/admin/top-of-page.jsp" flush="true" />
 <title>Sửa loại bài viết</title>
-<jsp:include page="_shared/admin/page-header.jsp" flush="true"/>
+<jsp:include page="_shared/admin/page-header.jsp" flush="true" />
 
 <div class="card">
     <div class="card-body">
@@ -25,24 +25,33 @@
                 <div class="quyen">
                     <p>Vui lòng chọn nghiệp vụ để thực hiện gán quyền cho quản trị viên này</p>
                 </div>
+                <div class="thong-bao-phan-quyen"></div>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="padding-top: 32px;">
             <a href="admin-quan-tri-vien.html" class="btn btn-success btn-rounded">Xong</a>
         </div>
     </div>
 </div>
-
-<jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
+<jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
 <script type="text/javascript">
     $("#nghiep-vu").change(() => {
         let selectedVal = $("#nghiep-vu").val();
-        if (selectedVal == "-1") {
+        if (selectedVal === "-1") {
             $(".business-description").html("Bạn chưa chọn nghiệp vụ");
+            $(".quyen").html("Vui lòng chọn nghiệp vụ đề phân quyền");
             return;
         }
         $.post("/admin/ajax-get-mo-ta-nghiep-vu", { idNghiepVu : selectedVal }, content => $(".business-description").html(content));
-        $.post("/admin/ajax-get-quyen", { idNghiepVu : selectedVal, email : ${requestScope.qtv.email} }, content => $(".quyen").html(content));
+        $.post("/admin/ajax-get-quyen", { idNghiepVu : selectedVal, email : "${requestScope.qtv.email}" }, content => $(".quyen").html(content));
+    });
+
+    $(".quyen").change((event) => {
+        let id = event.target.value;
+        <%--$.post("/admin/ajax-cap-nhap-phan-quyen", { idQuyen : id, email : "${requestScope.qtv.email}" }, content => {--%>
+
+        <%--});--%>
+        showSuccessToast();
     });
 </script>
-<jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>
+<jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />

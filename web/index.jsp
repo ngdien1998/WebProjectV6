@@ -3,4 +3,4 @@
 <%
 session.setAttribute("loginedUserEmail", "ngdien1998@gmail.com");
 %>
-<c:redirect url="/admin/phan-quyen" />
+<c:redirect url="/admin/phan-quyen?email=ngdien1998@gmail.com" />

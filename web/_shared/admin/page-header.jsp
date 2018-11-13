@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/css/style.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="<%= request.getContextPath() + "/" %>../../assests/images/favicon.png"/>
+
+<link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css">
 <style>
     .results tr[visible='false'],
     .no-result {
@@ -34,6 +36,10 @@
         max-height: 32px;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+    }
+
+    li {
+        list-style-type: none;
     }
 </style>
 </head>
