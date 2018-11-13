@@ -141,7 +141,7 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setString(1, keys[0].toString());
+        statement.setString(1, (String) keys[0]);
 
         ResultSet res = statement.executeQuery();
         NguoiDung qtv = null;

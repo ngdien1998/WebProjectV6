@@ -2,6 +2,7 @@ package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.NghiepVu;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -46,6 +47,22 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
 
     @Override
     public NghiepVu get(Object... keys) throws SQLException, ClassNotFoundException {
-        return null;
+        openConnection();
+        String sql = "EXEC LayMotNghiepVu ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, (int) keys[0]);
+
+        NghiepVu nghiepVu = null;
+        ResultSet res = statement.executeQuery();
+        if (res.next()) {
+            nghiepVu = new NghiepVu();
+            nghiepVu.setIdNghiepVu(res.getInt(1));
+            nghiepVu.setTenNghiepVu(res.getString(2));
+            nghiepVu.setMoTa(res.getString(3));
+        }
+        closeConnection();
+        return nghiepVu;
     }
 }
