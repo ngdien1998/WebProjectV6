@@ -9,18 +9,14 @@
         <h2 class="card-title">Xóa loại bài viết: ${requestScope.loaiBaiViet.tenLoaiBaiViet}</h2>
         <p class="card-description">Thông tin chi tiết</p>
         <table>
-            <thead>
                 <tr>
                     <td>Tên loại bài viết</td>
-                    <td>Mô tả</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
                     <td>${requestScope.loaiBaiViet.tenLoaiBaiViet}</td>
+                </tr>
+                <tr>
+                    <td>Mô tả</td>
                     <td>${requestScope.loaiBaiViet.moTa}</td>
                 </tr>
-            </tbody>
         </table>
         <form action="/admin/xoa-loai-bai-viet" method="post">
             <input type="hidden" value="${requestScope.loaiBaiViet.idLoaiBaiViet}" name="txtIdLoai">
