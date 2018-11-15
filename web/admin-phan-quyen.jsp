@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="_shared/admin/top-of-page.jsp" flush="true" />
+<jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
 <title>Sửa loại bài viết</title>
-<jsp:include page="_shared/admin/page-header.jsp" flush="true" />
+<jsp:include page="_shared/admin/page-header.jsp" flush="true"/>
 
 <div class="card">
     <div class="card-body">
@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
+<jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
 <script type="text/javascript">
     $("#nghiep-vu").change(() => {
         let selectedVal = $("#nghiep-vu").val();
@@ -42,16 +42,30 @@
             $(".quyen").html("Vui lòng chọn nghiệp vụ đề phân quyền");
             return;
         }
-        $.post("/admin/ajax-get-mo-ta-nghiep-vu", { idNghiepVu : selectedVal }, content => $(".business-description").html(content));
-        $.post("/admin/ajax-get-quyen", { idNghiepVu : selectedVal, email : "${requestScope.qtv.email}" }, content => $(".quyen").html(content));
+        $.post("/admin/ajax-get-mo-ta-nghiep-vu", {idNghiepVu: selectedVal}, content => $(".business-description").html(content));
+        $.post("/admin/ajax-get-quyen", {
+            idNghiepVu: selectedVal,
+            email: "${requestScope.qtv.email}"
+        }, content => $(".quyen").html(content));
     });
 
-    $(".quyen").change((event) => {
+    $(".quyen").change(event => {
         let id = event.target.value;
-        <%--$.post("/admin/ajax-cap-nhap-phan-quyen", { idQuyen : id, email : "${requestScope.qtv.email}" }, content => {--%>
-
-        <%--});--%>
-        showSuccessToast();
+        let action = event.target.checked ? "add" : "remove";
+        $.post("/admin/ajax-cap-nhap-phan-quyen", {
+            idQuyen: id,
+            email: "${requestScope.qtv.email}",
+            action: action
+        }, content => {
+            alert(content);
+            if (content === "true") {
+                if (action === "add") {
+                    showSuccessToast();
+                } else if (action === "remove") {
+                    showDangerToast();
+                }
+            }
+        });
     });
 </script>
-<jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />
+<jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>

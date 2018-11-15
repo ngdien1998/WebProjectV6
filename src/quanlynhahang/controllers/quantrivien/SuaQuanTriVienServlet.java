@@ -63,11 +63,10 @@ public class SuaQuanTriVienServlet extends HttpServlet {
                 return;
             }
             request.setAttribute("qtv", qtv);
-
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-quan-tri-vien.jsp");
-            dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-quan-tri-vien.jsp");
+        dispatcher.forward(request, response);
     }
 }
