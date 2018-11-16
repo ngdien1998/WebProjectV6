@@ -55,7 +55,7 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1, (int)keys[0]);
+        statement.setInt(1, (int) keys[0]);
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
