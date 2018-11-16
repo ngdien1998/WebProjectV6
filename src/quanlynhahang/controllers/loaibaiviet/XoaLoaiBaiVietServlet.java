@@ -1,7 +1,6 @@
 package quanlynhahang.controllers.loaibaiviet;
 
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
-import quanlynhahang.models.datamodels.LoaiBaiViet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +16,7 @@ public class XoaLoaiBaiVietServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            String id = request.getParameter("txtIdLoai");
+            String id = request.getParameter("txtIdLoaiMon");
             if (id == null || id.trim().equals("")) {
                 response.setStatus(400);
                 return;

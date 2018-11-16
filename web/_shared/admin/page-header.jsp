@@ -179,7 +179,7 @@
                     <span class="nav-link justify-content-center text-danger"><b>DANH MỤC QUẢN LÝ</b></span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-thuc-don.html">
+                    <a class="nav-link" href="./thuc-don">
                         <i class="mdi mdi-silverware-variant menu-icon"></i>
                         <span class="menu-title">Quản Lý Thực Đơn</span>
                     </a>

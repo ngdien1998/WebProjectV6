@@ -1,12 +1,10 @@
 package quanlynhahang.controllers.monan;
 
-import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
-import quanlynhahang.models.businessmodels.ThucDonMonAnService;
+
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
-import quanlynhahang.models.datamodels.ThucDonMonAn;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,23 +12,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-@WebServlet(name = "ThemMonAnServlet", urlPatterns = {"/admin/them-mon-an"})
-public class ThemMonAnServlet extends HttpServlet {
+@WebServlet(name = "SuaMonAnServlet", urlPatterns = {"/admin/sua-mon-an"})
+public class SuaMonAnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
-
         try {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
+
             MonAn monAn = new MonAn();
+            monAn.setIdMonAn(Integer.parseInt(request.getParameter("txtIdMonAn")));
             monAn.setTenMonAn(request.getParameter("txtTenMonAn"));
             monAn.setDonViTinh(request.getParameter("txtDonViTinh"));
             monAn.setMoTa(request.getParameter("txtMoTa"));
@@ -42,32 +39,47 @@ public class ThemMonAnServlet extends HttpServlet {
                 ngayThem = new java.sql.Date(temp.getTime());
             }
             monAn.setNgayThem(ngayThem);
-            monAn.setIdLoaiMon(Integer.parseInt(request.getParameter("cmbLoaiMon")));
+            monAn.setIdLoaiMon(Integer.parseInt(request.getParameter("cmbIdLoaiMon")));
+//            monAn.setIdThucDon(Integer.parseInt(request.getParameter("cmdIdThucDon")));
 
             MonAnService monAnService = new MonAnService();
-            monAnService.add(monAn);
-
-        } catch (ParseException | SQLException | ClassNotFoundException e) {
+            monAnService.modify(monAn);
+            response.sendRedirect("/admin/mon-an");
+        } catch (SQLException | ClassNotFoundException | ParseException  e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/admin/mon-an");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MonAnService monAnService = new MonAnService();
-
-        ArrayList<ThucDon> listThucDon = null;
-        ArrayList<LoaiMon> listLoaiMon = null;
         try {
-            listThucDon = monAnService.layToanBoThucDon();
+            String idMonAn = request.getParameter("idMonAn");
+            if (idMonAn == null) {
+                response.setStatus(400);
+                return;
+            }
+
+            MonAnService monAnService = new MonAnService();
+
+//            ArrayList<ThucDon> listThucDon = null;
+            ArrayList<LoaiMon> listLoaiMon = null;
+            MonAn monAn = null;
+            monAn = monAnService.get(idMonAn);
+            if (monAn == null) {
+                response.setStatus(404);
+                return;
+            }
+
+//            listThucDon = monAnService.layToanBoThucDon();
             listLoaiMon = monAnService.layToanBoLoaiMon();
+
+//            request.setAttribute("listThucDon", listThucDon);
+            request.setAttribute("listLoaiMon", listLoaiMon);
+            request.setAttribute("monAn", monAn);
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-mon-an.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-        request.setAttribute("listThucDon", listThucDon);
-        request.setAttribute("listLoaiMon", listLoaiMon);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an.jsp");
-        dispatcher.forward(request, response);
     }
 }
