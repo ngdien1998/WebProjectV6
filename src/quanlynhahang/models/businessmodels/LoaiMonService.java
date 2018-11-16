@@ -52,9 +52,20 @@ public class LoaiMonService extends ConnectDatabase implements Businesses<LoaiMo
     }
 
     @Override
-    public int delete(Object... keys) {
-        return 0;
+    public int delete(Object... keys) throws SQLException, ClassNotFoundException {
+        openConnection();
+
+        String sql = "EXEC XoaLoaiMon ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, (int)keys[0]);
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
+
 
     @Override
     public int modify(LoaiMon loaiMon) throws SQLException, ClassNotFoundException {

@@ -21,26 +21,19 @@
                        aria-controls="order-listing">
             </div>
         </div>
-        <div class="table-responsive">
-            <table class="table table-hover" style="margin: 16px 0; width: 100px">
-                <thead class="text-center" >
+        <div class="table-responsive mb-4 mt-4">
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <th>ID loại món</th>
                     <th>Tên loại món</th>
                     <th>Mô tả</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Món Bắc</td>
-                    <td>Món miền Bắc</td>
-                </tr>
 
-                <c:forEach var="loaimon" items="${loaiMons}">
+                <c:forEach var="loaimon" items="${requestScope.loaiMons}">
                     <tr>
-                        <td>${loaimon.idLoaiMon}</td>
                         <td>${loaimon.tenLoaiMon}</td>
                         <td>${loaimon.moTa}</td>
                         <td>
@@ -54,7 +47,7 @@
             </table>
         </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
         <nav>
             <ul class="pagination flat pagination-primary">
                 <li class="page-item"><a class="page-link" href="#"><i

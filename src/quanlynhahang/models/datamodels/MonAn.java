@@ -1,22 +1,23 @@
 package quanlynhahang.models.datamodels;
 
+import java.sql.Array;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class MonAn {
     private int idMonAn;
     private String tenMonAn;
     private String donViTinh;
     private String moTa;
-    private double gia;
+    private int gia;
     private int khuyenMai;
     private Date ngayThem;
     private int idLoaiMon;
-    private int idThucDon;
 
     public MonAn() {
     }
 
-    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, double gia, int khuyenMai, Date ngayThem, int idLoaiMon, int idThucDon) {
+    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, int gia, int khuyenMai, Date ngayThem, int idLoaiMon) {
         this.idMonAn = idMonAn;
         this.tenMonAn = tenMonAn;
         this.donViTinh = donViTinh;
@@ -25,7 +26,6 @@ public class MonAn {
         this.khuyenMai = khuyenMai;
         this.ngayThem = ngayThem;
         this.idLoaiMon = idLoaiMon;
-        this.idThucDon = idThucDon;
     }
 
     public int getIdMonAn() {
@@ -60,11 +60,11 @@ public class MonAn {
         this.moTa = moTa;
     }
 
-    public double getGia() {
+    public int getGia() {
         return gia;
     }
 
-    public void setGia(double gia) {
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
@@ -90,13 +90,5 @@ public class MonAn {
 
     public void setIdLoaiMon(int idLoaiMon) {
         this.idLoaiMon = idLoaiMon;
-    }
-
-    public int getIdThucDon() {
-        return idThucDon;
-    }
-
-    public void setIdThucDon(int idThucDon) {
-        this.idThucDon = idThucDon;
     }
 }

@@ -115,4 +115,18 @@ public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
         closeConnection();
         return quyens;
     }
+
+    public boolean phanQuyen(int idQuyen, String email, String action) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC PhanQuyenQuanTri ?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, idQuyen);
+        statement.setString(2, email);
+        statement.setString(3, action);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected > 0;
+    }
 }
