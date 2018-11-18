@@ -42,7 +42,8 @@
                     <td>
                         <a href="/admin/xem-bai-viet?id=${baiViet.idBaiViet}">Xem</a> |
                         <a href="/admin/sua-bai-viet?id=${baiViet.idBaiViet}">Sửa</a> |
-                        <a href="/admin/xoa-bai-viet?id=${baiViet.idBaiViet}">Xóa</a>
+                        <a href="/admin/xoa-bai-viet?id=${baiViet.idBaiViet}">Xóa</a> |
+                        <a href="/admin/binh-luan-bai-viet?id=${baiViet.idBaiViet}">Bình luận</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -67,3 +68,5 @@
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />
+
+<h1>${sessionScope.mes}</h1>
