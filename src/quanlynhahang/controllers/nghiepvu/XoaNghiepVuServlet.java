@@ -1,7 +1,7 @@
-package quanlynhahang.controllers.quyen;
+package quanlynhahang.controllers.nghiepvu;
 
-import quanlynhahang.models.businessmodels.QuyenService;
-import quanlynhahang.models.datamodels.Quyen;
+import quanlynhahang.models.businessmodels.NghiepVuService;
+import quanlynhahang.models.datamodels.NghiepVu;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,46 +12,48 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "XoaQuyenServlet" , urlPatterns = {"/admin/xoa-quyen"})
-public class XoaQuyenServlet extends HttpServlet {
+@WebServlet(name = "XoaNghiepVuServlet" , urlPatterns = {"/admin/xoa-nghiep-vu"})
+public class XoaNghiepVuServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try{
-            String id=request.getParameter("txtIdQuyen");
+            String id=request.getParameter("txtIdNghiepVu");
             if(id==null || id.trim().equals(""))
             {
                 response.setStatus(400);
                 return;
             }
-            QuyenService service=new QuyenService();
+            NghiepVuService service=new NghiepVuService();
             service.delete(Integer.parseInt(id));
-        }catch (SQLException | ClassNotFoundException e){
 
+        }catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
-        response.sendRedirect("/admin/quyen");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            String idquyen=request.getParameter("idQuyen");
-            if(idquyen == null) {
+            String id=request.getParameter("idNghiepVu");
+            if(id==null || id.trim().equals(""))
+            {
                 response.setStatus(400);
                 return;
             }
-            QuyenService quyenService= new QuyenService();
-            Quyen quyen=null;
-            quyen=quyenService.get(idquyen);
-            if(quyen==null){
+            NghiepVuService service=new NghiepVuService();
+            NghiepVu nghiepVu =service.get(Integer.parseInt(id));
+            if(nghiepVu==null)
+            {
                 response.setStatus(404);
                 return;
             }
-            request.setAttribute("quyen",quyen);
-            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/admin-xoa-quyen.jsp");
-            dispatcher.forward(request,response);
+            request.setAttribute("nghiepVu",nghiepVu);
+
         }catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
+
         }
+        RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/admin-xoa-nghiep-vu.jsp");
+        dispatcher.forward(request,response);
     }
 }

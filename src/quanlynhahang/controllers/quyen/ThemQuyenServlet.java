@@ -15,13 +15,15 @@ import java.sql.SQLException;
 @WebServlet(name = "ThemQuyenServlet" , urlPatterns = {"/admin/them-quyen"})
 public class ThemQuyenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
+
         try {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
             Quyen quyen= new Quyen();
             quyen.setTenQuyen(request.getParameter("txtTenQuyen"));
             quyen.setMoTa(request.getParameter("txtMoTa"));
             quyen.setIdNghiepVu(Integer.parseInt(request.getParameter("txtIDNghiepVu")));
+
             QuyenService service = new QuyenService();
             service.add(quyen);
 

@@ -1,7 +1,7 @@
-package quanlynhahang.controllers.loaibaiviet;
+package quanlynhahang.controllers.datban;
 
-import quanlynhahang.models.businessmodels.LoaiBaiVietService;
-import quanlynhahang.models.datamodels.LoaiBaiViet;
+import quanlynhahang.models.businessmodels.DatBanService;
+import quanlynhahang.models.datamodels.DatBan;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "XoaLoaiBaiVietServlet" , urlPatterns = "/admin/xoa-loai-bai-viet")
-public class XoaLoaiBaiVietServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+@WebServlet(name = "XoaDatBanServlet")
+public class XoaDatBanServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            String id = request.getParameter("txtIdLoaiMon");
+            String id = request.getParameter("txtEmail");
             if (id == null || id.trim().equals("")) {
                 response.setStatus(400);
                 return;
             }
 
-            LoaiBaiVietService service = new LoaiBaiVietService();
+            DatBanService service = new DatBanService();
             service.delete(Integer.parseInt(id));
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -34,23 +34,23 @@ public class XoaLoaiBaiVietServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String idLoaiBaiViet = request.getParameter("idLoaiBaiViet");
-            if (idLoaiBaiViet == null || idLoaiBaiViet.trim().equals("")) {
+            String id = request.getParameter("email");
+            if (id == null || id.trim().equals("")) {
                 response.setStatus(400);
                 return;
             }
-            LoaiBaiVietService service = new LoaiBaiVietService();
-            LoaiBaiViet loaiBaiViet = service.get(Integer.parseInt(idLoaiBaiViet));
-            if (loaiBaiViet == null) {
+            DatBanService service = new DatBanService();
+            DatBan datBan = service.get((id));
+            if (datBan == null) {
                 response.setStatus(404);
                 return;
             }
 
-            request.setAttribute("loaiBaiViet", loaiBaiViet);
+            request.setAttribute("datBan", datBan);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-loai-bai-viet.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-dat-ban.jsp");
         dispatcher.forward(request, response);
     }
 }

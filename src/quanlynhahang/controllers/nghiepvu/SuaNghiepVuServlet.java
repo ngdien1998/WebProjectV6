@@ -1,0 +1,55 @@
+package quanlynhahang.controllers.nghiepvu;
+
+import quanlynhahang.models.businessmodels.NghiepVuService;
+import quanlynhahang.models.datamodels.NghiepVu;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.SQLException;
+
+@WebServlet(name = "SuaNghiepVuServlet", urlPatterns = {"/admin/sua-nghiep-vu"})
+public class SuaNghiepVuServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
+        try{
+            NghiepVu nghiepVu=new NghiepVu();
+            nghiepVu.setIdNghiepVu(Integer.parseInt(request.getParameter("txtIdNghiepVu")));
+            nghiepVu.setTenNghiepVu(request.getParameter("txtTenNghiepVu"));
+            //nghiepVu.setMoTa(request.getParameter("txtMoTa"));
+            NghiepVuService service=new NghiepVuService();
+            service.modify(nghiepVu);
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        response.sendRedirect("/admin/nghiep-vu");
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try{
+            String id=request.getParameter("idNghiepVu");
+            if(id==null || id.trim().equals("")){
+                response.setStatus(400);
+                return;
+            }
+            NghiepVuService service=new NghiepVuService();
+            NghiepVu nghiepVu=service.get(Integer.parseInt(id));
+            if(nghiepVu==null ){
+                response.setStatus(404);
+                return;
+            }
+            request.setAttribute("nghiepVu",nghiepVu);
+
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+
+        }
+        RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/admin-sua-nghiep-vu.jsp");
+        dispatcher.forward(request,response);
+    }
+}
