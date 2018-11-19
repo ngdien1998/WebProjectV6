@@ -8,12 +8,12 @@ public class ConnectDatabase {
     protected Connection connection;
     private final String connectionString = "jdbc:sqlserver://localhost;database=QuanLyNhaHang_2;username=sa;password=123456789";
 
-    public void openConnection() throws SQLException, ClassNotFoundException {
+    protected void openConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         connection = DriverManager.getConnection(connectionString);
     }
 
-    public void closeConnection() throws SQLException {
+    protected void closeConnection() throws SQLException {
         if (connection != null) {
             connection.close();
         }

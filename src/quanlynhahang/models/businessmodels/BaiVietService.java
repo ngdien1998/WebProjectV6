@@ -34,17 +34,58 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
 
     @Override
     public int add(BaiViet baiViet) throws SQLException, ClassNotFoundException {
-        return 0;
+        openConnection();
+        String sql = "EXEC ThemBaiViet ?,?,?,?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, baiViet.getTenBaiViet());
+        statement.setString(2, baiViet.getMoTa());
+        statement.setString(3, baiViet.getNoiDung());
+        statement.setDate(4, baiViet.getNgayViet());
+        statement.setString(5, baiViet.getEmail());
+        statement.setInt(6, baiViet.getIdLoaiBaiViet());
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override
     public int delete(Object... keys) throws SQLException, ClassNotFoundException {
-        return 0;
+        if (keys.length <= 0) {
+            return 0;
+        }
+        openConnection();
+        String sql = "EXEC XoaBaiViet ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, (int) keys[0]);
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override
     public int modify(BaiViet baiViet) throws SQLException, ClassNotFoundException {
-        return 0;
+        if (baiViet == null) {
+            return 0;
+        }
+        openConnection();
+        String sql = "EXEC SuaBaiViet ?,?,?,?,?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, baiViet.getIdBaiViet());
+        statement.setString(2, baiViet.getTenBaiViet());
+        statement.setString(3, baiViet.getMoTa());
+        statement.setString(4, baiViet.getNoiDung());
+        statement.setDate(5, baiViet.getNgayViet());
+        statement.setString(6, baiViet.getEmail());
+        statement.setInt(7, baiViet.getIdLoaiBaiViet());
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override

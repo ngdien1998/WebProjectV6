@@ -6,7 +6,7 @@
 
 <div class="card" style="margin: 16px 0;">
     <div class="card-body">
-        <h3 class="card-title">Sửa quản trị viên mới</h3>
+        <h3 class="card-title">Sửa quản trị viên</h3>
         <p class="card-description">
             Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>
@@ -18,7 +18,7 @@
                         <div class="form-check form-check-flat">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" id="allow" name="chkChoPhep"
-                                        <c:if test="${requestScope.nguoiDung.choPhep}">checked</c:if> />
+                                        <c:if test="${requestScope.qtv.choPhep}">checked</c:if> />
                                 Cho phép hoạt động
                             </label>
                         </div>
@@ -30,7 +30,7 @@
                         <div class="form-check form-check-flat">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" id="kich-hoat" name="chkKichHoat"
-                                        <c:if test="${requestScope.nguoiDung.kichHoat}">checked</c:if> readonly/>
+                                        <c:if test="${requestScope.qtv.kichHoat}">checked</c:if> readonly/>
                                 Đã kích hoạt
                             </label>
                         </div>
@@ -77,14 +77,14 @@
                     <div class="row" style="padding-left: 16px;">
                         <div class="col form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radNam"
-                                        id="nam" <c:if test="${requestScope.qtv.nu ne false}">checked</c:if>Nam />
+                                <input type="radio" class="form-check-input" name="radGioiTinh" value="nam"
+                                        id="nam" <c:if test="${requestScope.qtv.nu ne true}">checked</c:if> />Nam
                                 <i class="input-helper"></i>
                             </label>
                         </div>
                         <div class="col form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radNu"
+                                <input type="radio" class="form-check-input" name="raGioiTinh" value="nu"
                                         id="nu" <c:if test="${requestScope.qtv.nu}">checked</c:if> />Nữ
                                 <i class="input-helper"></i>
                             </label>
@@ -109,7 +109,7 @@
                 <input type="file" name="anhDaiDien" class="file-upload-default">
                 <div class="input-group col-xs-12">
                     <input type="text" class="form-control file-upload-info" readonly placeholder="Ảnh đại diện"
-                            value="${requestScope.qtv.diaChi}" name="txtAvatar">
+                            value="${requestScope.qtv.avatar}" name="txtAvatar">
                     <span class="input-group-append">
                           <button class="btn btn-primary" type="button">Chọn ảnh từ Server</button>
                         </span>

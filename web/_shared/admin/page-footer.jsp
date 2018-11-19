@@ -43,4 +43,3 @@
 <script src="<%= request.getContextPath() + "/" %>../../assests/js/dashboard.js"></script>
 <!-- End custom js for this page-->
 <script src="<%= request.getContextPath() %>/assests/js/toastDemo.js"></script>
-<script src="<%= request.getContextPath() %>/assests/js/desktop-notification.js"></script>
