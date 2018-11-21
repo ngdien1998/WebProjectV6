@@ -3,15 +3,13 @@ package quanlynhahang.models.datamodels;
 public class NghiepVu {
     private int idNghiepVu;
     private String tenNghiepVu;
-    private String moTa;
 
     public NghiepVu() {
     }
 
-    public NghiepVu(int idNghiepVu, String tenNghiepVu, String moTa) {
+    public NghiepVu(int idNghiepVu, String tenNghiepVu) {
         this.idNghiepVu = idNghiepVu;
         this.tenNghiepVu = tenNghiepVu;
-        this.moTa = moTa;
     }
 
     public int getIdNghiepVu() {
@@ -30,11 +28,11 @@ public class NghiepVu {
         this.tenNghiepVu = tenNghiepVu;
     }
 
-    public String getMoTa() {
+    /*public String getMoTa() {
         return moTa;
     }
 
     public void setMoTa(String moTa) {
         this.moTa = moTa;
-    }
+    }*/
 }
