@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.datamodels.BaiViet;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class BaiVietServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            BaiVietService baiVietService = new BaiVietService();
+            BaiVietService baiVietService = new BaiVietService(DbAccess.getValue(request));
             ArrayList<BaiViet> baiViets = baiVietService.getData();
             request.setAttribute("baiViets", baiViets);
         } catch (SQLException | ClassNotFoundException e) {

@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class NghiepVuService extends ConnectDatabase implements Businesses<NghiepVu> {
+    public NghiepVuService(Boolean isAdmin) {
+        super(isAdmin);
+    }
 
     @Override
     public ArrayList<NghiepVu> getData() throws SQLException, ClassNotFoundException {

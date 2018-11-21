@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.ajax;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuyenService;
 
 import javax.servlet.ServletException;
@@ -22,7 +23,7 @@ public class PhanQuyenPostAjax extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuyenService service = new QuyenService();
+            QuyenService service = new QuyenService(DbAccess.getValue(request));
             isset = service.phanQuyen(Integer.parseInt(idQuyen), email, action);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

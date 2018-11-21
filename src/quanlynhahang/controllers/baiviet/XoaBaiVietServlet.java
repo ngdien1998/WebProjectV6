@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
@@ -25,7 +26,7 @@ public class XoaBaiVietServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            BaiVietService service = new BaiVietService();
+            BaiVietService service = new BaiVietService(DbAccess.getValue(request));
             service.delete(Integer.parseInt(idBaiViet));
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -35,21 +36,22 @@ public class XoaBaiVietServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            Boolean isAdmin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
                 response.setStatus(400);
                 return;
             }
-            BaiVietService service = new BaiVietService();
+            BaiVietService service = new BaiVietService(isAdmin);
             BaiViet baiViet = service.get(Integer.parseInt(id));
             if (baiViet == null) {
                 response.setStatus(404);
                 return;
             }
-            QuanTriVienService qtvService = new QuanTriVienService();
+            QuanTriVienService qtvService = new QuanTriVienService(isAdmin);
             NguoiDung nguoiViet = qtvService.get(baiViet.getEmail());
             request.setAttribute("nguoiViet", nguoiViet);
-            LoaiBaiVietService lbvSevice = new LoaiBaiVietService();
+            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(isAdmin);
             LoaiBaiViet loaiBaiViet = lbvSevice.get(baiViet.getIdBaiViet());
             request.setAttribute("loaiBaiViet", loaiBaiViet);
             request.setAttribute("baiViet", baiViet);

@@ -1,15 +1,15 @@
 package quanlynhahang.models.viewmodels;
 
-public class Quyen {
+public class QuyenVM {
     private int idQuyen;
     private String tenQuyen;
     private String moTa;
     private boolean duocCap;
 
-    public Quyen() {
+    public QuyenVM() {
     }
 
-    public Quyen(int idQuyen, String tenQuyen, String moTa, boolean duocCap) {
+    public QuyenVM(int idQuyen, String tenQuyen, String moTa, boolean duocCap) {
         this.idQuyen = idQuyen;
         this.tenQuyen = tenQuyen;
         this.moTa = moTa;

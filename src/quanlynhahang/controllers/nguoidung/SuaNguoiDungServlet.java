@@ -18,6 +18,8 @@ import java.util.Date;
 @WebServlet(name = "SuaNguoiDungServlet", urlPatterns = {"/admin/sua-nguoi-dung"})
 public class SuaNguoiDungServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
             String email = request.getParameter("email");
             if (email == null) {

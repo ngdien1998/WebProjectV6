@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 
@@ -20,7 +21,7 @@ public class LoaiMonServlet extends HttpServlet {
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
-            LoaiMonService loaiMonService = new LoaiMonService();
+            LoaiMonService loaiMonService = new LoaiMonService(DbAccess.getValue(request));
             ArrayList<LoaiMon> loaiMons = loaiMonService.getData();
             request.setAttribute("loaiMons", loaiMons);
 

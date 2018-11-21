@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LoaiBaiVietService extends ConnectDatabase implements Businesses<LoaiBaiViet> {
+    public LoaiBaiVietService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     @Override
     public ArrayList<LoaiBaiViet> getData() throws SQLException, ClassNotFoundException {
         openConnection();

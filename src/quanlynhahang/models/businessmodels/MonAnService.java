@@ -10,6 +10,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
+    public MonAnService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     // Lấy các món ăn trong thực đơn để hiển thị trong trang xem chi tiết thực đơn
     public ArrayList<Integer> getIDMonAn(int idThucDon) throws SQLException, ClassNotFoundException {
 //        ArrayList<MonAn> monAns = new ArrayList<>();
@@ -150,14 +154,14 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
     }
 
     public ArrayList<ThucDon> layToanBoThucDon() throws SQLException, ClassNotFoundException {
-        ThucDonService thucDonService = new ThucDonService();
+        ThucDonService thucDonService = new ThucDonService(getDbAccessValue());
         ArrayList<ThucDon> listThucDon = null;
         listThucDon = thucDonService.getData();
         return listThucDon;
     }
 
     public ArrayList<LoaiMon> layToanBoLoaiMon() throws SQLException, ClassNotFoundException {
-        LoaiMonService loaiMonService = new LoaiMonService();
+        LoaiMonService loaiMonService = new LoaiMonService(getDbAccessValue());
         ArrayList<LoaiMon> listLoaiMon = null;
         listLoaiMon = loaiMonService.getData();
         return listLoaiMon;

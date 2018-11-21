@@ -9,7 +9,7 @@
         <h2 class="card-title">Quản lý bài viết</h2>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <a href="admin-viet-bai.html" class="btn btn-primary btn-rounded">Viết bài</a>
+                <a href="/admin/viet-bai" class="btn btn-primary btn-rounded">Viết bài</a>
             </div>
             <div class="col-sm-12 col-md-6">
                 <input type="search" class="form-control" placeholder="Tìm kiếm bài viết"
@@ -19,12 +19,9 @@
         <table class="table table-hover" style="margin: 16px 0;">
             <thead>
             <tr>
-                <th width="200">Tên bài viết</th>
-                <th width="250">Mô tả</th>
-                <th>Ngày viết</th>
-                <th>Người viết</th>
-                <th>Loại bài viết</th>
-                <th></th>
+                <th>Tên bài viết</th>
+                <th width="113">Ngày viết</th>
+                <th width="230"></th>
             </tr>
             </thead>
             <tbody>
@@ -33,12 +30,7 @@
                     <td>
                         <div class="text">${baiViet.tenBaiViet}</div>
                     </td>
-                    <td>
-                        <div class="text">${baiViet.moTa}</div>
-                    </td>
                     <td>${baiViet.ngayViet}</td>
-                    <td>${baiViet.email}</td>
-                    <td>${baiViet.idLoaiBaiViet}</td>
                     <td>
                         <a href="/admin/xem-bai-viet?id=${baiViet.idBaiViet}">Xem</a> |
                         <a href="/admin/sua-bai-viet?id=${baiViet.idBaiViet}">Sửa</a> |
@@ -68,5 +60,3 @@
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />
-
-<h1>${sessionScope.mes}</h1>

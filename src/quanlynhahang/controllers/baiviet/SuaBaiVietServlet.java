@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
@@ -24,7 +25,8 @@ import java.util.ArrayList;
 @WebServlet(name = "SuaBaiVietServlet", urlPatterns = { "/admin/sua-bai-viet" })
 public class SuaBaiVietServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String mes = "";
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
             BaiViet baiViet = new BaiViet();
             baiViet.setIdBaiViet(Integer.parseInt(request.getParameter("txtIdBaiViet")));
@@ -44,25 +46,23 @@ public class SuaBaiVietServlet extends HttpServlet {
             baiViet.setNgayViet(new Date(temp.getTime()));
             baiViet.setIdLoaiBaiViet(Integer.parseInt(request.getParameter("cmbLoaiBaiViet")));
 
-            BaiVietService service = new BaiVietService();
+            BaiVietService service = new BaiVietService(DbAccess.getValue(request));
             service.modify(baiViet);
         } catch (SQLException | ClassNotFoundException | ParseException e) {
             e.printStackTrace();
-            mes = e.toString();
         }
-        HttpSession session = request.getSession();
-        session.setAttribute("mes", mes);
         response.sendRedirect("/admin/bai-viet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            Boolean isAdmin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
                 response.setStatus(400);
                 return;
             }
-            BaiVietService service = new BaiVietService();
+            BaiVietService service = new BaiVietService(isAdmin);
             BaiViet baiViet = service.get(Integer.parseInt(id));
             if (baiViet == null) {
                 response.setStatus(404);
@@ -70,13 +70,13 @@ public class SuaBaiVietServlet extends HttpServlet {
             }
             request.setAttribute("baiViet", baiViet);
 
-            QuanTriVienService qtvService = new QuanTriVienService();
+            QuanTriVienService qtvService = new QuanTriVienService(isAdmin);
             NguoiDung nguoiViet = qtvService.get(baiViet.getEmail());
             request.setAttribute("tacGia", nguoiViet);
             ArrayList<NguoiDung> nguoiViets = qtvService.getData();
             request.setAttribute("nguoiViets", nguoiViets);
 
-            LoaiBaiVietService lbvSevice = new LoaiBaiVietService();
+            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(isAdmin);
             LoaiBaiViet loaiBaiViet = lbvSevice.get(baiViet.getIdBaiViet());
             request.setAttribute("loaiBai", loaiBaiViet);
             ArrayList<LoaiBaiViet> loaiBaiViets = lbvSevice.getData();

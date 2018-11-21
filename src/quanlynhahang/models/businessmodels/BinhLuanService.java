@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BinhLuanService extends ConnectDatabase implements Businesses<BinhLuan> {
+    public BinhLuanService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     @Override
     public ArrayList<BinhLuan> getData() throws SQLException, ClassNotFoundException {
         return null;

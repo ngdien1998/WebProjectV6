@@ -1,14 +1,13 @@
 package quanlynhahang.controllers.ajax;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuyenService;
-import quanlynhahang.models.viewmodels.Quyen;
+import quanlynhahang.models.viewmodels.QuyenVM;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet(name = "GetQuyenPostAjax", urlPatterns = { "/admin/ajax-get-quyen" })
@@ -22,11 +21,11 @@ public class GetQuyenPostAjax extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuyenService service = new QuyenService();
-            ArrayList<Quyen> quyens = service.getQuyenViewModel(email, Integer.parseInt(idNghiepVu));
+            QuyenService service = new QuyenService(DbAccess.getValue(request));
+            ArrayList<QuyenVM> quyens = service.getQuyenViewModel(email, Integer.parseInt(idNghiepVu));
             StringBuilder sb = new StringBuilder();
             sb.append("<ul>\n");
-            for (Quyen quyen : quyens) {
+            for (QuyenVM quyen : quyens) {
                 sb.append("<li>\n");
                 sb.append("<div class=\"form-group\">\n");
                 sb.append("<div class=\"form-check form-check-flat\">\n");

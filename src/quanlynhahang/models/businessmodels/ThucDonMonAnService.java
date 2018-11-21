@@ -10,8 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ThucDonMonAnService extends ConnectDatabase implements Businesses<ThucDonMonAn> {
+    public ThucDonMonAnService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     public ArrayList<MonAn> getMonAns(int idThucDon) throws SQLException, ClassNotFoundException {
-        MonAnService monAnService = new MonAnService();
+        MonAnService monAnService = new MonAnService(getDbAccessValue());
         ArrayList<Integer> listIDMonAn = monAnService.getIDMonAn(idThucDon);
         if (listIDMonAn == null) {
             return null;

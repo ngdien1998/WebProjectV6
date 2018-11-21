@@ -1,14 +1,18 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.Quyen;
+import quanlynhahang.models.viewmodels.QuyenVM;
 
-import javax.xml.transform.Result;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
+    public QuyenService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     @Override
     public ArrayList<Quyen> getData() throws SQLException, ClassNotFoundException {
         openConnection();
@@ -69,7 +73,6 @@ public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
 
     @Override
     public Quyen get(Object... keys) throws SQLException, ClassNotFoundException {
-
         if(keys.length <=0)
             return null;
 
@@ -93,9 +96,9 @@ public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
         return quyen;
     }
 
-    public ArrayList<quanlynhahang.models.viewmodels.Quyen> getQuyenViewModel(String email, int idNghiepVu) throws SQLException, ClassNotFoundException {
+    public ArrayList<QuyenVM> getQuyenViewModel(String email, int idNghiepVu) throws SQLException, ClassNotFoundException {
         openConnection();
-        ArrayList<quanlynhahang.models.viewmodels.Quyen> quyens = new ArrayList<>();
+        ArrayList<QuyenVM> quyens = new ArrayList<>();
         String sql = "EXEC LayPhanQuyen ?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
@@ -104,7 +107,7 @@ public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
         statement.setInt(2, idNghiepVu);
         ResultSet res = statement.executeQuery();
         while (res.next()) {
-            quanlynhahang.models.viewmodels.Quyen quyen = new quanlynhahang.models.viewmodels.Quyen();
+            QuyenVM quyen = new QuyenVM();
             quyen.setIdQuyen(res.getInt(1));
             quyen.setTenQuyen(res.getString(2));
             quyen.setMoTa(res.getString(3));

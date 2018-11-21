@@ -22,6 +22,10 @@ import java.util.ArrayList;
  * args[11] ChoPhep
  */
 public class QuanTriVienService extends ConnectDatabase implements Businesses<NguoiDung> {
+    public QuanTriVienService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     @Override
     public ArrayList<NguoiDung> getData() throws SQLException, ClassNotFoundException {
         ArrayList<NguoiDung> nguoiDungs = new ArrayList<>();

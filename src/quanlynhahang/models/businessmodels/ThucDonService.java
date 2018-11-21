@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ThucDonService  extends ConnectDatabase implements Businesses<ThucDon> {
+    public ThucDonService(Boolean isAdmin) {
+        super(isAdmin);
+    }
+
     @Override
     public ArrayList<ThucDon> getData() throws SQLException, ClassNotFoundException {
         ArrayList<ThucDon> thucDons = new ArrayList<>();

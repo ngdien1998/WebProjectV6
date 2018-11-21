@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.ajax;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.datamodels.NghiepVu;
 
@@ -21,7 +22,7 @@ public class GetMoTaNghiepVuPostAjax extends HttpServlet {
                 return;
             }
             int idNghiepVu = Integer.parseInt(id);
-            NghiepVuService service = new NghiepVuService();
+            NghiepVuService service = new NghiepVuService(DbAccess.getValue(request));
             NghiepVu nghiepVu = service.get(idNghiepVu);
             if (nghiepVu == null) {
                 response.setStatus(404);

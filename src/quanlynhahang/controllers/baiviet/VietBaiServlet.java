@@ -2,6 +2,7 @@ package quanlynhahang.controllers.baiviet;
 
 import java.text.ParseException;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
@@ -23,6 +24,8 @@ import java.text.SimpleDateFormat;
 @WebServlet(name = "VietBaiServlet", urlPatterns = { "/admin/viet-bai" })
 public class VietBaiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
             BaiViet baiViet = new BaiViet();
             baiViet.setTenBaiViet(request.getParameter("txtTenBaiViet"));
@@ -45,7 +48,7 @@ public class VietBaiServlet extends HttpServlet {
             }
             baiViet.setIdLoaiBaiViet(Integer.parseInt(request.getParameter("cmbLoaiBaiViet")));
 
-            BaiVietService service = new BaiVietService();
+            BaiVietService service = new BaiVietService(DbAccess.getValue(request));
             service.add(baiViet);
         } catch (SQLException | ClassNotFoundException | ParseException e) {
             e.printStackTrace();
@@ -55,9 +58,10 @@ public class VietBaiServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            LoaiBaiVietService loaiBaiVietService = new LoaiBaiVietService();
+            Boolean isAdmin = DbAccess.getValue(request);
+            LoaiBaiVietService loaiBaiVietService = new LoaiBaiVietService(isAdmin);
             request.setAttribute("loaiBaiViets", loaiBaiVietService.getData());
-            QuanTriVienService quanTriVienService = new QuanTriVienService();
+            QuanTriVienService quanTriVienService = new QuanTriVienService(isAdmin);
             request.setAttribute("quanTriViens", quanTriVienService.getData());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

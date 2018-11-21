@@ -11,7 +11,7 @@
         <h3 class="card-title">Sửa bài viết: "${requestScope.baiViet.tenBaiViet}"</h3>
         <p class="card-description">Vui lòng nhập đầy đủ thông tin yêu cầu</p>
         <form action="/admin/sua-bai-viet" method="post">
-            <input type="hidden" value="${baiViet.idBaiViet}" name="txtIdBaiViet" />
+            <input type="hidden" value="${requestScope.baiViet.idBaiViet}" name="txtIdBaiViet" />
             <div class="form-group">
                 <label for="ten-bai-viet">Tên bài viết (bắt buộc)</label>
                 <input type="text" placeholder="Tên bài viết" name="txtTenBaiViet" class="form-control"
@@ -37,7 +37,7 @@
                     <div class="form-check form-check-flat">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" id="nguoi-hien-tai" name="chkNguoiDungHienTai">
-                            Người dùng hiện tại
+                            Tôi viết
                         </label>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
             </div>
             <div class="form-row justify-content-center">
                 <input type="submit" value="Sửa bài viết" class="btn btn-primary btn-rounded" id="btn-submit" />
-                <a href="admin-bai-viet.html" class="btn btn-success btn-rounded" style="margin-left: 16px;">Về trang chủ</a>
+                <a href="/admin/bai-viet" class="btn btn-success btn-rounded" style="margin-left: 16px;">Về trang chủ</a>
             </div>
         </form>
     </div>

@@ -22,6 +22,9 @@ import java.util.ArrayList;
  * args[11] ChoPhep
  */
 public class NguoiDungService extends ConnectDatabase implements Businesses<NguoiDung> {
+    public NguoiDungService(Boolean isAdmin) {
+        super(isAdmin);
+    }
 
     @Override
     public ArrayList<NguoiDung> getData() throws SQLException, ClassNotFoundException {

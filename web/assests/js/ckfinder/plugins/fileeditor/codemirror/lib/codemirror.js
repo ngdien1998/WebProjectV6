@@ -8706,7 +8706,7 @@
   // + (ES):  European Number Separator
   // % (ET):  European Number Terminator
   // n (AN):  Arabic Number
-  // , (CS):  Common Number Separator
+  // , (CS):  common Number Separator
   // m (NSM): Non-Spacing Mark
   // b (BN):  Boundary Neutral
   // s (B):   Paragraph Separator
