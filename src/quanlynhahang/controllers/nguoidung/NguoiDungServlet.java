@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nguoidung;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -19,7 +20,7 @@ import static com.ckfinder.connector.ServletContextFactory.getServletContext;
 public class NguoiDungServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            NguoiDungService service = new NguoiDungService();
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             ArrayList<NguoiDung> nguoiDungs = service.getData();
 
             request.setAttribute("nguoiDungs", nguoiDungs);

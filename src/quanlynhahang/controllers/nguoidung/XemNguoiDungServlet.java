@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nguoidung;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -21,7 +22,7 @@ public class XemNguoiDungServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NguoiDungService service = new NguoiDungService();
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             NguoiDung nguoiDung = service.get(email);
             if (nguoiDung == null) {
                 response.setStatus(404);

@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.LoaiMon;
@@ -22,7 +23,7 @@ public class ThucDonServlet extends HttpServlet {
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             ArrayList<ThucDon> thucDons = thucDonService.getData();
             request.setAttribute("thucDons", thucDons);
 

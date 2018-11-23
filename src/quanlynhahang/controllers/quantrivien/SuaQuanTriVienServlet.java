@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -41,7 +42,7 @@ public class SuaQuanTriVienServlet extends HttpServlet {
             qtv.setQuanTriVien(true);
             qtv.setKichHoat(request.getParameter("chkKichHoat") != null);
 
-            QuanTriVienService service = new QuanTriVienService();
+            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             service.modify(qtv);
         } catch (ParseException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -56,7 +57,7 @@ public class SuaQuanTriVienServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuanTriVienService service = new QuanTriVienService();
+            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             NguoiDung qtv = service.get(email);
             if (qtv == null) {
                 response.setStatus(404);

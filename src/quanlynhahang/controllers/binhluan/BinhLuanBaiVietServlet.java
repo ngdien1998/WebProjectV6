@@ -4,6 +4,7 @@ import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.BinhLuanService;
 import quanlynhahang.models.datamodels.BinhLuan;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,17 +20,17 @@ import java.util.ArrayList;
 public class BinhLuanBaiVietServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Boolean isAdmin = DbAccess.getValue(request);
+            UserDbConnect admin = DbAccess.getValue(request);
 
             String idDanhMucLienQuan = request.getParameter("id");
             if (idDanhMucLienQuan == null || idDanhMucLienQuan.trim().isEmpty()) {
                 response.setStatus(400);
                 return;
             }
-            BinhLuanService service = new BinhLuanService(isAdmin);
+            BinhLuanService service = new BinhLuanService(admin);
             ArrayList<BinhLuan> binhLuans = service.getData("baiviet", Integer.parseInt(idDanhMucLienQuan));
             request.setAttribute("binhLuans", binhLuans);
-            BaiVietService baiVietService = new BaiVietService(isAdmin);
+            BaiVietService baiVietService = new BaiVietService(admin);
             request.setAttribute("tenBaiViet", baiVietService.get(Integer.parseInt(idDanhMucLienQuan)).getTenBaiViet());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

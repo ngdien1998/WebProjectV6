@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.ThucDon;
 
@@ -22,7 +23,7 @@ public class XemThucDonServlet extends HttpServlet {
                 return;
             }
 
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             ThucDon thucDon = null;
             thucDon = thucDonService.get(idThucDon);
             if (thucDon == null) {

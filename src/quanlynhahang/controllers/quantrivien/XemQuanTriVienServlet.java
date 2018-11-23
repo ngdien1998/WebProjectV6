@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -21,7 +22,7 @@ public class XemQuanTriVienServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuanTriVienService service = new QuanTriVienService();
+            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             NguoiDung qtv = service.get(email);
             if (qtv == null) {
                 response.setStatus(404);

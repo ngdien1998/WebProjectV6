@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaibaiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.datamodels.LoaiBaiViet;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class LoaiBaiVietServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            LoaiBaiVietService service = new LoaiBaiVietService();
+            LoaiBaiVietService service = new LoaiBaiVietService(DbAccess.getValue(request));
             ArrayList<LoaiBaiViet> loaiBaiViets = service.getData();
 
             request.setAttribute("loaiBaiViets", loaiBaiViets);

@@ -3,6 +3,7 @@ package quanlynhahang.models.businessmodels;
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
-    public MonAnService(Boolean isAdmin) {
-        super(isAdmin);
+    public MonAnService(UserDbConnect user) {
+        super(user);
     }
 
     // Lấy các món ăn trong thực đơn để hiển thị trong trang xem chi tiết thực đơn

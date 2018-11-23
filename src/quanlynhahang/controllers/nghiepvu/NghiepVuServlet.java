@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nghiepvu;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.datamodels.NghiepVu;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class NghiepVuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            NghiepVuService nghiepVuService=new NghiepVuService();
+            NghiepVuService nghiepVuService=new NghiepVuService(DbAccess.getValue(request));
             ArrayList<NghiepVu> nghiepVus=nghiepVuService.getData();
             request.setAttribute("nghiepVus",nghiepVus);
         }catch (SQLException | ClassNotFoundException e){

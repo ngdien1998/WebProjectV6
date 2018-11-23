@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nghiepvu;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.datamodels.NghiepVu;
 
@@ -22,7 +23,7 @@ public class SuaNghiepVuServlet extends HttpServlet {
             nghiepVu.setIdNghiepVu(Integer.parseInt(request.getParameter("txtIdNghiepVu")));
             nghiepVu.setTenNghiepVu(request.getParameter("txtTenNghiepVu"));
             //nghiepVu.setMoTa(request.getParameter("txtMoTa"));
-            NghiepVuService service=new NghiepVuService();
+            NghiepVuService service=new NghiepVuService(DbAccess.getValue(request));
             service.modify(nghiepVu);
         }catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
@@ -37,7 +38,7 @@ public class SuaNghiepVuServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NghiepVuService service=new NghiepVuService();
+            NghiepVuService service=new NghiepVuService(DbAccess.getValue(request));
             NghiepVu nghiepVu=service.get(Integer.parseInt(id));
             if(nghiepVu==null ){
                 response.setStatus(404);

@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NghiepVu;
@@ -25,7 +26,7 @@ public class PhanQuyenServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuanTriVienService quanTriVienService = new QuanTriVienService();
+            QuanTriVienService quanTriVienService = new QuanTriVienService(DbAccess.getValue(request));
             NguoiDung qtv = quanTriVienService.get(email);
             if (qtv == null) {
                 response.setStatus(404);
@@ -36,7 +37,7 @@ public class PhanQuyenServlet extends HttpServlet {
                 return;
             }
 
-            NghiepVuService nghiepVuService = new NghiepVuService();
+            NghiepVuService nghiepVuService = new NghiepVuService(DbAccess.getValue(request));
             ArrayList<NghiepVu> nghiepVus = nghiepVuService.getData();
             request.setAttribute("nghiepVus", nghiepVus);
             request.setAttribute("qtv", qtv);

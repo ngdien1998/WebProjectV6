@@ -1,12 +1,18 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.DatBan;
+import quanlynhahang.models.viewmodels.UserDbConnect;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DatBanService extends ConnectDatabase implements Businesses<DatBan>{
+public class DatBanService extends ConnectDatabase implements Businesses<DatBan> {
+    public DatBanService(UserDbConnect user) {
+        super(user);
+    }
+
     @Override
     public ArrayList<DatBan> getData() throws SQLException, ClassNotFoundException {
         ArrayList<DatBan> datBans = new ArrayList<>();
@@ -31,6 +37,7 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         closeConnection();
         return datBans;
     }
+
     @Override
     public int delete(Object... keys) throws SQLException, ClassNotFoundException {
         openConnection();
@@ -46,14 +53,17 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         closeConnection();
         return rowAffected;
     }
+
     @Override
     public int add(DatBan datBan) throws SQLException, ClassNotFoundException{
         return 0;
     }
+
     @Override
     public int modify(DatBan datBan) throws SQLException, ClassNotFoundException{
         return 0;
     }
+
     @Override
     public DatBan get(Object... keys) throws SQLException, ClassNotFoundException{
         openConnection();

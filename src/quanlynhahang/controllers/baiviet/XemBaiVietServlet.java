@@ -7,6 +7,7 @@ import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.BaiViet;
 import quanlynhahang.models.datamodels.LoaiBaiViet;
 import quanlynhahang.models.datamodels.NguoiDung;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import java.sql.SQLException;
 public class XemBaiVietServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Boolean isAdmin = DbAccess.getValue(request);
+            UserDbConnect admin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
                 response.setStatus(400);
@@ -33,10 +34,10 @@ public class XemBaiVietServlet extends HttpServlet {
                 response.setStatus(404);
                 return;
             }
-            QuanTriVienService qtvService = new QuanTriVienService(isAdmin);
+            QuanTriVienService qtvService = new QuanTriVienService(admin);
             NguoiDung nguoiViet = qtvService.get(baiViet.getEmail());
             request.setAttribute("nguoiViet", nguoiViet);
-            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(isAdmin);
+            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(admin);
             LoaiBaiViet loaiBaiViet = lbvSevice.get(baiViet.getIdBaiViet());
             request.setAttribute("loaiBaiViet", loaiBaiViet);
             request.setAttribute("baiViet", baiViet);

@@ -2,6 +2,7 @@ package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.Quyen;
 import quanlynhahang.models.viewmodels.QuyenVM;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class QuyenService extends ConnectDatabase implements Businesses<Quyen> {
-    public QuyenService(Boolean isAdmin) {
-        super(isAdmin);
+    public QuyenService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

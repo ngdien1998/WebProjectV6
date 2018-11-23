@@ -2,6 +2,8 @@
 <%@ page import="java.sql.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.text.ParseException" %>
+<%@ page import="quanlynhahang.common.Consts" %>
+<%@ page import="quanlynhahang.models.viewmodels.UserDbConnect" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -23,6 +25,13 @@
     } catch (ParseException e) {
         e.printStackTrace();
     }
-    session.setAttribute("nguoiDungHienTai", nguoiDung);
+
+    session.setAttribute(Consts.WEBSITE_LOGIN, nguoiDung);
+
+    UserDbConnect userDbConnect = new UserDbConnect();
+    userDbConnect.setUsername(nguoiDung.getEmail());
+    userDbConnect.setPassword(nguoiDung.getMatKhau());
+    userDbConnect.setAdmin(nguoiDung.isQuanTriVien());
+    session.setAttribute(Consts.USER_DB_CONNECT, userDbConnect);
 %>
-<c:redirect url="/admin/bai-viet"/>
+<c:redirect url="/admin/ket-noi-database" />

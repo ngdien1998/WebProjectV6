@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.ThucDon;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ThucDonService  extends ConnectDatabase implements Businesses<ThucDon> {
-    public ThucDonService(Boolean isAdmin) {
-        super(isAdmin);
+    public ThucDonService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

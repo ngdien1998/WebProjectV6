@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
 import quanlynhahang.models.datamodels.MonAn;
 
@@ -22,7 +23,7 @@ public class XemChiTietThucDonServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService();
+            ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService(DbAccess.getValue(request));
 
             ArrayList<MonAn> monAns = thucDonMonAnService.getMonAns(Integer.parseInt(idThucDon));
 

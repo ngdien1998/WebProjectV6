@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class QuanTriVienServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            QuanTriVienService service = new QuanTriVienService();
+            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             ArrayList<NguoiDung> qtvs = service.getData();
             request.setAttribute("qtvs", qtvs);
 

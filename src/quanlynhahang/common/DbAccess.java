@@ -1,18 +1,17 @@
 package quanlynhahang.common;
 
-import quanlynhahang.models.datamodels.NguoiDung;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public final class DbAccess {
-    public static Boolean getValue(HttpServletRequest request) {
-        Boolean isAdmin = null;
+    public static UserDbConnect getValue(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        NguoiDung loginSesstion = (NguoiDung) session.getAttribute(Consts.LOGIN_SESSION);
-        if (loginSesstion != null) {
-            isAdmin = loginSesstion.isQuanTriVien();
+        Object adminLogied = session.getAttribute(Consts.USER_DB_CONNECT);
+        if (adminLogied != null) {
+            return (UserDbConnect) adminLogied;
         }
-        return isAdmin;
+        return null;
     }
 }

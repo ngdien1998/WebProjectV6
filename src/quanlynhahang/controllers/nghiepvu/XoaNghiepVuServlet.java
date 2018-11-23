@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nghiepvu;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.datamodels.NghiepVu;
 
@@ -24,7 +25,7 @@ public class XoaNghiepVuServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NghiepVuService service=new NghiepVuService();
+            NghiepVuService service=new NghiepVuService(DbAccess.getValue(request));
             service.delete(Integer.parseInt(id));
 
         }catch (SQLException | ClassNotFoundException e){
@@ -40,7 +41,7 @@ public class XoaNghiepVuServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NghiepVuService service=new NghiepVuService();
+            NghiepVuService service=new NghiepVuService(DbAccess.getValue(request));
             NghiepVu nghiepVu =service.get(Integer.parseInt(id));
             if(nghiepVu==null)
             {

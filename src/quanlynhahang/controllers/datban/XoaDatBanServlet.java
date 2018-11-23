@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.datban;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.DatBanService;
 import quanlynhahang.models.datamodels.DatBan;
 
@@ -24,7 +25,7 @@ public class XoaDatBanServlet extends HttpServlet {
                 return;
             }
 
-            DatBanService service = new DatBanService();
+            DatBanService service = new DatBanService(DbAccess.getValue(request));
             service.delete(Integer.parseInt(id));
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -39,7 +40,7 @@ public class XoaDatBanServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            DatBanService service = new DatBanService();
+            DatBanService service = new DatBanService(DbAccess.getValue(request));
             DatBan datBan = service.get((id));
             if (datBan == null) {
                 response.setStatus(404);

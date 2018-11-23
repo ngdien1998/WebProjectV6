@@ -1,31 +1,42 @@
 package quanlynhahang.models.businessmodels;
 
+import quanlynhahang.models.viewmodels.UserDbConnect;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class ConnectDatabase {
     protected Connection connection;
-    protected String username;
-    protected String password;
-    private final String baseConnectionString = "jdbc:sqlserver://localhost;database=QuanLyNhaHang_2;username={username};password={password}";
+    private String username;
+    private String password;
+    private String hostName;
+    private String port;
 
-    public ConnectDatabase(Boolean isAdmin) {
-        if (isAdmin == null) {
+    public ConnectDatabase(UserDbConnect user) {
+        hostName = "localhost";
+        port = "1433";
+        if (user == null) {
             username = "guest";
             password = "guest";
-        } else if (isAdmin) {
+        } else if (!user.isAdmin()) {
             username = "user";
             password = "user";
         } else {
-            username = "admin";
-            password = "admin";
+            username = user.getUsername();
+            password = user.getPassword();
+            hostName = user.getHostName();
+            port = user.getPort();
         }
     }
 
     protected void openConnection() throws SQLException, ClassNotFoundException {
+        String baseConnectionString = "jdbc:sqlserver://{hostname}:{port};database=QuanLyNhaHang_2;username={username};password={password}";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String conn = baseConnectionString.replace("{username}", username).replace("{password}", password);
+        String conn = baseConnectionString.replace("{username}", username)
+                                          .replace("{password}", password)
+                                          .replace("{hostname}", hostName)
+                                          .replace("{port}", port);
         connection = DriverManager.getConnection(conn);
     }
 
@@ -35,13 +46,10 @@ public abstract class ConnectDatabase {
         }
     }
 
-    protected Boolean getDbAccessValue() {
-        Boolean isAdmin = null;
-        if (username.equals("admin")) {
-            isAdmin = true;
-        } else if (username.equals("user")) {
-            isAdmin = false;
+    UserDbConnect getDbAccessValue() {
+        if (username.equals("guest")) {
+            return null;
         }
-        return isAdmin;
+        return new UserDbConnect(username, password, hostName, port, !username.equals("user"));
     }
 }

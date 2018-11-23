@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.NghiepVu;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class NghiepVuService extends ConnectDatabase implements Businesses<NghiepVu> {
-    public NghiepVuService(Boolean isAdmin) {
-        super(isAdmin);
+    public NghiepVuService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

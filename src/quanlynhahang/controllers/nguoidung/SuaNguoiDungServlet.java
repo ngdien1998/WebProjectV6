@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nguoidung;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -26,7 +27,7 @@ public class SuaNguoiDungServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            NguoiDungService service = new NguoiDungService();
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             NguoiDung nguoiDung = service.get(email);
             if (nguoiDung == null) {
                 response.setStatus(404);
@@ -63,7 +64,7 @@ public class SuaNguoiDungServlet extends HttpServlet {
             nguoiDung.setQuanTriVien(false);
             nguoiDung.setKichHoat(request.getParameter("chkKichHoat") != null);
 
-            NguoiDungService service = new NguoiDungService();
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             service.modify(nguoiDung);
         } catch (ParseException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();

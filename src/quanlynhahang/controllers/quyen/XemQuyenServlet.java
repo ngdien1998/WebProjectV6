@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quyen;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuyenService;
 import quanlynhahang.models.datamodels.Quyen;
 
@@ -22,7 +23,7 @@ public class XemQuyenServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            QuyenService quyenService= new QuyenService();
+            QuyenService quyenService= new QuyenService(DbAccess.getValue(request));
             Quyen quyen=null;
             quyen=quyenService.get(idquyen);
             if(quyen==null){

@@ -1,11 +1,13 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +30,7 @@ public class XoaMonAnServlet extends HttpServlet {
                 return;
             }
 
-            MonAnService monAnService = new MonAnService();
+            MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
 
             monAnService.delete(Integer.parseInt(id));
             //Check xem có xóa được ko
@@ -46,7 +48,8 @@ public class XoaMonAnServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            MonAnService monAnService = new MonAnService();
+            UserDbConnect admin = DbAccess.getValue(request);
+            MonAnService monAnService = new MonAnService(admin);
             MonAn monAn = null;
             monAn = monAnService.get(idMonAn);
 
@@ -58,10 +61,10 @@ public class XoaMonAnServlet extends HttpServlet {
             // Check tên thực đơn, tên loại món theo ID ở đây sau đó gửi lại
             int idLoaiMon = monAn.getIdLoaiMon();
 //            int idThucDon = monAn.getIdThucDon();
-            LoaiMonService loaiMonService = new LoaiMonService();
+            LoaiMonService loaiMonService = new LoaiMonService(admin);
             LoaiMon loaiMon = null;
             loaiMon = loaiMonService.get(idLoaiMon);
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(admin);
             ThucDon thucDon = null;
 //            thucDon = thucDonService.get(idThucDon);
 

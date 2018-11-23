@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.NguoiDung;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,8 +23,8 @@ import java.util.ArrayList;
  * args[11] ChoPhep
  */
 public class QuanTriVienService extends ConnectDatabase implements Businesses<NguoiDung> {
-    public QuanTriVienService(Boolean isAdmin) {
-        super(isAdmin);
+    public QuanTriVienService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

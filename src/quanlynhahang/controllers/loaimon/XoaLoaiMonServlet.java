@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
@@ -25,7 +26,7 @@ public class XoaLoaiMonServlet extends HttpServlet {
                 return;
             }
 
-            LoaiMonService service = new LoaiMonService();
+            LoaiMonService service = new LoaiMonService(DbAccess.getValue(request));
             service.delete(Integer.parseInt(id));
 
             response.sendRedirect("/admin/loai-mon");
@@ -42,7 +43,7 @@ public class XoaLoaiMonServlet extends HttpServlet {
                 return;
             }
 
-            LoaiMonService loaiMonService = new LoaiMonService();
+            LoaiMonService loaiMonService = new LoaiMonService(DbAccess.getValue(request));
             LoaiMon loaiMon = null;
             loaiMon = loaiMonService.get(idLoaiMon);
             if (loaiMon == null) {

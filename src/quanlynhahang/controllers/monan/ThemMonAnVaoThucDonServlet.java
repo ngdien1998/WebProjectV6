@@ -1,10 +1,12 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +23,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idThucDon = request.getParameter("txtIdThucDon");
         String[] selectedMonAn =  request.getParameterValues("cmbMonAn");
-        ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService();
+        ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService(DbAccess.getValue(request));
         for (int i =0; i<selectedMonAn.length;i++){
             try {
                 thucDonMonAnService.addThucDonMonAn(selectedMonAn[i],idThucDon);
@@ -40,11 +42,12 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet {
             response.setStatus(400);
             return;
         }
-        ThucDonService thucDonService = new ThucDonService();
+        UserDbConnect admin = DbAccess.getValue(request);
+        ThucDonService thucDonService = new ThucDonService(admin);
         ThucDon thucDon = null;
 
         //Lấy món ăn trong ThucDonMonAn
-        MonAnService monAnService = new MonAnService();
+        MonAnService monAnService = new MonAnService(admin);
         ArrayList<MonAn> listMonAn = null;
         try {
             thucDon = thucDonService.get(idThucDon);

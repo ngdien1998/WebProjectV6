@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quyen;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuyenService;
 import quanlynhahang.models.datamodels.Quyen;
 
@@ -21,7 +22,7 @@ public class QuyenServlet extends HttpServlet {
         try{
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
-            QuyenService quyenService=new QuyenService();
+            QuyenService quyenService=new QuyenService(DbAccess.getValue(request));
             ArrayList<Quyen> quyens = quyenService.getData();
             request.setAttribute("quyens", quyens);
             RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/admin-quyen.jsp");

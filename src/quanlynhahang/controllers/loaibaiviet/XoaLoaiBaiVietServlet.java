@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaibaiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.datamodels.LoaiBaiViet;
 
@@ -24,7 +25,7 @@ public class XoaLoaiBaiVietServlet extends HttpServlet {
                 return;
             }
 
-            LoaiBaiVietService service = new LoaiBaiVietService();
+            LoaiBaiVietService service = new LoaiBaiVietService(DbAccess.getValue(request));
             service.delete(Integer.parseInt(id));
 
         } catch (SQLException | ClassNotFoundException e) {
@@ -39,7 +40,7 @@ public class XoaLoaiBaiVietServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            LoaiBaiVietService service = new LoaiBaiVietService();
+            LoaiBaiVietService service = new LoaiBaiVietService(DbAccess.getValue(request));
             LoaiBaiViet loaiBaiViet = service.get(Integer.parseInt(idLoaiBaiViet));
             if (loaiBaiViet == null) {
                 response.setStatus(404);

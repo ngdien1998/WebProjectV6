@@ -3,6 +3,7 @@
 <jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
 <title>Quản lý đặt bàn</title>
 <jsp:include page="_shared/admin/page-header.jsp" flush="true"/>
+
 <div class="card">
     <div class="card-body">
         <h2 class="card-title">Quản lý đặt bàn</h2>

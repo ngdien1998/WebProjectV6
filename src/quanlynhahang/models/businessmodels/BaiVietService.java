@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.BaiViet;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class BaiVietService extends ConnectDatabase implements Businesses<BaiViet> {
-    public BaiVietService(Boolean isAdmin) {
-        super(isAdmin);
+    public BaiVietService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

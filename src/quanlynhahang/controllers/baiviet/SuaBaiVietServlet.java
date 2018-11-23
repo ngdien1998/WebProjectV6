@@ -7,6 +7,7 @@ import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.BaiViet;
 import quanlynhahang.models.datamodels.LoaiBaiViet;
 import quanlynhahang.models.datamodels.NguoiDung;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,13 +57,13 @@ public class SuaBaiVietServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Boolean isAdmin = DbAccess.getValue(request);
+            UserDbConnect admin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
                 response.setStatus(400);
                 return;
             }
-            BaiVietService service = new BaiVietService(isAdmin);
+            BaiVietService service = new BaiVietService(admin);
             BaiViet baiViet = service.get(Integer.parseInt(id));
             if (baiViet == null) {
                 response.setStatus(404);
@@ -70,13 +71,13 @@ public class SuaBaiVietServlet extends HttpServlet {
             }
             request.setAttribute("baiViet", baiViet);
 
-            QuanTriVienService qtvService = new QuanTriVienService(isAdmin);
+            QuanTriVienService qtvService = new QuanTriVienService(admin);
             NguoiDung nguoiViet = qtvService.get(baiViet.getEmail());
             request.setAttribute("tacGia", nguoiViet);
             ArrayList<NguoiDung> nguoiViets = qtvService.getData();
             request.setAttribute("nguoiViets", nguoiViets);
 
-            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(isAdmin);
+            LoaiBaiVietService lbvSevice = new LoaiBaiVietService(admin);
             LoaiBaiViet loaiBaiViet = lbvSevice.get(baiViet.getIdBaiViet());
             request.setAttribute("loaiBai", loaiBaiViet);
             ArrayList<LoaiBaiViet> loaiBaiViets = lbvSevice.getData();

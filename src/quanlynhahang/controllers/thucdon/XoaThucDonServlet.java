@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.ThucDon;
 
@@ -24,7 +25,7 @@ public class XoaThucDonServlet extends HttpServlet {
                 return;
             }
 
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
 
             thucDonService.delete(Integer.parseInt(idThucDon));
 
@@ -41,7 +42,7 @@ public class XoaThucDonServlet extends HttpServlet {
                 response.setStatus(400);
                 return;
             }
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             ThucDon thucDon = thucDonService.get(Integer.parseInt(idThucDon));
             if (thucDon == null) {
                 response.setStatus(404);

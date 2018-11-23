@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.quyen;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuyenService;
 import quanlynhahang.models.datamodels.Quyen;
 
@@ -24,7 +25,7 @@ public class ThemQuyenServlet extends HttpServlet {
             quyen.setMoTa(request.getParameter("txtMoTa"));
             quyen.setIdNghiepVu(Integer.parseInt(request.getParameter("txtIDNghiepVu")));
 
-            QuyenService service = new QuyenService();
+            QuyenService service = new QuyenService(DbAccess.getValue(request));
             service.add(quyen);
 
         } catch (SQLException | ClassNotFoundException e) {

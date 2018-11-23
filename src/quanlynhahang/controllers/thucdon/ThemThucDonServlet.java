@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.ThucDon;
 
@@ -27,7 +28,7 @@ public class ThemThucDonServlet extends HttpServlet {
             thucDon.setPhanTramKhuyenMai(Integer.parseInt(request.getParameter("txtPhanTramKhuyenMai")));
             thucDon.setThu(Integer.parseInt(request.getParameter("cmbThu")));
 
-            ThucDonService thucDonService = new ThucDonService();
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             thucDonService.add(thucDon);
 
         } catch (SQLException | ClassNotFoundException e) {

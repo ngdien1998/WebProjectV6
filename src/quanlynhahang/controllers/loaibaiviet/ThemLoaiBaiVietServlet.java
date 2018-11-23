@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaibaiviet;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.datamodels.LoaiBaiViet;
 
@@ -22,7 +23,7 @@ public class ThemLoaiBaiVietServlet extends HttpServlet {
             loaiBaiViet.setTenLoaiBaiViet(request.getParameter("txtTenLoai"));
             loaiBaiViet.setMoTa(request.getParameter("txtMoTa"));
 
-            LoaiBaiVietService service = new LoaiBaiVietService();
+            LoaiBaiVietService service = new LoaiBaiVietService(DbAccess.getValue(request));
             service.add(loaiBaiViet);
 
         } catch (SQLException | ClassNotFoundException e) {

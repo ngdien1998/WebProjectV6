@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 
 import quanlynhahang.models.datamodels.LoaiMon;
@@ -42,7 +43,7 @@ public class SuaMonAnServlet extends HttpServlet {
             monAn.setIdLoaiMon(Integer.parseInt(request.getParameter("cmbIdLoaiMon")));
 //            monAn.setIdThucDon(Integer.parseInt(request.getParameter("cmdIdThucDon")));
 
-            MonAnService monAnService = new MonAnService();
+            MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
             monAnService.modify(monAn);
             response.sendRedirect("/admin/mon-an");
         } catch (SQLException | ClassNotFoundException | ParseException  e) {
@@ -58,7 +59,7 @@ public class SuaMonAnServlet extends HttpServlet {
                 return;
             }
 
-            MonAnService monAnService = new MonAnService();
+            MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
 
 //            ArrayList<ThucDon> listThucDon = null;
             ArrayList<LoaiMon> listLoaiMon = null;

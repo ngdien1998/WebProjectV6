@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.datamodels.MonAn;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class MonAnServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            MonAnService service = new MonAnService();
+            MonAnService service = new MonAnService(DbAccess.getValue(request));
             ArrayList<MonAn> monAns = service.getData();
 
             request.setAttribute("monAns", monAns);

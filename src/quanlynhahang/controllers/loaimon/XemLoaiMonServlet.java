@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 
@@ -22,7 +23,7 @@ public class XemLoaiMonServlet extends HttpServlet {
                 return;
             }
 
-            LoaiMonService loaiMonService = new LoaiMonService();
+            LoaiMonService loaiMonService = new LoaiMonService(DbAccess.getValue(request));
             LoaiMon loaiMon = null;
             loaiMon = loaiMonService.get(idLoaiMon);
             if (loaiMon == null) {

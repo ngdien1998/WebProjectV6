@@ -3,6 +3,7 @@ package quanlynhahang.models.businessmodels;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.datamodels.ThucDonMonAn;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,8 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ThucDonMonAnService extends ConnectDatabase implements Businesses<ThucDonMonAn> {
-    public ThucDonMonAnService(Boolean isAdmin) {
-        super(isAdmin);
+    public ThucDonMonAnService(UserDbConnect user) {
+        super(user);
     }
 
     public ArrayList<MonAn> getMonAns(int idThucDon) throws SQLException, ClassNotFoundException {

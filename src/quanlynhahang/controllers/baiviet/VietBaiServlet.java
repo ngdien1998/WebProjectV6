@@ -8,6 +8,7 @@ import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.BaiViet;
 import quanlynhahang.models.datamodels.NguoiDung;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -58,10 +59,10 @@ public class VietBaiServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Boolean isAdmin = DbAccess.getValue(request);
-            LoaiBaiVietService loaiBaiVietService = new LoaiBaiVietService(isAdmin);
+            UserDbConnect admin = DbAccess.getValue(request);
+            LoaiBaiVietService loaiBaiVietService = new LoaiBaiVietService(admin);
             request.setAttribute("loaiBaiViets", loaiBaiVietService.getData());
-            QuanTriVienService quanTriVienService = new QuanTriVienService(isAdmin);
+            QuanTriVienService quanTriVienService = new QuanTriVienService(admin);
             request.setAttribute("quanTriViens", quanTriVienService.getData());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

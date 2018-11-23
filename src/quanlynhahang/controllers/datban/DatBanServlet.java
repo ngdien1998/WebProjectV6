@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.datban;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.DatBanService;
 import quanlynhahang.models.datamodels.DatBan;
 
@@ -18,7 +19,7 @@ public class DatBanServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            DatBanService service = new DatBanService();
+            DatBanService service = new DatBanService(DbAccess.getValue(request));
             ArrayList<DatBan> datBans = service.getData();
 
             request.setAttribute("datBans", datBans);

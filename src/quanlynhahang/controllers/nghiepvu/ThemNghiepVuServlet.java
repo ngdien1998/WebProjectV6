@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.nghiepvu;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NghiepVuService;
 import quanlynhahang.models.datamodels.NghiepVu;
 
@@ -22,7 +23,7 @@ public class ThemNghiepVuServlet extends HttpServlet {
         try{
             NghiepVu nghiepVu=new NghiepVu();
             nghiepVu.setTenNghiepVu(request.getParameter("txtTenNghiepVu"));
-            NghiepVuService service= new NghiepVuService();
+            NghiepVuService service= new NghiepVuService(DbAccess.getValue(request));
             service.add(nghiepVu);
 
         }catch (SQLException | ClassNotFoundException e){

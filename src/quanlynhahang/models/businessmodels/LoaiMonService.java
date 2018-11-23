@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.LoaiMon;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LoaiMonService extends ConnectDatabase implements Businesses<LoaiMon>{
-    public LoaiMonService(Boolean isAdmin) {
-        super(isAdmin);
+    public LoaiMonService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

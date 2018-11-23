@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
@@ -44,7 +45,7 @@ public class ThemMonAnServlet extends HttpServlet {
             monAn.setNgayThem(ngayThem);
             monAn.setIdLoaiMon(Integer.parseInt(request.getParameter("cmbLoaiMon")));
 
-            MonAnService monAnService = new MonAnService();
+            MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
             monAnService.add(monAn);
 
         } catch (ParseException | SQLException | ClassNotFoundException e) {
@@ -54,7 +55,7 @@ public class ThemMonAnServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MonAnService monAnService = new MonAnService();
+        MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
 
         ArrayList<ThucDon> listThucDon = null;
         ArrayList<LoaiMon> listLoaiMon = null;

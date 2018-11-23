@@ -1,6 +1,7 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.BinhLuan;
+import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BinhLuanService extends ConnectDatabase implements Businesses<BinhLuan> {
-    public BinhLuanService(Boolean isAdmin) {
-        super(isAdmin);
+    public BinhLuanService(UserDbConnect user) {
+        super(user);
     }
 
     @Override

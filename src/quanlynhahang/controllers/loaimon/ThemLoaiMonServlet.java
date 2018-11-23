@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 
@@ -21,7 +22,7 @@ public class ThemLoaiMonServlet extends HttpServlet {
             LoaiMon loaiMon = new LoaiMon();
             loaiMon.setTenLoaiMon(request.getParameter("txtTenLoaiMon"));
             loaiMon.setMoTa(request.getParameter("txtMoTa"));
-            LoaiMonService loaiMonService = new LoaiMonService();
+            LoaiMonService loaiMonService = new LoaiMonService(DbAccess.getValue(request));
             loaiMonService.add(loaiMon);
 
         } catch (SQLException | ClassNotFoundException e) {
