@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Đăng ký tài khoản</title>
+    <title>Đăng nhập</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assests/node_modules/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assests/node_modules/flag-icon-css/css/flag-icon.min.css">
@@ -30,32 +30,24 @@
                     <div class="row">
                         <div class="col-lg-6 bg-white">
                             <div class="auth-form-light text-left p-5">
-                                <h2>Kết nối database</h2>
-                                <h4 class="font-weight-light">Chọn server để thực kết nối vào cơ sở dữ liệu</h4>
-                                <form class="pt-5" action="/admin/ket-noi-database" method="post">
+                                <h2>Đăng nhập</h2>
+                                <h4 class="font-weight-light">Chào mừng đến với website Nhà hàng</h4>
+                                <form class="pt-5" action="/dang-nhap" method="post">
                                     <div class="form-group">
-                                        <label for="server">Chọn server</label>
-                                        <input type="text" name="txtServer" class="form-control" id="server" placeholder="Nhập tên server muốn kết nối" value="${requestScope.server}">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="txtEmail" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Nhập email" value="${requestScope.txtEmail}">
+                                        <i class="mdi mdi-account"></i>
                                     </div>
                                     <div class="form-group">
-                                        <label for="port">Port</label>
-                                        <input type="text" name="txtPort" class="form-control" id="port" value="1433">
+                                        <label for="mat-khau">Mật khẩu</label>
+                                        <input type="password" name="txtMatKhau" class="form-control" id="mat-khau" placeholder="Nhập mật khẩu" value="${requestScope.txtMatKhau}">
+                                        <i class="mdi mdi-eye"></i>
                                     </div>
-                                    <div class="mt-2 w-75 mx-auto">
-                                        <div class="form-check form-check-flat">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input" id="chk-server" name="chkServer">
-                                                Sử dụng local host database
-                                            </label>
-                                        </div>
+                                    <div class="mt-5">
+                                        <input type="submit" class="btn btn-block btn-primary btn-rounded" value="Đăng nhập" />
                                     </div>
-                                    <div class="mt-5 form-row">
-                                        <div class="col-md-6">
-                                            <input type="submit" class="btn btn-block btn-primary btn-rounded" value="Đăng nhập" />
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a href="/trang-chu" class="btn btn-warning btn-rounded">Hủy bỏ</a>
-                                        </div>
+                                    <div class="mt-3 text-center">
+                                        <a href="#" class="auth-link text-black">Quên mật khẩu?</a>
                                     </div>
                                 </form>
                             </div>
@@ -84,17 +76,6 @@
 <script src="<%=request.getContextPath()%>/assests/js/settings.js"></script>
 <script src="<%=request.getContextPath()%>/assests/js/todolist.js"></script>
 <!-- endinject -->
-<script type="text/javascript">
-    $("#chk-server").change(() => {
-        if ($("#chk-server").is(":checked")) {
-            $("#server").attr("readonly", "readonly");
-            $("#port").attr("readonly", "readonly");
-        } else {
-            $("#server").removeAttr("readonly");
-            $("#port").removeAttr("readonly");
-        }
-    });
-</script>
 </body>
 
 </html>

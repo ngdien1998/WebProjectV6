@@ -133,4 +133,33 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         closeConnection();
         return nguoiDung;
     }
+
+    public NguoiDung dangNhap(String email, String matKhau) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "SELECT * FROM dbo.KiemTra_DangNhap(?,?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, email);
+        statement.setString(2, matKhau);
+        ResultSet res = statement.executeQuery();
+        NguoiDung nguoiDung = null;
+        if (res.next()) {
+            nguoiDung = new NguoiDung();
+            nguoiDung.setEmail(res.getString(1));
+            nguoiDung.setHoDem(res.getString(2));
+            nguoiDung.setTen(res.getString(3));
+            nguoiDung.setMatKhau(matKhau);
+            nguoiDung.setNgaySinh(res.getDate(5));
+            nguoiDung.setNu(res.getBoolean(6));
+            nguoiDung.setAvatar(res.getString(7));
+            nguoiDung.setDienThoai(res.getString(8));
+            nguoiDung.setDiaChi(res.getString(9));
+            nguoiDung.setQuanTriVien(res.getBoolean(10));
+            nguoiDung.setKichHoat(res.getBoolean(11));
+            nguoiDung.setChoPhep(res.getBoolean(12));
+        }
+        closeConnection();
+        return nguoiDung;
+    }
 }

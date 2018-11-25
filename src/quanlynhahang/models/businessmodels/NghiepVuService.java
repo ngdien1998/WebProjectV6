@@ -18,7 +18,7 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
     public ArrayList<NghiepVu> getData() throws SQLException, ClassNotFoundException {
         openConnection();
         ArrayList<NghiepVu> nghiepVus = new ArrayList<>();
-        String sql = "EXEC LayNghiepVu";
+        String sql = "SELECT * FROM LayNghiepVu";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -27,7 +27,7 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
             NghiepVu nghiepVu = new NghiepVu();
             nghiepVu.setIdNghiepVu(res.getInt(1));
             nghiepVu.setTenNghiepVu(res.getString(2));
-           // nghiepVu.setMoTa(res.getString(3));
+            nghiepVu.setMoTa(res.getString(3));
 
             nghiepVus.add(nghiepVu);
         }

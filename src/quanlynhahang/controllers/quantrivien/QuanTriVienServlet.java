@@ -26,6 +26,7 @@ public class QuanTriVienServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            response.sendError(500, e.toString());
         }
     }
 }

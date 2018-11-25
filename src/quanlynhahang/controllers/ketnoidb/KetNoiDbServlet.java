@@ -29,14 +29,15 @@ public class KetNoiDbServlet extends HttpServlet {
                 port = "1433";
             }
             UserDbConnect admin = DbAccess.getValue(request);
-            if (admin == null) {
-                throw new Exception("Lỗi: chưa đăng nhập");
+            if (admin == null || !admin.isAdmin()) {
+                response.sendError(400);
+                return;
             }
             admin.setHostName(server);
             admin.setPort(port);
 
             ConnectDbService login = new ConnectDbService(admin);
-            if (!login.tryConnectToServer()) {
+            if (login.tryConnectToServer()) {
                 response.sendRedirect("/admin");
                 return;
             }
@@ -51,7 +52,7 @@ public class KetNoiDbServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserDbConnect admin = DbAccess.getValue(request);
         if (admin == null || !admin.isAdmin()) {
-            response.sendRedirect("/trang-trong.html");
+            response.sendError(404);
             return;
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-dang-nhap-db.jsp");
