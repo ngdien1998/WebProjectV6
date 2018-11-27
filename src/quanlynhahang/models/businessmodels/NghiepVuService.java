@@ -47,7 +47,7 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
         statement.setString(1,nghiepVu.getTenNghiepVu());
-        //statement.setString(1,nghiepVu.getMoTa());
+        statement.setString(2,nghiepVu.getMoTa());
         int rowAffected= statement.executeUpdate();
 
         closeConnection();

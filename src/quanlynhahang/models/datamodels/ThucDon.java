@@ -7,18 +7,31 @@ public class ThucDon {
     private int gia;
     private int phanTramKhuyenMai;
     private int thu;
+    private String hinhThucDon;
+    private int mucDanhGia;
+
 
     public ThucDon() {
     }
 
-    public ThucDon(int idThucDon, String tenThucDon, String moTa, int gia, int phanTramKhuyenMai, int thu) {
+    public ThucDon(int idThucDon, String tenThucDon, String moTa, int gia, int phanTramKhuyenMai, int thu, String hinhThucDon, int mucDanhGia, int giaSauKM) {
         this.idThucDon = idThucDon;
         this.tenThucDon = tenThucDon;
         this.moTa = moTa;
         this.gia = gia;
         this.phanTramKhuyenMai = phanTramKhuyenMai;
         this.thu = thu;
+        this.hinhThucDon = hinhThucDon;
+        this.mucDanhGia = mucDanhGia;
     }
+
+    public ThucDon(int idThucDon, String tenThucDon, int gia, String hinhThucDon, int giaSauKM) {
+        this.idThucDon = idThucDon;
+        this.tenThucDon = tenThucDon;
+        this.gia = gia;
+        this.hinhThucDon = hinhThucDon;
+    }
+
 
     public int getIdThucDon() {
         return idThucDon;
@@ -68,5 +81,21 @@ public class ThucDon {
 
     public void setThu(int thu) {
         this.thu = thu;
+    }
+
+    public String getHinhThucDon() {
+        return hinhThucDon;
+    }
+
+    public void setHinhThucDon(String hinhThucDon) {
+        this.hinhThucDon = hinhThucDon;
+    }
+
+    public int getMucDanhGia() {
+        return mucDanhGia;
+    }
+
+    public void setMucDanhGia(int mucDanhGia) {
+        this.mucDanhGia = mucDanhGia;
     }
 }

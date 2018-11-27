@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Liên Hệ</title>
 
     <script type="text/javascript" src="assests/js/jquery-3.3.1.min.js"></script>
@@ -29,64 +32,7 @@
 
 <body>
 
-    <div class="contact-bar row">
-        <div class="col-3 contact-bar-greeting">
-            <i>Hân hạnh được phục vụ quý khách</i>
-        </div>
-        <div class="col-9 contact-bar-functions">
-            <a href="#!"><i class="glyphicon glyphicon-shopping-cart"></i>Tài khoản
-            </a>
-            <a href="#!">Thanh toán</a>
-            <a href="#!">Giỏ hàng</a>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg row" id="navbar-absolute">
-        <a class="navbar-brand font-blonde-script text-white font-size-h3" href="#">
-            <img src="assests/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="logo">
-            Restaurant
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./trang-chu.html">Trang chủ
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./thuc-don.html">Thực đơn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an.html">Tất cả món ăn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc-blog.html">Bài viết</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./gioi-thieu.html">Nhà hàng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./dat-ban.html">Đặt bàn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./lien-he.html">Liên hệ</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0 outline">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm"
-                           id="txt-tim-kiem"/>
-                    <div class="input-group-append">
-                        <input class="btn btn-info" type="submit" value="Tìm" id="btn-tim-kiem"/>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </nav>
+<jsp:include page="_shared/user/nav.jsp" flush="true"/>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>

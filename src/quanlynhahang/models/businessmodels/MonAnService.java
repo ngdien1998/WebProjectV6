@@ -40,7 +40,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         ArrayList<MonAn> monAns = new ArrayList<>();
         openConnection();
 
-        String sql = "EXEC LayMonAn";
+        String sql = "SELECT * FROM LayTatCaMonAnA";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -52,9 +52,10 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
             monAn.setGia(res.getInt(5));
-            monAn.setKhuyenMai(res.getInt(6));
-            monAn.setNgayThem(res.getDate(7));
-            monAn.setIdLoaiMon(res.getInt(8));
+            monAn.setHinhMonAn(res.getString(6));
+            monAn.setKhuyenMai(res.getInt(7));
+            monAn.setNgayThem(res.getDate(8));
+            monAn.setIdLoaiMon(res.getInt(9));
 
             monAns.add(monAn);
         }
@@ -68,7 +69,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
             return 0;
         }
         openConnection();
-        String sql = "EXEC ThemMonAn ?,?,?,?,?,?,?";
+        String sql = "EXEC ThemMonAn ?,?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -76,9 +77,10 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         statement.setString(2, monAn.getDonViTinh());
         statement.setString(3, monAn.getMoTa());
         statement.setInt(4, monAn.getGia());
-        statement.setInt(5, monAn.getKhuyenMai());
-        statement.setDate(6, monAn.getNgayThem());
-        statement.setInt(7, monAn.getIdLoaiMon());
+        statement.setString(5, monAn.getHinhMonAn());
+        statement.setInt(6, monAn.getKhuyenMai());
+        statement.setDate(7, monAn.getNgayThem());
+        statement.setInt(8, monAn.getIdLoaiMon());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -105,7 +107,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
     @Override
     public int modify(MonAn monAn) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql = "EXEC SuaMonAn ?,?,?,?,?,?,?,?";
+        String sql = "EXEC SuaMonAn ?,?,?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -114,9 +116,10 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         statement.setString(3, monAn.getDonViTinh());
         statement.setString(4, monAn.getMoTa());
         statement.setInt(5, monAn.getGia());
-        statement.setInt(6, monAn.getKhuyenMai());
-        statement.setDate(7, monAn.getNgayThem());
-        statement.setInt(8, monAn.getIdLoaiMon());
+        statement.setString(6, monAn.getHinhMonAn());
+        statement.setInt(7, monAn.getKhuyenMai());
+        statement.setDate(8, monAn.getNgayThem());
+        statement.setInt(9, monAn.getIdLoaiMon());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -130,7 +133,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         }
         openConnection();
 
-        String sql = "EXEC LayMotMonAn ?";
+        String sql = "SELECT * FROM LayMotMonAn (?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -145,9 +148,10 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
             monAn.setGia(res.getInt(5));
-            monAn.setKhuyenMai(res.getInt(6));
-            monAn.setNgayThem(res.getDate(7));
-            monAn.setIdLoaiMon(res.getInt(8));
+            monAn.setHinhMonAn(res.getString(6));
+            monAn.setKhuyenMai(res.getInt(7));
+            monAn.setNgayThem(res.getDate(8));
+            monAn.setIdLoaiMon(res.getInt(9));
         }
 
         closeConnection();

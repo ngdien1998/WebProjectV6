@@ -5,22 +5,20 @@ import java.util.ArrayList;
 
 public class DatBan {
     private String email;
-    private String ban;
     private Date thoiGian;
     private int soLuong;
-    private int giaTien;
     private String ghiChu;
 
     public DatBan(){
     }
-    public DatBan(String email,String ban, Date thoiGian, int soLuong, int giaTien,String ghiChu){
-        this.email=email;
-        this.ban=ban;
-        this.thoiGian=thoiGian;
-        this.soLuong=soLuong;
-        this.giaTien=giaTien;
-        this.ghiChu=ghiChu;
+
+    public DatBan(String email, Date thoiGian, int soLuong, String ghiChu) {
+        this.email = email;
+        this.thoiGian = thoiGian;
+        this.soLuong = soLuong;
+        this.ghiChu = ghiChu;
     }
+
     public String getEmail() {
         return email;
     }
@@ -28,26 +26,13 @@ public class DatBan {
         this.email = email;
     }
 
-    public String getBan() {
-        return ban;
-    }
-    public void setBan(String ban) {
-        this.ban = ban;
-    }
+
     public int getSoLuong() {
         return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
-    }
-
-    public int getGia() {
-        return giaTien;
-    }
-
-    public void setGia(int gia) {
-        this.giaTien = gia;
     }
 
     public Date getThoiGian() {

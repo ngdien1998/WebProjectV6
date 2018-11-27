@@ -46,7 +46,7 @@ public class SuaMonAnServlet extends HttpServlet {
             MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
             monAnService.modify(monAn);
             response.sendRedirect("/admin/mon-an");
-        } catch (SQLException | ClassNotFoundException | ParseException  e) {
+        } catch (SQLException | ClassNotFoundException | ParseException e) {
             e.printStackTrace();
         }
     }

@@ -18,7 +18,7 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
         ArrayList<ThucDon> thucDons = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ViewThucDon";
+        String sql = "SELECT * FROM LayTatCaThucDon";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -32,6 +32,7 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
             thucDon.setGia(res.getInt(4));
             thucDon.setPhanTramKhuyenMai(res.getInt(5));
             thucDon.setThu(res.getInt(6));
+            thucDon.setHinhThucDon(res.getString(7));
 
             thucDons.add(thucDon);
         }
@@ -46,7 +47,7 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
             return 0;
         }
         openConnection();
-        String sql = "EXEC ThemThucDon ?,?,?,?,?";
+        String sql = "EXEC ThemThucDon ?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -55,6 +56,8 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
         statement.setInt(3,thucDon.getGia());
         statement.setInt(4,thucDon.getPhanTramKhuyenMai());
         statement.setInt(5,thucDon.getThu());
+        statement.setString(6, thucDon.getHinhThucDon());
+        statement.setInt(7, 0);
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -66,7 +69,7 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
         openConnection();
 
         String sql = "EXEC XoaThucDon ?";
-        // Thực đơn có chứa món ăn thì sao, set lan truyền = NULL
+        // Thực đơn có chứa món ăn thì sao, Không cho xóa
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -79,9 +82,9 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
     @Override
     public int modify(ThucDon thucDon) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql = "EXEC SuaThucDon ?,?,?,?,?,?";
+        String sql = "EXEC SuaThucDon ?,?,?,?,?,?,?,?";
         // Xóa thì Set lan truyền
-        
+
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -91,6 +94,8 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
         statement.setInt(4,thucDon.getGia());
         statement.setInt(5,thucDon.getPhanTramKhuyenMai());
         statement.setInt(6,thucDon.getThu());
+        statement.setString(7, thucDon.getHinhThucDon());
+        statement.setInt(8,0);
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -104,7 +109,7 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
         }
         openConnection();
 
-        String sql = "EXEC LayMotThucDon ?";
+        String sql = "SELECT * FROM LayMotThucDon (?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -120,6 +125,8 @@ public class ThucDonService  extends ConnectDatabase implements Businesses<ThucD
             thucDon.setGia(res.getInt(4));
             thucDon.setPhanTramKhuyenMai(res.getInt(5));
             thucDon.setThu(res.getInt(6));
+            thucDon.setHinhThucDon(res.getString(7));
+            thucDon.setMucDanhGia(Integer.parseInt(res.getString(8)));
         }
 
         closeConnection();

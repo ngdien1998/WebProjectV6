@@ -55,10 +55,10 @@
                     <td>Loại Món Ăn:</td>
                     <td>${requestScope.loaiMon.tenLoaiMon}</td>
                 </tr>
-                <tr>
-                    <td>Thực Đơn:</td>
-                    <%--<td>${requestScope.thucDon.tenThucDon}</td>--%>
-                </tr>
+                <%--<tr>--%>
+                    <%--<td>Thực Đơn:</td>--%>
+                    <%--&lt;%&ndash;<td>${requestScope.thucDon.tenThucDon}</td>&ndash;%&gt;--%>
+                <%--</tr>--%>
             </table>
         </div>
     </div>

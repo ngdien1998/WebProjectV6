@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Chi tiết món ăn</title>
 
     <script type="text/javascript" src="assests/js/jquery-3.3.1.min.js"></script>
@@ -65,64 +68,7 @@
 
 <body>
 
-    <div class="contact-bar row">
-        <div class="col-3 contact-bar-greeting">
-            <i>Hân hạnh được phục vụ quý khách</i>
-        </div>
-        <div class="col-9 contact-bar-functions">
-            <a href="#!"><i class="glyphicon glyphicon-shopping-cart"></i>Tài khoản
-            </a>
-            <a href="#!">Thanh toán</a>
-            <a href="#!">Giỏ hàng</a>
-        </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg row" id="navbar-absolute">
-        <a class="navbar-brand font-blonde-script text-white font-size-h3" href="#">
-            <img src="assests/images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="logo">
-            Restaurant
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./trang-chu.html">Trang chủ
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./thuc-don.html">Thực đơn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an.html">Tất cả
-                        món ăn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc-blog.html">Bài viết</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./gioi-thieu.html">Nhà hàng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./dat-ban.html">Đặt bàn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-dark font-size-h5" href="./lien-he.html">Liên hệ</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nhập thông tin tìm kiếm" id="txt-tim-kiem" />
-                    <div class="input-group-append">
-                        <input class="btn btn-info" type="submit" value="Tìm" id="btn-tim-kiem" />
-                    </div>
-                </div>
-            </form>
-        </div>
-    </nav>
+<jsp:include page="_shared/user/nav.jsp" flush="true"/>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -142,76 +88,75 @@
             <div class="row">
                 <div class="col-12 col-md-6">
                     <div class="container">
-
-                        <!-- Full-width images with number text -->
-                        <div class="mySlides">
-                            <img src="./assests/images/banh-xeo.jpg" style="width:100%; height: 300px;">
-                        </div>
-
-                        <div class="mySlides">
-                            <img src="./assests/images/banh-trang-cuon-thit-heo.jpg" style="width:100%; height: 300px;">
-                        </div>
-
-                        <div class="mySlides">
-                            <img src="./assests/images/Trua-Nay-An-Gi.jpg" style="width:100%; height: 300px;">
-                        </div>
-
-                        <div class="mySlides">
-                            <img src="./assests/images/pabecue.png" style="width:100%; height: 300px;">
-                        </div>
-
-                        <div class="mySlides">
-                            <img src="./assests/images/cua-rang-me.jpg" style="width:100%; height: 300px;">
-                        </div>
-
-                        <div class="mySlides">
-                            <img src="./assests/images/blur-breakfast-close-up-376464.jpg" style="width:100%; height: 300px;">
-                        </div>
-
-                        <!-- Next and previous buttons -->
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                        <!-- Thumbnail images -->
-                        <div class="row">
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/banh-xeo.jpg" style="width:99%; height: 100%;"
-                                    onclick="currentSlide(1)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/banh-trang-cuon-thit-heo.jpg" style="width:99%; height: 100%;"
-                                    onclick="currentSlide(2)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/Trua-Nay-An-Gi.jpg" style="width:99%; height: 100%;"
-                                    onclick="currentSlide(3)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/pabecue.png" style="width:99%; height: 100%;"
-                                    onclick="currentSlide(4)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/cua-rang-me.jpg" style="width:99%; height: 100%;"
-                                    onclick="currentSlide(5)">
-                            </div>
-                            <div class="column">
-                                <img class="demo cursor" src="./assests/images/blur-breakfast-close-up-376464.jpg"
-                                    style="width:99%; height: 100%;" onclick="currentSlide(6)">
-                            </div>
-                        </div>
+                        <img src="${requestScope.monAn.hinhMonAn}" alt="" width="100%">
                     </div>
+                    <%--<div class="container">--%>
+
+                        <%--<!-- Full-width images with number text -->--%>
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/banh-xeo.jpg" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/banh-trang-cuon-thit-heo.jpg" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/Trua-Nay-An-Gi.jpg" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/pabecue.png" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/cua-rang-me.jpg" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<div class="mySlides">--%>
+                            <%--<img src="./assests/images/blur-breakfast-close-up-376464.jpg" style="width:100%; height: 300px;">--%>
+                        <%--</div>--%>
+
+                        <%--<!-- Next and previous buttons -->--%>
+                        <%--<a class="prev" onclick="plusSlides(-1)">&#10094;</a>--%>
+                        <%--<a class="next" onclick="plusSlides(1)">&#10095;</a>--%>
+
+                        <%--<!-- Thumbnail images -->--%>
+                        <%--<div class="row">--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/banh-xeo.jpg" style="width:99%; height: 100%;"--%>
+                                    <%--onclick="currentSlide(1)">--%>
+                            <%--</div>--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/banh-trang-cuon-thit-heo.jpg" style="width:99%; height: 100%;"--%>
+                                    <%--onclick="currentSlide(2)">--%>
+                            <%--</div>--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/Trua-Nay-An-Gi.jpg" style="width:99%; height: 100%;"--%>
+                                    <%--onclick="currentSlide(3)">--%>
+                            <%--</div>--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/pabecue.png" style="width:99%; height: 100%;"--%>
+                                    <%--onclick="currentSlide(4)">--%>
+                            <%--</div>--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/cua-rang-me.jpg" style="width:99%; height: 100%;"--%>
+                                    <%--onclick="currentSlide(5)">--%>
+                            <%--</div>--%>
+                            <%--<div class="column">--%>
+                                <%--<img class="demo cursor" src="./assests/images/blur-breakfast-close-up-376464.jpg"--%>
+                                    <%--style="width:99%; height: 100%;" onclick="currentSlide(6)">--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                 </div>
                 <div class="col-12 col-md-6">
                     <!-- info product -->
-                    <h3 class="title-detail">Cua rang me</h3>
-                    <div class="price-detail">100.000đ</div>
+                    <h3 class="title-detail">${requestScope.monAn.tenMonAn}</h3>
+                    <div class="price-detail">${requestScope.monAn.gia}</div>
                     <div class="description-detail">
                         <p>
-                            Khi các bạn học qua Box Model trong CSS thì sẽ thấy có một đặc điểm khi sử dụng Padding và
-                            Border thì cái khung phần tử của bạn sẽ bị biến đổi kích thước nếu bạn có đặt thêm thuộc
-                            tính width và height để thiết lập kích thước cho nó. Ví dụ cái box của bạn có width là
-                            500px và height là 500px (500×500 px)nhưng nếu bạn đặt thêm padding là 15px nữa thì cái
-                            khung của bạn sẽ có kích thước là 530×530 px.
+                            ${requestScope.monAn.moTa}
                         </p>
                     </div>
                     <div class="input-group mb-3" style="width:120px">
@@ -238,14 +183,9 @@
                 </div>
                 <div class="content-detail">
                     <p>
-                        A la carte hay à la carte (tiếng Pháp) là một trong những kiểu thực đơn dành cho bữa ăn gọi món
-                        lẻ (đặt món). Khách có thể tự chọn lựa bất cứ món ăn nào có trong thực đơn của nhà hàng để gọi
-                        tuỳ theo sở thích của mình.
+                        Cua rang me là món ăn ngon, hội tụ được bốn vị: chua, cay, mặn, ngọt… Đây là một món khá cầu kì nhưng chỉ phù hợp để ăn chơi, được chị em phụ nữ đặc biệt ưa thích. Còn với cánh mày râu thì hơi “kén” hơn một chút do có vị ngọt, mà ngọt thì uống bia, rượu thì không được “vào” cho lắm.
 
-                        Nhà hàng alacarte có nhiều loại thực đơn để chuẩn bị cho loại tiệc nay như thực đơn đa phần là
-                        món ăn có sẵn, phần ăn và giá cả cũng cố định, nếu khách muốn lựa chọn menu ăn chính thì giá
-                        của phần ăn có thể thay đổi, các nhà hàng thường đưa thực đơn này ra khi khách có nhu cầu phục
-                        vụ nhanh chóng.
+                        Tất nhiên cánh mày râu thì ưa cái vị mặn mặn của  Cua rang muối, hoặc cái thơm ngọt của Cua thịt hấp bia hơn. Nhưng nói thật, nhìn cái cảnh chị em xuýt xoa vừa vặn càng cua, xong rồi "chép chép" mấy ngòn tay còn vương sốt me thì cũng khó mà cầm lòng cho được
                     </p>
                 </div>
             </div>
@@ -286,10 +226,7 @@
                                         <p id="date-comment" class="small-text">17 tháng 4, 2018</p>
                                     </div>
                                     <p id="comment-text" class="lighten-text">
-                                        Ad ơi, dùng thì ok r nhg khi muốn đáng ký Vip phải dùng thẻ tín dụng đủ kiểu.
-                                        Có 1 số ng như học sinh muốn đăng ky nhg vì
-                                        cái đấy k có thì phải ntn? Mong ad khắc phục nó, hoặc là chuyển qua thẻ đt hay
-                                        j j đấy, hoặc bỏ luôn vip và mn có để tải về mà k có sự cản trở
+                                        Món ăn khá ngon
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
@@ -309,8 +246,7 @@
                                         <p id="date-comment" class="small-text">17 tháng 4, 2018</p>
                                     </div>
                                     <p id="comment-text" class="lighten-text">
-                                        Mình góp ý nhá bài nhạc nước ngoài nào cx bản quyền thì nghe nhạc mik thích
-                                        kiểu gì hả ad
+                                        Vô cùng ngon, bổ dưỡng cho người dùng
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
@@ -330,29 +266,7 @@
                                         <p id="date-comment" class="small-text">17 tháng 4, 2018</p>
                                     </div>
                                     <p id="comment-text" class="lighten-text">
-                                        Hay
-                                    </p>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="comment">
-                                <div id="user-avatar">
-                                    <img src="./assests/images/people.jpg" alt="user-avatar" width="50" height="50"
-                                        style="border-radius:50%">
-                                </div>
-
-                                <div id="user-comment">
-                                    <div id="user-name">
-                                        <p class="no-margin">
-                                            <b>Người dùng Google</b>
-                                        </p>
-                                        <p id="date-comment" class="small-text">17 tháng 4, 2018</p>
-                                    </div>
-                                    <p id="comment-text" class="lighten-text">
-                                        Thật ra, tôi rất thích ứng dụng này nhưng có điều là tại sao ca sĩ sáng tác ra
-                                        nhạc mà cần phải có tiền với tải được những
-                                        nhạc bản quyền , nếu vậy không có các fan thì hát cho ai nghe
+                                        Tuyệt
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>
@@ -375,54 +289,20 @@
             <hr>
             <div class="other-product">
                 <div class="row">
-                    <div class="food-item col-md-3 col-sm-6 col-12">
-                        <a href="#!">
-                            <div class="food-img">
-                                <img src="assests/images/banh-trang-cuon-thit-heo.jpg" />
-                            </div>
-                            <div class="row">
-                                <p class="col-6 food-name">Tên món ăn</p>
-                                <p class="col-6 price">200 000đ</p>
-                            </div>
-                            <p class="price old-price">250 000đ</p>
-                        </a>
-                    </div>
-                    <div class="food-item col-md-3 col-sm-6 col-12">
-                        <a href="#!">
-                            <div class="food-img">
-                                <img src="assests/images/banh-trang-cuon-thit-heo.jpg" />
-                            </div>
-                            <div class="row">
-                                <p class="col-6 food-name">Tên món ăn</p>
-                                <p class="col-6 price">200 000đ</p>
-                            </div>
-                            <p class="price old-price">250 000đ</p>
-                        </a>
-                    </div>
-                    <div class="food-item col-md-3 col-sm-6 col-12">
-                        <a href="#!">
-                            <div class="food-img">
-                                <img src="assests/images/banh-trang-cuon-thit-heo.jpg" />
-                            </div>
-                            <div class="row">
-                                <p class="col-6 food-name">Tên món ăn</p>
-                                <p class="col-6 price">200 000đ</p>
-                            </div>
-                            <p class="price old-price">250 000đ</p>
-                        </a>
-                    </div>
-                    <div class="food-item col-md-3 col-sm-6 col-12">
-                        <a href="#!">
-                            <div class="food-img">
-                                <img src="assests/images/banh-trang-cuon-thit-heo.jpg" />
-                            </div>
-                            <div class="row">
-                                <p class="col-6 food-name">Tên món ăn</p>
-                                <p class="col-6 price">200 000đ</p>
-                            </div>
-                            <p class="price old-price">250 000đ</p>
-                        </a>
-                    </div>
+                    <c:forEach var="monAn" items="${requestScope.listMonAn}">
+                        <div class="food-item col-md-3 col-sm-6 col-12">
+                            <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
+                                <div class="food-img">
+                                    <img src="${monAn.hinhMonAn}" width="175px"/>
+                                </div>
+                                <div class="row">
+                                    <p class="col-6 food-name">${monAn.tenMonAn}</p>
+                                    <p class="col-6 price">${monAn.gia}đ</p>
+                                </div>
+                                <p class="price old-price">${monAn.khuyenMai == 0 ? '' : monAn.gia+(monAn.gia * monAn*khuyenMai)}</p>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

@@ -47,7 +47,7 @@ public class XemMonAnServlet extends HttpServlet {
 
 
             request.setAttribute("monAn", monAn);
-            request.setAttribute("loaiMon",loaiMon);
+            request.setAttribute("loaiMon", loaiMon);
 //            request.setAttribute("thucDon", thucDon);
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-mon-an.jsp");

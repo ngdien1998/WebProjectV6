@@ -22,11 +22,11 @@ import java.util.ArrayList;
 public class ThemMonAnVaoThucDonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idThucDon = request.getParameter("txtIdThucDon");
-        String[] selectedMonAn =  request.getParameterValues("cmbMonAn");
+        String[] selectedMonAn = request.getParameterValues("cmbMonAn");
         ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService(DbAccess.getValue(request));
-        for (int i =0; i<selectedMonAn.length;i++){
+        for (int i = 0; i < selectedMonAn.length; i++) {
             try {
-                thucDonMonAnService.addThucDonMonAn(selectedMonAn[i],idThucDon);
+                thucDonMonAnService.addThucDonMonAn(selectedMonAn[i], idThucDon);
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -50,25 +50,26 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet {
         MonAnService monAnService = new MonAnService(admin);
         ArrayList<MonAn> listMonAn = null;
         try {
-            thucDon = thucDonService.get(idThucDon);
+//            thucDon = thucDonService.get(idThucDon);
+//            listMonAn = monAnService.getData();
+
             listMonAn = monAnService.getData();
-
             // check tồn tại trong thực đơn rồi thì xóa
-            ArrayList<Integer> listIDMonAn = monAnService.getIDMonAn(Integer.parseInt(idThucDon));
-
-            for (int y : listIDMonAn) {
-                for (MonAn x : listMonAn) {
-                    if (x.getIdMonAn() != y) {
-                        listMonAn.remove(x);
-                    }
-                    if(listMonAn.isEmpty()){
-                        request.setAttribute("thucDon", thucDon);
-                        request.setAttribute("listMonAn", listMonAn);
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an-vao-thuc-don.jsp");
-                        dispatcher.forward(request, response);
-                    }
-                }
-            }
+//            ArrayList<Integer> listIDMonAn = monAnService.getIDMonAn(Integer.parseInt(idThucDon));
+//
+//            for (int y : listIDMonAn) {
+//                for (MonAn x : listMonAn) {
+//                    if (x.getIdMonAn() != y) {
+//                        listMonAn.remove(x);
+//                    }
+//                    if (listMonAn.isEmpty()) {
+//                        request.setAttribute("thucDon", thucDon);
+//                        request.setAttribute("listMonAn", listMonAn);
+//                        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an-vao-thuc-don.jsp");
+//                        dispatcher.forward(request, response);
+//                    }
+//                }
+//            }
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
