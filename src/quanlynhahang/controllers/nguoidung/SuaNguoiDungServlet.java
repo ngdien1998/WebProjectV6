@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.nguoidung;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.datamodels.NguoiDung;
@@ -19,9 +21,10 @@ import java.util.Date;
 @WebServlet(name = "SuaNguoiDungServlet", urlPatterns = {"/admin/sua-nguoi-dung"})
 public class SuaNguoiDungServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
         try {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
+
             String email = request.getParameter("email");
             if (email == null) {
                 response.setStatus(400);
@@ -37,7 +40,7 @@ public class SuaNguoiDungServlet extends HttpServlet {
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-nguoi-dung.jsp");
             dispatcher.forward(request, response);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

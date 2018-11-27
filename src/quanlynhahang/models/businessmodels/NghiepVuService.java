@@ -38,17 +38,17 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
 
     @Override
     public int add(NghiepVu nghiepVu) throws SQLException, ClassNotFoundException {
-        if(nghiepVu==null)
+        if (nghiepVu == null)
             return 0;
 
         openConnection();
-        String sql="EXEC ThemNghiepVu ?,?";
-        PreparedStatement statement=connection.prepareStatement(sql);
+        String sql = "EXEC ThemNghiepVu ?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setString(1,nghiepVu.getTenNghiepVu());
-        //statement.setString(1,nghiepVu.getMoTa());
-        int rowAffected= statement.executeUpdate();
+        statement.setString(1, nghiepVu.getTenNghiepVu());
+        statement.setString(2, nghiepVu.getMoTa());
+        int rowAffected = statement.executeUpdate();
 
         closeConnection();
         return rowAffected;
@@ -57,12 +57,12 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
     @Override
     public int delete(Object... keys) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql="EXEC XoaNghiepVu ?";
-        PreparedStatement statement=connection.prepareStatement(sql);
+        String sql = "EXEC XoaNghiepVu ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1,(int)keys[0]);
-        int rowAffected=statement.executeUpdate();
+        statement.setInt(1, (int) keys[0]);
+        int rowAffected = statement.executeUpdate();
 
         closeConnection();
         return rowAffected;
@@ -71,14 +71,14 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
     @Override
     public int modify(NghiepVu nghiepVu) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql="EXEC SuaNghiepVu ?,?";
-        PreparedStatement statement=connection.prepareStatement(sql);
+        String sql = "EXEC SuaNghiepVu ?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1,nghiepVu.getIdNghiepVu());
-        statement.setString(2,nghiepVu.getTenNghiepVu());
-        //statement.setString(3,nghiepVu.getMoTa());
-        int rowAffected=statement.executeUpdate();
+        statement.setInt(1, nghiepVu.getIdNghiepVu());
+        statement.setString(2, nghiepVu.getTenNghiepVu());
+        statement.setString(3, nghiepVu.getMoTa());
+        int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
     }
@@ -86,7 +86,7 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
     @Override
     public NghiepVu get(Object... keys) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql = "EXEC LayMotNghiepVu ?";
+        String sql = "SELECT * FROM LayMotNghiepVu(?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -98,7 +98,7 @@ public class NghiepVuService extends ConnectDatabase implements Businesses<Nghie
             nghiepVu = new NghiepVu();
             nghiepVu.setIdNghiepVu(res.getInt(1));
             nghiepVu.setTenNghiepVu(res.getString(2));
-            //nghiepVu.setMoTa(res.getString(3));
+            nghiepVu.setMoTa(res.getString(3));
         }
         closeConnection();
         return nghiepVu;

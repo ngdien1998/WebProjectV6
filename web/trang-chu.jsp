@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ - Quản lý nhà hàng</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="assests/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assests/js/parallax.min.js"></script>
     <script type="text/javascript" src="assests/js/bootstrap.min.js"></script>
@@ -19,6 +20,13 @@
     <div class="col-3 contact-bar-greeting">
         <i>Hân hạnh được phục vụ quý khách</i>
     </div>
+    <%----%>
+    <%--<div class="col-9 contact-bar-functions">--%>
+        <%--<a href="/dang-nhap">Đăng nhập</a>--%>
+        <%--<a href="/dang-ky">Đăng ký</a>--%>
+        <%--<a href="#!">Giỏ hàng</a>--%>
+    <%--</div>--%>
+
     <div class="col-9 contact-bar-functions">
         <c:choose>
             <c:when test="${sessionScope.nguoiDungHienTai != null}">
@@ -51,27 +59,30 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./trang-chu.html">Trang chủ
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/trang-chu">Trang chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./thuc-don.html">Thực đơn</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/thuc-don">Thực đơn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./tat-ca-mon-an.html">Tất cả món ăn</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Tất cả
+                        món ăn</a>
+                </li>
+                <%--<li class="nav-item">--%>
+                    <%--<a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài--%>
+                        <%--viết</a>--%>
+                <%--</li>--%>
+                <li class="nav-item">
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/gioi-thieu">Nhà
+                        hàng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./tin-tuc-blog.html">Bài viết</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/dat-ban">Đặt bàn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./gioi-thieu.html">Nhà hàng</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./dat-ban.html">Đặt bàn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="./lien-he.html">Liên hệ</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/lien-he">Liên hệ</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -122,9 +133,8 @@
 <div class="main-menus">
     <div class="title">
         <img src="assests/images/logo.png" height="50" width="50"/>
-        <h1 class="font-blonde-script">Thực đơn chính của nhà hàng</h1>
-        <i class="secondary-text-color">Thực đơn buffet phong phú với hơn 50 món do chính đầu bếp có kinh nghiệm
-            lựa chọn
+        <h1 class="font-blonde-script">Món ăn mới của nhà hàng</h1>
+        <i class="secondary-text-color"> Những món ăn là tinh hoa ẩm thực của người Việt
         </i>
         <div id="list-menu">
             <a class="food-menu background-blue text-white" href="#!">Shushi</a>
@@ -136,55 +146,22 @@
         </div>
     </div>
     <div class="menu-foods container">
-        <div class="row">
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
+        <div class="row mb-4">
+            <c:forEach var="monAn" items="${requestScope.monAns}">
+                <div class="food-item col-md-3 col-sm-6 col-12">
+                    <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
+                        <div class="food-img">
+                            <img src="${monAn.hinhMonAn}" height="170px"/>
+                        </div>
+                        <div class="row">
+                            <p class="col-8 food-name" style="line-height: 30px">${monAn.tenMonAn}</p>
+                            <p class="col-4 price">${monAn.gia} đ</p>
+                        </div>
+                        <p class="price old-price" style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '': monAn.gia + (monAn*khuyenMai) }
+                            </p>
+                    </a>
+                </div>
+            </c:forEach>
         </div>
         <div class="row">
             <div class="food-ads food-ads-left col-3">
@@ -218,17 +195,7 @@
             <h1 class="font-blonde-script">Đội ngũ nhân viên</h1>
             <img src="assests/images/logo.png" alt="logo" width="100" height="100">
             <p>
-                <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                    been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                    of type and scrambled
-                    it to make a type specimen book. It has survived not only five centuries, but also the leap
-                    into electronic
-                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-                    release of Letraset
-                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                    like Aldus PageMaker
-                    including versions of Lorem Ipsum.
+                <i> Những nhân viên nòng cốt và có vai trò chính trong nhà hàng
                 </i>
             </p>
         </div>
@@ -236,30 +203,22 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12 emp">
                     <img src="assests/images/people.jpg"/>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the
-                        industry
+                    <p>Nguyễn Lê Điền
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
                     <img src="assests/images/people.jpg"/>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the
-                        industry
+                    <p>Nguyễn Trường Tráng
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
                     <img src="assests/images/people.jpg"/>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the
-                        industry
+                    <p>Nguyễn Thanh Tân
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
                     <img src="assests/images/people.jpg"/>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has been the
-                        industry
+                    <p>Phạm Ngọc Diêu
                     </p>
                 </div>
             </div>
@@ -271,60 +230,26 @@
     <div class="title">
         <img src="assests/images/logo.png" height="50" width="50"/>
         <h1 class="font-blonde-script">Thực đơn chính của nhà hàng</h1>
-        <i class="secondary-text-color">Thực đơn buffet phong phú với hơn 50 món do chính đầu bếp có kinh nghiệm
-            lựa chọn
+        <i class="secondary-text-color">Thực đơn do chính đầu bếp có kinh nghiệm lựa chọn
         </i>
     </div>
     <div class="menu-foods container">
         <div class="row">
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
-            <div class="food-item col-md-3 col-sm-6 col-12">
-                <a href="#!">
-                    <div class="food-img">
-                        <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                    </div>
-                    <div class="row">
-                        <p class="col-6 food-name">Tên món ăn</p>
-                        <p class="col-6 price">200 000đ</p>
-                    </div>
-                    <p class="price old-price">250 000đ</p>
-                </a>
-            </div>
+            <c:forEach var="thucDon" items="${requestScope.thucDons}">
+                <div class="food-item col-md-3 col-sm-6 col-12">
+                    <a href="#!">
+                        <div class="food-img">
+                            <img src="${thucDon.hinhThucDon}" height="170px"/>
+                        </div>
+                        <div class="row">
+                            <p class="col-6 food-name" style="line-height: 30px">${thucDon.tenThucDon}</p>
+                            <p class="col-6 price">${thucDon.gia} đ</p>
+                        </div>
+                        <%--<p class="price old-price"--%>
+                           <%--style="position: absolute; right: 17px;top: 208px;">${thucDon.phanTramKhuyenMai == 0 ? '' : thucDon.gia + (thucDon*phanTramKhuyenMai)} đ</p>--%>
+                    </a>
+                </div>
+            </c:forEach>
         </div>
     </div>
 </div>
@@ -332,15 +257,10 @@
 <div class="parallax-window" data-parallax="scroll" data-image-src="assests/images/paralax2.png">
     <div class="container">
         <div class="comment-title">
-            <h1 class="font-blonde-script">Đội ngũ nhân viên</h1>
+            <h1 class="font-blonde-script">Nhận Xét Nhà Hàng</h1>
             <img src="assests/images/logo.png" alt="logo" width="100" height="100">
             <p>
-                <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                    been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                    of type and scrambled
-                    it to make a type specimen book. It has survived not only five centuries, but also the leap
-                    into electronic
+                <i>Những nhận xét của khách hàng đóng góp có vai trò rất quan trọng trong việc phát triển nhà hàng
                 </i>
             </p>
         </div>
@@ -355,56 +275,31 @@
                     <div class="carousel-item active">
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
-                            <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including
-                                versions of Lorem Ipsum.
+                            <i>
+                                Nhà hàng có thức ăn khá ngon, nội thất cũng như view rất đẹp. Tuyệt
                             </i>
                         </p>
                     </div>
                     <div class="carousel-item">
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
-                            <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including
-                                versions of Lorem Ipsum.
+                            <i>Tôi rất hài lòng với sự phục vụ nhiệt tình của nhân viên nhà hàng này, rất chu đáo, nhiệt tình cũng như chất lượng thức ăn tốt. Tôi thích món Heo Massage tại đây. Cảm ơn Nhà hàng!
                             </i>
                         </p>
                     </div>
                     <div class="carousel-item">
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
-                            <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including
-                                versions of Lorem Ipsum.
+                            <i>
+                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng  rất ngon và rẻ, vừa túi tiền, phục vụ tận tình chu đáo.
                             </i>
                         </p>
                     </div>
                     <div class="carousel-item">
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
-                            <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                recently with desktop publishing software like Aldus PageMaker including
-                                versions of Lorem Ipsum.
+                            <i>
+                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng Năm Nhỏ, rất ngon và rẻ, vừa túi tiền, phục vụ tận tình chu đáo.
                             </i>
                         </p>
                     </div>
@@ -484,90 +379,4 @@
     </div>
 </div>
 
-<div class="footer parallax-window" data-parallax="scroll"
-     data-image-src="assests/images/blur-close-up-cutlery-370984.jpg">
-    <div class="container-fluid">
-        <div class="footer-title">
-            <h1 class="font-blonde-script">Liên hệ</h1>
-            <img src="assests/images/logo.png" height="100" width="100"/>
-            <p>
-                <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry</i>
-            </p>
-            <form action="" method="post" class="email-input">
-                <div class="row">
-                    <div class="input-group col-6 offset-3">
-                        <input type="text" class="form-control" placeholder="Nhập email của bạn"
-                               aria-label="Recipient's username"
-                               aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <input class="btn btn-info" type="submit" id="button-addon2" value="Đăng ký"/>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-12 footer-content">
-                <h1 class="font-blonde-script content-header">Thời gian</h1>
-                <table class="table">
-                    <tr>
-                        <td style="padding-top: 0;">Thứ 2</td>
-                        <td style="padding-top: 0;" align="right">8:00 - 22:00</td>
-                    </tr>
-                    <tr>
-                        <td>Thứ 3</td>
-                        <td align="right">8:00 - 22:00</td>
-                    </tr>
-                    <tr>
-                        <td>Thứ 4</td>
-                        <td align="right">8:00 - 22:00</td>
-                    </tr>
-                    <tr>
-                        <td>Thứ 6</td>
-                        <td align="right">8:00 - 22:00</td>
-                    </tr>
-                    <tr>
-                        <td>Thứ 7</td>
-                        <td align="right">8:00 - 22:00</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 footer-content">
-                <h1 class="font-blonde-script content-header">Thông tin liên hệ</h1>
-                <p>
-                    <b>Địa chỉ:</b>
-                    75/6 Trương Văn Hải, Tăng Nhơn Phú B, Q9
-                </p>
-                <p>
-                    <b>Email:</b>
-                    nhahang@gmail.com
-                </p>
-                <p>
-                    <b>Hot line:</b>
-                    (098) 765 9898
-                </p>
-                <span class="social">
-                            <a></a>
-                        </span>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 send-contact footer-content">
-                <h1 class="font-blonde-script content-header">Gửi liên hệ</h1>
-                <form action="#" method="post">
-                    <div class="form-row">
-                        <div class="col-6">
-                            <input type="text" class="form-control"/>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="form-control"/>
-                        </div>
-                    </div>
-                    <textarea class="form-control" rows="8"></textarea>
-                    <input type="submit" value="Gửi" class="btn btn-light"/>
-                    <input type="button" value="Hủy" class="btn btn-light"/>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+<jsp:include page="_shared/user/footer.jsp" flush="true"/>

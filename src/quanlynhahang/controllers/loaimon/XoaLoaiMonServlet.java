@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.LoaiMonService;
@@ -15,11 +17,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XoaLoaiMonServlet", urlPatterns = {"/admin/xoa-loai-mon"})
-public class XoaLoaiMonServlet extends HttpServlet {
+public class XoaLoaiMonServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String id = request.getParameter("txtIdLoaiMon");
             if (id == null || id.trim().equals("")) {
                 response.setStatus(400);
@@ -37,6 +48,15 @@ public class XoaLoaiMonServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idLoaiMon = request.getParameter("idLoaiMon");
             if (idLoaiMon == null) {
                 response.setStatus(400);
@@ -57,5 +77,10 @@ public class XoaLoaiMonServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_LOAI_MON;
     }
 }

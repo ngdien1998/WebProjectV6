@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
@@ -10,13 +12,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XoaQuanTriVienServlet", urlPatterns = { "/admin/xoa-quan-tri-vien" })
-public class XoaQuanTriVienServlet extends HttpServlet {
+public class XoaQuanTriVienServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             String email = request.getParameter("txtEmail");
             if (email == null || email.trim().equals("")) {
                 response.sendError(400);
@@ -33,6 +46,16 @@ public class XoaQuanTriVienServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             String email = request.getParameter("email");
             if (email == null || email.trim().equals("")) {
                 response.sendError(400);
@@ -51,5 +74,10 @@ public class XoaQuanTriVienServlet extends HttpServlet {
             e.printStackTrace();
             response.sendError(500);
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_QUAN_TRI_VIEN;
     }
 }

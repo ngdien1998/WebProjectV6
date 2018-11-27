@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
@@ -14,9 +16,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XemLoaiMonServlet", urlPatterns = {"/admin/xem-loai-mon"})
-public class XemLoaiMonServlet extends HttpServlet {
+public class XemLoaiMonServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idLoaiMon = request.getParameter("idLoaiMon");
             if (idLoaiMon == null) {
                 response.setStatus(400);
@@ -37,5 +48,10 @@ public class XemLoaiMonServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XEM_LOAI_MON;
     }
 }

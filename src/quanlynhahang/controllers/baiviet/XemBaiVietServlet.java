@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
@@ -19,9 +21,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XemBaiVietServlet", urlPatterns = { "/admin/xem-bai-viet" })
-public class XemBaiVietServlet extends HttpServlet {
+public class XemBaiVietServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             UserDbConnect admin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
@@ -46,5 +57,10 @@ public class XemBaiVietServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-bai-viet.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XEM_BAI_VIET;
     }
 }

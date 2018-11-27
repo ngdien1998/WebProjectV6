@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.ThucDon;
@@ -14,9 +16,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XemThucDonServlet", urlPatterns = {"/admin/xem-thuc-don"})
-public class XemThucDonServlet extends HttpServlet {
+public class XemThucDonServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idThucDon = request.getParameter("idThucDon");
             if (idThucDon == null) {
                 response.setStatus(400);
@@ -37,5 +48,10 @@ public class XemThucDonServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XEM_THUC_DON;
     }
 }

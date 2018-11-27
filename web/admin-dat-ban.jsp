@@ -21,10 +21,8 @@
                 <thead>
                 <tr>
                     <th width="170">Email</th>
-                    <th>Bàn</th>
                     <th width="240">Thời Gian</th>
                     <th>Số lượng người</th>
-                    <th>Giá</th>
                     <th>Ghi chú</th>
                 </tr>
                 </thead>
@@ -34,12 +32,10 @@
                         <td>
                             <div class="text">${datBan.email}</div>
                         </td>
-                        <td>${datBan.ban}</td>
                         <td>
                             <div class="text">${datBan.thoiGian}</div>
                         </td>
                         <td>${datBan.soLuong}</td>
-                        <td>${datBan.giaTien}đ</td>
                         <td>${datBan.ghiChu}</td>
                         <td>
                             <a href="/admin/xoa-dat-ban?email=${datBan.email}">Xóa</a>

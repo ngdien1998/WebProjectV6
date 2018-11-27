@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/css/style.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="<%= request.getContextPath() + "/" %>../../assests/images/favicon.png"/>
+
+<link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css">
 <style>
     .results tr[visible='false'],
     .no-result {
@@ -34,6 +36,10 @@
         max-height: 32px;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+    }
+
+    li {
+        list-style-type: none;
     }
 </style>
 </head>
@@ -179,41 +185,41 @@
                     <span class="nav-link justify-content-center text-danger"><b>DANH MỤC QUẢN LÝ</b></span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-thuc-don.html">
+                    <a class="nav-link" href="/admin/thuc-don">
                         <i class="mdi mdi-silverware-variant menu-icon"></i>
                         <span class="menu-title">Quản Lý Thực Đơn</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./loai-mon">
+                    <a class="nav-link" href="/admin/loai-mon">
                         <i class="mdi mdi-format-list-bulleted-type menu-icon"></i>
                         <span class="menu-title">Quản Lý Loại Món</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./mon-an">
+                    <a class="nav-link" href="/admin/mon-an">
                         <i class="mdi mdi-food-fork-drink menu-icon"></i>
                         <span class="menu-title">Quản Lý Món Ăn</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin-bai-viet.html">
+                    <a class="nav-link" href="/admin/bai-viet">
                         <i class="mdi mdi-book-open-page-variant menu-icon"></i>
                         <span class="menu-title">Quản Lý Bài viết</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./admin-quan-ly-dat-ban.html">
-                        <i class="mdi mdi-table menu-icon"></i>
-                        <span class="menu-title">Quản Lý Đặt Bàn</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./admin-quan-ly-hoa-don.html">
-                        <i class="mdi mdi-content-paste menu-icon"></i>
-                        <span class="menu-title">Quản Lý Hóa Đơn</span>
-                    </a>
-                </li>
+                <%--<li class="nav-item">--%>
+                    <%--<a class="nav-link" href="/admin/dat-ban">--%>
+                        <%--<i class="mdi mdi-table menu-icon"></i>--%>
+                        <%--<span class="menu-title">Quản Lý Đặt Bàn</span>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a class="nav-link" href="/admin/hoa-don">--%>
+                        <%--<i class="mdi mdi-content-paste menu-icon"></i>--%>
+                        <%--<span class="menu-title">Quản Lý Hóa Đơn</span>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false"
                        aria-controls="page-layouts">
@@ -230,18 +236,18 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin-nghiep-vu.html">
-                        <i class="mdi mdi-account-convert menu-icon"></i>
-                        <span class="menu-title">Quản Nghiệp vụ</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin-quyen.html">
-                        <i class="mdi mdi-account-key menu-icon"></i>
-                        <span class="menu-title">Quản Lý Quyền</span>
-                    </a>
-                </li>
+                <%--<li class="nav-item">--%>
+                    <%--<a class="nav-link" href="/admin/nghiep-vu">--%>
+                        <%--<i class="mdi mdi-account-convert menu-icon"></i>--%>
+                        <%--<span class="menu-title">Quản Nghiệp vụ</span>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
+                <%--<li class="nav-item">--%>
+                    <%--<a class="nav-link" href="/admin/quyen">--%>
+                        <%--<i class="mdi mdi-account-key menu-icon"></i>--%>
+                        <%--<span class="menu-title">Quản Lý Quyền</span>--%>
+                    <%--</a>--%>
+                <%--</li>--%>
             </ul>
         </nav>
         <!-- partial -->

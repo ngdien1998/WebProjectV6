@@ -2,6 +2,8 @@ package quanlynhahang.controllers.baiviet;
 
 import java.text.ParseException;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
@@ -23,11 +25,21 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 @WebServlet(name = "VietBaiServlet", urlPatterns = { "/admin/viet-bai" })
-public class VietBaiServlet extends HttpServlet {
+public class VietBaiServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             BaiViet baiViet = new BaiViet();
             baiViet.setTenBaiViet(request.getParameter("txtTenBaiViet"));
             baiViet.setMoTa(request.getParameter("txtMoTa"));
@@ -59,6 +71,16 @@ public class VietBaiServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             UserDbConnect admin = DbAccess.getValue(request);
             LoaiBaiVietService loaiBaiVietService = new LoaiBaiVietService(admin);
             request.setAttribute("loaiBaiViets", loaiBaiVietService.getData());
@@ -69,5 +91,10 @@ public class VietBaiServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-viet-bai.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.THEM_BAI_VIET;
     }
 }

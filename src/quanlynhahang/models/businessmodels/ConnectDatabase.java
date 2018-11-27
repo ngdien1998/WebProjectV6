@@ -25,8 +25,10 @@ public abstract class ConnectDatabase {
         } else {
             username = user.getUsername();
             password = user.getPassword();
-            hostName = user.getHostName();
-            port = user.getPort();
+            if (user.getHostName() != null && user.getPort() != null) {
+                hostName = user.getHostName();
+                port = user.getPort();
+            }
         }
     }
 

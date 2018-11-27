@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
@@ -19,63 +21,68 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ThemMonAnVaoThucDonServlet", urlPatterns = {"/admin/them-mon-an-vao-thuc-don"})
-public class ThemMonAnVaoThucDonServlet extends HttpServlet {
+public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idThucDon = request.getParameter("txtIdThucDon");
-        String[] selectedMonAn =  request.getParameterValues("cmbMonAn");
+        String[] selectedMonAn = request.getParameterValues("cmbMonAn");
         ThucDonMonAnService thucDonMonAnService = new ThucDonMonAnService(DbAccess.getValue(request));
-        for (int i =0; i<selectedMonAn.length;i++){
+        for (int i = 0; i < selectedMonAn.length; i++) {
             try {
-                thucDonMonAnService.addThucDonMonAn(selectedMonAn[i],idThucDon);
+                thucDonMonAnService.addThucDonMonAn(selectedMonAn[i], idThucDon);
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
 
         response.sendRedirect("/admin/thuc-don");
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idThucDon = request.getParameter("idThucDon");
-        if (idThucDon == null) {
-            response.setStatus(400);
-            return;
-        }
-        UserDbConnect admin = DbAccess.getValue(request);
-        ThucDonService thucDonService = new ThucDonService(admin);
-        ThucDon thucDon = null;
-
-        //Lấy món ăn trong ThucDonMonAn
-        MonAnService monAnService = new MonAnService(admin);
-        ArrayList<MonAn> listMonAn = null;
         try {
-            thucDon = thucDonService.get(idThucDon);
-            listMonAn = monAnService.getData();
-
-            // check tồn tại trong thực đơn rồi thì xóa
-            ArrayList<Integer> listIDMonAn = monAnService.getIDMonAn(Integer.parseInt(idThucDon));
-
-            for (int y : listIDMonAn) {
-                for (MonAn x : listMonAn) {
-                    if (x.getIdMonAn() != y) {
-                        listMonAn.remove(x);
-                    }
-                    if(listMonAn.isEmpty()){
-                        request.setAttribute("thucDon", thucDon);
-                        request.setAttribute("listMonAn", listMonAn);
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an-vao-thuc-don.jsp");
-                        dispatcher.forward(request, response);
-                    }
-                }
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
             }
 
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
+            String idThucDon = request.getParameter("idThucDon");
+            if (idThucDon == null) {
+                response.setStatus(400);
+                return;
+            }
+            UserDbConnect admin = DbAccess.getValue(request);
+            ThucDon thucDon = null;
+
+            //Lấy món ăn trong ThucDonMonAn
+            MonAnService monAnService = new MonAnService(admin);
+            ArrayList<MonAn> listMonAn = null;
+
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+            listMonAn = monAnService.getData();
+
+            request.setAttribute("thucDon", thucDon);
+            request.setAttribute("listMonAn", listMonAn);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        request.setAttribute("thucDon", thucDon);
-        request.setAttribute("listMonAn", listMonAn);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an-vao-thuc-don.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.THEM_MON_AN_VAO_THUC_DON;
     }
 }

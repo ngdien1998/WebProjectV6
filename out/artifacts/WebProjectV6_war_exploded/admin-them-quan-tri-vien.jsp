@@ -73,14 +73,14 @@
                     <div class="row" style="padding-left: 16px;">
                         <div class="col form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radNam"
+                                <input type="radio" class="form-check-input" name="radGioiTinh" value="nam"
                                         id="nam">Nam
                                 <i class="input-helper"></i>
                             </label>
                         </div>
                         <div class="col form-radio">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="radNu"
+                                <input type="radio" class="form-check-input" name="radGioiTinh" value="nu"
                                         id="nu">Nữ
                                 <i class="input-helper"></i>
                             </label>

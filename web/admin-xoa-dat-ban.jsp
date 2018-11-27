@@ -6,14 +6,10 @@
 
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title">Xóa đặt bàn: ${datBan.ban}</h2>
+        <h2 class="card-title">Xóa đặt bàn của : ${datBan.email}</h2>
         <p class="card-description">Thông tin chi tiết</p>
         <div class="row" style="margin-bottom: 16px;">
             <table class="table">
-                <tr>
-                    <td>Bàn</td>
-                    <td>${datBan.ban}</td>
-                </tr>
                 <tr>
                     <td>Thời gian</td>
                     <td>${datBan.thoiGian}</td>
@@ -23,15 +19,11 @@
                     <td>${datBan.soLuong}</td>
                 </tr>
                 <tr>
-                    <td>Giá tiền</td>
-                    <td>${datBan.giaTien}</td>
-                </tr>
-                <tr>
                     <td>Ghi chú</td>
                     <td>${datBan.ghiChu}</td>
                 </tr>
             </table>
-            <form action="/admin/xoa-nghiep-vu" method="post">
+            <form action="/admin/xoa-dat-ban" method="post">
                 <input type="hidden" value="${datBan.email}" name="txtEmail">
                 <div class="form-row justify-content-center">
                     <input type="submit" value="Xóa" class="btn btn-primary btn-rounded">

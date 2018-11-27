@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.thucdon;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.ThucDon;
@@ -14,11 +16,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XoaThucDonServlet", urlPatterns = {"/admin/xoa-thuc-don"})
-public class XoaThucDonServlet extends HttpServlet {
+public class XoaThucDonServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idThucDon = request.getParameter("txtIdThucDon");
             if (idThucDon == null || idThucDon.trim().equals("")) {
                 response.setStatus(400);
@@ -37,6 +48,15 @@ public class XoaThucDonServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idThucDon = request.getParameter("idThucDon");
             if (idThucDon == null || idThucDon.trim().equals("")) {
                 response.setStatus(400);
@@ -55,5 +75,10 @@ public class XoaThucDonServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-thuc-don.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_THUC_DON;
     }
 }

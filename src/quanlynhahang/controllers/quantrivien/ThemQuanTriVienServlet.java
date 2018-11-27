@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.quantrivien;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
@@ -14,12 +16,23 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "ThemQuanTriVienServlet", urlPatterns = { "/admin/them-quan-tri-vien" })
-public class ThemQuanTriVienServlet extends HttpServlet {
+@WebServlet(name = "ThemQuanTriVienServlet", urlPatterns = {"/admin/them-quan-tri-vien"})
+public class ThemQuanTriVienServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
+
             NguoiDung qtv = new NguoiDung();
             qtv.setEmail(request.getParameter("txtEmail"));
             qtv.setHoDem(request.getParameter("txtHoDem"));
@@ -48,7 +61,27 @@ public class ThemQuanTriVienServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-them-quan-tri-vien.jsp");
-        dispatcher.forward(request, response);
+        try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-them-quan-tri-vien.jsp");
+            dispatcher.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(500);
+        }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.THEM_QUAN_TRI_VIEN;
     }
 }

@@ -86,10 +86,10 @@
                     <td>Loại Món Ăn:</td>
                     <td>${requestScope.loaiMon.tenLoaiMon}</td>
                 </tr>
-                <tr>
-                    <td>Thực Đơn:</td>
-                    <td>${requestScope.thucDon.tenThucDon}</td>
-                </tr>
+                <%--<tr>--%>
+                    <%--<td>Thực Đơn:</td>--%>
+                    <%--<td>${requestScope.thucDon.tenThucDon}</td>--%>
+                <%--</tr>--%>
             </table>
         </div>
     </div>

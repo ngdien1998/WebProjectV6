@@ -48,7 +48,6 @@
                     <td>${qtv.dienThoai}</td>
                     <td>
                         <a href="/admin/xem-quan-tri-vien?email=${qtv.email}">Xem</a> |
-                        <a href="/admin/sua-quan-tri-vien?email=${qtv.email}">Sửa</a> |
                         <a href="/admin/xoa-quan-tri-vien?email=${qtv.email}">Xóa</a> |
                         <a href="/admin/phan-quyen?email=${qtv.email}">Phân quyền</a>
                     </td>

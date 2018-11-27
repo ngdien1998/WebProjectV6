@@ -18,7 +18,7 @@ public class LoaiMonService extends ConnectDatabase implements Businesses<LoaiMo
         ArrayList<LoaiMon> loaiMons = new ArrayList<>();
         openConnection();
 
-        String sql = "EXEC LayLoaiMon";
+        String sql = "SELECT * FROM LayTatCaLoaiMonA";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -94,7 +94,7 @@ public class LoaiMonService extends ConnectDatabase implements Businesses<LoaiMo
         }
         openConnection();
 
-        String sql = "EXEC LayMotLoaiMon ?";
+        String sql = "SELECT * FROM LayMotLoaiMon (?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

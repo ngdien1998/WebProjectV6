@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 
@@ -21,9 +23,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @WebServlet(name = "SuaMonAnServlet", urlPatterns = {"/admin/sua-mon-an"})
-public class SuaMonAnServlet extends HttpServlet {
+public class SuaMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
@@ -46,13 +57,22 @@ public class SuaMonAnServlet extends HttpServlet {
             MonAnService monAnService = new MonAnService(DbAccess.getValue(request));
             monAnService.modify(monAn);
             response.sendRedirect("/admin/mon-an");
-        } catch (SQLException | ClassNotFoundException | ParseException  e) {
+        } catch (SQLException | ClassNotFoundException | ParseException e) {
             e.printStackTrace();
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idMonAn = request.getParameter("idMonAn");
             if (idMonAn == null) {
                 response.setStatus(400);
@@ -82,5 +102,10 @@ public class SuaMonAnServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.SUA_MON_AN;
     }
 }

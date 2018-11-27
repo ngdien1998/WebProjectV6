@@ -30,7 +30,7 @@ public class ThemNghiepVuServlet extends HttpServlet {
             e.printStackTrace();
 
         }
-        response.sendRedirect("admin/nghiep-vu");
+        response.sendRedirect("/admin/nghiep-vu");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -3,8 +3,8 @@
         'use strict';
         resetToastPosition();
         $.toast({
-            heading: 'Success',
-            text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
+            heading: 'Gán quyền thành công',
+            text: 'Gán quyền thành công cho quản trị viên',
             showHideTransition: 'slide',
             icon: 'success',
             loaderBg: '#f96868',
@@ -39,8 +39,8 @@
         'use strict';
         resetToastPosition();
         $.toast({
-            heading: 'Danger',
-            text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
+            heading: 'Xóa quyền thành công',
+            text: 'Đã xóa quyền khỏi danh sách quyền của quản trị viên này.',
             showHideTransition: 'slide',
             icon: 'error',
             loaderBg: '#f2a654',

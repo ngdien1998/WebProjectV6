@@ -28,10 +28,10 @@ public class GetMoTaNghiepVuPostAjax extends HttpServlet {
                 response.setStatus(404);
                 return;
             }
-            //response.getWriter().print(nghiepVu.getMoTa());
-
+            response.getWriter().print(nghiepVu.getMoTa());
         } catch (Exception e) {
             e.printStackTrace();
+            response.sendError(500);
         }
     }
 }

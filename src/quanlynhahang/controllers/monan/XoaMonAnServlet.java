@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
@@ -19,11 +21,20 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XoaMonAnServlet", urlPatterns = {"/admin/xoa-mon-an"})
-public class XoaMonAnServlet extends HttpServlet {
+public class XoaMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String id = request.getParameter("txtIdMonAn");
             if (id == null || id.trim().equals("")) {
                 response.setStatus(400);
@@ -43,6 +54,15 @@ public class XoaMonAnServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idMonAn = request.getParameter("idMonAn");
             if (idMonAn == null) {
                 response.setStatus(400);
@@ -77,5 +97,10 @@ public class XoaMonAnServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_MON_AN;
     }
 }

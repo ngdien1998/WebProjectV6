@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.binhluan;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.BinhLuanService;
@@ -17,9 +19,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "BinhLuanBaiVietServlet", urlPatterns = { "/admin/binh-luan-bai-viet" })
-public class BinhLuanBaiVietServlet extends HttpServlet {
+public class BinhLuanBaiVietServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             UserDbConnect admin = DbAccess.getValue(request);
 
             String idDanhMucLienQuan = request.getParameter("id");
@@ -40,4 +51,8 @@ public class BinhLuanBaiVietServlet extends HttpServlet {
     }
 
 
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_BINH_LUAN_BAI_VIET;
+    }
 }

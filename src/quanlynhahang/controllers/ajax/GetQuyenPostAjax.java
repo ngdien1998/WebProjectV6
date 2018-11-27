@@ -27,16 +27,16 @@ public class GetQuyenPostAjax extends HttpServlet {
             sb.append("<ul>\n");
             for (QuyenVM quyen : quyens) {
                 sb.append("<li>\n");
-                sb.append("<div class=\"form-group\">\n");
-                sb.append("<div class=\"form-check form-check-flat\">\n");
-                sb.append("<label class=\"form-check-label\">\n");
-                sb.append("<input type=\"checkbox\" class=\"form-check-input quyen\" value=\"" + quyen.getIdQuyen() + "\"");
+                sb.append("<div class='form-group'>\n");
+                sb.append("<div class='form-check form-check-flat'>\n");
+                sb.append("<label class='form-check-label'>\n");
+                sb.append("<input type='checkbox' class='form-check-input quyen' value='" + quyen.getIdQuyen() + "' ");
                 if (quyen.isDuocCap()) {
-                    sb.append(" checked");
+                    sb.append("checked");
                 }
                 sb.append(">\n");
                 sb.append(quyen.getTenQuyen() + "\n");
-                sb.append("<i class=\"input-helper\"></i>\n");
+                sb.append("<i class='input-helper'></i>\n");
                 sb.append("</label>\n");
                 sb.append("</div>\n");
                 sb.append("</div>\n");

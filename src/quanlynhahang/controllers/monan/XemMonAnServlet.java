@@ -1,5 +1,8 @@
 package quanlynhahang.controllers.monan;
 
+import org.jboss.vfs.protocol.AbstractLocalURLStreamHandler;
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
@@ -20,9 +23,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XemMonAnServlet", urlPatterns = {"/admin/xem-mon-an"})
-public class XemMonAnServlet extends HttpServlet {
+public class XemMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idMonAn = request.getParameter("idMonAn");
             if (idMonAn == null) {
                 response.setStatus(400);
@@ -47,7 +59,7 @@ public class XemMonAnServlet extends HttpServlet {
 
 
             request.setAttribute("monAn", monAn);
-            request.setAttribute("loaiMon",loaiMon);
+            request.setAttribute("loaiMon", loaiMon);
 //            request.setAttribute("thucDon", thucDon);
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xem-mon-an.jsp");
@@ -55,5 +67,10 @@ public class XemMonAnServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XEM_MON_AN;
     }
 }

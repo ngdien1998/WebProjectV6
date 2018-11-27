@@ -10,6 +10,7 @@ public class MonAn {
     private String donViTinh;
     private String moTa;
     private int gia;
+    private String hinhMonAn;
     private int khuyenMai;
     private Date ngayThem;
     private int idLoaiMon;
@@ -17,15 +18,23 @@ public class MonAn {
     public MonAn() {
     }
 
-    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, int gia, int khuyenMai, Date ngayThem, int idLoaiMon) {
+    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, int gia, String hinhMonAn, int khuyenMai, Date ngayThem, int idLoaiMon) {
         this.idMonAn = idMonAn;
         this.tenMonAn = tenMonAn;
         this.donViTinh = donViTinh;
         this.moTa = moTa;
         this.gia = gia;
+        this.hinhMonAn = hinhMonAn;
         this.khuyenMai = khuyenMai;
         this.ngayThem = ngayThem;
         this.idLoaiMon = idLoaiMon;
+    }
+
+    public MonAn(int idMonAn, String tenMonAn, int gia, String hinhMonAn) {
+        this.idMonAn = idMonAn;
+        this.tenMonAn = tenMonAn;
+        this.gia = gia;
+        this.hinhMonAn = hinhMonAn;
     }
 
     public int getIdMonAn() {
@@ -66,6 +75,14 @@ public class MonAn {
 
     public void setGia(int gia) {
         this.gia = gia;
+    }
+
+    public String getHinhMonAn() {
+        return hinhMonAn;
+    }
+
+    public void setHinhMonAn(String hinhMonAn) {
+        this.hinhMonAn = hinhMonAn;
     }
 
     public int getKhuyenMai() {

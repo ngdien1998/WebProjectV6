@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet(name = "MonAnServlet", urlPatterns = { "/admin/mon-an" })
+@WebServlet(name = "MonAnServlet", urlPatterns = {"/admin/mon-an"})
 public class MonAnServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

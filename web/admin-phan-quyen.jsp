@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="row justify-content-center" style="padding-top: 32px;">
-            <a href="admin-quan-tri-vien.html" class="btn btn-success btn-rounded">Xong</a>
+            <a href="/admin/quan-tri-vien" class="btn btn-success btn-rounded">Xong</a>
         </div>
     </div>
 </div>
@@ -57,7 +57,6 @@
             email: "${requestScope.qtv.email}",
             action: action
         }, content => {
-            alert(content);
             if (content === "true") {
                 if (action === "add") {
                     showSuccessToast();

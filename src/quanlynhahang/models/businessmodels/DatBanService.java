@@ -18,7 +18,7 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         ArrayList<DatBan> datBans = new ArrayList<>();
         openConnection();
 
-        String sql = "EXEC LayDatBan";
+        String sql = "SELECT * FROM  LayDatBan";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -26,11 +26,9 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         while (res.next()) {
             DatBan datBan = new DatBan();
             datBan.setEmail(res.getString(1));
-            datBan.setBan(res.getString(2));
-            datBan.setThoiGian(res.getDate(3));
-            datBan.setSoLuong(res.getInt(4));
-            datBan.setGia(res.getInt(5));
-            datBan.setGhiChu(res.getString(6));
+            datBan.setThoiGian(res.getDate(2));
+            datBan.setSoLuong(res.getInt(3));
+            datBan.setGhiChu(res.getString(4));
 
             datBans.add(datBan);
         }
@@ -47,7 +45,7 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1, (int) keys[0]);
+        statement.setString(1, keys[0].toString());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -67,22 +65,20 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
     @Override
     public DatBan get(Object... keys) throws SQLException, ClassNotFoundException{
         openConnection();
-        String sql = "EXEC LayMotDatBan ?";
+        String sql = "SELECT * FROM LayMotDatBan (?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setInt(1, (int) keys[0]);
+        statement.setString(1, keys[0].toString());
 
         DatBan datBan = null;
         ResultSet res = statement.executeQuery();
         if (res.next()) {
             datBan = new DatBan();
             datBan.setEmail(res.getString(1));
-            datBan.setBan(res.getString(2));
-            datBan.setThoiGian(res.getDate(3));
-            datBan.setSoLuong(res.getInt(4));
-            datBan.setGia(res.getInt(5));
-            datBan.setGhiChu(res.getString(6));
+            datBan.setThoiGian(res.getDate(2));
+            datBan.setSoLuong(res.getInt(3));
+            datBan.setGhiChu(res.getString(4));
         }
         closeConnection();
         return datBan;

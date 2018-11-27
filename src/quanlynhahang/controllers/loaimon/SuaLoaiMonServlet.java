@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.loaimon;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
@@ -14,9 +16,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "SuaLoaiMonServlet", urlPatterns = {"/admin/sua-loai-mon"})
-public class SuaLoaiMonServlet extends HttpServlet {
+public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
@@ -43,6 +54,16 @@ public class SuaLoaiMonServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             String idLoaiMon = request.getParameter("idLoaiMon");
             if (idLoaiMon == null || idLoaiMon.trim().equals("")) {
                 response.setStatus(400);
@@ -63,5 +84,10 @@ public class SuaLoaiMonServlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.SUA_LOAI_MON;
     }
 }

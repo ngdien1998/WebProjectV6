@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
@@ -24,11 +26,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 @WebServlet(name = "SuaBaiVietServlet", urlPatterns = { "/admin/sua-bai-viet" })
-public class SuaBaiVietServlet extends HttpServlet {
+public class SuaBaiVietServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             BaiViet baiViet = new BaiViet();
             baiViet.setIdBaiViet(Integer.parseInt(request.getParameter("txtIdBaiViet")));
             baiViet.setTenBaiViet(request.getParameter("txtTenBaiViet"));
@@ -57,6 +69,16 @@ public class SuaBaiVietServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
+
             UserDbConnect admin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
@@ -87,5 +109,10 @@ public class SuaBaiVietServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-bai-viet.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.SUA_BAI_VIET;
     }
 }

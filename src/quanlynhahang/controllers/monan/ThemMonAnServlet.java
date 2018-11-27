@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.monan;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
@@ -25,12 +27,21 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @WebServlet(name = "ThemMonAnServlet", urlPatterns = {"/admin/them-mon-an"})
-public class ThemMonAnServlet extends HttpServlet {
+public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
 
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             MonAn monAn = new MonAn();
             monAn.setTenMonAn(request.getParameter("txtTenMonAn"));
             monAn.setDonViTinh(request.getParameter("txtDonViTinh"));
@@ -60,6 +71,15 @@ public class ThemMonAnServlet extends HttpServlet {
         ArrayList<ThucDon> listThucDon = null;
         ArrayList<LoaiMon> listLoaiMon = null;
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             listThucDon = monAnService.layToanBoThucDon();
             listLoaiMon = monAnService.layToanBoLoaiMon();
         } catch (SQLException | ClassNotFoundException e) {
@@ -70,5 +90,10 @@ public class ThemMonAnServlet extends HttpServlet {
         request.setAttribute("listLoaiMon", listLoaiMon);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-them-mon-an.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.THEM_MON_AN;
     }
 }

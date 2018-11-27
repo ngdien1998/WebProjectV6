@@ -6,7 +6,285 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53cf05a8-84e5-495d-92b1-a4d274326235" name="Default Changelist" comment="" />
+    <list default="true" id="53cf05a8-84e5-495d-92b1-a4d274326235" name="Default Changelist" comment="dien commit">
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/dangky/DangKyServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/dangxuat/DangXuatServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/TrangChuServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserChiTietMonAnServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserGioiThieuServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserLienHeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserTatCaMonAnServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserThucDonServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserChiTietMonAnService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserDangKyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserTatCaMonAnService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserThucDonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserTrangChuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/_shared/user/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/_shared/user/nav.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/GaTiemChomChom-540-360.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/Mi-xao-hai-san-thom-ngon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/banh-trang-cuon-thit-heo (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/ca-loc-nuong-mien-tay.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/cach-lam-bo-bit-tet.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/chan-ga-nuong-muoi-ot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/ga-hap-la-chanh-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/khong-gian-cuoi-tang2-006.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/mon-lau-ga-la-giang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/sup-cua-thom-ngon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/thit-bo-xao-mang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/thuc-don-sang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/thuc-don-toi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/thuc-don-trua.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/assests/images/vit-quay-la-moc-mat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/dang-ky.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/gioi-thieu.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/tat-ca-mon-an.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/thuc-don.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebProjectV6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WebProjectV6.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/NguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/NguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/QuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/QuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/Businesses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/Businesses.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/ConnectDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/ConnectDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/NguoiDungService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/NguoiDungService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/QuanTriVienService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/classes/quanlynhahang/models/businessmodels/QuanTriVienService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/lib/CKFinder-2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/_shared/admin/page-footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/_shared/admin/page-footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/_shared/admin/page-header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/_shared/admin/page-header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-binh-luan-mon-an.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-loai-mon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-nguoi-dung.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-nguoi-dung.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-quan-ly-mon-an.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-quan-ly-mon-an.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-quan-tri-vien.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-quan-tri-vien.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-mon-an.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-nguoi-dung.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-nguoi-dung.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-quan-tri-vien.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-quan-tri-vien.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-sua-thuc-don.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-them-loai-mon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-them-quan-tri-vien.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-them-quan-tri-vien.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-them-thuc-don.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-thuc-don.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-bai-viet.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-bai-viet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-mon-an.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-nguoi-dung.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-nguoi-dung.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-quan-tri-vien.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-quan-tri-vien.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/admin-xem-thuc-don.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.gio-hang.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.gio-hang.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.thuc-don.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.thuc-don.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.tin-tuc-blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/css/style.tin-tuc-blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckeditor/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckeditor/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/ckeditor.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/ckeditor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/fckeditor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/popup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/popups.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/popups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/public_api.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/public_api.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/sample.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/sample.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/standalone.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/standalone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/standalone_v1.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/standalone_v1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/tagusage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/_samples/tagusage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder_v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/ckfinder_v1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/006.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/006.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/cs/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/006.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/006.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/en/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es-mx/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es-mx/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es-mx/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es-mx/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/es/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/fi/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/fi/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/fi/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/fi/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/images/CKFinder_upload_04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/other/help.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/files/other/help.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/lt/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/lt/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/lt/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/lt/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/006.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/006.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/011.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/011.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/help/pl/files/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/install.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/install.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/_translationstatus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/_translationstatus.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/bg.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/bg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/cs.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/cs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/da.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/da.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/de.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/de.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/el.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/el.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/eo.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/eo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/es-mx.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/es-mx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/es.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/es.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/et.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/et.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fa.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fa.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fi.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fr.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/fr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/gu.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/gu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/he.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/he.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hu.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/hu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/it.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/it.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ja.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ja.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/lt.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/lt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/lv.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/lv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nb.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nl.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nn.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/nn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/no.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/no.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/pt-br.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/pt-br.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ro.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ru.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/ru.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sk.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sl.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sv.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/sv.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/tr.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/tr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/vi.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/vi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/zh-tw.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/lang/zh-tw.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/license.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/license.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/lang/en.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/lang/pl.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/lang/pl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/dummy/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/lib/codemirror.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/lib/codemirror.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/lib/codemirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/lib/codemirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/clike/clike.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/clike/clike.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/css/css.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/css/css.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/htmlmixed/htmlmixed.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/htmlmixed/htmlmixed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/javascript/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/javascript/javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/xml/xml.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/codemirror/mode/xml/xml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/fileeditor/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/flashupload/Uploader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/flashupload/flash/Uploader.swf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/colorbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/colorbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/jquery.colorbox-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/jquery.colorbox-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/gallery/colorbox/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/imageresize/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/plugins/imageresize/plugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/host.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/host.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/richcombo.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/richcombo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/skin.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/skin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/uipanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/kama/uipanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/host.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/host.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/richcombo.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/richcombo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/skin.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/skin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/uipanel.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/skins/v1/uipanel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/translations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/ckfinder/translations.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/toastDemo.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/js/toastDemo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/_grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/mixins/_grid-framework.scss" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/mixins/_grid-framework.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/utilities/_position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/bootstrap/scss/utilities/_position.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/lib/codemirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/lib/codemirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/mode/meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/mode/meta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/theme/solarized.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/codemirror/theme/solarized.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/datatables.net/js/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/datatables.net/js/jquery.dataTables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/jquery-steps/demo/css/jquery.steps.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/jquery-steps/demo/css/jquery.steps.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/jquery/external/sizzle/dist/sizzle.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/jquery/external/sizzle/dist/sizzle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/simplemde/dist/simplemde.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/assests/node_modules/simplemde/dist/simplemde.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/chi-tiet-mon-an.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/dat-ban.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/error-404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/error-500.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/gio-hang.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/gio-hang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/gioi-thieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/lien-he.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/tat-ca-mon-an.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/tat-ca-mon-an.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/thuc-don.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/thuc-don.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/tin-tuc-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/tin-tuc-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/trang-chu.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/WebProjectV6_war_exploded/trang-chu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/NguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/NguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/QuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/QuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/Businesses.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/Businesses.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/ConnectDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/ConnectDatabase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/NguoiDungService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/NguoiDungService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/QuanTriVienService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebProjectV6/quanlynhahang/models/businessmodels/QuanTriVienService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/common/AuthorizePermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/common/AuthorizePermission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetMoTaNghiepVuPostAjax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetMoTaNghiepVuPostAjax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetQuyenPostAjax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetQuyenPostAjax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/PhanQuyenPostAjax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/PhanQuyenPostAjax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/SuaBaiVietServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/SuaBaiVietServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/VietBaiServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/VietBaiServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XemBaiVietServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XemBaiVietServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XoaBaiVietServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XoaBaiVietServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/binhluan/BinhLuanBaiVietServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/binhluan/BinhLuanBaiVietServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/datban/XoaDatBanServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/datban/XoaDatBanServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/ThemLoaiMonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/ThemLoaiMonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XemLoaiMonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XemLoaiMonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XoaLoaiMonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XoaLoaiMonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/MonAnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/MonAnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/SuaMonAnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/SuaMonAnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnVaoThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnVaoThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XemMonAnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XemMonAnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XoaMonAnServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XoaMonAnServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/nghiepvu/SuaNghiepVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/nghiepvu/SuaNghiepVuServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/nghiepvu/ThemNghiepVuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/nghiepvu/ThemNghiepVuServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XoaNguoiDungServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XoaNguoiDungServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XoaQuanTriVienServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XoaQuanTriVienServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/SuaThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/SuaThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/ThemThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/ThemThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemChiTietThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemChiTietThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XoaThucDonServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XoaThucDonServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangchu/TrangChuServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/UserDatBanServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ConnectDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ConnectDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/DatBanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/DatBanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/LoaiMonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/LoaiMonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/MonAnService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/MonAnService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NghiepVuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NghiepVuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ThucDonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ThucDonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/DatBan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/DatBan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/MonAn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/MonAn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/ThucDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/ThucDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/_shared/admin/page-header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/_shared/admin/page-header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin-dat-ban.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin-dat-ban.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin-phan-quyen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin-phan-quyen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin-xem-mon-an.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin-xem-mon-an.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin-xoa-dat-ban.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin-xoa-dat-ban.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin-xoa-mon-an.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin-xoa-mon-an.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/assests/css/style.thuc-don.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/assests/css/style.thuc-don.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/chi-tiet-mon-an.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/chi-tiet-mon-an.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dat-ban.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/dat-ban.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gio-hang.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/gio-hang.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/gioi-thieu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lien-he.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/lien-he.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/tat-ca-mon-an.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/tat-ca-mon-an.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/thuc-don.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/thuc-don.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/tin-tuc-blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/tin-tuc-blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/trang-chu.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/trang-chu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/trang-chu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/trang-chu.jsp" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,23 +297,44 @@
     <session id="1868669370">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="28" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.23" value="2" />
+          <entry key="project.open.time.24" value="3" />
+          <entry key="project.open.time.25" value="3" />
+          <entry key="project.open.time.26" value="3" />
+          <entry key="project.open.time.27" value="3" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.32" value="2" />
+          <entry key="project.open.time.33" value="3" />
+          <entry key="project.open.time.34" value="2" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="jsp" value="73" />
+          <entry key="dummy" value="5" />
+          <entry key="html" value="543" />
+          <entry key="java" value="16911" />
+          <entry key="js" value="369" />
+          <entry key="jsp" value="7667" />
           <entry key="txt" value="12" />
+          <entry key="xml" value="216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSP" value="73" />
-          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="HTML" value="543" />
+          <entry key="JAVA" value="16911" />
+          <entry key="JSP" value="7667" />
+          <entry key="JavaScript" value="369" />
+          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="XML" value="216" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -45,18 +344,37 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="1" />
-          <entry key="jsp" value="3" />
+          <entry key="class" value="5" />
+          <entry key="gitignore" value="2" />
+          <entry key="html" value="28" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="387" />
+          <entry key="jpg" value="1" />
+          <entry key="js" value="14" />
+          <entry key="jsp" value="145" />
+          <entry key="xml" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="1" />
-          <entry key="JSP" value="3" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="CLASS" value="5" />
+          <entry key="HTML" value="28" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="387" />
+          <entry key="JSP" value="145" />
+          <entry key="JavaScript" value="14" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="XML" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="23" />
+          <entry key="git.branch.create.new" value="2" />
+          <entry key="git.branch.delete.local" value="1" />
+          <entry key="git.branch.merge" value="12" />
+          <entry key="git.checkout.as.new.branch" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -104,14 +422,34 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1223672417">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="jsp" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSP" value="4" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaibaiviet/ThemLoaiBaiVietServlet.java">
+        <entry file="file://$PROJECT_DIR$/web/admin-phan-quyen.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="152">
+              <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
             </state>
           </provider>
         </entry>
@@ -121,9 +459,34 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>And these were just the basic demos! Scroll down to check further details on how to customize the output.</find>
+      <find>http://localhost:8080</find>
+      <find>http://[tên miền của bạn]</find>
+      <find>Boolean isAdmin</find>
+      <find>assests</find>
+      <find>getServletPath</find>
+      <find>qtv</find>
+      <find>\&quot;</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>http://localhost:8080</replace>
+      <replace>http://localhost:8080/assests/js</replace>
+      <replace>&lt;%=request.getServletPath()%&gt;/</replace>
+      <replace>&lt;%=request.getServletPath()%&gt;/assests</replace>
+      <replace>getContextPath</replace>
+      <replace>nguoiDung</replace>
+      <replace>'</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,19 +499,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/admin-sua-quan-tri-vien.jsp" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.java" />
+        <option value="$PROJECT_DIR$/web/admin-them-quan-tri-vien.jsp" />
         <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/NguoiDungServlet.java" />
-        <option value="$PROJECT_DIR$/src/quanlynhahang/models/datamodels/LoaiMon.java" />
-        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/LoaiMonService.java" />
-        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/LoaiMonServlet.java" />
+        <option value="$PROJECT_DIR$/web/admin-quan-tri-vien.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-nguoi-dung.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-xoa-quan-tri-vien.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-xoa-nguoi-dung.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-sua-quan-tri-vien.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-sua-nguoi-dung.jsp" />
+        <option value="$PROJECT_DIR$/web/admin-xem-nguoi-dung.jsp" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NguoiDungService.java" />
+        <option value="$PROJECT_DIR$/web/admin-xem-quan-tri-vien.jsp" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/QuanTriVienServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/QuanTriVienService.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserTrangChuService.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/error-500.jsp" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/TrangChuServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ConnectDatabase.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NghiepVuService.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetMoTaNghiepVuPostAjax.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetQuyenPostAjax.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/PhanQuyenPostAjax.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XoaNguoiDungServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XoaQuanTriVienServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/SuaMonAnServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XemMonAnServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XoaMonAnServlet.java" />
         <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XemLoaiMonServlet.java" />
-        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java" />
         <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/ThemLoaiMonServlet.java" />
-        <option value="$PROJECT_DIR$/web/admin-sua-loai-mon.jsp" />
-        <option value="$PROJECT_DIR$/web/_shared/admin/page-header.jsp" />
-        <option value="$PROJECT_DIR$/web/admin-quan-ly-mon-an.html" />
-        <option value="$PROJECT_DIR$/web/admin-loai-mon.jsp" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XoaLoaiMonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/ThemThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemChiTietThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XoaThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/SuaThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnVaoThucDonServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/VietBaiServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/SuaBaiVietServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XoaBaiVietServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XemBaiVietServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/controllers/binhluan/BinhLuanBaiVietServlet.java" />
+        <option value="$PROJECT_DIR$/src/quanlynhahang/common/AuthorizePermission.java" />
+        <option value="$PROJECT_DIR$/web/admin-phan-quyen.jsp" />
       </list>
     </option>
   </component>
@@ -181,7 +582,124 @@
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Ant</id>
+          </State>
+          <State>
+            <id>Application Servers</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>Faces Model</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>Hibernate</id>
+          </State>
+          <State>
+            <id>InitializationJava</id>
+          </State>
+          <State>
+            <id>InternationalizationJava</id>
+          </State>
+          <State>
+            <id>JBoss Seam</id>
+          </State>
+          <State>
+            <id>JPA</id>
+          </State>
+          <State>
+            <id>JSON and JSON5</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java EE</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Maven</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>RegExp</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Struts</id>
+          </State>
+          <State>
+            <id>Struts 1Struts</id>
+          </State>
+          <State>
+            <id>TestNGJava</id>
+          </State>
+          <State>
+            <id>UI Form</id>
+          </State>
+          <State>
+            <id>Validity issuesGroovy</id>
+          </State>
+          <State>
+            <id>XML</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+          <State>
+            <id>YAML</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -189,7 +707,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,52 +714,16 @@
               <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quanlynhahang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quanlynhahang" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quanlynhahang" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quanlynhahang" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="datamodels" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebProjectV6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebProjectV6" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -251,13 +732,20 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\JSP Servlet\WebProjectV6\web\WEB-INF\pages" />
+      <recent name="E:\JSP Servlet\WebProjectV6\web\assests\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JSP Servlet\WebProjectV6\web" />
+      <recent name="E:\JSP Servlet\WebProjectV6\web\WEB-INF" />
+      <recent name="E:\JSP Servlet\WebProjectV6\web\WEB-INF\lib" />
       <recent name="F:\JAVA_WEB\WebProjectV6\web" />
     </key>
   </component>
@@ -275,6 +763,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.12" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:2211/" />
       <deployment>
         <artifact name="WebProjectV6:war exploded">
           <settings>
@@ -284,6 +773,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_12_WebProjectV6" />
+        <option name="HTTP_PORT" value="2211" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -361,6 +851,35 @@
       <workItem from="1541915658716" duration="1960000" />
       <workItem from="1542025430840" duration="6190000" />
       <workItem from="1542034088985" duration="347000" />
+      <workItem from="1542096757921" duration="5209000" />
+      <workItem from="1542107811065" duration="16279000" />
+      <workItem from="1542130966674" duration="185000" />
+      <workItem from="1542154116031" duration="7555000" />
+      <workItem from="1542245633033" duration="1113000" />
+      <workItem from="1542285498254" duration="15000" />
+      <workItem from="1542293547071" duration="9089000" />
+      <workItem from="1542303508397" duration="325000" />
+      <workItem from="1542335152193" duration="12272000" />
+      <workItem from="1542353860427" duration="4061000" />
+      <workItem from="1542365672930" duration="2207000" />
+      <workItem from="1542370606785" duration="582000" />
+      <workItem from="1542371266216" duration="23000" />
+      <workItem from="1542371543268" duration="16843000" />
+      <workItem from="1542512203490" duration="38000" />
+      <workItem from="1542512439124" duration="2148000" />
+      <workItem from="1542551164569" duration="5173000" />
+      <workItem from="1542631244452" duration="1473000" />
+      <workItem from="1542700066144" duration="11957000" />
+      <workItem from="1542759971442" duration="15550000" />
+      <workItem from="1542800930839" duration="14603000" />
+      <workItem from="1542949765281" duration="818000" />
+      <workItem from="1543035164165" duration="886000" />
+      <workItem from="1543042405291" duration="5248000" />
+      <workItem from="1543049897950" duration="14294000" />
+      <workItem from="1543157949667" duration="1727000" />
+      <workItem from="1543192614417" duration="700000" />
+      <workItem from="1543232232717" duration="28705000" />
+      <workItem from="1543300243721" duration="23533000" />
     </task>
     <task id="LOCAL-00001" summary="dien commit">
       <created>1541915426158</created>
@@ -369,42 +888,118 @@
       <option name="project" value="LOCAL" />
       <updated>1541915426158</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="dien commit">
+      <created>1542034809647</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542034809647</updated>
+    </task>
+    <task id="LOCAL-00003" summary="dien commit">
+      <created>1542040147353</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542040147353</updated>
+    </task>
+    <task id="LOCAL-00004" summary="dien commit">
+      <created>1542041815898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542041815898</updated>
+    </task>
+    <task id="LOCAL-00005" summary="dien commit">
+      <created>1542107873623</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1542107873623</updated>
+    </task>
+    <task id="LOCAL-00006" summary="dien commit">
+      <created>1542131091022</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542131091022</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dien commit">
+      <created>1542303556548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542303556548</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dien commit">
+      <created>1542512675330</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1542512675330</updated>
+    </task>
+    <task id="LOCAL-00009" summary="dien commit">
+      <created>1542762257219</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1542762257219</updated>
+    </task>
+    <task id="LOCAL-00010" summary="dien commit">
+      <created>1542950437830</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1542950437830</updated>
+    </task>
+    <task id="LOCAL-00011" summary="dien commit">
+      <created>1543158386972</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543158386972</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dien commit">
+      <created>1543333998048</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543333998048</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10288000" />
+    <option name="totallyTimeSpent" value="219611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49834985" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="2" sideWeight="0.50165015" side_tool="true" weight="0.22919819" />
+      <window_info id="Web" order="2" sideWeight="0.5180328" side_tool="true" weight="0.25567323" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.45544556" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.2672131" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3262295" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295082" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3295082" />
-      <window_info anchor="bottom" id="Application Servers" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.2704918" />
+      <window_info anchor="bottom" id="Application Servers" order="11" weight="0.3295082" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32838285" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32786885" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
@@ -447,6 +1042,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -456,163 +1061,570 @@
     <MESSAGE value="dien commit" />
     <option name="LAST_COMMIT_MESSAGE" value="dien commit" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/BaiVietServlet.java</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/quanlynhahang/controllers/ketnoidb/KetNoiDbServlet.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.java</url>
+          <line>45</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>DbAccess.getValue(request)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseInt(request.getParameter(&quot;cmbLoaiBaiViet&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>baiViet.getNgayViet()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;cmbNguoiViet&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;chkNguoiDungHienTai&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;txtNoiDung&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;txtMoTa&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.getParameter(&quot;txtTenBaiViet&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Integer.parseInt(request.getParameter(&quot;txtIdBaiViet&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/admin-them-quan-tri-vien.jsp">
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/BaiVietServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="38" column="18" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="171">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-sua-quan-tri-vien.jsp">
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/QuanTriVienService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3336">
-          <caret line="139" column="39" selection-start-line="139" selection-start-column="39" selection-end-line="139" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebProjectV6.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-mon-an.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/SuaQuanTriVienServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/MonAnServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/NguoiDungServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-quan-tri-vien.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="50" column="57" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/datamodels/LoaiMon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="277">
+          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
           <folding>
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#671#672#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="669" selection-start-line="669" selection-end-line="669" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Apache Software Foundation/Tomcat 9.0/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/common/DbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/UserTrangChuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/dangnhap/DangNhapServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="33" column="76" lean-forward="true" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/ConnectDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/trangnguoidung/TrangChuServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="26" column="80" lean-forward="true" selection-start-line="26" selection-start-column="80" selection-end-line="26" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NguoiDungService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+          <folding>
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetMoTaNghiepVuPostAjax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/QuyenService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="114" column="36" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+          <folding>
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/GetQuyenPostAjax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="24" column="59" lean-forward="true" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/NghiepVuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="71" column="86" lean-forward="true" selection-start-line="71" selection-start-column="86" selection-end-line="71" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/viewmodels/QuyenVM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding>
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/PhanQuyenServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XoaNguoiDungServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="55" column="13" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="55" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/XemNguoiDungServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="e#2095#2096#0" expanded="true" />
+            <element signature="e#2119#2120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/ThemQuanTriVienServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding>
+            <element signature="e#3436#3437#0" expanded="true" />
+            <element signature="e#3460#3461#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XoaQuanTriVienServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="56" column="13" lean-forward="true" selection-start-line="48" selection-start-column="12" selection-end-line="56" selection-end-column="13" />
+          <folding>
+            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#3091#3092#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/nguoidung/SuaNguoiDungServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/quantrivien/XemQuanTriVienServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+          <folding>
+            <element signature="e#2042#2043#0" expanded="true" />
+            <element signature="e#2066#2067#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+          <folding>
+            <element signature="e#4045#4046#0" expanded="true" />
+            <element signature="e#4069#4070#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/SuaMonAnServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="74" column="13" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="74" selection-end-column="13" />
+          <folding>
+            <element signature="e#4455#4456#0" expanded="true" />
+            <element signature="e#4508#4509#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XemMonAnServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="73" column="46" lean-forward="true" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+          <folding>
+            <element signature="e#2882#2883#0" expanded="true" />
+            <element signature="e#2906#2907#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/XoaMonAnServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
+          <folding>
+            <element signature="e#4034#4035#0" expanded="true" />
+            <element signature="e#4058#4059#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XoaLoaiMonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+          <folding>
+            <element signature="e#3179#3180#0" expanded="true" />
+            <element signature="e#3203#3204#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/XemLoaiMonServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/models/businessmodels/LoaiMonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="91" column="48" lean-forward="true" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+        <state relative-caret-position="524">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#2064#2065#0" expanded="true" />
+            <element signature="e#2119#2120#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/ThemLoaiMonServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/ThemLoaiMonServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/LoaiMonServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="24" column="55" lean-forward="true" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-xem-loai-mon.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-548" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/_shared/admin/top-of-page.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/_shared/admin/page-header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="178" column="76" selection-start-line="178" selection-start-column="76" selection-end-line="178" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-sua-loai-mon.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-quan-ly-mon-an.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="274" column="49" lean-forward="true" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin-loai-mon.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+        <state relative-caret-position="429">
+          <caret line="56" column="34" lean-forward="true" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
           <folding>
-            <element signature="e#965#1001#0#HTML" expanded="true" />
+            <element signature="e#2308#2309#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/ThemThucDonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaibaiviet/ThemLoaiBaiVietServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemChiTietThucDonServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <caret line="19" column="89" lean-forward="true" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
+          <folding>
+            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="e#2038#2039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XemThucDonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+          <folding>
+            <element signature="e#2064#2065#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/XoaThucDonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="81" column="47" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+          <folding>
+            <element signature="e#3167#3168#0" expanded="true" />
+            <element signature="e#3191#3192#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/thucdon/SuaThucDonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="76" column="74" lean-forward="true" selection-start-line="76" selection-start-column="74" selection-end-line="76" selection-end-column="74" />
+          <folding>
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3491#3492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/BinhLuanMonAnServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/monan/ThemMonAnVaoThucDonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1137">
+          <caret line="85" column="59" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="59" />
+          <folding>
+            <element signature="e#3416#3417#0" expanded="true" />
+            <element signature="e#3483#3484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/ajax/PhanQuyenPostAjax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="19" column="14" selection-start-line="18" selection-start-column="12" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/VietBaiServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="97" column="48" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
+          <folding>
+            <element signature="e#4349#4350#0" expanded="true" />
+            <element signature="e#4373#4374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/SuaBaiVietServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="115" column="47" selection-start-line="115" selection-start-column="47" selection-end-line="115" selection-end-column="47" />
+          <folding>
+            <element signature="e#5146#5147#0" expanded="true" />
+            <element signature="e#5170#5171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XoaBaiVietServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+          <folding>
+            <element signature="e#3732#3733#0" expanded="true" />
+            <element signature="e#3756#3757#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/baiviet/XemBaiVietServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+          <folding>
+            <element signature="e#2787#2788#0" expanded="true" />
+            <element signature="e#2811#2812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/loaimon/SuaLoaiMonServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/controllers/binhluan/BinhLuanBaiVietServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+          <folding>
+            <element signature="e#2409#2410#0" expanded="true" />
+            <element signature="e#2433#2434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quanlynhahang/common/AuthorizePermission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/error-400.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-451" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/error-404.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="38" column="83" selection-start-line="38" selection-start-column="83" selection-end-line="38" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/error-500.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/not-granted.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="37" column="64" lean-forward="true" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin-phan-quyen.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="98" selection-start-line="8" selection-start-column="98" selection-end-line="8" selection-end-column="98" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>WebProjectV6:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (WebProjectV6)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>@types/jquery</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -634,6 +1646,19 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>WebProjectV6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -648,6 +1673,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>activation-1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -1,5 +1,7 @@
 package quanlynhahang.controllers.baiviet;
 
+import quanlynhahang.common.ActionPermissionID;
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
 import quanlynhahang.models.businessmodels.LoaiBaiVietService;
@@ -19,9 +21,18 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "XoaBaiVietServlet", urlPatterns = { "/admin/xoa-bai-viet" })
-public class XoaBaiVietServlet extends HttpServlet {
+public class XoaBaiVietServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             String idBaiViet = request.getParameter("txtIdBaiViet");
             if (idBaiViet == null || idBaiViet.trim().isEmpty()) {
                 response.setStatus(400);
@@ -37,6 +48,15 @@ public class XoaBaiVietServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            if (!AuthorizePermission.checkLogined(request)) {
+                response.sendError(404);
+                return;
+            }
+
+            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                response.sendError(401);
+                return;
+            }
             UserDbConnect admin = DbAccess.getValue(request);
             String id = request.getParameter("id");
             if (id == null || id.trim().isEmpty()) {
@@ -61,5 +81,10 @@ public class XoaBaiVietServlet extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-bai-viet.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    public int getPermissionId() {
+        return AuthorizePermission.XOA_BAI_VIET;
     }
 }

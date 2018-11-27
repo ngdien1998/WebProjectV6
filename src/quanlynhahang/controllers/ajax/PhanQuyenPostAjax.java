@@ -25,8 +25,9 @@ public class PhanQuyenPostAjax extends HttpServlet {
             }
             QuyenService service = new QuyenService(DbAccess.getValue(request));
             isset = service.phanQuyen(Integer.parseInt(idQuyen), email, action);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            response.getWriter().print(e.toString());
         }
         response.getWriter().print(isset);
     }
