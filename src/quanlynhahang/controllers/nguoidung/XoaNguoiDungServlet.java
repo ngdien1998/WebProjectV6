@@ -1,6 +1,7 @@
-package quanlynhahang.controllers.quantrivien;
+package quanlynhahang.controllers.nguoidung;
 
 import quanlynhahang.common.DbAccess;
+import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.businessmodels.QuanTriVienService;
 import quanlynhahang.models.datamodels.NguoiDung;
 
@@ -11,20 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
-@WebServlet(name = "XoaQuanTriVienServlet", urlPatterns = { "/admin/xoa-quan-tri-vien" })
-public class XoaQuanTriVienServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+@WebServlet(name = "XoaNguoiDungServlet", urlPatterns = { "/admin/xoa-nguoi-dung" })
+public class XoaNguoiDungServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String email = request.getParameter("txtEmail");
             if (email == null || email.trim().equals("")) {
                 response.sendError(400);
                 return;
             }
-            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             service.delete(email);
-            response.sendRedirect("/admin/quan-tri-vien");
+            response.sendRedirect("/admin/nguoi-dung");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500);
@@ -38,14 +38,14 @@ public class XoaQuanTriVienServlet extends HttpServlet {
                 response.sendError(400);
                 return;
             }
-            QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
-            NguoiDung qtv = service.get(email);
-            if (qtv == null) {
+            NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
+            NguoiDung nguoiDung = service.get(email);
+            if (nguoiDung == null) {
                 response.sendError(404);
                 return;
             }
-            request.setAttribute("qtv", qtv);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-quan-tri-vien.jsp");
+            request.setAttribute("nguoiDung", nguoiDung);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-xoa-nguoi-dung.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

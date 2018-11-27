@@ -14,7 +14,7 @@ public abstract class ConnectDatabase {
     private String port;
 
     public ConnectDatabase(UserDbConnect user) {
-        hostName = "localhost";
+        hostName = "192.168.1.16";
         port = "1433";
         if (user == null) {
             username = "guest";

@@ -19,13 +19,13 @@ public class XemNguoiDungServlet extends HttpServlet {
         try {
             String email = request.getParameter("email");
             if (email == null) {
-                response.setStatus(400);
+                response.sendError(400);
                 return;
             }
             NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             NguoiDung nguoiDung = service.get(email);
             if (nguoiDung == null) {
-                response.setStatus(404);
+                response.sendError(404);
                 return;
             }
             request.setAttribute("nguoiDung", nguoiDung);
@@ -34,6 +34,7 @@ public class XemNguoiDungServlet extends HttpServlet {
             dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            response.sendError(500);
         }
     }
 }

@@ -32,7 +32,7 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
         ArrayList<NguoiDung> nguoiDungs = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM LayQuanTriVien()";
+        String sql = "SELECT * FROM LayQuanTriVien";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -100,7 +100,7 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setString(1, (String)keys[0]);
+        statement.setString(1, (String) keys[0]);
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;

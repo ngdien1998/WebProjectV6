@@ -26,8 +26,9 @@ public class NguoiDungServlet extends HttpServlet {
             request.setAttribute("nguoiDungs", nguoiDungs);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-nguoi-dung.jsp");
             dispatcher.forward(request, response);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            response.sendError(500);
         }
     }
 }

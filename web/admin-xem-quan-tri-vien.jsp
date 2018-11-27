@@ -42,7 +42,6 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <a href="/admin/sua-quan-tri-vien?email=${requestScope.qtv.email}" class="btn btn-primary btn-rounded">Sửa thông tin quản trị viên này</a>
             <a href="/admin/quan-tri-vien" class="btn btn-success btn-rounded" style="margin-left: 16px;">Về trang chủ</a>
         </div>
     </div>

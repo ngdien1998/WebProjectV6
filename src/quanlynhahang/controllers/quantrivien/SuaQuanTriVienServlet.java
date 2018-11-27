@@ -28,7 +28,7 @@ public class SuaQuanTriVienServlet extends HttpServlet {
             qtv.setHoDem(request.getParameter("txtHoDem"));
             qtv.setTen(request.getParameter("txtTen"));
             qtv.setMatKhau(request.getParameter("txtMatKhau"));
-            qtv.setNu(request.getParameter("radNu") != null);
+            qtv.setNu(request.getParameter("radGioiTinh").equals("nu"));
             java.sql.Date ngaySinh = null;
             if (request.getParameter("dteNgaySinh") != null) {
                 Date temp = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dteNgaySinh"));
@@ -44,28 +44,30 @@ public class SuaQuanTriVienServlet extends HttpServlet {
 
             QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             service.modify(qtv);
-        } catch (ParseException | SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            response.sendError(500);
         }
-        response.sendRedirect("/admin/nguoi-dung");
+        response.sendRedirect("/admin/quan-tri-vien");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String email = request.getParameter("email");
             if (email == null) {
-                response.setStatus(400);
+                response.sendError(400);
                 return;
             }
             QuanTriVienService service = new QuanTriVienService(DbAccess.getValue(request));
             NguoiDung qtv = service.get(email);
             if (qtv == null) {
-                response.setStatus(404);
+                response.sendError(404);
                 return;
             }
             request.setAttribute("qtv", qtv);
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            response.sendError(500);
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-sua-quan-tri-vien.jsp");
         dispatcher.forward(request, response);

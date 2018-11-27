@@ -32,7 +32,7 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         ArrayList<NguoiDung> nguoiDungs = new ArrayList<>();
         openConnection();
 
-        String sql = "EXEC LayNguoiDung";
+        String sql = "SELECT * FROM LayNguoiDung";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -66,8 +66,20 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
     }
 
     @Override
-    public int delete(Object... keys) {
-        return 0;
+    public int delete(Object... keys) throws SQLException, ClassNotFoundException {
+        if (keys.length <= 0) {
+            return 0;
+        }
+        openConnection();
+
+        String sql = "EXEC XoaNguoiDung ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, (String) keys[0]);
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
     }
 
     @Override
@@ -106,11 +118,11 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         }
         openConnection();
 
-        String sql = "EXEC LayMotNguoiDung ?";
+        String sql = "SELECT * FROM LayMotNguoiDung(?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
-        statement.setString(1, keys[0].toString());
+        statement.setString(1, (String) keys[0]);
 
         ResultSet res = statement.executeQuery();
         NguoiDung nguoiDung = null;

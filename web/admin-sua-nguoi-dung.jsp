@@ -6,7 +6,7 @@
 
 <div class="card" style="margin: 16px 0;">
     <div class="card-body">
-        <h3 class="card-title">Sửa người dùng: Nguyễn Lê Điền</h3>
+        <h3 class="card-title">Sửa người dùng ${requestScope.nguoiDung.hoDem} ${requestScope.nguoiDung.ten}</h3>
         <p class="card-description">
             Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>

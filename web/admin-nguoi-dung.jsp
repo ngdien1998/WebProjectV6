@@ -67,7 +67,7 @@
                     </td>
                     <td>
                         <a href="/admin/xem-nguoi-dung?email=${nguoiDung.email}">Xem</a> |
-                        <a href="/admin/sua-nguoi-dung?email=${nguoiDung.email}">Sửa</a>
+                        <a href="/admin/xoa-nguoi-dung?email=${nguoiDung.email}">Xóa</a>
                     </td>
                 </tr>
             </c:forEach>

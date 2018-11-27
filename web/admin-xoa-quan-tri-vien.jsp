@@ -6,7 +6,7 @@
 
 <div class="card" style="margin: 16px 0;">
     <div class="card-body">
-        <h3 class="card-title">Bạn có chắc chắn xóa quản trị viên viên: Nguyễn Lê Điền</h3>
+        <h3 class="card-title">Bạn có chắc chắn xóa quản trị viên: ${requestScope.qtv.hoDem} ${requestScope.qtv.ten}</h3>
         <p class="card-description">
             Thông tin chi tiết
         </p>
@@ -41,7 +41,7 @@
         </div>
         <div class="form-row justify-content-center">
             <form method="post" action="/admin/xoa-quan-tri-vien">
-                <input type="hidden" value="ngdien1998@gmail.com" name="txtEmail" />
+                <input type="hidden" value="${requestScope.qtv.email}" name="txtEmail" />
                 <input type="submit" class="btn btn-primary btn-rounded" value="Xóa"/>
                 <a style="margin-left: 16px;" href="/admin/quan-tri-vien" class="btn btn-success btn-rounded">Huỷ bỏ</a>
             </form>
