@@ -15,7 +15,7 @@
      <div class="col-9 contact-bar-functions">
          <c:choose>
              <c:when test="${sessionScope.nguoiDungHienTai != null}">
-                 <a href="/thong-tin-ca-nhan">Chào mừng ${sessionScope.nguoiDungHienTai.hoDem} ${sessionScope.nguoiDungHienTai.ten} đến với website</a>
+                 <a href="/sua-thong-tin-ca-nhan">Chào mừng ${sessionScope.nguoiDungHienTai.hoDem} ${sessionScope.nguoiDungHienTai.ten} đến với website</a>
                  <a href="/dang-xuat">Đăng xuất</a>
                  <c:if test="${sessionScope.nguoiDungHienTai.quanTriVien}">
                      <a href="/admin/ket-noi-database">Quản trị</a>

@@ -28,8 +28,8 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
             baiViet.setMoTa(res.getString(3));
             baiViet.setNoiDung(res.getString(4));
             baiViet.setNgayViet(res.getDate(5));
-            baiViet.setEmail(res.getString(6));
-            baiViet.setIdLoaiBaiViet(res.getInt(7));
+            baiViet.setEmail(res.getString(7));
+            baiViet.setIdLoaiBaiViet(res.getInt(8));
             baiViets.add(baiViet);
         }
         closeConnection();
@@ -47,8 +47,8 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
         statement.setString(2, baiViet.getMoTa());
         statement.setString(3, baiViet.getNoiDung());
         statement.setDate(4, baiViet.getNgayViet());
-        statement.setString(5, baiViet.getEmail());
-        statement.setInt(6, baiViet.getIdLoaiBaiViet());
+        statement.setString(7, baiViet.getEmail());
+        statement.setInt(8, baiViet.getIdLoaiBaiViet());
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
@@ -85,8 +85,8 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
         statement.setString(3, baiViet.getMoTa());
         statement.setString(4, baiViet.getNoiDung());
         statement.setDate(5, baiViet.getNgayViet());
-        statement.setString(6, baiViet.getEmail());
-        statement.setInt(7, baiViet.getIdLoaiBaiViet());
+        statement.setString(7, baiViet.getEmail());
+        statement.setInt(8, baiViet.getIdLoaiBaiViet());
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
@@ -110,8 +110,8 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
             baiViet.setMoTa(res.getString(3));
             baiViet.setNoiDung(res.getString(4));
             baiViet.setNgayViet(res.getDate(5));
-            baiViet.setEmail(res.getString(6));
-            baiViet.setIdLoaiBaiViet(res.getInt(7));
+            baiViet.setEmail(res.getString(7));
+            baiViet.setIdLoaiBaiViet(res.getInt(8));
         }
         closeConnection();
         return baiViet;

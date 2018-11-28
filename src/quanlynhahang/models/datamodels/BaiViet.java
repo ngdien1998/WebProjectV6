@@ -8,10 +8,19 @@ public class BaiViet  {
     private String moTa;
     private String NoiDung;
     private Date ngayViet;
+    private String hinh;
     private String email;
     private int idLoaiBaiViet;
 
     public BaiViet() {
+    }
+
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
     }
 
     public BaiViet(int idBaiViet, String tenBaiViet, String moTa, String noiDung, Date ngayViet, String email, int idLoaiBaiViet) {

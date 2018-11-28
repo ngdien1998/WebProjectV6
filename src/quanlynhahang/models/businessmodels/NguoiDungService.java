@@ -174,4 +174,27 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         closeConnection();
         return nguoiDung;
     }
+
+    public int suaThongTinCaNhan(NguoiDung model) throws SQLException, ClassNotFoundException {
+        if (model == null) {
+            return 0;
+        }
+        openConnection();
+
+        String sql = "EXEC SuaThongTinCaNhan ?,?,?,?,?,?,?";
+        PreparedStatement  statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, model.getEmail());
+        statement.setString(2, model.getHoDem());
+        statement.setString(3, model.getTen());
+        statement.setDate(4, model.getNgaySinh());
+        statement.setBoolean(5, model.isNu());
+        statement.setString(6, model.getDienThoai());
+        statement.setString(7, model.getDiaChi());
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
+    }
 }
