@@ -1,16 +1,25 @@
 package quanlynhahang.models.viewmodels;
 
 public class MonAnVM {
-    private String idMonAn;
+    private int idMonAn;
     private String tenMonAn;
     private int gia;
-    private int tongTien;
+    private int soLuong;
 
-    public String getIdMonAn() {
+    public MonAnVM() {
+    }
+
+    public MonAnVM(int idMonAn, String tenMonAn, int gia) {
+        this.idMonAn = idMonAn;
+        this.tenMonAn = tenMonAn;
+        this.gia = gia;
+    }
+
+    public int getIdMonAn() {
         return idMonAn;
     }
 
-    public void setIdMonAn(String idMonAn) {
+    public void setIdMonAn(int idMonAn) {
         this.idMonAn = idMonAn;
     }
 
@@ -30,11 +39,15 @@ public class MonAnVM {
         this.gia = gia;
     }
 
-    public int getTongTien() {
-        return tongTien;
+    public int getSoLuong() {
+        return soLuong;
     }
 
-    public void setTongTien(int tongTien) {
-        this.tongTien = tongTien;
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public int tinhTongTien() {
+        return gia * soLuong;
     }
 }
