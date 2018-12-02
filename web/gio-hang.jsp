@@ -1,8 +1,14 @@
+<%@ page import="quanlynhahang.models.viewmodels.MonAnVM" %>
+<%@ page import="quanlynhahang.common.Consts" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <link rel="stylesheet" href="assests/css/style.gio-hang.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script type="text/javascript" src="assests/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assests/js/parallax.min.js"></script>
     <script type="text/javascript" src="assests/js/bootstrap.min.js"></script>
@@ -21,7 +27,7 @@
         <a href="#!"><i class="glyphicon glyphicon-shopping-cart"></i>Tài khoản
         </a>
         <a href="#!">Thanh toán</a>
-        <a href="./gio-hang.html">Giỏ hàng</a>
+        <a href="/gio-hang">Giỏ hàng</a>
     </div>
 </div>
 <div class="top-content">
@@ -45,7 +51,8 @@
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/thuc-don">Thực đơn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Tất cả món ăn</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5"
+                            href="/tat-ca-mon-an">Tất cả món ăn</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/gioi-thieu">Nhà hàng</a>
@@ -78,72 +85,70 @@
 
 </div>
 <div class="container">
-    <table class="table">
-        <thead class="font-size-h5">
-        <tr>
-            <th scope="col">Sản phẩm</th>
-            <th scope="col">Đơn giá</th>
-            <th scope="col">Số lượng</th>
-            <th scope="col">Tổng tiền</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">Trà ô long</th>
-            <td>100.000 VNĐ</td>
-            <td>
-                <input type="number" value="1"class="form-control" >
-            </td>
-            <td>100.000 VNĐ</td>
-            <td>
-                <button class="btn btn-success " type="submit">X</button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Hamburger</th>
-            <td>100.000 VNĐ</td>
-            <td>
-                <input type="number" value="1" class="form-control">
-            </td>
-            <td>100.000 VNĐ</td>
-            <td>
-                <button class="btn btn-success " type="submit">X</button>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Bánh bao</th>
-            <td>100.000 VNĐ</td>
-            <td>
-                <input type="number" value="1" class="form-control">
-            </td>
-            <td>100.000 VNĐ</td>
-            <td>
-                <button class="btn btn-success " type="submit">X</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <c:choose>
+        <c:when test="${requestScope.gioHangRong}">
+            <h4 style="text-align: center; margin: 64px auto;">Giỏ hàng hiện tại rỗng, hãy <a href="/tat-ca-mon-an">chọn món ăn</a> và thêm vào giỏ</h4>
+        </c:when>
+        <c:otherwise>
+            <form action="/xoa-gio-hang" method="post">
+                <table class="table">
+                    <thead class="font-size-h5">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Giá tiền</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="monAn" items="${sessionScope.gioHang}">
+                        <tr>
+                            <td>${monAn.tenMonAn}</td>
+                            <td>${monAn.gia} đồng</td>
+                            <td>
+                                <input type="number" data-id="${monAn.idMonAn}"
+                                        value="${monAn.soLuong}"
+                                        class="form-control txt-so-luong">
+                            </td>
+                            <td id="tinh-tien-${monAn.idMonAn}">${monAn.tinhTien()} đồng</td>
+                            <td>
+                                <a class="btn btn-success" href="javascript:xoaKhoiGioHang(${monAn.idMonAn})">Xóa món này</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <div class="row justify-content-center">
+                    <button class="btn btn-success" id="btnUpdate" type="submit"
+                            style="margin-right: 16px;">Xóa giỏ hàng
+                    </button>
+                    <a href="/tat-ca-mon-an" class="btn btn-primary">Mua món khác</a>
+                </div>
+            </form>
+        </c:otherwise>
+    </c:choose>
 
-    <button class="btn btn-success" id="btnUpdate" type="submit">Cập nhật giỏ hàng</button>
     <br>
     <div class="form-group">
         <div class="row">
             <div class="col-6">
             </div>
             <div class="col-6 ">
-                <h2 class="pt-5 ml-5">Tổng tiền</h2>
-                <table class="table table-bordered">
-                    <tr>
-                        <td><strong>Subtotal:</strong></td>
-                        <td>300.000 VNĐ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Total:</strong></td>
-                        <td>300.000 VNĐ</td>
-                    </tr>
-                </table>
-                <button class="btn btn-success" id="pay" type="submit">Thanh toán</button>
+                <form>
+                    <h2 class="pt-5 ml-5">Tổng tiền</h2>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Vận chuyển</td>
+                            <td>0 đồng</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tổng tiền</strong></td>
+                            <td id="tong-tien">${requestScope.tongTien} đồng</td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-success" id="pay" type="submit">Thanh toán</button>
+                </form>
             </div>
         </div>
     </div>
@@ -155,9 +160,6 @@
         <div class="footer-title">
             <h1 class="font-blonde-script">Liên hệ</h1>
             <img src="assests/images/logo.png" height="100" width="100"/>
-            <p>
-                <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry</i>
-            </p>
             <form action="" method="post" class="email-input">
                 <div class="row">
                     <div class="input-group col-6 offset-3">
@@ -234,6 +236,27 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function xoaKhoiGioHang(idMonAn) {
+        $.post("/xoa-mon-an-trong-gio-hang", { txtIdMon: idMonAn }, content => {
+            if (content === "true") {
+                location.href = "/gio-hang";
+            }
+        });
+    }
+
+    $(".txt-so-luong").blur((e) => {
+        let idMonAn = $(e.target).data("id");
+        $.post("/cap-nhat-gio-hang", {
+            txtIdMon: idMonAn,
+            txtSoLuong: $(e.target).val()
+        }, content => {
+            $("#tinh-tien-" + idMonAn).html(content.giaMoi + " đồng");
+            $("#tong-tien").html(content.tongTien + " đồng");
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -47,7 +47,7 @@ public class MonAnVM {
         this.soLuong = soLuong;
     }
 
-    public int tinhTongTien() {
+    public int tinhTien() {
         return gia * soLuong;
     }
 }
