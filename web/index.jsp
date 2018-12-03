@@ -22,4 +22,4 @@
     <%--session.setAttribute(Consts.USER_DB_CONNECT, admin);--%>
 <%--%>--%>
 
-<c:redirect url="/trang-chu" />
+<c:redirect url="/dat-mon-nhom.jsp" />
