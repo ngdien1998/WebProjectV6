@@ -54,4 +54,9 @@ public final class AuthorizePermission {
         HttpSession session = request.getSession();
         return session.getAttribute(Consts.WEBSITE_LOGIN) != null;
     }
+
+    public static NguoiDung getCurrentLoginUser(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return (NguoiDung) session.getAttribute(Consts.WEBSITE_LOGIN);
+    }
 }
