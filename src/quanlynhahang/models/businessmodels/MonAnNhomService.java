@@ -79,4 +79,40 @@ public class MonAnNhomService extends ConnectDatabase {
         closeConnection();
         return rowsAffected;
     }
+
+    public int congSoLuongMonAn(int idHoaDon, int idMonAn, String emailNguoiDat) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC CongSoLuongMonAnNhom ?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idHoaDon);
+        statement.setInt(2, idMonAn);
+        statement.setString(3, emailNguoiDat);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected;
+    }
+
+    public int truSoLuongMonAn(int idHoaDon, int idMonAn, String emailNguoiDat) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC TruSoLuongMonAnNhom ?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idHoaDon);
+        statement.setInt(2, idMonAn);
+        statement.setString(3, emailNguoiDat);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected;
+    }
+
+    public int xoaMonAnTronHoaDon(int idHoaDon, int idMonAn, String emailNguoiDat) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC XoaMonAnTrongHoaDon ?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idHoaDon);
+        statement.setInt(2, idMonAn);
+        statement.setString(3, emailNguoiDat);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected;
+    }
 }

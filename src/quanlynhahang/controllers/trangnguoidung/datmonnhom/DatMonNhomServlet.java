@@ -5,6 +5,7 @@ import quanlynhahang.models.businessmodels.MonAnNhomService;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.viewmodels.HoaDonNhom;
+import quanlynhahang.models.viewmodels.MonAnNhom;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
@@ -27,6 +28,12 @@ public class DatMonNhomServlet extends HttpServlet {
                 MonAnNhomService service = new MonAnNhomService(value);
                 HoaDonNhom hoaDon = service.layHoaDon(Integer.parseInt(idDatMon));
                 request.setAttribute("hoaDon", hoaDon);
+                double cong = 0;
+                for (MonAnNhom monAnNhom : hoaDon.getMonAnNhoms()) {
+                    cong += monAnNhom.tinhTienMon();
+                }
+                request.setAttribute("cong", cong);
+                request.setAttribute("tongCong", cong + 7000);
             }
             MonAnService monAnService = new MonAnService(value);
             request.setAttribute("monAns", monAnService.getData());

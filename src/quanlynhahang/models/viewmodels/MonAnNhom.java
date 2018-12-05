@@ -67,4 +67,8 @@ public class MonAnNhom {
     public void setTenNguoiDat(String tenNguoiDat) {
         this.tenNguoiDat = tenNguoiDat;
     }
+
+    public int tinhTienMon() {
+        return gia * soLuong;
+    }
 }

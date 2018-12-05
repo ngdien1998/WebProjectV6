@@ -4,22 +4,23 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%--<%--%>
-    <%--NguoiDung user = new NguoiDung();--%>
-    <%--user.setEmail("ngdien1998@gmail.com");--%>
-    <%--user.setMatKhau("123");--%>
-    <%--user.setKichHoat(true);--%>
-    <%--user.setQuanTriVien(true);--%>
+<%
+    NguoiDung user = new NguoiDung();
+    user.setEmail("ngdien1998@gmail.com");
+    user.setTen("Điền");
+    user.setMatKhau("123");
+    user.setKichHoat(true);
+    user.setQuanTriVien(true);
 
-    <%--UserDbConnect admin = new UserDbConnect();--%>
-    <%--admin.setUsername(user.getEmail());--%>
-    <%--admin.setPassword(user.getMatKhau());--%>
-    <%--admin.setHostName("192.168.1.16");--%>
-    <%--admin.setPort("1433");--%>
-    <%--admin.setAdmin(user.isQuanTriVien());--%>
+    UserDbConnect admin = new UserDbConnect();
+    admin.setUsername(user.getEmail());
+    admin.setPassword(user.getMatKhau());
+    admin.setHostName("localhost");
+    admin.setPort("1433");
+    admin.setAdmin(user.isQuanTriVien());
 
-    <%--session.setAttribute(Consts.WEBSITE_LOGIN, user);--%>
-    <%--session.setAttribute(Consts.USER_DB_CONNECT, admin);--%>
-<%--%>--%>
+    session.setAttribute(Consts.WEBSITE_LOGIN, user);
+    session.setAttribute(Consts.USER_DB_CONNECT, admin);
+%>
 
-<c:redirect url="/dat-mon-nhom.jsp" />
+<c:redirect url="/dat-mon-nhom?id=22" />
