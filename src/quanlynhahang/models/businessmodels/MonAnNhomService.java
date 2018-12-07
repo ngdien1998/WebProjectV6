@@ -7,6 +7,8 @@ import quanlynhahang.models.viewmodels.UserDbConnect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MonAnNhomService extends ConnectDatabase {
     public MonAnNhomService(UserDbConnect user) {
@@ -18,35 +20,31 @@ public class MonAnNhomService extends ConnectDatabase {
         HoaDonNhom hoaDon = new HoaDonNhom();
 
         String sql = "SELECT * FROM dbo.LayHoaDonNhom(?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, id);
+        PreparedStatement statement1 = connection.prepareStatement(sql);
+        statement1.setInt(1, id);
 
-        ResultSet res = statement.executeQuery();
+        ResultSet res = statement1.executeQuery();
         if (res.next()) {
             hoaDon.setIdHoaDonNhom(res.getInt(1));
             hoaDon.setEmailNguoiTao(res.getString(2));
             hoaDon.setTenNguoiTao(res.getString(3));
             hoaDon.setThoiGianTao(res.getDate(4));
             hoaDon.setHoanThanh(res.getBoolean(5));
-
-            MonAnNhom monAn = new MonAnNhom();
-            monAn.setIdMonAn(res.getInt(6));
-            monAn.setTenMonAn(res.getString(7));
-            monAn.setGia(res.getInt(8));
-            monAn.setSoLuong(res.getInt(9));
-            monAn.setEmailNguoiDat(res.getString(10));
-            monAn.setTenNguoiDat(res.getString(11));
-            hoaDon.themMonAn(monAn);
         }
 
-        while (res.next()) {
+        sql = "SELECT * FROM dbo.LayMonAnTrongHoaDonNhom(?) ORDER BY ThoiGianDat DESC";
+        PreparedStatement statement2 = connection.prepareStatement(sql);
+        statement2.setInt(1, id);
+
+        ResultSet res2 = statement2.executeQuery();
+        while (res2.next()) {
             MonAnNhom monAn = new MonAnNhom();
-            monAn.setIdMonAn(res.getInt(6));
-            monAn.setTenMonAn(res.getString(7));
-            monAn.setGia(res.getInt(8));
-            monAn.setSoLuong(res.getInt(9));
-            monAn.setEmailNguoiDat(res.getString(10));
-            monAn.setTenNguoiDat(res.getString(11));
+            monAn.setIdMonAn(res2.getInt(1));
+            monAn.setTenMonAn(res2.getString(2));
+            monAn.setGia(res2.getInt(3));
+            monAn.setSoLuong(res2.getInt(4));
+            monAn.setEmailNguoiDat(res2.getString(5));
+            monAn.setTenNguoiDat(res2.getString(6));
             hoaDon.themMonAn(monAn);
         }
 
@@ -111,6 +109,33 @@ public class MonAnNhomService extends ConnectDatabase {
         statement.setInt(1, idHoaDon);
         statement.setInt(2, idMonAn);
         statement.setString(3, emailNguoiDat);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected;
+    }
+
+    public int themMonAn(int idMonAn, int idGioHang, String email) throws SQLException, ClassNotFoundException {
+        openConnection();
+
+        String sql = "SELECT Gia + (Gia * PhanTramKhuyenMai) FROM MonAn WHERE IdMonAn = ?";
+        PreparedStatement st = connection.prepareStatement(sql);
+        st.setInt(1, idMonAn);
+        ResultSet set = st.executeQuery();
+        if (!set.next()) {
+            return 0;
+        }
+        int gia = set.getInt(1);
+        Date now = Calendar.getInstance().getTime();
+
+        sql = "EXEC ThemMonAnNhom ?,?,?,?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idGioHang);
+        statement.setInt(2, idMonAn);
+        statement.setString(3, email);
+        statement.setInt(4, gia);
+        statement.setInt(5, 1);
+        statement.setDate(6, new java.sql.Date(now.getTime()));
+
         int rowsAffected = statement.executeUpdate();
         closeConnection();
         return rowsAffected;

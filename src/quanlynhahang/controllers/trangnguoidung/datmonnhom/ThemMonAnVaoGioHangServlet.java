@@ -4,8 +4,6 @@ import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.Consts;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnNhomService;
-import quanlynhahang.models.datamodels.NguoiDung;
-import quanlynhahang.models.viewmodels.HoaDonNhom;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,36 +12,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 
-@WebServlet(name = "TaoHoaDonNhomServlet", urlPatterns = { "/tao-hoa-don-nhom" })
-public class TaoHoaDonNhomServlet extends HttpServlet {
+@WebServlet(name = "ThemMonAnVaoGioHangServlet", urlPatterns = { "/them-mon-an-vao-gio-hang" })
+public class ThemMonAnVaoGioHangServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            response.setContentType("application/json");
+            response.setContentType("text/html;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
 
-            if (!AuthorizePermission.islogin(request)) {
-                HttpSession session = request.getSession();
-                session.setAttribute(Consts.PREVIOUS_PAGE, "/tao-hoa-don-nhom");
-                response.sendRedirect("/dang-nhap");
+            String idMonAn = request.getParameter("idMonAn");
+            String idGioHang = request.getParameter("idGioHang");
+            if (idMonAn == null || idGioHang == null) {
+                response.sendError(400);
                 return;
             }
 
-            NguoiDung currentUser = AuthorizePermission.getCurrentLoginUser(request);
-
-            HoaDonNhom hoaDonNhom = new HoaDonNhom();
-            hoaDonNhom.setEmailNguoiTao(currentUser.getEmail());
-            hoaDonNhom.setTenNguoiTao(currentUser.getTen());
-            hoaDonNhom.setThoiGianTao(new java.sql.Date(new Date().getTime()));
+            if (!AuthorizePermission.islogin(request)) {
+                HttpSession session = request.getSession();
+                session.setAttribute(Consts.PREVIOUS_PAGE, "/dat-mon-nhom?id=" + idGioHang);
+                response.getWriter().print("redirect");
+                return;
+            }
 
             MonAnNhomService service = new MonAnNhomService(DbAccess.getValue(request));
-            hoaDonNhom = service.taoHoaDon(hoaDonNhom);
+            int res = service.themMonAn(Integer.parseInt(idMonAn), Integer.parseInt(idGioHang), AuthorizePermission.getCurrentLoginUser(request).getEmail());
 
-            response.sendRedirect("/dat-mon-nhom?id=" + hoaDonNhom.getIdHoaDonNhom());
         } catch (Exception e) {
             e.printStackTrace();
-            response.getWriter().print(e.toString());
+            response.sendError(500);
         }
     }
 }

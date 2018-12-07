@@ -21,6 +21,8 @@ public class XoaGioHangNhomServlet extends HttpServlet {
             }
             MonAnNhomService service = new MonAnNhomService(DbAccess.getValue(request));
             service.xoaHoaDon(Integer.parseInt(idGioHang));
+
+            response.sendRedirect("/dat-mon-nhom");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500);

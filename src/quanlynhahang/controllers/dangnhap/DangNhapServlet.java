@@ -32,7 +32,13 @@ public class DangNhapServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute(Consts.WEBSITE_LOGIN, loginUser);
                 session.setAttribute(Consts.USER_DB_CONNECT, userDbConnect);
+                String previousPage = (String) session.getAttribute(Consts.PREVIOUS_PAGE);
 
+                if (previousPage != null) {
+                    session.removeAttribute(Consts.PREVIOUS_PAGE);
+                    response.sendRedirect(previousPage);
+                    return;
+                }
                 response.sendRedirect("/trang-chu");
                 return;
             }

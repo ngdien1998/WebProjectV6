@@ -1,6 +1,5 @@
 package quanlynhahang.controllers.trangnguoidung.datmonnhom;
 
-import com.google.gson.JsonObject;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnNhomService;
 import quanlynhahang.models.viewmodels.MonAnNhom;
@@ -16,9 +15,6 @@ import java.io.IOException;
 public class CongSoLuongMonAnNhomServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-
             String idHoaDon = request.getParameter("idHoaDon");
             String idMonAn = request.getParameter("idMonAn");
             String emailNguoiDat = request.getParameter("emailNguoiDat");
@@ -39,10 +35,6 @@ public class CongSoLuongMonAnNhomServlet extends HttpServlet {
             for (MonAnNhom monAnNhom : service.layHoaDon(Integer.parseInt(idHoaDon)).getMonAnNhoms()) {
                 cong += monAnNhom.tinhTienMon();
             }
-            JsonObject object = new JsonObject();
-            object.addProperty("cong", cong);
-            object.addProperty("tongCong", cong + 7000);
-            response.getWriter().print(object.toString());
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500);

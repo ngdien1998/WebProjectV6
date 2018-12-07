@@ -36,33 +36,36 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-7 card-title">Đơn hàng theo nhóm</div>
-                        <div class="col-5" id="xoa-don-hang" style="text-align: right;">
-                            <c:if test="${requestScope.isInGroup}">
-                                <div class="badge badge-danger" id="ban-xoa-don-hang"
-                                        style="cursor: pointer;">Xóa đơn hàng
-                                </div>
-                            </c:if>
-                        </div>
+                        <div class="col-7 card-title" id="gio-hang-nhom" data-id-gio-hang="${requestScope.hoaDon.idHoaDonNhom}">Giỏ hàng nhóm</div>
+                        <c:if test="${requestScope.isInGroup && requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
+                            <div class="col-5" id="xoa-don-hang" style="text-align: right;">
+                                <form action="/xoa-gio-hang-nhom" method="post">
+                                    <input type="hidden" name="idGioHang" id="txt-id-gio-hang"
+                                            value="${requestScope.hoaDon.idHoaDonNhom}">
+                                    <input type="submit" value="Xóa" class="btn btn-danger btn-rounded">
+                                </form>
+                            </div>
+                        </c:if>
                     </div>
                     <div class="card-description" id="shared-link">
                         <c:choose>
                             <c:when test="${requestScope.isInGroup}">
                                 <div class="badge badge-success"
-                                        style="width: 100%;">Đơn hàng tạo bởi Nguyễn Lê Điền
+                                        style="width: 100%;">Giỏ hàng tạo bởi Nguyễn Lê Điền
                                 </div>
                                 <div class="input-group form-group" style="margin-top: 8px;">
                                     <input type="text" class="form-control" id="txt-link"
                                             value="${requestScope["javax.servlet.forward.request_uri"]}?id=${requestScope.hoaDon.idHoaDonNhom}">
                                     <div class="input-group-append">
-                                        <input class="btn btn-info" type="submit" value="Copy link" id="btn-copy-link"/>
+                                        <input class="btn btn-info" type="button" value="Copy link" id="btn-copy-link"/>
                                     </div>
                                 </div>
                             </c:when>
                             <c:otherwise>
-                                <div class="badge badge-success" id="btn-tao-hoa-don"
-                                        style="width: 100%; cursor: pointer;" onclick="taoGioHang()">Tạo giỏ hàng
-                                </div>
+                                <form action="/tao-hoa-don-nhom" method="get">
+                                    <input type="submit" class="btn btn-success btn-rounded" value="Tạo giỏ hàng"
+                                            style="width: 100%;">
+                                </form>
                             </c:otherwise>
                         </c:choose>
                     </div>
@@ -72,23 +75,20 @@
                                 <c:choose>
                                     <c:when test="${requestScope.hoaDon.monAnNhoms.size() > 0}">
                                         <h4>Tình trạng giỏ hàng</h4>
-                                        <div class="gio-hang">
+                                        <div id="gio-hang-items">
                                             <c:forEach var="monAn" items="${requestScope.hoaDon.monAnNhoms}">
-                                                <div id="item-gio-hang-${monAn.idMonAn}">
-                                                    <small data-id="${monAn.emailNguoiDat}" class="nguoi-dat">
+                                                <div class="item-gio-hang">
+                                                    <small class="nguoi-dat">
                                                         <b>${monAn.tenNguoiDat}</b> đã đặt
                                                     </small>
                                                     <div class="alert alert-success" data-id="${monAn.idMonAn}">
-                                                        <span class="btn-xoa" data-id-mon-an="${monAn.idMonAn}"
-                                                                data-id-hoa-don="${requestScope.hoaDon.idHoaDonNhom}"
-                                                                data-email="${monAn.emailNguoiDat}" onclick="xoaMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">x</span>
-                                                        <span class="btn-cong" data-id-mon-an="${monAn.idMonAn}"
-                                                                data-id-hoa-don="${requestScope.hoaDon.idHoaDonNhom}"
-                                                                data-email="${monAn.emailNguoiDat}" onclick="themMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">+</span>
+                                                        <span class="btn-xoa"
+                                                                onclick="xoaMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">x</span>
+                                                        <span class="btn-cong"
+                                                                onclick="themMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">+</span>
                                                         <span id="so-luong-${monAn.idMonAn}">${monAn.soLuong}</span>
-                                                        <span class="btn-tru" data-id-mon-an="${monAn.idMonAn}"
-                                                                data-id-hoa-don="${requestScope.hoaDon.idHoaDonNhom}"
-                                                                data-email="${monAn.emailNguoiDat}" onclick="botMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">-</span>
+                                                        <span class="btn-tru"
+                                                                onclick="botMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">-</span>
                                                         <span class="ten-mon-an"
                                                                 style="font-weight: bold;">${monAn.tenMonAn}</span>
                                                         <span class="gia"
@@ -122,10 +122,15 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div class="row justify-content-center" style="margin-top: 16px;">
-                                                <a href="#" class="btn btn-primary btn-rounded"
-                                                        style="width: 100%;">Thanh toán</a>
-                                            </div>
+
+                                            <c:if test="${requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
+                                                <form action="/thanh-toan-gio-hang-nhom" method="post">
+                                                    <input type="hidden" name="txtIdGiohang"
+                                                            value="${requestScope.hoaDon.idHoaDonNhom}">
+                                                    <input type="submit" class="btn btn-primary btn-rounded"
+                                                            style="margin-top: 16px; width: 100%;" value="Thanh toán">
+                                                </form>
+                                            </c:if>
                                         </div>
                                     </c:when>
                                     <c:otherwise>
@@ -181,14 +186,12 @@
                                 <div class="food col-md-4 col-sm-6 col-12">
                                     <a href="/chi-tiet-mon-an?id=${monAn.idMonAn}">
                                         <img src="${monAn.hinhMonAn}" alt=""/>
-                                        <div class="row" style="padding-top: 8px;">
-                                            <div class="col-8"
-                                                    style="font-size: 16px;">${monAn.tenMonAn} - ${monAn.gia + monAn.gia * monAn.khuyenMai}</div>
-                                            <div class="col-4" style="text-align: right;">
-                                                <div class="badge badge-primary" style="cursor: pointer;">Mua</div>
-                                            </div>
-                                        </div>
                                     </a>
+                                    <div class="row" style="padding-top: 8px;">
+                                        <div class="badge badge-primary mua-mon-an" data-id-mon-an="${monAn.idMonAn}"
+                                                style="margin: 0 10px; cursor: pointer; width: 100%; overflow: hidden;">Mua ${monAn.gia + monAn.gia * monAn.khuyenMai}đ - ${monAn.tenMonAn}
+                                        </div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -198,14 +201,12 @@
                                 <div class="food col-md-4 col-sm-6 col-12">
                                     <a href="/chi-tiet-mon-an?id=${monAn.idMonAn}">
                                         <img src="assests/images/banh-xeo.jpg" alt=""/>
-                                        <div class="row" style="padding-top: 8px;">
-                                            <div class="col-8"
-                                                    style="font-size: 16px;">${monAn.tenMonAn} - ${monAn.gia + monAn.gia * monAn.khuyenMai}</div>
-                                            <div class="col-4" style="text-align: right;">
-                                                <div class="badge badge-primary" style="cursor: pointer;">Mua</div>
-                                            </div>
-                                        </div>
                                     </a>
+                                    <div class="row" style="padding-top: 8px;">
+                                        <div class="badge badge-primary mua-mon-an" data-id-mon-an="${monAn.idMonAn}"
+                                                style="margin: 0 10px; cursor: pointer; width: 100%; overflow: hidden;">Mua ${monAn.gia + monAn.gia * monAn.khuyenMai}đ - ${monAn.tenMonAn}đ
+                                        </div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -214,14 +215,11 @@
                                 <div class="food col-md-4 col-sm-6 col-12">
                                     <a href="/chi-tiet-mon-an?id=${monAn.idMonAn}">
                                         <img src="assests/images/banh-xeo.jpg" alt=""/>
-                                        <div class="row" style="padding-top: 8px;">
-                                            <div class="col-8"
-                                                    style="font-size: 16px;">${monAn.tenMonAn} - ${monAn.gia + monAn.gia * monAn.khuyenMai}</div>
-                                            <div class="col-4" style="text-align: right;">
-                                                <div class="badge badge-primary" style="cursor: pointer;">Mua</div>
-                                            </div>
-                                        </div>
                                     </a>
+                                    <div class="row" style="padding-top: 8px;">
+                                        <div class="badge badge-primary mua-mon-an" data-id-mon-an="${monAn.idMonAn}"
+                                                style="margin: 0 10px; cursor: pointer; width: 100%; overflow: hidden;">Mua ${monAn.gia + monAn.gia * monAn.khuyenMai}đ - ${monAn.tenMonAn}</div>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>
@@ -234,20 +232,14 @@
 
 <jsp:include page="_shared/user/page-footer.jsp"/>
 <script type="text/javascript">
-    $.urlParam = name => {
-        let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-            return null;
-        }
-        return decodeURI(results[1]) || 0;
-    };
+    function addLoader() {
+        $("#gio-hang-main-content").html('<div class="circle-loader"></div>');
+    }
 
-    if ($.urlParam("id") != null) {
-        setInterval(() => {
-            $.post("/cap-nhap-trang-thai-gio-hang", {
-                idGioHang: ${requestScope.hoaDon.idHoaDonNhom}
-            }, content => $("#gio-hang-main-content").html(content));
-        }, 30000);
+    function capNhatGioHang() {
+        $.post("/cap-nhap-trang-thai-gio-hang", {
+            idGioHang: $("#gio-hang-nhom").data("id-gio-hang")
+        }, content => $("#gio-hang-main-content").html(content));
     }
 
     function botMon(idHoaDon, idMonAn, emailNguoiDat) {
@@ -259,10 +251,7 @@
                 idMonAn: idMonAn,
                 emailNguoiDat: emailNguoiDat,
                 soLuong: soLuong
-            }, content => {
-                $("#cong").html(content.cong + " đồng");
-                $("#tong-cong").html(content.tongCong + " đồng");
-            });
+            }, () => capNhatGioHang());
         }
     }
 
@@ -274,23 +263,17 @@
             idMonAn: idMonAn,
             emailNguoiDat: emailNguoiDat,
             soLuong: soLuong
-        }, content => {
-            $("#cong").html(content.cong + " đồng");
-            $("#tong-cong").html(content.tongCong + " đồng");
-        });
+        }, () => capNhatGioHang());
     }
 
     function xoaMon(idHoaDon, idMonAn, emailNguoiDat) {
         if (confirm("Bạn có thực sự muốn xóa món ăn này không?")) {
+            addLoader();
             $.post("/xoa-mon-an-nhom", {
                 idHoaDon: idHoaDon,
                 idMonAn: idMonAn,
                 emailNguoiDat: emailNguoiDat
-            }, (content) => {
-                $("#item-gio-hang-" + idMonAn).remove();
-                $("#cong").html(content.cong + " đồng");
-                $("#tong-cong").html(content.tongCong + " đồng");
-            });
+            }, () => capNhatGioHang());
         }
     }
 
@@ -299,46 +282,24 @@
         document.execCommand("copy");
     });
 
-    function taoGioHang() {
-        $("#shared-link").html(
-            '<div style="text-align: center; margin-bottom: 16px;">Đang tạo giỏ hàng</div>' +
-            '<div class="bar-loader">\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '</div>\n'
-        );
-        $.post("/tao-hoa-don-nhom", content => {
-            $("#shared-link").html(
-                '<div class="badge badge-success" style="width: 100%;">Giỏ hàng tạo bởi ' + content.tenNguoiTao + ' - 0 phần/0 người</div>\n' +
-                '<div class="input-group form-group" style="margin-top: 8px;">\n' +
-                '<input type="text" class="form-control" id="txt-link" value="${requestScope["javax.servlet.forward.request_uri"]}?id=' + content.idHoaDon + '">\n' +
-                '<div class="input-group-append">\n' +
-                '<input class="btn btn-info" type="submit" value="Copy link" id="btn-copy-link"/>\n' +
-                '</div>\n' +
-                '</div>' +
-                '<h4>Tình trạng giỏ hàng</h4>\n' +
-                '<div class="alert-warning alert">Giỏ hàng chưa có món ăn nào. Hãy chia sẻ link để mọi người cùng đặt món</div>'
-            );
-            $("#xoa-don-hang").html('<div class="badge badge-danger" id="ban-xoa-don-hang" style="cursor: pointer;" onclick="xoaDonHang(' + content.idHoaDon + ')">Xóa đơn hàng</div>');
-        });
-    }
-
-    function xoaDonHang(idDonHang) {
-        $("#shared-link").html(
-            '<div style="text-align: center; margin-bottom: 16px;">Đang xóa giỏ hàng</div>' +
-            '<div class="bar-loader">\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '<span></span>\n' +
-            '</div>\n'
-        );
-        $.post("/xoa-gio-hang-nhom", {idGioHang: idDonHang}, () => {
-            $("#shared-link").html('<div class="badge badge-success" id="btn-tao-hoa-don" style="width: 100%; cursor: pointer;" onclick="taoGioHang()">Tạo giỏ hàng</div>');
-            $("#xoa-don-hang").html("");
-        });
-    }
+    $(".mua-mon-an").click(e => {
+        if ($("#gio-hang-nhom").data("id-gio-hang") !== "") {
+            addLoader();
+            let idMonAn = $(e.target).data("id-mon-an");
+            let idGioHang = $("#gio-hang-nhom").data("id-gio-hang");
+            $.get("/them-mon-an-vao-gio-hang", {
+                idMonAn: idMonAn,
+                idGioHang: idGioHang
+            }, content => {
+                if (content === "redirect") {
+                    location.href = "/dang-nhap";
+                } else {
+                    capNhatGioHang();
+                }
+            });
+        } else {
+            alert("Bạn cần tạo giỏ hàng trước khi chọn mua món nào đó");
+        }
+    });
 </script>
 <jsp:include page="_shared/user/end-of-file.jsp"/>

@@ -3,13 +3,10 @@ package quanlynhahang.controllers.monan;
 import quanlynhahang.common.ActionPermissionID;
 import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
-import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
-import quanlynhahang.models.businessmodels.ThucDonMonAnService;
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
-import quanlynhahang.models.datamodels.ThucDonMonAn;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,9 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,7 +28,7 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
         response.setContentType("text/html;charset=UTF-8");
 
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -71,7 +66,7 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
         ArrayList<ThucDon> listThucDon = null;
         ArrayList<LoaiMon> listLoaiMon = null;
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }

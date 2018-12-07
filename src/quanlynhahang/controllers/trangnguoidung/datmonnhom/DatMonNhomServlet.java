@@ -3,7 +3,6 @@ package quanlynhahang.controllers.trangnguoidung.datmonnhom;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnNhomService;
 import quanlynhahang.models.businessmodels.MonAnService;
-import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.viewmodels.HoaDonNhom;
 import quanlynhahang.models.viewmodels.MonAnNhom;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "DatMonNhomServlet", urlPatterns = { "/dat-mon-nhom" })
 public class DatMonNhomServlet extends HttpServlet {

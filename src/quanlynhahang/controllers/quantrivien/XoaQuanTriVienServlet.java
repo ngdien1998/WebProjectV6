@@ -12,15 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
 import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(name = "XoaQuanTriVienServlet", urlPatterns = { "/admin/xoa-quan-tri-vien" })
 public class XoaQuanTriVienServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -46,7 +44,7 @@ public class XoaQuanTriVienServlet extends HttpServlet implements ActionPermissi
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
