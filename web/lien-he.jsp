@@ -56,7 +56,7 @@
                     Góp ý cho chúng tôi
                 </h3>
 
-                <form class="wrap-form-reservation size22 m-l-r-auto">
+                <form class="wrap-form-reservation size22 m-l-r-auto" action="/lien-he" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <!-- Name -->

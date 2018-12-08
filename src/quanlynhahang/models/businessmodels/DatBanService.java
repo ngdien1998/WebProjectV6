@@ -6,7 +6,11 @@ import quanlynhahang.models.viewmodels.UserDbConnect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatBanService extends ConnectDatabase implements Businesses<DatBan> {
     public DatBanService(UserDbConnect user) {
@@ -18,7 +22,7 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         ArrayList<DatBan> datBans = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM  LayDatBan";
+        String sql = "exec  LayDatBan";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -26,10 +30,12 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         while (res.next()) {
             DatBan datBan = new DatBan();
             datBan.setEmail(res.getString(1));
-            datBan.setThoiGian(res.getDate(2));
-            datBan.setSoLuong(res.getInt(3));
-            datBan.setGhiChu(res.getString(4));
-
+            datBan.setThoiGian(res.getString(2));
+            datBan.setNgay(res.getDate(3));
+            datBan.setSoLuong(res.getInt(4));
+            datBan.setGhiChu(res.getString(5));
+            datBan.setHoTen(res.getString(6));
+            datBan.setSoDT(res.getString(7));
             datBans.add(datBan);
         }
         closeConnection();
@@ -54,11 +60,29 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
 
     @Override
     public int add(DatBan datBan) throws SQLException, ClassNotFoundException{
-        return 0;
+        if(datBan==null)
+            return 0;
+        openConnection();
+        String sql="exec ThemDatBan ?,?,?,?,?,?,?";
+        PreparedStatement statement=connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, datBan.getEmail());
+        statement.setString(2,datBan.getThoiGian());
+        statement.setDate(3,datBan.getNgay());
+        statement.setInt(4,datBan.getSoLuong());
+        statement.setString(5,datBan.getGhiChu());
+        statement.setString(6,datBan.getHoTen());
+        statement.setString(7,datBan.getSoDT());
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
+
     }
 
     @Override
-    public int modify(DatBan datBan) throws SQLException, ClassNotFoundException{
+    public int modify(DatBan datBan) throws ClassNotFoundException{
         return 0;
     }
 
@@ -76,9 +100,12 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         if (res.next()) {
             datBan = new DatBan();
             datBan.setEmail(res.getString(1));
-            datBan.setThoiGian(res.getDate(2));
-            datBan.setSoLuong(res.getInt(3));
-            datBan.setGhiChu(res.getString(4));
+            datBan.setThoiGian(res.getString(2));
+            datBan.setNgay(res.getDate(3));
+            datBan.setSoLuong(res.getInt(4));
+            datBan.setGhiChu(res.getString(5));
+            datBan.setHoTen(res.getString(6));
+            datBan.setSoDT(res.getString(7));
         }
         closeConnection();
         return datBan;
