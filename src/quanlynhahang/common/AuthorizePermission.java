@@ -50,7 +50,7 @@ public final class AuthorizePermission {
         return false;
     }
 
-    public static boolean islogin(HttpServletRequest request) {
+    public static boolean islogined(HttpServletRequest request) {
         HttpSession session = request.getSession();
         return session.getAttribute(Consts.WEBSITE_LOGIN) != null;
     }

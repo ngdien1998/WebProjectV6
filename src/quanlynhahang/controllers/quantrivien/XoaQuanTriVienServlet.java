@@ -18,7 +18,7 @@ import java.io.IOException;
 public class XoaQuanTriVienServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -44,7 +44,7 @@ public class XoaQuanTriVienServlet extends HttpServlet implements ActionPermissi
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

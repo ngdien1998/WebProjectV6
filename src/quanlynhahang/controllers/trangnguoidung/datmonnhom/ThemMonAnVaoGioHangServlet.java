@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @WebServlet(name = "ThemMonAnVaoGioHangServlet", urlPatterns = { "/them-mon-an-vao-gio-hang" })
 public class ThemMonAnVaoGioHangServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
@@ -27,7 +27,7 @@ public class ThemMonAnVaoGioHangServlet extends HttpServlet {
                 return;
             }
 
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 HttpSession session = request.getSession();
                 session.setAttribute(Consts.PREVIOUS_PAGE, "/dat-mon-nhom?id=" + idGioHang);
                 response.getWriter().print("redirect");
@@ -35,7 +35,7 @@ public class ThemMonAnVaoGioHangServlet extends HttpServlet {
             }
 
             MonAnNhomService service = new MonAnNhomService(DbAccess.getValue(request));
-            int res = service.themMonAn(Integer.parseInt(idMonAn), Integer.parseInt(idGioHang), AuthorizePermission.getCurrentLoginUser(request).getEmail());
+            service.themMonAn(Integer.parseInt(idMonAn), Integer.parseInt(idGioHang), AuthorizePermission.getCurrentLoginUser(request).getEmail());
 
         } catch (Exception e) {
             e.printStackTrace();

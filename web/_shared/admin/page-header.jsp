@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/flag-icon-css/css/flag-icon.min.css">
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
+
 <!-- endinject -->
 <!-- plugin css for this page -->
 <link rel="stylesheet" href="<%= request.getContextPath() + "/" %>../../assests/node_modules/jvectormap/jquery-jvectormap.css"/>

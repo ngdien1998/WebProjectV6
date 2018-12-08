@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title">Danh sách bình luận bài viết</h2>
+        <h2 class="card-title">Bình luận bài viết</h2>
         <h4 class="card-description">${requestScope.tenBaiViet}</h4>
         <div class="row">
             <table class="table table-hover" style="margin: 16px 0;">
@@ -23,7 +23,7 @@
                         <td>${binhLuan.email}</td>
                         <td>${binhLuan.noiDung}</td>
                         <td>
-                            <a href="/admin/xoa-binh-luan?id=${binhLuan.idBinhLuan}">Xóa</a>
+                            <a href="javascript:xoaBinhLuan(${binhLuan.idBinhLuan})">Xóa</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -37,4 +37,19 @@
 </div>
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
+<script type="text/javascript">
+    function xoaBinhLuan(idBinhLuan) {
+        if (confirm("Bạn có thực sự muốn xóa bình luận này không?")) {
+            $.urlParam = function(name){
+                let results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                if (results==null) {
+                    return null;
+                }
+                return decodeURI(results[1]) || 0;
+            };
+            let idBaiViet = $.urlParam("idBaiViet");
+            $.post("/xoa-binh-luan", { idBinhLuan: idBinhLuan }, () => location.href = "/admin/binh-luan-bai-viet?idBaiViet=" + idBaiViet);
+        }
+    }
+</script>
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>

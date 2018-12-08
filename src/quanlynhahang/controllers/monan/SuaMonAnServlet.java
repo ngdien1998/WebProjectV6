@@ -25,7 +25,7 @@ import java.util.Date;
 public class SuaMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -63,7 +63,7 @@ public class SuaMonAnServlet extends HttpServlet implements ActionPermissionID {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

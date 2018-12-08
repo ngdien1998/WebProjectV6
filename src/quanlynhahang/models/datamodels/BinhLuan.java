@@ -4,7 +4,8 @@ import java.sql.Date;
 
 public class BinhLuan {
     private int idBinhLuan;
-    private int idDanhMucLienQuan;
+    private int idBaiViet;
+    private int idMonAn;
     private String loai;
     private Date thoiGian;
     private String noiDung;
@@ -13,9 +14,10 @@ public class BinhLuan {
     public BinhLuan() {
     }
 
-    public BinhLuan(int idBinhLuan, int idDanhMucLienQuan, String loai, Date thoiGian, String noiDung, String email) {
+    public BinhLuan(int idBinhLuan, int idBaiViet, int idMonAn, String loai, Date thoiGian, String noiDung, String email) {
         this.idBinhLuan = idBinhLuan;
-        this.idDanhMucLienQuan = idDanhMucLienQuan;
+        this.idBaiViet = idBaiViet;
+        this.idMonAn = idMonAn;
         this.loai = loai;
         this.thoiGian = thoiGian;
         this.noiDung = noiDung;
@@ -30,12 +32,20 @@ public class BinhLuan {
         this.idBinhLuan = idBinhLuan;
     }
 
-    public int getIdDanhMucLienQuan() {
-        return idDanhMucLienQuan;
+    public int getIdBaiViet() {
+        return idBaiViet;
     }
 
-    public void setIdDanhMucLienQuan(int idDanhMucLienQuan) {
-        this.idDanhMucLienQuan = idDanhMucLienQuan;
+    public void setIdBaiViet(int idBaiViet) {
+        this.idBaiViet = idBaiViet;
+    }
+
+    public int getIdMonAn() {
+        return idMonAn;
+    }
+
+    public void setIdMonAn(int idMonAn) {
+        this.idMonAn = idMonAn;
     }
 
     public String getLoai() {

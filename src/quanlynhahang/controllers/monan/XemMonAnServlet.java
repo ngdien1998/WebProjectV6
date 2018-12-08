@@ -23,7 +23,7 @@ import java.sql.SQLException;
 public class XemMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

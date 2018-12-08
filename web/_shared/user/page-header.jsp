@@ -49,7 +49,7 @@
     <div class="col-md-9 col-sm-12" style="text-align: right;">
         <c:choose>
             <c:when test="${sessionScope.nguoiDungHienTai != null}">
-                Chào mừng <a style="color: #fff;"
+                Chào mừng <a data-email="${sessionScope.nguoiDungHienTai.email}" id="email-nguoi-dang-nhap" style="color: #fff;"
                     href="/sua-thong-tin-ca-nhan">${sessionScope.nguoiDungHienTai.hoDem} ${sessionScope.nguoiDungHienTai.ten}</a> đến với website
                 <a class="greetng-bat-item" href="/dang-xuat">Đăng xuất</a>
                 <c:if test="${sessionScope.nguoiDungHienTai.quanTriVien}">

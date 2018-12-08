@@ -25,6 +25,10 @@ public class DatMonNhomServlet extends HttpServlet {
             if (idDatMon != null) {
                 MonAnNhomService service = new MonAnNhomService(value);
                 HoaDonNhom hoaDon = service.layHoaDon(Integer.parseInt(idDatMon));
+                if (hoaDon == null) {
+                    response.sendError(404);
+                    return;
+                }
                 request.setAttribute("hoaDon", hoaDon);
                 double cong = 0;
                 for (MonAnNhom monAnNhom : hoaDon.getMonAnNhoms()) {

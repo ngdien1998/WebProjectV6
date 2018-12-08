@@ -25,7 +25,16 @@ public class BinhLuanService extends ConnectDatabase implements Businesses<BinhL
 
     @Override
     public int delete(Object... keys) throws SQLException, ClassNotFoundException {
-        return 0;
+        if (keys.length <= 0) {
+            return 0;
+        }
+        openConnection();
+        String sql = "EXEC XoaBinhLuan ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, (int) keys[0]);
+        int rowsAffected = statement.executeUpdate();
+        closeConnection();
+        return rowsAffected;
     }
 
     @Override
@@ -54,11 +63,12 @@ public class BinhLuanService extends ConnectDatabase implements Businesses<BinhL
         while (res.next()) {
             BinhLuan binhLuan = new BinhLuan();
             binhLuan.setIdBinhLuan(res.getInt(1));
-            binhLuan.setIdDanhMucLienQuan(res.getInt(2));
-            binhLuan.setLoai(res.getString(3));
-            binhLuan.setThoiGian(res.getDate(4));
-            binhLuan.setNoiDung(res.getString(5));
-            binhLuan.setEmail(res.getString(6));
+            binhLuan.setIdBaiViet(res.getInt(2));
+            binhLuan.setIdMonAn(res.getInt(3));
+            binhLuan.setLoai(res.getString(4));
+            binhLuan.setThoiGian(res.getDate(5));
+            binhLuan.setNoiDung(res.getString(6));
+            binhLuan.setEmail(res.getString(7));
             binhLuans.add(binhLuan);
         }
         closeConnection();

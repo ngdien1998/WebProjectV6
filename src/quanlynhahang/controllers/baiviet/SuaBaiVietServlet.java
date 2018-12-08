@@ -24,6 +24,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 @WebServlet(name = "SuaBaiVietServlet", urlPatterns = { "/admin/sua-bai-viet" })
 public class SuaBaiVietServlet extends HttpServlet implements ActionPermissionID {
@@ -31,7 +32,7 @@ public class SuaBaiVietServlet extends HttpServlet implements ActionPermissionID
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -46,22 +47,13 @@ public class SuaBaiVietServlet extends HttpServlet implements ActionPermissionID
             baiViet.setTenBaiViet(request.getParameter("txtTenBaiViet"));
             baiViet.setMoTa(request.getParameter("txtMoTa"));
             baiViet.setNoiDung(request.getParameter("txtNoiDung"));
-            if (request.getParameter("chkNguoiDungHienTai") != null) {
-                HttpSession session = request.getSession();
-                NguoiDung nguoiDungHienTai = (NguoiDung) session.getAttribute("nguoiDungHienTai");
-                baiViet.setEmail(nguoiDungHienTai.getEmail());
-            } else {
-                baiViet.setEmail(request.getParameter("cmbNguoiViet"));
-            }
-            String ngayViet = request.getParameter("txtThoiGian");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date temp = dateFormat.parse(ngayViet);
-            baiViet.setNgayViet(new Date(temp.getTime()));
+            baiViet.setHinh(request.getParameter("txtHinhBaiViet"));
+            baiViet.setEmail(AuthorizePermission.getCurrentLoginUser(request).getEmail());
             baiViet.setIdLoaiBaiViet(Integer.parseInt(request.getParameter("cmbLoaiBaiViet")));
 
             BaiVietService service = new BaiVietService(DbAccess.getValue(request));
             service.modify(baiViet);
-        } catch (SQLException | ClassNotFoundException | ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         response.sendRedirect("/admin/bai-viet");
@@ -69,7 +61,7 @@ public class SuaBaiVietServlet extends HttpServlet implements ActionPermissionID
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

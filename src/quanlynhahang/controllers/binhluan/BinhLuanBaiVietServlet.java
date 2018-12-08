@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class BinhLuanBaiVietServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -33,23 +33,22 @@ public class BinhLuanBaiVietServlet extends HttpServlet implements ActionPermiss
             }
             UserDbConnect admin = DbAccess.getValue(request);
 
-            String idDanhMucLienQuan = request.getParameter("id");
-            if (idDanhMucLienQuan == null || idDanhMucLienQuan.trim().isEmpty()) {
+            String idBaiViet = request.getParameter("idBaiViet");
+            if (idBaiViet == null || idBaiViet.trim().isEmpty()) {
                 response.setStatus(400);
                 return;
             }
             BinhLuanService service = new BinhLuanService(admin);
-            ArrayList<BinhLuan> binhLuans = service.getData("baiviet", Integer.parseInt(idDanhMucLienQuan));
+            ArrayList<BinhLuan> binhLuans = service.getData("baiviet", Integer.parseInt(idBaiViet));
             request.setAttribute("binhLuans", binhLuans);
             BaiVietService baiVietService = new BaiVietService(admin);
-            request.setAttribute("tenBaiViet", baiVietService.get(Integer.parseInt(idDanhMucLienQuan)).getTenBaiViet());
+            request.setAttribute("tenBaiViet", baiVietService.get(Integer.parseInt(idBaiViet)).getTenBaiViet());
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-binh-luan-bai-viet.jsp");
         dispatcher.forward(request, response);
     }
-
 
     @Override
     public int getPermissionId() {

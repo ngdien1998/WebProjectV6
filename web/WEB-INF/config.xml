@@ -17,8 +17,8 @@
 	Configure the location of uploaded files. See the following article for more details:
 	http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir
 	-->
-	<baseDir>/Content/Upload/</baseDir>
-	<baseURL>http://localhost:8080/Content/Upload/</baseURL>
+	<baseDir>E:/JSP Servlet/WebProjectV6/web/assests/content/upload/</baseDir>
+	<baseURL>/assests/content/upload/</baseURL>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>
 	<!--
@@ -51,8 +51,8 @@
 	Example: 'maxSize' => "8M",
 
 	==============================================================================
-	ATTENTION: Flash files with `swf' extension, just like HTML files, can be used 
-	to execute JavaScript code and to e.g. perform an XSS attack. Grant permission 
+	ATTENTION: Flash files with `swf' extension, just like HTML files, can be used
+	to execute JavaScript code and to e.g. perform an XSS attack. Grant permission
 	to upload `.swf` files only if you understand and can accept this risk.
 	==============================================================================
 	-->
@@ -69,7 +69,7 @@
 		<type name="Images">
 			<url>%BASE_URL%images/</url>
 			<directory>%BASE_DIR%images</directory>
-			<maxSize>0</maxSize>
+			<maxSize>5000</maxSize>
 			<allowedExtensions>bmp,gif,jpeg,jpg,png</allowedExtensions>
 			<deniedExtensions></deniedExtensions>
 		</type>

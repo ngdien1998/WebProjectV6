@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
+import java.util.Calendar;
 
 @WebServlet(name = "TaoHoaDonNhomServlet", urlPatterns = { "/tao-hoa-don-nhom" })
 public class TaoHoaDonNhomServlet extends HttpServlet {
@@ -23,7 +23,7 @@ public class TaoHoaDonNhomServlet extends HttpServlet {
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
 
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 HttpSession session = request.getSession();
                 session.setAttribute(Consts.PREVIOUS_PAGE, "/tao-hoa-don-nhom");
                 response.sendRedirect("/dang-nhap");
@@ -35,7 +35,7 @@ public class TaoHoaDonNhomServlet extends HttpServlet {
             HoaDonNhom hoaDonNhom = new HoaDonNhom();
             hoaDonNhom.setEmailNguoiTao(currentUser.getEmail());
             hoaDonNhom.setTenNguoiTao(currentUser.getTen());
-            hoaDonNhom.setThoiGianTao(new java.sql.Date(new Date().getTime()));
+            hoaDonNhom.setThoiGianTao(Calendar.getInstance().getTime());
 
             MonAnNhomService service = new MonAnNhomService(DbAccess.getValue(request));
             hoaDonNhom = service.taoHoaDon(hoaDonNhom);

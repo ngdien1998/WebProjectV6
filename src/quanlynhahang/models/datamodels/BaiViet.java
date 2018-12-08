@@ -1,6 +1,6 @@
 package quanlynhahang.models.datamodels;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BaiViet  {
     private int idBaiViet;

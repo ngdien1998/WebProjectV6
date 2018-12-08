@@ -38,7 +38,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -60,7 +60,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
             MonAnService monAnService = new MonAnService(admin);
             ArrayList<MonAn> listMonAn = null;
 
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

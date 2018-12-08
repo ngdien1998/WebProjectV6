@@ -17,7 +17,7 @@ public class ThemVaoGioHangServlet extends HttpServlet {
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
-            if (!AuthorizePermission.islogin(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.getWriter().println("Bạn hãy <a href='/dang-nhap'>đăng nhập</a> hoặc <a href='/dang-ky'>đăng ký tài khoản</a> để có thể đặt món");
                 return;
             }

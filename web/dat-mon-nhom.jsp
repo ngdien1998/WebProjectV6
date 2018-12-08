@@ -35,122 +35,152 @@
         <div class="book-detail col-md-4 col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-7 card-title" id="gio-hang-nhom" data-id-gio-hang="${requestScope.hoaDon.idHoaDonNhom}">Giỏ hàng nhóm</div>
-                        <c:if test="${requestScope.isInGroup && requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
-                            <div class="col-5" id="xoa-don-hang" style="text-align: right;">
-                                <form action="/xoa-gio-hang-nhom" method="post">
-                                    <input type="hidden" name="idGioHang" id="txt-id-gio-hang"
-                                            value="${requestScope.hoaDon.idHoaDonNhom}">
-                                    <input type="submit" value="Xóa" class="btn btn-danger btn-rounded">
-                                </form>
+                    <div id="gio-hang">
+                        <div class="row card-title">
+                            <div class="col-7" id="gio-hang-nhom"
+                                    data-id-gio-hang="${requestScope.hoaDon.idHoaDonNhom}">Giỏ hàng nhóm
                             </div>
-                        </c:if>
-                    </div>
-                    <div class="card-description" id="shared-link">
-                        <c:choose>
-                            <c:when test="${requestScope.isInGroup}">
-                                <div class="badge badge-success"
-                                        style="width: 100%;">Giỏ hàng tạo bởi Nguyễn Lê Điền
+                            <c:if test="${requestScope.isInGroup && requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
+                                <div class="col-5" id="xoa-don-hang" style="text-align: right;">
+                                    <form action="/xoa-gio-hang-nhom" method="post">
+                                        <input type="hidden" name="idGioHang" id="txt-id-gio-hang"
+                                                value="${requestScope.hoaDon.idHoaDonNhom}">
+                                        <input type="submit" id="btn-xoa" value="Xóa" class="btn btn-danger btn-rounded">
+                                    </form>
                                 </div>
-                                <div class="input-group form-group" style="margin-top: 8px;">
-                                    <input type="text" class="form-control" id="txt-link"
-                                            value="${requestScope["javax.servlet.forward.request_uri"]}?id=${requestScope.hoaDon.idHoaDonNhom}">
-                                    <div class="input-group-append">
-                                        <input class="btn btn-info" type="button" value="Copy link" id="btn-copy-link"/>
-                                    </div>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <form action="/tao-hoa-don-nhom" method="get">
-                                    <input type="submit" class="btn btn-success btn-rounded" value="Tạo giỏ hàng"
-                                            style="width: 100%;">
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
-                    <div class="tinh-trang-gio-hang">
-                        <c:if test="${requestScope.isInGroup}">
-                            <div id="gio-hang-main-content">
-                                <c:choose>
-                                    <c:when test="${requestScope.hoaDon.monAnNhoms.size() > 0}">
-                                        <h4>Tình trạng giỏ hàng</h4>
-                                        <div id="gio-hang-items">
-                                            <c:forEach var="monAn" items="${requestScope.hoaDon.monAnNhoms}">
-                                                <div class="item-gio-hang">
-                                                    <small class="nguoi-dat">
-                                                        <b>${monAn.tenNguoiDat}</b> đã đặt
-                                                    </small>
-                                                    <div class="alert alert-success" data-id="${monAn.idMonAn}">
-                                                        <span class="btn-xoa"
-                                                                onclick="xoaMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">x</span>
-                                                        <span class="btn-cong"
-                                                                onclick="themMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">+</span>
-                                                        <span id="so-luong-${monAn.idMonAn}">${monAn.soLuong}</span>
-                                                        <span class="btn-tru"
-                                                                onclick="botMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">-</span>
-                                                        <span class="ten-mon-an"
-                                                                style="font-weight: bold;">${monAn.tenMonAn}</span>
-                                                        <span class="gia"
-                                                                style="color: #939b9d; font-size: small;">${monAn.gia}đ</span>
-                                                    </div>
-                                                </div>
-                                            </c:forEach>
-                                        </div>
-                                        <div class="thong-tin-thanh-toan">
-                                            <table class="table tbl-thanh-toan">
-                                                <tr>
-                                                    <td>Cộng</td>
-                                                    <td class="text-right">
-                                                        <div class="badge badge-outline-warning"
-                                                                id="cong">${requestScope.cong} đồng
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Phí vận chuyển</td>
-                                                    <td class="text-right">
-                                                        <div class="badge badge-outline-success">7 000 đồng</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tổng cộng</td>
-                                                    <td class="text-right">
-                                                        <div class="badge badge-outline-info"
-                                                                id="tong-cong">1${requestScope.tongCong} đồng
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
-
-                                            <c:if test="${requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
-                                                <form action="/thanh-toan-gio-hang-nhom" method="post">
-                                                    <input type="hidden" name="txtIdGiohang"
-                                                            value="${requestScope.hoaDon.idHoaDonNhom}">
-                                                    <input type="submit" class="btn btn-primary btn-rounded"
-                                                            style="margin-top: 16px; width: 100%;" value="Thanh toán">
-                                                </form>
-                                            </c:if>
-                                        </div>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <h4>Tình trạng giỏ hàng</h4>
-                                        <div class="alert-warning alert">Giỏ hàng chưa có món ăn nào. Hãy chia sẻ link để mọi người cùng đặt món</div>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                        </c:if>
-                        <div class="alert">
-                            <h4>Chức năng tạo đơn hàng theo nhóm</h4>
-                            <p style="opacity: 0.7">Sử dụng tính năng này dể dàng qua các bước sau:</p>
-                            <ol>
-                                <li>Nhấn vào nút Tạo giỏ hàng</li>
-                                <li>Copy link của giỏ hàng và share cho những người sẽ cùng đặt món với bạn</li>
-                                <li>Những người bạn của bạn sẽ được chọn món ăn theo ý của họ mà không cần phụ thuộc vào người nào</li>
-                                <li>Sau khi thỏa thuận xong. Bạn, chính là người tạo ra giỏ hàng sẽ nhấn nút Đặt hàng và chờ đợi giao hàng đến</li>
-                            </ol>
-                            <p style="opacity: 0.7">Chúc các bạn trải nghiệm tốt dịch vụ và thưởng thức món ăn ngon miệng</p>
+                            </c:if>
                         </div>
+                        <div class="card-description" id="shared-link">
+                            <c:choose>
+                                <c:when test="${requestScope.isInGroup}">
+                                    <div class="badge badge-success"
+                                            style="width: 100%;">Giỏ hàng tạo bởi ${requestScope.hoaDon.tenNguoiTao}
+                                    </div>
+                                    <div class="input-group form-group" style="margin-top: 8px;">
+                                        <input id="txt-link" type="text" class="form-control" id="txt-link"
+                                                value="${requestScope["javax.servlet.forward.request_uri"]}?id=${requestScope.hoaDon.idHoaDonNhom}">
+                                        <div class="input-group-append">
+                                            <input class="btn btn-info" type="button" value="Copy link"
+                                                    id="btn-copy-link"/>
+                                        </div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <form action="/tao-hoa-don-nhom" method="get">
+                                        <input type="submit" class="btn btn-success btn-rounded" value="Tạo giỏ hàng"
+                                                style="width: 100%;">
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                        <div class="tinh-trang-gio-hang">
+                            <c:if test="${requestScope.isInGroup}">
+                                <div id="gio-hang-main-content">
+                                    <c:choose>
+                                        <c:when test="${requestScope.hoaDon.monAnNhoms.size() > 0}">
+                                            <h4>Tình trạng giỏ hàng</h4>
+                                            <div id="gio-hang-items">
+                                                <c:forEach var="monAn" items="${requestScope.hoaDon.monAnNhoms}">
+                                                    <div class="item-gio-hang">
+                                                        <c:choose>
+                                                            <c:when test="${monAn.emailNguoiDat == sessionScope.nguoiDungHienTai.email}">
+                                                                <small>
+                                                                    <b>Bạn</b> đã đặt
+                                                                </small>
+                                                                <div class="alert alert-warning"
+                                                                        data-id="${monAn.idMonAn}">
+                                                            <span class="btn-xoa"
+                                                                    onclick="xoaMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">x</span>
+                                                                    <span class="btn-cong"
+                                                                            onclick="themMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">+</span>
+                                                                    <span id="so-luong-${monAn.idMonAn}">${monAn.soLuong}</span>
+                                                                    <span class="btn-tru"
+                                                                            onclick="botMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">-</span>
+                                                                    <span class="ten-mon-an"
+                                                                            style="font-weight: bold;">${monAn.tenMonAn}</span>
+                                                                    <span class="gia"
+                                                                            style="color: #939b9d; font-size: small;">${monAn.gia}đ</span>
+                                                                </div>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <small>
+                                                                    <b>${monAn.tenNguoiDat}</b> đã đặt
+                                                                </small>
+                                                                <div class="alert alert-success"
+                                                                        data-id="${monAn.idMonAn}">
+                                                            <span class="btn-xoa"
+                                                                    onclick="xoaMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">x</span>
+                                                                    <span class="btn-cong"
+                                                                            onclick="themMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">+</span>
+                                                                    <span id="so-luong-${monAn.idMonAn}">${monAn.soLuong}</span>
+                                                                    <span class="btn-tru"
+                                                                            onclick="botMon(${requestScope.hoaDon.idHoaDonNhom}, ${monAn.idMonAn}, '${monAn.emailNguoiDat}');">-</span>
+                                                                    <span class="ten-mon-an"
+                                                                            style="font-weight: bold;">${monAn.tenMonAn}</span>
+                                                                    <span class="gia"
+                                                                            style="color: #939b9d; font-size: small;">${monAn.gia}đ</span>
+                                                                </div>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                            <div class="thong-tin-thanh-toan">
+                                                <table class="table tbl-thanh-toan">
+                                                    <tr>
+                                                        <td>Cộng</td>
+                                                        <td class="text-right">
+                                                            <div class="badge badge-outline-warning"
+                                                                    id="cong">${requestScope.cong} đồng
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Phí vận chuyển</td>
+                                                        <td class="text-right">
+                                                            <div class="badge badge-outline-success">7 000 đồng</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tổng cộng</td>
+                                                        <td class="text-right">
+                                                            <div class="badge badge-outline-info"
+                                                                    id="tong-cong">1${requestScope.tongCong} đồng
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <c:if test="${requestScope.hoaDon.emailNguoiTao == sessionScope.nguoiDungHienTai.email}">
+                                                    <input id="btn-thanh-toan" type="button"
+                                                            onclick="thanhToanGioHang(${requestScope.hoaDon.idHoaDonNhom})"
+                                                            class="btn btn-primary btn-rounded"
+                                                            style="margin-top: 16px; width: 100%;" value="Thanh toán">
+                                                </c:if>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <h4>Tình trạng giỏ hàng</h4>
+                                            <div class="alert-warning alert">Giỏ hàng chưa có món ăn nào. Hãy chia sẻ link để mọi người cùng đặt món</div>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+                                <script type="text/javascript">
+                                    let timmer = setInterval(() => capNhatGioHang(), 5000);
+                                </script>
+                            </c:if>
+                        </div>
+                    </div>
+                    <div class="alert">
+                        <h4>Chức năng tạo đơn hàng theo nhóm</h4>
+                        <p style="opacity: 0.7">Sử dụng tính năng này dể dàng qua các bước sau:</p>
+                        <ol>
+                            <li>Nhấn vào nút Tạo giỏ hàng</li>
+                            <li>Copy link của giỏ hàng và share cho những người sẽ cùng đặt món với bạn</li>
+                            <li>Những người bạn của bạn sẽ được chọn món ăn theo ý của họ mà không cần phụ thuộc vào người nào</li>
+                            <li>Sau khi thỏa thuận xong. Bạn, chính là người tạo ra giỏ hàng sẽ nhấn nút Đặt hàng và chờ đợi giao hàng đến</li>
+                        </ol>
+                        <p style="opacity: 0.7">Chúc các bạn trải nghiệm tốt dịch vụ và thưởng thức món ăn ngon miệng</p>
                     </div>
                 </div>
             </div>
@@ -236,6 +266,11 @@
         $("#gio-hang-main-content").html('<div class="circle-loader"></div>');
     }
 
+    function choPhepSuaMonAn(emailNguoiDatMon) {
+        let emailLogin = $("#email-nguoi-dang-nhap").data("email");
+        return emailLogin === emailNguoiDatMon;
+    }
+
     function capNhatGioHang() {
         $.post("/cap-nhap-trang-thai-gio-hang", {
             idGioHang: $("#gio-hang-nhom").data("id-gio-hang")
@@ -243,6 +278,10 @@
     }
 
     function botMon(idHoaDon, idMonAn, emailNguoiDat) {
+        if (!choPhepSuaMonAn(emailNguoiDat)) {
+            alert("Bạn không được chỉnh sửa món ăn của người khác");
+            return;
+        }
         let soLuong = parseInt($("#so-luong-" + idMonAn).html());
         if (soLuong > 1) {
             $("#so-luong-" + idMonAn).html(soLuong - 1);
@@ -256,6 +295,10 @@
     }
 
     function themMon(idHoaDon, idMonAn, emailNguoiDat) {
+        if (!choPhepSuaMonAn(emailNguoiDat)) {
+            alert("Bạn không được chỉnh sửa món ăn của người khác");
+            return;
+        }
         let soLuong = parseInt($("#so-luong-" + idMonAn).html());
         $("#so-luong-" + idMonAn).html(soLuong + 1);
         $.post("/cong-them-mon-an-nhom", {
@@ -267,6 +310,10 @@
     }
 
     function xoaMon(idHoaDon, idMonAn, emailNguoiDat) {
+        if (!choPhepSuaMonAn(emailNguoiDat)) {
+            alert("Bạn không được chỉnh sửa món ăn của người khác");
+            return;
+        }
         if (confirm("Bạn có thực sự muốn xóa món ăn này không?")) {
             addLoader();
             $.post("/xoa-mon-an-nhom", {
@@ -275,6 +322,25 @@
                 emailNguoiDat: emailNguoiDat
             }, () => capNhatGioHang());
         }
+    }
+
+    function thanhToanGioHang(idHoaDon) {
+        clearInterval(timmer);
+        $(".thong-tin-thanh-toan").append('<div class="flip-square-loader mx-auto"></div>');
+        $.post("/thanh-toan-gio-hang-nhom", {idHoaDon: idHoaDon}, content => {
+            $("#gio-hang").css("opacity", "0.5");
+            $("#btn-thanh-toan").attr("disabled", "disabled");
+            $("#btn-xoa").val("Thành công");
+            $("#btn-xoa").removeClass("btn-primary");
+            $("#btn-xoa").addClass("btn-success");
+            $("#btn-xoa").attr("disabled", "disabled");
+            $("#txt-link").attr("disabled", "disabled");
+            $("#btn-copy-link").attr("disabled", "disabled");
+            $(".mua-mon-an").css("cursor", "not-allowed");
+            $(".mua-mon-an").unbind("click");
+            $(".flip-square-loader").remove();
+            alert("Bạn đã đặt " + content.soLuong + " món với tổng cộng " + content.tongTien + " đồng. Vui lòng chờ đợi trong thời gian chúng tôi giao hàng cho bạn. Cảm ơn đã sử dụng dịch vụ này!" );
+        });
     }
 
     $("#btn-copy-link").click(() => {
@@ -287,7 +353,7 @@
             addLoader();
             let idMonAn = $(e.target).data("id-mon-an");
             let idGioHang = $("#gio-hang-nhom").data("id-gio-hang");
-            $.get("/them-mon-an-vao-gio-hang", {
+            $.post("/them-mon-an-vao-gio-hang", {
                 idMonAn: idMonAn,
                 idGioHang: idGioHang
             }, content => {

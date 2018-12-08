@@ -35,14 +35,25 @@ public class CapNhatGioHangNhomServlet extends HttpServlet {
                 html.append("<div class='gio-hang'>");
                 for (MonAnNhom monAn : hoaDon.getMonAnNhoms()) {
                     html.append("<div class='item-gio-hang'>\n");
-                    html.append("<small><b>").append(monAn.getTenNguoiDat()).append("</b> đã đặt</small>\n");
-                    html.append("<div class='alert alert-success' data-id='").append(monAn.getIdMonAn()).append("'>\n");
-                    html.append("<span class='btn-xoa' onclick='xoaMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>x</span>\n");
-                    html.append("<span class='btn-cong' onclick='themMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>+</span>\n");
-                    html.append("<span id='so-luong-").append(monAn.getIdMonAn()).append("'>").append(monAn.getSoLuong()).append("</span>\n");
-                    html.append("<span class='btn-tru' onclick='botMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>-</span>\n");
-                    html.append("<span class='ten-mon-an' style='font-weight: bold;'>").append(monAn.getTenMonAn()).append("</span>\n");
-                    html.append("<span class='gia' style='color: #939b9d; font-size: small;'>").append(monAn.getGia()).append("đ</span>\n");
+                    if (monAn.getEmailNguoiDat().equals(AuthorizePermission.getCurrentLoginUser(request).getEmail())) {
+                        html.append("<small><b>Bạn</b> đã đặt</small>\n");
+                        html.append("<div class='alert alert-warning' data-id='").append(monAn.getIdMonAn()).append("'>\n");
+                        html.append("<span class='btn-xoa' onclick='xoaMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>x</span>\n");
+                        html.append("<span class='btn-cong' onclick='themMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>+</span>\n");
+                        html.append("<span id='so-luong-").append(monAn.getIdMonAn()).append("'>").append(monAn.getSoLuong()).append("</span>\n");
+                        html.append("<span class='btn-tru' onclick='botMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>-</span>\n");
+                        html.append("<span class='ten-mon-an' style='font-weight: bold;'>").append(monAn.getTenMonAn()).append("</span>\n");
+                        html.append("<span class='gia' style='color: #939b9d; font-size: small;'>").append(monAn.getGia()).append("đ</span>\n");
+                    } else {
+                        html.append("<small><b>").append(monAn.getTenNguoiDat()).append("</b> đã đặt</small>\n");
+                        html.append("<div class='alert alert-success' data-id='").append(monAn.getIdMonAn()).append("'>\n");
+                        html.append("<span class='btn-xoa' onclick='xoaMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>x</span>\n");
+                        html.append("<span class='btn-cong' onclick='themMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>+</span>\n");
+                        html.append("<span id='so-luong-").append(monAn.getIdMonAn()).append("'>").append(monAn.getSoLuong()).append("</span>\n");
+                        html.append("<span class='btn-tru' onclick='botMon(").append(hoaDon.getIdHoaDonNhom()).append(", ").append(monAn.getIdMonAn()).append(", \"").append(monAn.getEmailNguoiDat()).append("\");'>-</span>\n");
+                        html.append("<span class='ten-mon-an' style='font-weight: bold;'>").append(monAn.getTenMonAn()).append("</span>\n");
+                        html.append("<span class='gia' style='color: #939b9d; font-size: small;'>").append(monAn.getGia()).append("đ</span>\n");
+                    }
                     html.append("</div>\n");
                     html.append("</div>");
                     cong += monAn.tinhTienMon();
@@ -70,9 +81,7 @@ public class CapNhatGioHangNhomServlet extends HttpServlet {
                 html.append("</tr>\n");
                 html.append("</table>\n");
                 if (AuthorizePermission.getCurrentLoginUser(request).getEmail().equals(hoaDon.getEmailNguoiTao())) {
-                    html.append("<input type='hidden' name='txtIdGiohang' value='${requestScope.hoaDon.idHoaDonNhom}'>\n");
-                    html.append("<input type='submit' class='btn btn-primary btn-rounded' style='margin-top: 16px; width: 100%;' value='Thanh toán'>\n");
-                    html.append("</form>\n");
+                    html.append("<input id='btn-thanh-toan' type='button' onclick='thanhToanGioHang(").append(hoaDon.getIdHoaDonNhom()).append(")' class='btn btn-primary btn-rounded' style='margin-top: 16px; width: 100%;' value='Thanh toán'>\n");
                 }
             } else {
                 html.append("<div class='alert-warning alert'>Giỏ hàng chưa có món ăn nào. Hãy chia sẻ link để mọi người cùng đặt món</div>");

@@ -25,7 +25,7 @@ CKFinder.lang['sr'] =
 {
 	appTitle : 'Датотеке',
 
-	// common messages and labels.
+	// Common messages and labels.
 	common :
 	{
 		// Put the voice-only part of the label in the span.

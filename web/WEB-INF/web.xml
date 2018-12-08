@@ -26,6 +26,7 @@
             /assests/js/ckfinder/core/connector/java/connector.java
         </url-pattern>
     </servlet-mapping>
+
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>

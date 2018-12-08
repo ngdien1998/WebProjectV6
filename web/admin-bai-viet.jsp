@@ -35,7 +35,7 @@
                         <a href="/admin/xem-bai-viet?id=${baiViet.idBaiViet}">Xem</a> |
                         <a href="/admin/sua-bai-viet?id=${baiViet.idBaiViet}">Sửa</a> |
                         <a href="/admin/xoa-bai-viet?id=${baiViet.idBaiViet}">Xóa</a> |
-                        <a href="/admin/binh-luan-bai-viet?id=${baiViet.idBaiViet}">Bình luận</a>
+                        <a href="/admin/binh-luan-bai-viet?idBaiViet=${baiViet.idBaiViet}">Bình luận</a>
                     </td>
                 </tr>
             </c:forEach>

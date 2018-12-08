@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class BaiVietService extends ConnectDatabase implements Businesses<BaiViet> {
@@ -38,17 +39,19 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
 
     @Override
     public int add(BaiViet baiViet) throws SQLException, ClassNotFoundException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         openConnection();
-        String sql = "EXEC ThemBaiViet ?,?,?,?,?,?";
+        String sql = "EXEC ThemBaiViet ?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
         statement.setString(1, baiViet.getTenBaiViet());
         statement.setString(2, baiViet.getMoTa());
         statement.setString(3, baiViet.getNoiDung());
-        statement.setDate(4, baiViet.getNgayViet());
-        statement.setString(7, baiViet.getEmail());
-        statement.setInt(8, baiViet.getIdLoaiBaiViet());
+        statement.setString(4, sdf.format(baiViet.getNgayViet()));
+        statement.setString(5, baiViet.getHinh());
+        statement.setString(6, baiViet.getEmail());
+        statement.setInt(7, baiViet.getIdLoaiBaiViet());
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
@@ -75,6 +78,7 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
         if (baiViet == null) {
             return 0;
         }
+
         openConnection();
         String sql = "EXEC SuaBaiViet ?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -84,9 +88,9 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
         statement.setString(2, baiViet.getTenBaiViet());
         statement.setString(3, baiViet.getMoTa());
         statement.setString(4, baiViet.getNoiDung());
-        statement.setDate(5, baiViet.getNgayViet());
-        statement.setString(7, baiViet.getEmail());
-        statement.setInt(8, baiViet.getIdLoaiBaiViet());
+        statement.setString(5, baiViet.getHinh());
+        statement.setString(6, baiViet.getEmail());
+        statement.setInt(7, baiViet.getIdLoaiBaiViet());
         int rowAffected = statement.executeUpdate();
         closeConnection();
         return rowAffected;
@@ -100,7 +104,7 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
         openConnection();
         String sql = "EXEC LayMotBaiViet ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, (int)keys[0]);
+        statement.setInt(1, (int) keys[0]);
         ResultSet res = statement.executeQuery();
         BaiViet baiViet = null;
         if (res.next()) {

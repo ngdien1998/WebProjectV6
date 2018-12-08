@@ -1,7 +1,7 @@
 package quanlynhahang.models.viewmodels;
 
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HoaDonNhom {
     private int idHoaDonNhom;

@@ -31,45 +31,16 @@
                 </script>
                 <small class="text-danger" id="validate-noi-dung"></small>
             </div>
-            <div class="form-row">
-                <div class="form-group col-2">
-                    <label for="nguoi-hien-tai">Người viết bài này là</label>
-                    <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" id="nguoi-hien-tai" name="chkNguoiDungHienTai">
-                            Tôi viết
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group col-10">
-                    <label for="nguoi-viet">Chọn người viết bài (bắt buộc)</label>
-                    <select class="form-control border-primary" id="nguoi-viet" name="cmbNguoiViet">
-                        <option value="-1">Chọn người viết</option>
-                        <c:forEach var="nguoiViet" items="${requestScope.nguoiViets}">
-                            <option value="${nguoiViet.email}" <c:if test="${nguoiViet.email == requestScope.tacGia.email}">selected</c:if>>${nguoiViet.hoDem} ${nguoiViet.ten}</option>
-                        </c:forEach>
-                    </select>
-                    <small class="text-danger" id="validate-nguoi-viet"></small>
+            <div class="form-group">
+                <label>Hình bài viết</label>
+                <div class="input-group col-xs-12">
+                    <input type="text" class="form-control file-upload-info" readonly placeholder="Ảnh bài viết"
+                            name="txtHinhBaiViet" id="txt-hinh-bai-viet">
+                    <span class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="browseServer('txt-hinh-bai-viet')">Duyệt Server</button>
+                    </span>
                 </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-2">
-                    <label for="thoi-gian-hien-tai">Bài này được viết tại</label>
-                    <div class="form-check form-check-flat">
-                        <label class="form-check-label">
-                            <input disabled type="checkbox" class="form-check-input" name="chkThoiGianHienTai" id="thoi-gian-hien-tai">
-                            Thời gian hiện tại
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group col-10">
-                    <label for="thoi-gian">Chọn thời gian viết bài (bắt buộc)</label>
-                    <input type="date" name="txtThoiGian" id="thoi-gian" class="form-control" value="${requestScope.baiViet.ngayViet}" />
-                    <small class="text-danger" id="validate-ngay-viet"></small>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label for="loai-bai-viet">Chọn loại bài viết</label>
                 <select class="form-control border-primary" id="loai-bai-viet" name="cmbLoaiBaiViet">
@@ -90,6 +61,12 @@
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
 <script type="text/javascript">
+    function browseServer(control) {
+        let ckfinder = new CKFinder();
+        ckfinder.selectActionFunction = url => $("#" + control).val(url);
+        ckfinder.popup();
+    }
+
     $("#nguoi-hien-tai").change(() => {
         let isChecked = $("#nguoi-hien-tai").is(":checked");
         if (isChecked) {

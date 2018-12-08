@@ -1,5 +1,6 @@
 package quanlynhahang.models.businessmodels;
 
+import com.google.gson.JsonObject;
 import quanlynhahang.models.viewmodels.HoaDonNhom;
 import quanlynhahang.models.viewmodels.MonAnNhom;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -7,6 +8,7 @@ import quanlynhahang.models.viewmodels.UserDbConnect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -24,13 +26,15 @@ public class MonAnNhomService extends ConnectDatabase {
         statement1.setInt(1, id);
 
         ResultSet res = statement1.executeQuery();
-        if (res.next()) {
-            hoaDon.setIdHoaDonNhom(res.getInt(1));
-            hoaDon.setEmailNguoiTao(res.getString(2));
-            hoaDon.setTenNguoiTao(res.getString(3));
-            hoaDon.setThoiGianTao(res.getDate(4));
-            hoaDon.setHoanThanh(res.getBoolean(5));
+        if (!res.next()) {
+            return null;
         }
+
+        hoaDon.setIdHoaDonNhom(res.getInt(1));
+        hoaDon.setEmailNguoiTao(res.getString(2));
+        hoaDon.setTenNguoiTao(res.getString(3));
+        hoaDon.setThoiGianTao(res.getDate(4));
+        hoaDon.setHoanThanh(res.getBoolean(5));
 
         sql = "SELECT * FROM dbo.LayMonAnTrongHoaDonNhom(?) ORDER BY ThoiGianDat DESC";
         PreparedStatement statement2 = connection.prepareStatement(sql);
@@ -54,10 +58,11 @@ public class MonAnNhomService extends ConnectDatabase {
 
     public HoaDonNhom taoHoaDon(HoaDonNhom hoaDonNhom) throws SQLException, ClassNotFoundException {
         openConnection();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
         String sql = "EXEC ThemHoaDonNhom ?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, hoaDonNhom.getEmailNguoiTao());
-        statement.setDate(2, hoaDonNhom.getThoiGianTao());
+        statement.setString(2, sdf.format(hoaDonNhom.getThoiGianTao()));
         statement.setBoolean(3, hoaDonNhom.isHoanThanh());
 
         ResultSet res = statement.executeQuery();
@@ -139,5 +144,26 @@ public class MonAnNhomService extends ConnectDatabase {
         int rowsAffected = statement.executeUpdate();
         closeConnection();
         return rowsAffected;
+    }
+
+    public String hoanThanhDonHang(int idHoaDon) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC HoanThanhDonHang ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idHoaDon);
+        statement.executeUpdate();
+
+        sql = "SELECT * FROM dbo.LayMonAnTrongHoaDonNhom(?)";
+        PreparedStatement statement2 = connection.prepareStatement(sql);
+        statement2.setInt(1, idHoaDon);
+        double tongTien = 0;
+        int soLuong = 0;
+        ResultSet res2 = statement2.executeQuery();
+        while (res2.next()) {
+            tongTien += res2.getInt(3) * res2.getInt(4);
+            soLuong++;
+        }
+        closeConnection();
+        return soLuong + "-" + tongTien;
     }
 }
