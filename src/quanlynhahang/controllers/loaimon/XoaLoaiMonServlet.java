@@ -3,7 +3,6 @@ package quanlynhahang.controllers.loaimon;
 import quanlynhahang.common.ActionPermissionID;
 import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
-import quanlynhahang.models.businessmodels.LoaiBaiVietService;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 
@@ -22,7 +21,7 @@ public class XoaLoaiMonServlet extends HttpServlet implements ActionPermissionID
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -48,7 +47,7 @@ public class XoaLoaiMonServlet extends HttpServlet implements ActionPermissionID
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }

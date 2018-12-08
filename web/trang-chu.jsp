@@ -20,13 +20,6 @@
     <div class="col-3 contact-bar-greeting">
         <i>Hân hạnh được phục vụ quý khách</i>
     </div>
-    <%----%>
-    <%--<div class="col-9 contact-bar-functions">--%>
-        <%--<a href="/dang-nhap">Đăng nhập</a>--%>
-        <%--<a href="/dang-ky">Đăng ký</a>--%>
-        <%--<a href="#!">Giỏ hàng</a>--%>
-    <%--</div>--%>
-
     <div class="col-9 contact-bar-functions">
         <c:choose>
             <c:when test="${sessionScope.nguoiDungHienTai != null}">
@@ -35,13 +28,13 @@
                 <c:if test="${sessionScope.nguoiDungHienTai.quanTriVien}">
                     <a href="/admin/ket-noi-database">Quản trị</a>
                 </c:if>
+                <a href="/gio-hang">Giỏ hàng</a>
             </c:when>
             <c:otherwise>
                 <a href="/dang-nhap">Đăng nhập</a>
                 <a href="/dang-ky">Đăng ký</a>
             </c:otherwise>
         </c:choose>
-        <a href="/gio-hang">Giỏ hàng</a>
     </div>
 </div>
 

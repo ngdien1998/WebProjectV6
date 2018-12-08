@@ -45,7 +45,8 @@ public class GioHang {
             }
 
             if (existedIndex >= 0) {
-                monAns.get(existedIndex).setSoLuong(soLuong);
+                MonAnVM monAnVM = monAns.get(existedIndex);
+                monAnVM.setSoLuong(monAnVM.getSoLuong() + soLuong);
             } else {
                 MonAnService service = new MonAnService((UserDbConnect) session.getAttribute(Consts.USER_DB_CONNECT));
                 MonAn monAn = service.get(idMonAn);
@@ -96,7 +97,7 @@ public class GioHang {
         if (monAnVMs == null) {
             return;
         }
-        for (int i = 0; i< monAnVMs.size(); i++) {
+        for (int i = 0; i < monAnVMs.size(); i++) {
             if (monAnVMs.get(i).getIdMonAn() == idMonAn) {
                 monAnVMs.remove(i);
                 return;
@@ -105,7 +106,28 @@ public class GioHang {
     }
 
     public boolean laGioHangRong() {
-        Object objSession = session.getAttribute(Consts.GIO_HANG);
-        return objSession == null;
+        ArrayList<MonAnVM> obj = layDanhSachMonAnTrongGioHang();
+        return obj == null || obj.size() <= 0;
+    }
+
+    public MonAnVM layMonAn(int idMonAn) {
+        ArrayList<MonAnVM> monAnVMS = layDanhSachMonAnTrongGioHang();
+        if (monAnVMS != null)
+        for (MonAnVM monAnVM : monAnVMS) {
+            if (monAnVM.getIdMonAn() == idMonAn) {
+                return monAnVM;
+            }
+        }
+        return null;
+    }
+
+    public int tinhTongTien() {
+        int tongTien = 0;
+        ArrayList<MonAnVM> monAnVMS = layDanhSachMonAnTrongGioHang();
+        if (monAnVMS != null)
+            for (MonAnVM monAnVM : monAnVMS) {
+                tongTien += monAnVM.tinhTien();
+            }
+        return tongTien;
     }
 }

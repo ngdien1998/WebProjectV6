@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.trangnguoidung.giohang;
 
+import com.google.gson.JsonObject;
 import quanlynhahang.models.viewmodels.GioHang;
 
 import javax.servlet.ServletException;
@@ -13,8 +14,8 @@ import java.io.IOException;
 public class CapNhatGioHangServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            request.setCharacterEncoding("utf-8");
-            response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
 
             int idMonAn = Integer.parseInt(request.getParameter("txtIdMon"));
             int soLuong = Integer.parseInt(request.getParameter("txtSoLuong"));
@@ -22,7 +23,10 @@ public class CapNhatGioHangServlet extends HttpServlet {
             GioHang gioHang = new GioHang(request.getSession());
             gioHang.capNhatGioHang(idMonAn, soLuong);
 
-            response.getWriter().println("Đã cập nhật giỏ hàng");
+            JsonObject jsonResult = new JsonObject();
+            jsonResult.addProperty("giaMoi", gioHang.layMonAn(idMonAn).tinhTien());
+            jsonResult.addProperty("tongTien", gioHang.tinhTongTien());
+            response.getWriter().print(jsonResult.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

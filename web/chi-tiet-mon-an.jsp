@@ -293,6 +293,23 @@
             txtSoLuong: $("#txt-so-luong").val()
         }, content => $("#area-mon-an").append("<p>" + content + "</p>"));
     });
+
+    $("#button-add").click(() => {
+        let soLuong = parseInt($("#txt-so-luong").val());
+        $("#txt-so-luong").val(soLuong + 1);
+    });
+
+    $("#button-subtract").click(() => {
+        let soLuong = parseInt($("#txt-so-luong").val());
+        $("#txt-so-luong").val(soLuong - 1);
+    });
+
+    $("#txt-so-luong").blur(() => {
+        let value = $("#txt-so-luong").val();
+        if (value === "" || isNaN(value) || parseInt(value) <= 0) {
+            $("#txt-so-luong").val("1");
+        }
+    });
 </script>
 
 </body>

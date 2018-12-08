@@ -19,9 +19,10 @@ public class XoaMonAnTrongGioHangServlet extends HttpServlet {
             int idMonAn = Integer.parseInt(request.getParameter("txtIdMon"));
             GioHang gioHang = new GioHang(request.getSession());
             gioHang.xoaMonAnTrongGioHang(idMonAn);
+
+            response.getWriter().print("true");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/gio-hang");
     }
 }

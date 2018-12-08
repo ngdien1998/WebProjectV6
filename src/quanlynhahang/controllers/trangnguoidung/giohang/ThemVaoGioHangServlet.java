@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.trangnguoidung.giohang;
 
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.models.viewmodels.GioHang;
 
 import javax.servlet.ServletException;
@@ -16,11 +17,21 @@ public class ThemVaoGioHangServlet extends HttpServlet {
             request.setCharacterEncoding("utf-8");
             response.setContentType("text/html;charset=UTF-8");
 
-            int idMonAn = Integer.parseInt(request.getParameter("txtIdMon"));
-            int soLuong = Integer.parseInt(request.getParameter("txtSoLuong"));
+            if (!AuthorizePermission.islogin(request)) {
+                response.getWriter().println("Bạn hãy <a href='/dang-nhap'>đăng nhập</a> hoặc <a href='/dang-ky'>đăng ký tài khoản</a> để có thể đặt món");
+                return;
+            }
+
+            String idMonAn = request.getParameter("txtIdMon");
+            String soLuong = request.getParameter("txtSoLuong");
+
+            if (idMonAn == null || soLuong == null) {
+                response.sendError(400);
+                return;
+            }
 
             GioHang gioHang = new GioHang(request.getSession());
-            gioHang.themMonAnVaoGioHang(idMonAn, soLuong);
+            gioHang.themMonAnVaoGioHang(Integer.parseInt(idMonAn), Integer.parseInt(soLuong));
 
             response.getWriter().println("Đã thêm " + soLuong + " món ăn này vào. Vào <a href='/gio-hang'>Giỏ hàng</a> để xem chi tiết");
         } catch (Exception e) {

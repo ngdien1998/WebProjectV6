@@ -1,0 +1,55 @@
+.sub {
+    font-size: small;
+    color: #888888;
+}
+
+.main {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-cong {
+    background: #249c42;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+
+.btn-tru {
+    background: #ff680b;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 7px;
+}
+
+.btn-xoa {
+    background: #d2332c;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+
+table.tbl-thanh-toan tr td {
+    padding: 4px 0;
+}
+
+.food {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 8px 16px 0;
+    float: left;
+}
+
+.food img {
+    width: 100%;
+    height: 178px;
+}
+
+.food a {
+    text-decoration: none;
+    color: #444444;
+}

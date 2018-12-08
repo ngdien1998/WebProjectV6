@@ -63,7 +63,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         return monAns;
     }
 
-//    @Override
+    @Override
     public int add(MonAn monAn) throws SQLException, ClassNotFoundException {
         if (monAn == null) {
             return 0;
@@ -171,5 +171,29 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         listLoaiMon = loaiMonService.getData();
         return listLoaiMon;
     }
-}
 
+    public ArrayList<MonAn> layMonAnTheoThucDon(int idMonAn) throws SQLException, ClassNotFoundException {
+        openConnection();
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        String sql = "SELECT * FROM LayMonAnTheoThucDon(?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, idMonAn);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setTenMonAn(res.getString(2));
+            monAn.setDonViTinh(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setGia(res.getInt(5));
+            monAn.setHinhMonAn(res.getString(6));
+            monAn.setKhuyenMai(res.getInt(7));
+            monAn.setNgayThem(res.getDate(8));
+            monAn.setIdLoaiMon(res.getInt(9));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
+    }
+}

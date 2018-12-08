@@ -1,16 +1,13 @@
 package quanlynhahang.controllers.monan;
 
-import org.jboss.vfs.protocol.AbstractLocalURLStreamHandler;
 import quanlynhahang.common.ActionPermissionID;
 import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.LoaiMonService;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
-import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
-import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import javax.servlet.RequestDispatcher;
@@ -26,7 +23,7 @@ import java.sql.SQLException;
 public class XemMonAnServlet extends HttpServlet implements ActionPermissionID {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
