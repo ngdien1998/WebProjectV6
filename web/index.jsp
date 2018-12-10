@@ -4,7 +4,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <%
     NguoiDung user = new NguoiDung();
     user.setEmail("ngdien1998@gmail.com");
@@ -23,4 +22,4 @@
     session.setAttribute(Consts.USER_DB_CONNECT, admin);
 %>
 
-<c:redirect url="/lien-he" />
+<c:redirect url="/admin/mon-an" />

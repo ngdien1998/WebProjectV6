@@ -21,6 +21,7 @@ public class MonAnServlet extends HttpServlet {
             MonAnService service = new MonAnService(DbAccess.getValue(request));
             ArrayList<MonAn> monAns = service.getData();
 
+            request.setAttribute("soLuong", monAns.size());
             request.setAttribute("monAns", monAns);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-mon-an.jsp");
             dispatcher.forward(request, response);

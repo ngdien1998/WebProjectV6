@@ -11,7 +11,7 @@
             Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>
 
-        <form class="forms-sample" action="/admin/them-mon-an" method="post">
+        <form class="forms-sample" action="/admin/them-mon-an" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="ten-mon-an">Tên Món Ăn (bắt buộc)</label>
@@ -26,9 +26,15 @@
             </div>
             <div class="form-group">
                 <label for="mo-ta">Mô Tả</label>
-                <textarea class="form-control" id="mo-ta" rows="3"
+                <textarea class="form-control" id="mo-ta" rows="2"
                           placeholder="Mô Tả" name="txtMoTa"></textarea>
                 <small class="text-danger" id="validate-mo-ta"></small>
+            </div>
+            <div class="form-group">
+                <label for="mo-ta">Mô Tả Chi Tiết</label>
+                <textarea class="form-control"rows="5"
+                          placeholder="Mô Tả Chi Tiết" name="txtMoTaChiTiet"></textarea>
+                <small class="text-danger" ></small>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
@@ -67,17 +73,13 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group mb-4">
-                <label>Ảnh thực đơn</label>
-                <input type="file" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                    <input type="text" class="form-control file-upload-info" readonly
-                           placeholder="Hình thực đơn" name="txtHinhThucDon">
-                    <span class="input-group-append">
-                                        <button class="btn btn-primary" type="button">Duyệt Server</button>
-                                    </span>
-                </div>
+            <div>
+                <label>Ảnh món ăn</label>
+                <br>
+                <input type="file" name="filecover">
+                <br>
             </div>
+            <br>
             <div class="row justify-content-center">
                 <input type="submit" class="btn btn-primary btn-rounded" id="btn-submit"
                        value="Thêm món ăn"/>

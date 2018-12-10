@@ -9,11 +9,13 @@ public class MonAn {
     private String tenMonAn;
     private String donViTinh;
     private String moTa;
+    private String moTaChiTiet;
     private int gia;
     private String hinhMonAn;
     private int khuyenMai;
     private Date ngayThem;
     private int idLoaiMon;
+    private int idThucDon;
 
     public MonAn() {
     }
@@ -30,11 +32,38 @@ public class MonAn {
         this.idLoaiMon = idLoaiMon;
     }
 
+    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, int gia, String hinhMonAn, int khuyenMai, Date ngayThem, int idLoaiMon, int idThucDon) {
+        this.idMonAn = idMonAn;
+        this.tenMonAn = tenMonAn;
+        this.donViTinh = donViTinh;
+        this.moTa = moTa;
+        this.gia = gia;
+        this.hinhMonAn = hinhMonAn;
+        this.khuyenMai = khuyenMai;
+        this.ngayThem = ngayThem;
+        this.idLoaiMon = idLoaiMon;
+        this.idThucDon = idThucDon;
+    }
+
     public MonAn(int idMonAn, String tenMonAn, int gia, String hinhMonAn) {
         this.idMonAn = idMonAn;
         this.tenMonAn = tenMonAn;
         this.gia = gia;
         this.hinhMonAn = hinhMonAn;
+    }
+
+    public MonAn(int idMonAn, String tenMonAn, String donViTinh, String moTa, String moTaChiTiet, int gia, String hinhMonAn, int khuyenMai, Date ngayThem, int idLoaiMon, int idThucDon) {
+        this.idMonAn = idMonAn;
+        this.tenMonAn = tenMonAn;
+        this.donViTinh = donViTinh;
+        this.moTa = moTa;
+        this.moTaChiTiet = moTaChiTiet;
+        this.gia = gia;
+        this.hinhMonAn = hinhMonAn;
+        this.khuyenMai = khuyenMai;
+        this.ngayThem = ngayThem;
+        this.idLoaiMon = idLoaiMon;
+        this.idThucDon = idThucDon;
     }
 
     public int getIdMonAn() {
@@ -67,6 +96,14 @@ public class MonAn {
 
     public void setMoTa(String moTa) {
         this.moTa = moTa;
+    }
+
+    public String getMoTaChiTiet() {
+        return moTaChiTiet;
+    }
+
+    public void setMoTaChiTiet(String moTaChiTiet) {
+        this.moTaChiTiet = moTaChiTiet;
     }
 
     public int getGia() {
@@ -107,5 +144,13 @@ public class MonAn {
 
     public void setIdLoaiMon(int idLoaiMon) {
         this.idLoaiMon = idLoaiMon;
+    }
+
+    public int getIdThucDon() {
+        return idThucDon;
+    }
+
+    public void setIdThucDon(int idThucDon) {
+        this.idThucDon = idThucDon;
     }
 }

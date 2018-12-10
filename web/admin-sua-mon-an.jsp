@@ -9,7 +9,7 @@
 <div class="card" style="margin: 16px 0;">
     <div class="card-body">
         <h3 class="card-title">Sửa Thông Tin Món Ăn : ${requestScope.monAn.tenMonAn}</h3>
-        <form class="forms-sample" action="/admin/sua-mon-an" method="post">
+        <form class="forms-sample" action="/admin/sua-mon-an" method="post" enctype="multipart/form-data" >
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 form-group">
                     <input type="hidden" name="txtIdMonAn" value="${requestScope.monAn.idMonAn}">
@@ -30,6 +30,12 @@
                 <textarea class="form-control" rows="3"
                           placeholder="Mô Tả" name="txtMoTa"> ${requestScope.monAn.moTa}</textarea>
                 <small class="text-danger"></small>
+            </div>
+            <div class="form-group">
+                <label>Mô Tả Chi Tiết</label>
+                <textarea class="form-control"rows="5"
+                          placeholder="Mô Tả Chi Tiết" name="txtMoTaChiTiet">${requestScope.monAn.moTaChiTiet}</textarea>
+                <small class="text-danger" ></small>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12">
@@ -114,18 +120,13 @@
                     bs_input_file();
                 });
             </script>
-            <div class="form-group mb-4">
+            <div>
                 <label>Ảnh</label>
-                <div class="input-group input-file" name="Fichier1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-choose" type="button">Choose</button>
-                                        </span>
-                    <input type="text" class="form-control" placeholder='Chọn ảnh'/>
-                    <span class="input-group-btn">
-                                            <button class="btn btn-warning btn-reset" type="button">Reset</button>
-                                        </span>
-                </div>
+                <br>
+                <input type="file" name="filecover" value="${requestScope.hinhMonAn}">
+                <br>
             </div>
+            <br>
             <div class="form-row justify-content-center">
                 <input type="submit" class="btn btn-primary btn-rounded" id="btn-submit" value="Lưu"/> &nbsp;
                 <a href="/admin/mon-an" class="btn btn-success btn-rounded"> Hủy bỏ</a>

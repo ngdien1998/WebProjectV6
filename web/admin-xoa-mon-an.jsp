@@ -9,54 +9,10 @@
         <h2>Thông tin chi tiết món ăn: ${requestScope.monAn.tenMonAn}</h2>
     </div>
     <div class="row">
-        <div class="col-12 mb-3">
-            <span class="label">Ảnh</span> <br/>
-            <div class="row">
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-                <div class="col-2">
-                    <img
-                            src="./assests/images/Trua-Nay-An-Gi.jpg"
-                            alt=""
-                            width="100%"
-                    />
-                </div>
-            </div>
+        <div class="col-sm-5">
+            <img src="${requestScope.monAn.hinhMonAn}" alt="" width="420px" height="325px">
         </div>
-        <div class="col-12">
+        <div class="col-sm-7">
             <table class="table table-striped">
                 <tr>
                     <td>Tên Món Ăn:</td>

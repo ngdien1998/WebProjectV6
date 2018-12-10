@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -37,13 +38,22 @@ public class XoaThucDonServlet extends HttpServlet implements ActionPermissionID
             }
 
             ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
-
             thucDonService.delete(Integer.parseInt(idThucDon));
+
+            ThucDon thucDon = thucDonService.get(idThucDon);
+            File file = new File(thucDon.getHinhThucDon());
+            if(file.delete()){
+                response.sendRedirect("/admin/thuc-don");
+            }
+            else{
+                response.setStatus(400);
+                return;
+            }
+
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/admin/thuc-don");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

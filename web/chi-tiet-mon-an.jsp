@@ -42,7 +42,7 @@
             <div class="col-12 col-md-6">
                 <!-- info product -->
                 <h3 class="title-detail">${requestScope.monAn.tenMonAn}</h3>
-                <div class="price-detail">${requestScope.monAn.gia}</div>
+                <div class="price-detail">${requestScope.monAn.gia}đ</div>
                 <div class="description-detail">
                     <p>
                         ${requestScope.monAn.moTa}
@@ -53,8 +53,8 @@
                         <button class="btn btn-outline-primary" type="button" id="button-subtract">-</button>
                     </div>
                     <input type="text" class="form-control number-product" id="txt-so-luong"
-                            aria-describedby="button-addon1"
-                            value="1">
+                           aria-describedby="button-addon1"
+                           value="1">
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-primary" type="button" id="button-add"
                                 style="border-radius:0px 4px 4px 0px;">+
@@ -75,8 +75,7 @@
             </div>
             <div class="content-detail">
                 <p>
-                    Cua rang me là món ăn ngon, hội tụ được bốn vị: chua, cay, mặn, ngọt… Đây là một món khá cầu kì nhưng chỉ phù hợp để ăn chơi, được chị em phụ nữ đặc biệt ưa thích. Còn với cánh mày râu thì hơi “kén” hơn một chút do có vị ngọt, mà ngọt thì uống bia, rượu thì không được “vào” cho lắm.
-                    Tất nhiên cánh mày râu thì ưa cái vị mặn mặn của Cua rang muối, hoặc cái thơm ngọt của Cua thịt hấp bia hơn. Nhưng nói thật, nhìn cái cảnh chị em xuýt xoa vừa vặn càng cua, xong rồi "chép chép" mấy ngòn tay còn vương sốt me thì cũng khó mà cầm lòng cho được
+                    ${requestScope.monAn.moTaChiTiet}
                 </p>
             </div>
         </div>
@@ -94,112 +93,77 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="danhgia">
-                    <textarea class="form-control" rows="3" id="comment"
-                            placeholder="Nhập góp ý của quý khách"></textarea>
-                    <a href="#!" class="btn btn-success margin-top-8px" style="float:right">
-                        Góp ý</a>
+                    <form action="/binh-luan-nguoi-dung" method="post">
+                        <input type="hidden" name="txtIdMonAn" value="${requestScope.monAn.idMonAn}">
+                        <textarea class="form-control" rows="3" id="comment"
+                                  placeholder="Nhập góp ý của quý khách" name="comment"></textarea>
+                        <button class="btn btn-success margin-top-8px" style="float:right">
+                            Góp ý
+                        </button>
+                    </form>
                 </div>
 
                 <div class="clearfix"></div>
 
                 <div id="user-comments">
-                    <div>
+                    <c:forEach var="binhLuan" items="${requestScope.binhLuans}">
                         <div class="comment">
                             <div class="user-avatar">
                                 <img src="./assests/images/people.jpg" alt="user-avatar" width="50" height="50"
-                                        style="border-radius:50%" style="border-radius:50%">
+                                     style="border-radius:50%" style="border-radius:50%">
                             </div>
 
                             <div class="user-comment">
                                 <div class="user-name">
                                     <p class="no-margin">
-                                        <b>Nguyễn Thị Minh Thư</b>
+                                        <b>${binhLuan.email}</b>
                                     </p>
-                                    <p class="date-comment" class="small-text">17 tháng 4, 2018</p>
+                                    <p class="date-comment" class="small-text">${binhLuan.thoiGian}</p>
                                 </div>
                                 <p class="comment-text" class="lighten-text">
-                                    Món ăn khá ngon
+                                        ${binhLuan.noiDung}
                                 </p>
                             </div>
                             <div class="clearfix"></div>
                         </div>
-
-                        <div class="comment">
-                            <div class="user-avatar">
-                                <img src="./assests/images/people.jpg" alt="user-avatar" width="50" height="50"
-                                        style="border-radius:50%">
-                            </div>
-
-                            <div class="user-comment">
-                                <div class="user-name">
-                                    <p class="no-margin">
-                                        <b>Trí Trần</b>
-                                    </p>
-                                    <p class="date-comment" class="small-text">17 tháng 4, 2018</p>
-                                </div>
-                                <p class="comment-text" class="lighten-text">
-                                    Vô cùng ngon, bổ dưỡng cho người dùng
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-
-                        <div class="comment">
-                            <div class="user-avatar">
-                                <img src="./assests/images/people.jpg" alt="user-avatar" width="50" height="50"
-                                        style="border-radius:50%">
-                            </div>
-
-                            <div class="user-comment">
-                                <div class="user-name">
-                                    <p class="no-margin">
-                                        <b>Nguyễn văn hiếu</b>
-                                    </p>
-                                    <p class="date-comment" class="small-text">17 tháng 4, 2018</p>
-                                </div>
-                                <p class="comment-text" class="lighten-text">
-                                    Tuyệt
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <a href="#!" class="btn-flat waves-effect green-text" id="btn-read-all-cmt">
-                            <b>ĐỌC TẤT CẢ BÌNH LUẬN</b>
-                        </a>
-                    </div>
+                    </c:forEach>
                 </div>
 
+                <%--<div>--%>
+                <%--<a href="#!" class="btn-flat waves-effect green-text" id="btn-read-all-cmt">--%>
+                <%--<b>ĐỌC TẤT CẢ BÌNH LUẬN</b>--%>
+                <%--</a>--%>
+                <%--</div>--%>
             </div>
-        </div>
-        <h3 class="title-san-pham-khac" style="color: red">Sản phẩm khác</h3>
-        <hr>
-        <div class="other-product">
-            <div class="row">
-                <c:forEach var="monAn" items="${requestScope.listMonAn}">
-                    <div class="food-item col-md-3 col-sm-6 col-12">
-                        <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
-                            <div class="food-img">
-                                <img src="${monAn.hinhMonAn}" width="175px"/>
-                            </div>
-                            <div class="row">
-                                <p class="col-6 food-name">${monAn.tenMonAn}</p>
-                                <p class="col-6 price">${monAn.gia}đ</p>
-                            </div>
-                            <p class="price old-price">${monAn.khuyenMai == 0 ? '' : monAn.gia+(monAn.gia * monAn*khuyenMai)}</p>
-                        </a>
-                    </div>
-                </c:forEach>
-            </div>
+
         </div>
     </div>
+    <h3 class="title-san-pham-khac" style="color: red">Sản phẩm khác</h3>
+    <hr>
+    <div class="other-product">
+        <div class="row">
+            <c:forEach var="monAn" items="${requestScope.listMonAn}">
+                <div class="food-item col-md-3 col-sm-6 col-12">
+                    <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
+                        <div class="food-img">
+                            <img src="${monAn.hinhMonAn}" width="175px"/>
+                        </div>
+                        <div class="row">
+                            <p class="col-6 food-name">${monAn.tenMonAn}</p>
+                            <p class="col-6 price">${monAn.gia}đ</p>
+                        </div>
+                        <p class="price old-price">${monAn.khuyenMai == 0 ? '' : monAn.gia+(monAn.gia * monAn.khuyenMai)}</p>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+</div>
 </div>
 
 <footer>
     <div class="footer parallax-window" data-parallax="scroll"
-            data-image-src="assests/images/blur-close-up-cutlery-370984.jpg">
+         data-image-src="assests/images/blur-close-up-cutlery-370984.jpg">
         <div class="container-fluid">
             <div class="footer-title">
                 <h1 class="font-blonde-script">Liên hệ</h1>
@@ -211,8 +175,8 @@
                     <div class="row">
                         <div class="input-group col-6 offset-3">
                             <input type="text" class="form-control" placeholder="Nhập email của bạn"
-                                    aria-label="Recipient's username"
-                                    aria-describedby="button-addon2">
+                                   aria-label="Recipient's username"
+                                   aria-describedby="button-addon2">
                             <div class="input-group-append">
                                 <input class="btn btn-info" type="submit" id="button-addon2" value="Đăng ký"/>
                             </div>

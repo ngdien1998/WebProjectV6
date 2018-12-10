@@ -12,7 +12,7 @@
         </p>
         <div class="row">
             <div class="col-4">
-                <img src="" alt="${requestScope.thucDon.tenThucDon}">
+                <img src="${requestScope.thucDon.hinhThucDon}" alt="" width="310ox" height="275px">
             </div>
             <div class="col-8">
                 <table class="table table-striped">

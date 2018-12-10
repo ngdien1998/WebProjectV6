@@ -28,6 +28,7 @@ public class UserTatCaMonAnServlet extends HttpServlet {
             ArrayList<MonAn> baMonAnMoiNhat = userTatCaMonAnService.LayBaMonAnMoiNhat();
 
             request.setAttribute("monAns", monAns);
+            request.setAttribute("soLuong", monAns.size());
             request.setAttribute("baMonAnMoiNhat", baMonAnMoiNhat);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/tat-ca-mon-an.jsp");
             dispatcher.forward(request,response);

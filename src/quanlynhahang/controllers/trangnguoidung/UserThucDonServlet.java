@@ -1,7 +1,9 @@
 package quanlynhahang.controllers.trangnguoidung;
 
 import quanlynhahang.common.DbAccess;
+import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.businessmodels.UserThucDonService;
+import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 
 import javax.servlet.RequestDispatcher;
@@ -27,6 +29,27 @@ public class UserThucDonServlet extends HttpServlet {
             UserThucDonService thucDonUserService = new UserThucDonService(DbAccess.getValue(request));
             ArrayList<ThucDon> thucDons = thucDonUserService.getBonThucDonHot();
             request.setAttribute("thucDons", thucDons);
+
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
+
+            //Thực đơn sáng
+            ThucDon thucDon0 = thucDonService.get(3);
+            request.setAttribute("infoThucDonSang", thucDon0);
+            ArrayList<MonAn> monAns0 = thucDonUserService.layBonMonAnCuaThucDonSang();
+            request.setAttribute("bonMonAnThucDonSang", monAns0);
+
+            // THực đơn trưa
+            ThucDon thucDon = thucDonService.get(4);
+            request.setAttribute("infoThucDonTrua", thucDon);
+            ArrayList<MonAn> monAns = thucDonUserService.layBonMonAnCuaThucDonTrua();
+            request.setAttribute("bonMonAnThucDonTrua", monAns);
+
+
+            // Thực đơn tối
+            ThucDon thucDon1 = thucDonService.get(6);
+            request.setAttribute("infoThucDonToi", thucDon1);
+            ArrayList<MonAn> monAns1 = thucDonUserService.layBonMonAnCuaThucDonToi();
+            request.setAttribute("bonMonAnThucDonToi", monAns1);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/thuc-don.jsp");
             dispatcher.forward(request, response);

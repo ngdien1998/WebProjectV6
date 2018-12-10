@@ -47,15 +47,17 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         ResultSet res = statement.executeQuery();
         while (res.next()) {
             MonAn monAn = new MonAn();
+            monAn = new MonAn();
             monAn.setIdMonAn(res.getInt(1));
             monAn.setTenMonAn(res.getString(2));
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
 
             monAns.add(monAn);
         }
@@ -63,24 +65,83 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         return monAns;
     }
 
-    @Override
+    public ArrayList<MonAn> getMonAnMoiNhat() throws SQLException, ClassNotFoundException {
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LayTatCaMonAnMoiNhat";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setTenMonAn(res.getString(2));
+            monAn.setDonViTinh(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
+    }
+
+
+    public ArrayList<MonAn> getMonAnTheoKhuyenMai() throws SQLException, ClassNotFoundException {
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LayTatCaMonAnTheoKhuyenMaiGiamDan";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setTenMonAn(res.getString(2));
+            monAn.setDonViTinh(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
+    }
+//    @Override
     public int add(MonAn monAn) throws SQLException, ClassNotFoundException {
         if (monAn == null) {
             return 0;
         }
         openConnection();
-        String sql = "EXEC ThemMonAn ?,?,?,?,?,?,?,?";
+        String sql = "EXEC ThemMonAn ?,?,?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
         statement.setString(1, monAn.getTenMonAn());
         statement.setString(2, monAn.getDonViTinh());
         statement.setString(3, monAn.getMoTa());
-        statement.setInt(4, monAn.getGia());
-        statement.setString(5, monAn.getHinhMonAn());
-        statement.setInt(6, monAn.getKhuyenMai());
-        statement.setDate(7, monAn.getNgayThem());
-        statement.setInt(8, monAn.getIdLoaiMon());
+        statement.setString(4, monAn.getMoTaChiTiet());
+        statement.setInt(5, monAn.getGia());
+        statement.setString(6, monAn.getHinhMonAn());
+        statement.setInt(7, monAn.getKhuyenMai());
+        statement.setDate(8, monAn.getNgayThem());
+        statement.setInt(9, monAn.getIdLoaiMon());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -107,7 +168,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
     @Override
     public int modify(MonAn monAn) throws SQLException, ClassNotFoundException {
         openConnection();
-        String sql = "EXEC SuaMonAn ?,?,?,?,?,?,?,?,?";
+        String sql = "EXEC SuaMonAn ?,?,?,?,?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -115,11 +176,12 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         statement.setString(2, monAn.getTenMonAn());
         statement.setString(3, monAn.getDonViTinh());
         statement.setString(4, monAn.getMoTa());
-        statement.setInt(5, monAn.getGia());
-        statement.setString(6, monAn.getHinhMonAn());
-        statement.setInt(7, monAn.getKhuyenMai());
-        statement.setDate(8, monAn.getNgayThem());
-        statement.setInt(9, monAn.getIdLoaiMon());
+        statement.setString(5, monAn.getMoTaChiTiet());
+        statement.setInt(6, monAn.getGia());
+        statement.setString(7, monAn.getHinhMonAn());
+        statement.setInt(8, monAn.getKhuyenMai());
+        statement.setDate(9, monAn.getNgayThem());
+        statement.setInt(10, monAn.getIdLoaiMon());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();
@@ -147,11 +209,12 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
             monAn.setTenMonAn(res.getString(2));
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
         }
 
         closeConnection();
@@ -171,29 +234,5 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
         listLoaiMon = loaiMonService.getData();
         return listLoaiMon;
     }
-
-    public ArrayList<MonAn> layMonAnTheoThucDon(int idMonAn) throws SQLException, ClassNotFoundException {
-        openConnection();
-        ArrayList<MonAn> monAns = new ArrayList<>();
-        String sql = "SELECT * FROM LayMonAnTheoThucDon(?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, idMonAn);
-        ResultSet res = statement.executeQuery();
-        while (res.next()) {
-            MonAn monAn = new MonAn();
-            monAn.setIdMonAn(res.getInt(1));
-            monAn.setTenMonAn(res.getString(2));
-            monAn.setDonViTinh(res.getString(3));
-            monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
-
-            monAns.add(monAn);
-        }
-        closeConnection();
-        return monAns;
-    }
 }
+

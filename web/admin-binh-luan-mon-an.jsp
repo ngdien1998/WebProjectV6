@@ -21,9 +21,8 @@
                 <tr>
                     <td>${binhLuan.email}</td>
                     <td>${binhLuan.noiDung}</td>
-                    <td>${binhLuan.thoiGian}</td>
                     <td>
-                        <a href="/admin/xoa-binh-luan">Xóa bình luận</a>
+                        <a href="/admin/xoa-binh-luan-mon-an?idMonAn=${requestScope.monAn.idMonAn}">Xóa</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -31,7 +30,7 @@
         </table>
     </div>
     <div class="row justify-content-center mt-3 mb-4">
-        <a href="./admin/mon-an" class="btn btn-primary btn-rounded">Về trang quản lý món ăn</a>
+        <a href="/admin/mon-an" class="btn btn-primary btn-rounded">Về trang quản lý món ăn</a>
     </div>
 </div>
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>

@@ -54,7 +54,10 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
                 return;
             }
             UserDbConnect admin = DbAccess.getValue(request);
+
+            ThucDonService  thucDonService = new ThucDonService(DbAccess.getValue(request));
             ThucDon thucDon = null;
+            thucDon = thucDonService.get(idThucDon);
 
             //Lấy món ăn trong ThucDonMonAn
             MonAnService monAnService = new MonAnService(admin);

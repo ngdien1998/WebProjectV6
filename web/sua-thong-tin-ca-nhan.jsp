@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="">Email</label>
+                                    <label>Email</label>
                                     <input type="text" class="form-control" name="txtEmail"
                                            value="${requestScope.nguoiDung.email}" readonly>
                                 </div>
@@ -98,14 +98,14 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label >Họ đệm</label>
+                                    <label>Họ đệm</label>
                                     <input type="text" class="form-control" name="txtHoDem"
-                                           value="${requestScope.nguoiDung.hoDem}" />
+                                           value="${requestScope.nguoiDung.hoDem}"/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Tên</label>
+                                    <label>Tên</label>
                                     <input type="text" class="form-control" name="txtTen"
                                            value="${requestScope.nguoiDung.ten}">
                                 </div>
@@ -114,32 +114,42 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-group">
-                                    <label for="">Ngày sinh</label>
+                                    <label>Ngày sinh</label>
                                     <input type="date" class="form-control" name="dteNgaySinh"
                                            value="${requestScope.nguoiDung.ngaySinh}">
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <label for="">Giới tính</label>
+                                    <label>Giới tính</label>
                                     <%--<input type="text" class="form-control" value="Nữ">--%>
                                     <select name="slGioiTinh" class="form-control">
-                                        <option value="0">Nam</option>
-                                        <option value="1">Nữ</option>
+                                        <c:choose>
+                                            <c:when test="${requestScope.nguoiDung.nu == true}">
+                                                <option value="0">Nam</option>
+                                                <option value="1" selected>Nữ</option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <option value="0" selected>Nam</option>
+                                                <option value="1">Nữ</option>
+                                            </c:otherwise>
+                                        </c:choose>
+
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <label for="">Số điện thoại</label>
-                                    <input type="text" class="form-control" name="txtDienThoai" value="${requestScope.nguoiDung.dienThoai}">
+                                    <label>Số điện thoại</label>
+                                    <input type="text" class="form-control" name="txtDienThoai"
+                                           value="${requestScope.nguoiDung.dienThoai}">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="">Địa chỉ</label>
+                                    <label>Địa chỉ</label>
                                     <input type="text" class="form-control"
                                            value="${requestScope.nguoiDung.diaChi}" name="txtDiaChi">
                                 </div>
@@ -148,10 +158,10 @@
 
                         <button class="btn btn-success">Sửa thông tin</button>
                     </div>
-
+                </form>
             </div>
         </div>
-        </form>
+
     </div>
 </div>
 

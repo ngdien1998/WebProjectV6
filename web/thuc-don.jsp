@@ -46,251 +46,87 @@
         <div class="row">
             <c:forEach var="thucDon" items="${requestScope.thucDons}">
                 <div class="top-menu-item col-12 col-sm-6 col-md-3">
-                    <a href="#!">
+                    <a href="/chi-tiet-thuc-don?idThucDon=${thucDon.idThucDon}">
                         <div class="menu-image">
                             <img src="${thucDon.hinhThucDon}" height="170px">
                         </div>
-                        <div class="row">
+                        <div class="row mt-2">
                             <p class="col-8 menu-name">${thucDon.tenThucDon}</p>
-                            <p class="col-4 menu-price">${thucDon.gia}</p>
+                            <p class="col-4 menu-price">${thucDon.gia}đ</p>
                         </div>
                     </a>
                 </div>
             </c:forEach>
         </div>
     </div>
+
+    <div class="menu" id="menu-0">
+        <div class="row">
+            <div class="col-3 menu-title">
+                <h1 class="font-blonde-script menu-name">${requestScope.infoThucDonSang.tenThucDon}</h1>
+                <p class="menu-description">${requestScope.infoThucDonSang.moTa}</p>
+                <a href="/chi-tiet-thuc-don?idThucDon=${requestScope.infoThucDonSang.idThucDon}" class="btn btn-success">Xem món ăn</a>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <c:forEach var="monAn" items="${requestScope.bonMonAnThucDonSang}">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}" class="card food-menu">
+                                <img class="card-img-top" src="${monAn.hinhMonAn}" alt="Banh xeo" height="160px">
+                                <div class="card-body">
+                                    <p class="card-text">${monAn.tenMonAn}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="menu" id="menu-1">
         <div class="row">
             <div class="col-3 menu-title">
-                <h1 class="font-blonde-script menu-name">Thực đơn 1</h1>
-                <p class="menu-description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book</p>
-                <a href="#!" class="btn btn-success">Xem món ăn</a>
+                <h1 class="font-blonde-script menu-name">${requestScope.infoThucDonTrua.tenThucDon}</h1>
+                <p class="menu-description">${requestScope.infoThucDonTrua.moTa}</p>
+                <a href="/chi-tiet-thuc-don?idThucDon=${requestScope.infoThucDonTrua.idThucDon}" class="btn btn-success">Xem món ăn</a>
             </div>
             <div class="col-9">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
+                    <c:forEach var="monAn" items="${requestScope.bonMonAnThucDonTrua}">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}" class="card food-menu">
+                                <img class="card-img-top" src="${monAn.hinhMonAn}"  height="160px">
+                                <div class="card-body">
+                                    <p class="card-text">${monAn.tenMonAn}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
     </div>
-    <div class="menu-by-day">
-        <nav class="day-of-week">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a class="nav-link day active" href="#!" onclick="getMenu(this);" id="thu2">Thứ hai</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link day" href="#!" onclick="getMenu(this);" id="thu3">Thứ ba</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link day" href="#!" onclick="getMenu(this);" id="thu4">Thứ tư</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link day" href="#!" onclick="getMenu(this);" id="thu5">Thứ năm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link day" href="#!" onclick="getMenu(this);" id="thu6">Thứ sáu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link day" href="#!" onclick="getMenu(this);" id="thu7">Thứ bảy</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="content-show container">
-            <div class="align-content-center menu-by-day-title">
-                <h1 class="font-blonde-script">Thực đơn món nướng</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the
-                    industry's standard dummy text ever since the 1500s</p>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="#!">
-                        <div class="food-image">
-                            <img src="assests/images/banh-trang-cuon-thit-heo.jpg"/>
-                        </div>
-                        <div class="food-info row">
-                            <p class="col-6 menu-name">Tên món ăn</p>
-                            <p class="col-6 menu-price">200 000đ</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="menu" id="menu-2">
         <div class="row">
             <div class="col-3 menu-title">
-                <h1 class="font-blonde-script menu-name">Thực đơn 1</h1>
-                <p class="menu-description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book</p>
-                <a href="#!" class="btn btn-success">Xem món ăn</a>
+                <h1 class="font-blonde-script menu-name">${requestScope.infoThucDonToi.tenThucDon}</h1>
+                <p class="menu-description">${requestScope.infoThucDonToi.moTa}</p>
+                <a href="/chi-tiet-thuc-don?idThucDon=${requestScope.infoThucDonToi.idThucDon}" class="btn btn-success">Xem món ăn</a>
             </div>
             <div class="col-9">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#!" class="card food-menu">
-                            <img class="card-img-top" src="assests/images/banh-xeo.jpg" alt="Banh xeo">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up
-                                    the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </a>
-                    </div>
+                    <c:forEach var="monAn" items="${requestScope.bonMonAnThucDonToi}">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}" class="card food-menu">
+                                <img class="card-img-top" src="${monAn.hinhMonAn}"  height="160px">
+                                <div class="card-body">
+                                    <p class="card-text">${monAn.tenMonAn}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

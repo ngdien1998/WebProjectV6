@@ -1,8 +1,10 @@
 package quanlynhahang.models.businessmodels;
 
+import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,5 +41,74 @@ public class UserThucDonService extends ConnectDatabase{
 
         closeConnection();
         return thucDons;
+    }
+
+    public ArrayList<MonAn> layBonMonAnCuaThucDonSang() throws SQLException, ClassNotFoundException {
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LayBonMonAnCuaThucDonSang";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setHinhMonAn(res.getString(2));
+            monAn.setTenMonAn(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setIdThucDon(res.getInt(5));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
+    }
+
+    public ArrayList<MonAn> layBonMonAnCuaThucDonTrua() throws SQLException, ClassNotFoundException {
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LayBonMonAnCuaThucDonTrua";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setHinhMonAn(res.getString(2));
+            monAn.setTenMonAn(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setIdThucDon(res.getInt(5));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
+    }
+
+    public ArrayList<MonAn> layBonMonAnCuaThucDonToi() throws SQLException, ClassNotFoundException {
+        ArrayList<MonAn> monAns = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LayBonMonAnCuaThucDonToi";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            MonAn monAn = new MonAn();
+            monAn.setIdMonAn(res.getInt(1));
+            monAn.setHinhMonAn(res.getString(2));
+            monAn.setTenMonAn(res.getString(3));
+            monAn.setMoTa(res.getString(4));
+            monAn.setIdThucDon(res.getInt(5));
+
+            monAns.add(monAn);
+        }
+        closeConnection();
+        return monAns;
     }
 }

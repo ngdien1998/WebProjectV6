@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
 <title>Quản lý món ăn</title>
+
 <style>
     thead tr th {
         font-weight: bold !important;
@@ -20,79 +21,41 @@
         text-decoration: underline;
         cursor: pointer;
     }
-</style>
-<script type="text/javascript">
-    //<![CDATA[
-    function Pager(tableName, itemsPerPage) {
-        this.tableName = tableName;
-        this.itemsPerPage = itemsPerPage;
-        this.currentPage = 1;
-        this.pages = 0;
-        this.inited = false;
 
-        this.showRecords = function (from, to) {
-            var rows = document.getElementById(tableName).rows;
-            // i starts from 1 to skip table header row
-            for (var i = 1; i < rows.length; i++) {
-                if (i < from || i > to)
-                    rows[i].style.display = 'none';
-                else
-                    rows[i].style.display = '';
-            }
-        }
-
-        this.showPage = function (pageNumber) {
-            if (!this.inited) {
-                alert("not inited");
-                return;
-            }
-            var oldPageAnchor = document.getElementById('pg' + this.currentPage);
-            oldPageAnchor.className = 'pg-normal';
-
-            this.currentPage = pageNumber;
-            var newPageAnchor = document.getElementById('pg' + this.currentPage);
-            newPageAnchor.className = 'pg-selected';
-
-            var from = (pageNumber - 1) * itemsPerPage + 1;
-            var to = from + itemsPerPage - 1;
-            this.showRecords(from, to);
-        }
-
-        this.prev = function () {
-            if (this.currentPage > 1)
-                this.showPage(this.currentPage - 1);
-        }
-
-        this.next = function () {
-            if (this.currentPage < this.pages) {
-                this.showPage(this.currentPage + 1);
-            }
-        }
-
-        this.init = function () {
-            var rows = document.getElementById(tableName).rows;
-            var records = (rows.length - 1);
-            this.pages = Math.ceil(records / itemsPerPage);
-            this.inited = true;
-        }
-        this.showPageNav = function (pagerName, positionId) {
-            if (!this.inited) {
-                alert("not inited");
-                return;
-            }
-            var element = document.getElementById(positionId);
-
-            var pagerHtml = '<span onclick="' + pagerName + '.prev();" class="pg-normal"> &#171 Prev </span> | ';
-            for (var page = 1; page <= this.pages; page++)
-                pagerHtml += '<span id="pg' + page + '" class="pg-normal" onclick="' + pagerName + '.showPage(' + page + ');">' + page + '</span> | ';
-            pagerHtml += '<span onclick="' + pagerName + '.next();" class="pg-normal"> Next &#187;</span>';
-
-            element.innerHTML = pagerHtml;
-        }
+    .results tr[visible='false'],
+    .no-result {
+        display: none;
     }
 
-    //]]>
-</script>
+    .results tr[visible='true'] {
+        display: table-row;
+    }
+
+    .counter {
+        padding: 8px;
+        color: #ccc;
+    }
+
+    .text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 16px;
+        max-height: 32px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    /* CSS căn id pagination ra giữa màn hình */
+    #pagination {
+        display: flex;
+        display: -webkit-flex; /* Safari 8 */
+        flex-wrap: wrap;
+        -webkit-flex-wrap: wrap; /* Safari 8 */
+        justify-content: center;
+        -webkit-justify-content: center;
+    }
+</style>
 
 <jsp:include page="_shared/admin/page-header.jsp" flush="true"/>
 
@@ -122,7 +85,7 @@
                 </thead>
                 <tbody>
                 <c:forEach var="monAn" items="${requestScope.monAns}">
-                    <tr>
+                    <tr class="contentPage">
                         <td>
                             <div class="text">${monAn.tenMonAn}</div>
                         </td>
@@ -138,38 +101,87 @@
                             <a href="/admin/sua-mon-an?idMonAn=${monAn.idMonAn}">Sửa</a> |
                             <a href="/admin/xoa-mon-an?idMonAn=${monAn.idMonAn}">Xóa</a>
                         </td>
-                        <td><a href="/admin/binh-luan-mon-an?idMonAn=${monAn.idMonAn}">Bình Luận</a></td>
+                        <td><a href="/admin/binh-luan-mon-an-hien-tai?idMonAn=${monAn.idMonAn}">Bình Luận</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
         </div>
-        <%--<div class="row justify-content-center">--%>
-            <%--<nav>--%>
-                <%--<ul class="pagination flat pagination-primary">--%>
-                    <%--<li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-left"></i></a></li>--%>
-                    <%--<li class="page-item active"><a class="page-link" href="#">1</a></li>--%>
-                    <%--<li class="page-item"><a class="page-link" href="#">2</a></li>--%>
-                    <%--<li class="page-item"><a class="page-link" href="#">3</a></li>--%>
-                    <%--<li class="page-item"><a class="page-link" href="#">4</a></li>--%>
-                    <%--<li class="page-item"><a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a></li>--%>
-                <%--</ul>--%>
-            <%--</nav>--%>
-        <%--</div>--%>
-
-        <div id="pageNavPosition"></div>
+        <div>
+            <!-- Hiên thị nút bấm -->
+            <ul id="pagination" class="text-center"></ul>
+        </div>
 
     </div>
 </div>
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
-<script type="text/javascript">
-    $(document).ready(()=>{
-        var pager = new Pager('results', 3);
-        pager.init();
-        pager.showPageNav('pager', 'pageNavPosition');
-        pager.showPage(1);
-    })
 
+<script>
+    $(document).ready(function () {
+        $(".search").keyup(function () {
+            var searchTerm = $(".search").val();
+            var listItem = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+            $.extend($.expr[':'], {
+                'containsi': function (elem, i, match, array) {
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            });
+
+            $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function (e) {
+                $(this).attr('visible', 'false');
+            });
+
+            $(".results tbody tr:containsi('" + searchSplit + "')").each(function (e) {
+                $(this).attr('visible', 'true');
+            });
+
+            var jobCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(jobCount + ' item');
+
+            if (jobCount == '0') {
+                $('.no-result').show();
+            }
+            else {
+                $('.no-result').hide();
+            }
+        });
+    });
+</script>
+
+<%--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--%>
+<%--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--%>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
+<script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
+<!-- JS tạo nút bấm di chuyển trang end -->
+<script type="text/javascript">
+    $(function () {
+        var pageSize = 10; // Hiển thị 6 sản phẩm trên 1 trang
+        showPage = function (page) {
+            $(".contentPage").hide();
+            $(".contentPage").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        }
+        showPage(1);
+        ///** Cần truyền giá trị vào đây **///
+        var totalRows = ${requestScope.soLuong}; // Tổng số sản phẩm hiển thị
+        var btnPage = 3; // Số nút bấm hiển thị di chuyển trang
+        var iTotalPages = Math.ceil(totalRows / pageSize);
+
+        var obj = $('#pagination').twbsPagination({
+            totalPages: iTotalPages,
+            visiblePages: btnPage,
+            onPageClick: function (event, page) {
+                /* console.info(page); */
+                showPage(page);
+            }
+        });
+        /*console.info(obj.data());*/
+    });
 </script>
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>

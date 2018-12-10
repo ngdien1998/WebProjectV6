@@ -237,6 +237,25 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#page-layouts1" aria-expanded="false"
+                       aria-controls="page-layouts">
+                        <i class="mdi mdi-account-card-details menu-icon"></i>
+                        <span class="menu-title">Thống kê</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="page-layouts1">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item d-none d-lg-block"><a class="nav-link"
+                                                                      href="/admin/mon-an-thuc-don">Món ăn - Thực đơn</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/dich-vu">Dịch vụ</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/thong-ke-tong-thu">Tổng thu</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <%--<li class="nav-item">--%>
                     <%--<a class="nav-link" href="/admin/nghiep-vu">--%>
                         <%--<i class="mdi mdi-account-convert menu-icon"></i>--%>
