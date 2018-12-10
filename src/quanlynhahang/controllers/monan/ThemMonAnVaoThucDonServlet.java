@@ -5,7 +5,6 @@ import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
-import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -39,7 +38,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -64,7 +63,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
             MonAnService monAnService = new MonAnService(admin);
             ArrayList<MonAn> listMonAn = null;
 
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }

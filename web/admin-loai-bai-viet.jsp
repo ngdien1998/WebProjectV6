@@ -9,10 +9,10 @@
         <h2 class="card-title">Loại bài viết</h2>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <a href="/admin/them-loai-bai-viet" class="btn btn-primary btn-rounded">Thêm mới</a>
+                <a href="/admin/them-loai-bai-viet" class="btn btn-primary btn-rounded">Thêm loại bài viết</a>
             </div>
             <div class="col-sm-12 col-md-6">
-                <input type="search" class="form-control" placeholder="Tìm kiếm bài viết"
+                <input type="search" class="form-control" placeholder="Search"
                         aria-controls="order-listing">
             </div>
         </div>
@@ -30,8 +30,8 @@
                         <td>${loaiBaiViet.tenLoaiBaiViet}</td>
                         <td>${loaiBaiViet.moTa}</td>
                         <td>
-                            <a href="/admin/sua-loai-bai-viet?id=${loaiBaiViet.idLoaiBaiViet}">Sửa</a> |
-                            <a href="/admin/xoa-loai-bai-viet?id=${loaiBaiViet.idLoaiBaiViet}">Xóa</a>
+                            <a href="/admin/sua-loai-bai-viet?idLoaiBaiViet=${loaiBaiViet.idLoaiBaiViet}">Sửa</a> |
+                            <a href="/admin/xoa-loai-bai-viet?idLoaiBaiViet=${loaiBaiViet.idLoaiBaiViet}">Xóa</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -52,7 +52,9 @@
             </nav>
         </div>
     </div>
-    <h1>${sessionScope.loi}</h1>
+    <!--<h1>
+    ${sessionScope.loi}
+    </h1>-->
 </div>
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true" />

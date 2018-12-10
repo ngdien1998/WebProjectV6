@@ -18,14 +18,15 @@ import java.util.ArrayList;
 public class LoaiBaiVietServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
             LoaiBaiVietService service = new LoaiBaiVietService(DbAccess.getValue(request));
             ArrayList<LoaiBaiViet> loaiBaiViets = service.getData();
-
             request.setAttribute("loaiBaiViets", loaiBaiViets);
+            RequestDispatcher dispatcher=getServletContext().getRequestDispatcher("/admin-loai-bai-viet.jsp");
+            dispatcher.forward(request,response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-loai-bai-viet.jsp");
-        dispatcher.forward(request, response);
     }
 }

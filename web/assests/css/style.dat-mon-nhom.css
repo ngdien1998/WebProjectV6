@@ -37,12 +37,16 @@ table.tbl-thanh-toan tr td {
 }
 
 .food {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     padding: 0 8px 16px 0;
     float: left;
 }
 
 .food img {
     width: 100%;
+    height: 178px;
 }
 
 .food a {

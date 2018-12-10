@@ -22,7 +22,7 @@ public class XoaThucDonServlet extends HttpServlet implements ActionPermissionID
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -58,7 +58,7 @@ public class XoaThucDonServlet extends HttpServlet implements ActionPermissionID
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }

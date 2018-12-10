@@ -7,7 +7,6 @@ import quanlynhahang.models.businessmodels.MonAnService;
 
 import quanlynhahang.models.datamodels.LoaiMon;
 import quanlynhahang.models.datamodels.MonAn;
-import quanlynhahang.models.datamodels.ThucDon;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +42,7 @@ public class SuaMonAnServlet extends HttpServlet implements ActionPermissionID {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -126,7 +125,7 @@ public class SuaMonAnServlet extends HttpServlet implements ActionPermissionID {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }

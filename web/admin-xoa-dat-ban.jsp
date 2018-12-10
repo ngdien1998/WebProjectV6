@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title">Xóa đặt bàn của : ${datBan.email}</h2>
+        <h2 class="card-title">Xóa đặt bàn :</h2>
         <p class="card-description">Thông tin chi tiết</p>
         <div class="row" style="margin-bottom: 16px;">
             <table class="table">
@@ -15,12 +15,24 @@
                     <td>${datBan.thoiGian}</td>
                 </tr>
                 <tr>
+                    <td>Thời gian</td>
+                    <td>${datBan.ngay}</td>
+                </tr>
+                <tr>
                     <td>Số lượng người</td>
                     <td>${datBan.soLuong}</td>
                 </tr>
                 <tr>
                     <td>Ghi chú</td>
                     <td>${datBan.ghiChu}</td>
+                </tr>
+                <tr>
+                    <td>Thời gian</td>
+                    <td>${datBan.hoTen}</td>
+                </tr>
+                <tr>
+                    <td>Thời gian</td>
+                    <td>${datBan.soDT}</td>
                 </tr>
             </table>
             <form action="/admin/xoa-dat-ban" method="post">

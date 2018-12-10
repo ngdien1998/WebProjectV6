@@ -1,14 +1,14 @@
 (function ($) {
-    showSwal = function (type, textVal = "") {
+    showSwal = function (type) {
         'use strict';
         if (type === 'basic') {
             swal({
-                text: 'Any fool can use a computer',
+                text: 'Bạn cần tạo giỏ hàng trước khi chọn mua món nào đó',
                 button: {
                     text: "OK",
                     value: true,
                     visible: true,
-                    className: "btn btn-primary"
+                    className: "btn btn-primary btn-rounded"
                 }
             })
 

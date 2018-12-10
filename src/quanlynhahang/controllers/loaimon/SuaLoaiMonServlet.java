@@ -16,10 +16,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "SuaLoaiMonServlet", urlPatterns = {"/admin/sua-loai-mon"})
-public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID {
+public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
@@ -54,7 +54,7 @@ public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogin(request)) {
                 response.sendError(404);
                 return;
             }
