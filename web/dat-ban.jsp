@@ -38,9 +38,7 @@
     />
     <!--
       ===============================================================================================
-    -->
-    <link rel="stylesheet" type="text/css" href="./assests/css/util.css" />
-    <link rel="stylesheet" type="text/css" href="./assests/css/main.css" />
+
     <link rel="stylesheet" href="./assests/css/global.css" />
     <!--
       ===============================================================================================
@@ -122,130 +120,58 @@
                     Đặt Bàn
                   </h3>
                 </div>
-
-                <form class="wrap-form-reservation size22 m-l-r-auto">
+                <form action="/dat-ban" method="post">
                   <div class="row">
-                    <div class="col-md-4">
-                      <!-- Date -->
-                      <span class="txt9"> Date </span>
-
-                      <div
-                        class="wrap-inputdate pos-relative txt10 size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                      >
-                        <input
-                          class="my-calendar bo-rad-10 sizefull txt10 p-l-20"
-                          type="text"
-                          name="date"
-                        />
-                        <i
-                          class="btn-calendar fa fa-calendar ab-r-m hov-pointer m-r-18"
-                          aria-hidden="true"
-                          id="date"
-                        ></i>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" placeholder="Email" name="txtEmail">
                       </div>
                     </div>
-
-                    <div class="col-md-4">
-                      <!-- Time -->
-                      <span class="txt9"> Time </span>
-
-                      <div
-                        class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                      >
-                        <input
-                          class="bo-rad-10 sizefull txt10 p-l-20"
-                          type="time"
-                          name="phone"
-                          placeholder="Phone"
-                          id="time"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <!-- People -->
-                      <span class="txt9"> People </span>
-
-                      <div
-                        class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23 people-book-table"
-                      >
-                        <input
-                          class="bo-rad-10 sizefull txt10 p-l-20"
-                          type="number"
-                          name="people"
-                          placeholder="People"
-                          id="people"
-                        />
-                        <small id="people-message"></small>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>Họ tên</label>
+                        <input type="text" class="form-control" placeholder="Họ và tên" name="txtHoTen">
                       </div>
                     </div>
                   </div>
-
                   <div class="row">
-                    <div class="col-md-4">
-                      <!-- Name -->
-                      <span class="txt9"> Name </span>
-
-                      <div
-                        class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                      >
-                        <input
-                          class="bo-rad-10 sizefull txt10 p-l-20"
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          id="name"
-                        />
+                    <div class="col-3">
+                      <div class="=form-group">
+                        <label>Số điện thoại</label>
+                        <input type="text" class="form-control" placeholder="Số điện thoại" name="txtSDT">
                       </div>
                     </div>
-
-                    <div class="col-md-4">
-                      <!-- Phone -->
-                      <span class="txt9"> Phone </span>
-
-                      <div
-                        class="wrap-inputphone size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                      >
-                        <input
-                          class="bo-rad-10 sizefull txt10 p-l-20"
-                          type="text"
-                          name="phone"
-                          placeholder="Phone"
-                          id="phone"
-                        />
-                        <small id="phone-message"></small>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Ngày</label>
+                        <input type="date" class="form-control" name="txtDate">
                       </div>
                     </div>
-
-                    <div class="col-md-4">
-                      <!-- Email -->
-                      <span class="txt9"> Email </span>
-
-                      <div
-                        class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23"
-                      >
-                        <input
-                          class="bo-rad-10 sizefull txt10 p-l-20"
-                          type="text"
-                          name="email"
-                          placeholder="Email"
-                          id="email"
-                        />
-                        <small id="email-message"></small>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Giờ</label>
+                        <input type="time" class="form-control" name="txtTime">
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <div class="form-group">
+                        <label>Số người</label>
+                        <input type="number" class="form-control" value="1" name="txtSoNguoi">
                       </div>
                     </div>
                   </div>
-
-                  <div class="wrap-btn-booking flex-c-m m-t-6">
-                    <!-- Button3 -->
-                    <button
-                      type="submit"
-                      class="btn btn-success"
-                      onclick="return validateData()"
-                    >
-                      Đặt bàn
-                    </button>
+                  <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea class="form-control" placeholder="Ghi chú" name="txtGhiChu"></textarea>
                   </div>
+                  <div class="text-center">
+                    <input type="submit" class="btn btn-success" value="Đặt bàn">
+                  </div>
+
+
                 </form>
+
               </div>
             </div>
           </div>

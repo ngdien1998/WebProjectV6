@@ -19,15 +19,17 @@ public class DatBanServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("utf-8");
+            response.setContentType("text/html;charset=UTF-8");
             DatBanService service = new DatBanService(DbAccess.getValue(request));
             ArrayList<DatBan> datBans = service.getData();
 
             request.setAttribute("datBans", datBans);
-
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-dat-ban.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin-dat-ban.jsp");
-        dispatcher.forward(request, response);
+
     }
 }

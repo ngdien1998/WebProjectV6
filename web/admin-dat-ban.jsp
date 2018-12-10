@@ -16,14 +16,18 @@
             </div>
 
         </div>
+
         <div class="table-responsive">
             <table class="table table-hover results" style="margin: 16px 0;" id="result">
                 <thead>
                 <tr>
                     <th width="170">Email</th>
-                    <th width="240">Thời Gian</th>
+                    <th>Thời Gian</th>
+                    <th>Ngày</th>
                     <th>Số lượng người</th>
                     <th>Ghi chú</th>
+                    <th>Họ tên</th>
+                    <th>Số điện thoại</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,8 +39,17 @@
                         <td>
                             <div class="text">${datBan.thoiGian}</div>
                         </td>
+                        <td>
+                            <div class="text">${datBan.ngay}</div>
+                        </td>
                         <td>${datBan.soLuong}</td>
                         <td>${datBan.ghiChu}</td>
+                        <td>
+                            <div class="text">${datBan.hoTen}</div>
+                        </td>
+                        <td>
+                            <div class="text">${datBan.soDT}</div>
+                        </td>
                         <td>
                             <a href="/admin/xoa-dat-ban?email=${datBan.email}">Xóa</a>
                         </td>
@@ -45,6 +58,7 @@
                 </tbody>
             </table>
         </div>
+
         <div class="row justify-content-center">
         <nav>
         <ul class="pagination flat pagination-primary">

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet(name = "SuaLoaiMonServlet", urlPatterns = {"/admin/sua-loai-mon"})
-public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID {
+public class SuaLoaiMonServlet extends HttpServlet implements ActionPermissionID{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             if (!AuthorizePermission.islogined(request)) {

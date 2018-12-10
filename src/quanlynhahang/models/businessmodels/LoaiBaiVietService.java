@@ -15,9 +15,10 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
 
     @Override
     public ArrayList<LoaiBaiViet> getData() throws SQLException, ClassNotFoundException {
+        ArrayList<LoaiBaiViet> loaiBaiViets=new ArrayList<>();
         openConnection();
-        ArrayList<LoaiBaiViet> loaiBaiViets = new ArrayList<>();
-        String sql = "EXEC LayLoaiBaiViet";
+
+        String sql = "exec LayLoaiBaiViet";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -25,9 +26,9 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
         ResultSet res = statement.executeQuery();
         while (res.next()) {
             LoaiBaiViet loaiBaiViet = new LoaiBaiViet();
-            loaiBaiViet.setIdLoaiBaiViet(res.getInt("IDLoaiBaiViet"));
-            loaiBaiViet.setTenLoaiBaiViet(res.getString("TenLoaiBaiViet"));
-            loaiBaiViet.setMoTa(res.getString("MoTa"));
+            loaiBaiViet.setIdLoaiBaiViet(res.getInt(1));
+            loaiBaiViet.setTenLoaiBaiViet(res.getString(2));
+            loaiBaiViet.setMoTa(res.getString(3));
 
             loaiBaiViets.add(loaiBaiViet);
         }
@@ -38,8 +39,9 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
 
     @Override
     public int add(LoaiBaiViet loaiBaiViet) throws SQLException, ClassNotFoundException {
+        if(loaiBaiViet==null)
+            return 0;
         openConnection();
-
         String sql = "EXEC ThemLoaiBaiViet ?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
@@ -84,8 +86,10 @@ public class LoaiBaiVietService extends ConnectDatabase implements Businesses<Lo
 
     @Override
     public LoaiBaiViet get(Object... keys) throws SQLException, ClassNotFoundException {
+        if(keys.length<=0)
+            return null;
         openConnection();
-        String sql = "EXEC Lay1LoaiBaiViet ?";
+        String sql = "exec Lay1LoaiBaiViet ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

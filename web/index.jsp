@@ -4,23 +4,23 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%--<%--%>
-    <%--NguoiDung user = new NguoiDung();--%>
-    <%--user.setEmail("ngdien1998@gmail.com");--%>
-    <%--user.setTen("Điền");--%>
-    <%--user.setMatKhau("123");--%>
-    <%--user.setKichHoat(true);--%>
-    <%--user.setQuanTriVien(true);--%>
 
-    <%--UserDbConnect admin = new UserDbConnect();--%>
-    <%--admin.setUsername(user.getEmail());--%>
-    <%--admin.setPassword(user.getMatKhau());--%>
-    <%--admin.setHostName("localhost");--%>
-    <%--admin.setPort("1433");--%>
-    <%--admin.setAdmin(user.isQuanTriVien());--%>
+<%
+    NguoiDung user = new NguoiDung();
+    user.setEmail("ngdien1998@gmail.com");
+    user.setMatKhau("123");
+    user.setKichHoat(true);
+    user.setQuanTriVien(true);
 
-    <%--session.setAttribute(Consts.WEBSITE_LOGIN, user);--%>
-    <%--session.setAttribute(Consts.USER_DB_CONNECT, admin);--%>
-<%--%>--%>
+    UserDbConnect admin = new UserDbConnect();
+    admin.setUsername(user.getEmail());
+    admin.setPassword(user.getMatKhau());
+    admin.setHostName("localhost");
+    admin.setPort("1433");
+    admin.setAdmin(user.isQuanTriVien());
 
-<c:redirect url="/tin-tuc" />
+    session.setAttribute(Consts.WEBSITE_LOGIN, user);
+    session.setAttribute(Consts.USER_DB_CONNECT, admin);
+%>
+
+<c:redirect url="/lien-he" />
