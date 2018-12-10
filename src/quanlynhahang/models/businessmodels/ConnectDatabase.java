@@ -23,12 +23,8 @@ public abstract class ConnectDatabase {
             username = "user";
             password = "user";
         } else {
-            username = user.getUsername();
-            password = user.getPassword();
-            if (user.getHostName() != null && user.getPort() != null) {
-                hostName = user.getHostName();
-                port = user.getPort();
-            }
+            username = "admin";
+            password = "admin";
         }
     }
 

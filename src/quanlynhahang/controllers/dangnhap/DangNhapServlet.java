@@ -33,6 +33,9 @@ public class DangNhapServlet extends HttpServlet {
                 session.setAttribute(Consts.WEBSITE_LOGIN, loginUser);
                 session.setAttribute(Consts.USER_DB_CONNECT, userDbConnect);
                 String previousPage = (String) session.getAttribute(Consts.PREVIOUS_PAGE);
+                String message = (String) session.getAttribute(Consts.FORGOT_PASSWORD_MSG);
+                session.removeAttribute(Consts.FORGOT_PASSWORD_MSG);
+                request.setAttribute("message", message);
 
                 if (previousPage != null) {
                     session.removeAttribute(Consts.PREVIOUS_PAGE);

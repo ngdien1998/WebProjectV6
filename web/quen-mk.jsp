@@ -30,25 +30,21 @@
                     <div class="row">
                         <div class="col-lg-6 bg-white">
                             <div class="auth-form-light text-left p-5">
-                                <h2>Đăng nhập</h2>
-                                <h4 class="font-weight-light">Chào mừng đến với website Nhà hàng</h4>
-                                <form class="pt-5" action="/dang-nhap" method="post">
+                                <h2>Bạn đã quên mật khẩu</h2>
+                                <h4 class="font-weight-light">Nhập email để lấy lại tài khoản</h4>
+                                <form class="pt-5" action="/quen-mat-khau" method="post">
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="email" name="txtEmail" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Nhập email" value="${requestScope.txtEmail}">
                                         <i class="mdi mdi-account"></i>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mat-khau">Mật khẩu</label>
-                                        <input type="password" name="txtMatKhau" class="form-control" id="mat-khau" placeholder="Nhập mật khẩu" value="${requestScope.txtMatKhau}">
-                                        <i class="mdi mdi-eye"></i>
+                                        <small class="text-danger" id="validate-for-email"></small>
                                     </div>
                                     <div class="mt-5">
-                                        <input type="submit" class="btn btn-block btn-primary btn-rounded" value="Đăng nhập" />
+                                        <input type="submit" class="btn btn-block btn-primary btn-rounded" value="Gửi email" />
                                     </div>
                                     <div class="mt-3 text-center">
-                                        <p>${requestScope.message}</p>
-                                        <a href="/quen-mat-khau" class="auth-link text-black">Quên mật khẩu?</a>
+                                        <p class="text-success" id="message-for-email-sent"></p>
+                                        <a href="/dang-nhap" class="auth-link text-black">Đăng nhập</a>
                                     </div>
                                 </form>
                             </div>

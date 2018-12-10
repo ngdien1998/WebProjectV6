@@ -114,10 +114,33 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
             baiViet.setMoTa(res.getString(3));
             baiViet.setNoiDung(res.getString(4));
             baiViet.setNgayViet(res.getDate(5));
+            baiViet.setHinh(res.getString(6));
             baiViet.setEmail(res.getString(7));
             baiViet.setIdLoaiBaiViet(res.getInt(8));
         }
         closeConnection();
         return baiViet;
+    }
+
+    public ArrayList<BaiViet> layBaiVietTheoDanhMuc(int loaiBaiViet) throws SQLException, ClassNotFoundException {
+        openConnection();
+        ArrayList<BaiViet> baiViets = new ArrayList<>();
+        String sql = "SELECT * FROM LayBaiVietTheoLoai(?)";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, loaiBaiViet);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            BaiViet baiViet = new BaiViet();
+            baiViet.setIdBaiViet(res.getInt(1));
+            baiViet.setTenBaiViet(res.getString(2));
+            baiViet.setMoTa(res.getString(3));
+            baiViet.setNoiDung(res.getString(4));
+            baiViet.setNgayViet(res.getDate(5));
+            baiViet.setEmail(res.getString(7));
+            baiViet.setIdLoaiBaiViet(res.getInt(8));
+            baiViets.add(baiViet);
+        }
+        closeConnection();
+        return baiViets;
     }
 }

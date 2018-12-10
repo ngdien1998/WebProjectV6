@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<div class="footer parallax-window" data-parallax="scroll"
-     data-image-src="assests/images/blur-close-up-cutlery-370984.jpg">
+<div id="footer">
     <div class="container-fluid">
         <div class="footer-title">
             <h1 class="font-blonde-script">Liên hệ</h1>
@@ -22,7 +21,7 @@
                 </div>
             </form>
         </div>
-        <div class="row">
+        <div style="margin-top: 64px; text-align: left;" class="row">
             <div class="col-md-4 col-sm-6 col-12 footer-content">
                 <h1 class="font-blonde-script content-header">Thời gian</h1>
                 <table class="table">
@@ -62,22 +61,20 @@
                     <b>Hot line:</b>
                     (098) 765 9898
                 </p>
-                <span class="social">
-                        <a></a>
-                    </span>
+                <span class="social"></span>
             </div>
             <div class="col-md-4 col-sm-6 col-12 send-contact footer-content">
                 <h1 class="font-blonde-script content-header">Gửi liên hệ</h1>
                 <form action="#" method="post">
                     <div class="form-row">
                         <div class="col-6">
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" placeholder="Họ tên"/>
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" placeholder="email"/>
                         </div>
                     </div>
-                    <textarea class="form-control" rows="8"></textarea>
+                    <textarea class="form-control" rows="8" placeholder="Nội dung liên hệ"></textarea>
                     <input type="submit" value="Gửi" class="btn btn-light"/>
                     <input type="button" value="Hủy" class="btn btn-light"/>
                 </form>

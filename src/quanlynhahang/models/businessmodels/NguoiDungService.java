@@ -197,4 +197,31 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         closeConnection();
         return rowAffected;
     }
+
+    public int suaMatKhaunguoiDung(String email, String newPass) throws SQLException, ClassNotFoundException {
+        openConnection();
+
+        String sql = "EXEC SuaMatKhau ?,?";
+        PreparedStatement  statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, email);
+        statement.setString(2, newPass);
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
+    }
+
+    public boolean checkEmailExisted(String email) throws SQLException, ClassNotFoundException {
+        openConnection();
+
+        String sql = "SELECT * FROM NguoiDung WHERE Email = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, email);
+
+        ResultSet res = statement.executeQuery();
+        closeConnection();
+        return res.next();
+    }
 }

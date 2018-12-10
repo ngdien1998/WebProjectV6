@@ -1,0 +1,87 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.contact-bar {
+    padding: 8px;
+    background-color: black;
+    color: #fff;
+    font-size: 13px;
+}
+
+.contact-bar-functions {
+    text-align: right;
+}
+
+.contact-bar-functions a {
+    text-decoration: none;
+    color: #fff;
+    padding-left: 8px;
+}
+
+.nav-item {
+    padding-right: 15px;
+}
+
+#txt-tim-kiem {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-size: 14px;
+}
+
+#btn-tim-kiem {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 14px;
+}
+
+body {
+    background-color: #F6F8FA;
+}
+
+#danh-muc, #tin-tuc {
+    width: 100%;
+}
+
+.main-content {
+    margin-top: 32px !important;
+}
+
+.newest-bai-viet-main img, .newest-bai-viet-sub img {
+    width: 100%;
+}
+
+.newest-bai-viet-main {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+}
+
+.newest-bai-viet-sub {
+    padding-right: 0;
+    position: relative;
+}
+
+.newest-bai-viet-main .new-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem 1rem 0.3rem;
+}
+
+.newest-bai-viet-sub .new-title {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem 1rem 0.3rem;
+}
+
+small {
+    color: #e4e4e4;
+}
