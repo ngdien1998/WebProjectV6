@@ -26,7 +26,7 @@ public class TrangChuServlet extends HttpServlet {
             UserTrangChuService trangChuService = new UserTrangChuService(DbAccess.getValue(request));
             ArrayList<MonAn> monAns = trangChuService.getBonMonAnMoiNhat();
             ArrayList<ThucDon> thucDons = trangChuService.getBonThucDonMoiNhat();
-            ArrayList<BaiViet> baiViets = trangChuService.getBonBaVietMoiNhat();
+            ArrayList<BaiViet> baiViets = trangChuService.getBonBaiVietMoiNhat();
 
             request.setAttribute("monAns", monAns);
             request.setAttribute("thucDons", thucDons);

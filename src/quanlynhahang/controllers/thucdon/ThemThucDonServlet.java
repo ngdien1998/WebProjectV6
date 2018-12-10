@@ -34,7 +34,7 @@ public class ThemThucDonServlet extends HttpServlet implements ActionPermissionI
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out1 = response.getWriter())  {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -104,7 +104,7 @@ public class ThemThucDonServlet extends HttpServlet implements ActionPermissionI
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

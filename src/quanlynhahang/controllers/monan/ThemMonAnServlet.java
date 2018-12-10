@@ -45,7 +45,7 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
         response.setContentType("text/html;charset=UTF-8");
 
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }
@@ -126,7 +126,7 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
         ArrayList<ThucDon> listThucDon = null;
         ArrayList<LoaiMon> listLoaiMon = null;
         try {
-            if (!AuthorizePermission.checkLogined(request)) {
+            if (!AuthorizePermission.islogined(request)) {
                 response.sendError(404);
                 return;
             }

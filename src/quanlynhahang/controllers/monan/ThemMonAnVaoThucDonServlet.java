@@ -5,6 +5,7 @@ import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.MonAnService;
 import quanlynhahang.models.businessmodels.ThucDonMonAnService;
+import quanlynhahang.models.businessmodels.ThucDonService;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -55,7 +56,7 @@ public class ThemMonAnVaoThucDonServlet extends HttpServlet implements ActionPer
             }
             UserDbConnect admin = DbAccess.getValue(request);
 
-            ThucDonService  thucDonService = new ThucDonService(DbAccess.getValue(request));
+            ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             ThucDon thucDon = null;
             thucDon = thucDonService.get(idThucDon);
 
