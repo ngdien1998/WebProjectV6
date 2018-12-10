@@ -10,10 +10,6 @@ import java.io.IOException;
 
 @WebServlet(name = "UserGioiThieuServlet", urlPatterns = {"/gioi-thieu"})
 public class UserGioiThieuServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/gioi-thieu.jsp");
         dispatcher.forward(request, response);

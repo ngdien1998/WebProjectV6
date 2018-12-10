@@ -27,19 +27,19 @@ public class BinhLuanBaiVietServlet extends HttpServlet implements ActionPermiss
                 return;
             }
 
-            if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
-                response.sendError(401);
-                return;
-            }
-            UserDbConnect admin = DbAccess.getValue(request);
+                if (!AuthorizePermission.checkPermissionAllowed(request, getPermissionId())) {
+                    response.sendError(401);
+                    return;
+                }
+                UserDbConnect admin = DbAccess.getValue(request);
 
-            String idDanhMucLienQuan = request.getParameter("id");
-            if (idDanhMucLienQuan == null || idDanhMucLienQuan.trim().isEmpty()) {
-                response.setStatus(400);
+                String idDanhMucLienQuan = request.getParameter("id");
+                if (idDanhMucLienQuan == null || idDanhMucLienQuan.trim().isEmpty()) {
+                    response.setStatus(400);
                 return;
             }
             BinhLuanService service = new BinhLuanService(admin);
-            ArrayList<BinhLuan> binhLuans = service.getData("baiviet", Integer.parseInt(idDanhMucLienQuan));
+            ArrayList<BinhLuan> binhLuans = service.getBinhLuanBaiViet(Integer.parseInt(idDanhMucLienQuan));
             request.setAttribute("binhLuans", binhLuans);
             BaiVietService baiVietService = new BaiVietService(admin);
             request.setAttribute("tenBaiViet", baiVietService.get(Integer.parseInt(idDanhMucLienQuan)).getTenBaiViet());

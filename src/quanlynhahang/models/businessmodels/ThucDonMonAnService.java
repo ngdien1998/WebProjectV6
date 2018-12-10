@@ -48,6 +48,20 @@ public class ThucDonMonAnService extends ConnectDatabase implements Businesses<T
         return rowAffected;
     }
 
+    public int xoaThucDonMonAn(String idMonAn, String idThucDon) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC XoaMonAnKhoiThucDon ?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setString(1, idMonAn);
+        statement.setString(2, idThucDon);
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
+    }
+
     public ArrayList<ThucDon> getThucDon(String idMonAn) throws SQLException, ClassNotFoundException {
 //        String sql = "EXEC LayIDThucDonCuaMonAn ?";
 //        PreparedStatement statement = connection.prepareStatement(sql);

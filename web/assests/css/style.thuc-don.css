@@ -1,3 +1,4 @@
+
 #navbar-absolute {
     width: 100%;
     background-color: white !important;
@@ -57,7 +58,7 @@
     margin-top: 2.8rem;
 }
 
-#menu-1, #menu-2 {
+#menu-0, #menu-1, #menu-2 {
     background: linear-gradient(to left, #fff, rgb(255, 255, 255), rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0)), url("../images/paralax2.png");
 }
 

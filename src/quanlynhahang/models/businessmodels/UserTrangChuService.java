@@ -1,5 +1,6 @@
 package quanlynhahang.models.businessmodels;
 
+import quanlynhahang.models.datamodels.BaiViet;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -29,11 +30,12 @@ public class UserTrangChuService extends ConnectDatabase {
             monAn.setTenMonAn(res.getString(2));
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
 
             monAns.add(monAn);
         }
@@ -67,4 +69,33 @@ public class UserTrangChuService extends ConnectDatabase {
         closeConnection();
         return thucDons;
     }
+
+    public ArrayList<BaiViet> getBonBaiVietMoiNhat() throws SQLException, ClassNotFoundException {
+        ArrayList<BaiViet> baiViets = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM LAY_4_BAIVIET_MOINHAT";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while (res.next()) {
+            BaiViet baiViet = new BaiViet();
+            baiViet.setIdBaiViet(res.getInt(1));
+            baiViet.setTenBaiViet(res.getString(2));
+            baiViet.setMoTa(res.getString(3));
+            baiViet.setNoiDung(res.getString(4));
+            baiViet.setNgayViet(res.getDate(5));
+            baiViet.setHinh(res.getString(6));
+            baiViet.setEmail(res.getString(7));
+            baiViet.setIdLoaiBaiViet(res.getInt(8));
+
+            baiViets.add(baiViet);
+        }
+
+        closeConnection();
+        return baiViets;
+    }
+
 }

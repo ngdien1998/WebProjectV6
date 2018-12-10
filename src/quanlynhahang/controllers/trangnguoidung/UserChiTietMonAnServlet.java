@@ -1,8 +1,10 @@
 package quanlynhahang.controllers.trangnguoidung;
 
 import quanlynhahang.common.DbAccess;
+import quanlynhahang.models.businessmodels.BinhLuanService;
 import quanlynhahang.models.businessmodels.UserChiTietMonAnService;
 import quanlynhahang.models.businessmodels.UserTrangChuService;
+import quanlynhahang.models.datamodels.BinhLuan;
 import quanlynhahang.models.datamodels.MonAn;
 
 import javax.servlet.RequestDispatcher;
@@ -24,6 +26,10 @@ public class UserChiTietMonAnServlet extends HttpServlet {
         try {
             MonAn monAn = userChiTietMonAnService.get(idMonAn);
             request.setAttribute("monAn", monAn);
+
+            BinhLuanService binhLuanService = new BinhLuanService(DbAccess.getValue(request));
+            ArrayList<BinhLuan> binhLuans = binhLuanService.getBinhLuanMonAn(Integer.parseInt(idMonAn));
+            request.setAttribute("binhLuans", binhLuans);
 
             ArrayList<MonAn> listMonAn = userTrangChuService.getBonMonAnMoiNhat();
             request.setAttribute("listMonAn", listMonAn);

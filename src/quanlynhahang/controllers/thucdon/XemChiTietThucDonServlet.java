@@ -38,6 +38,7 @@ public class XemChiTietThucDonServlet extends HttpServlet implements ActionPermi
 
             ArrayList<MonAn> monAns = thucDonMonAnService.getMonAns(Integer.parseInt(idThucDon));
 
+            request.setAttribute("idThucDon", idThucDon);
             request.setAttribute("monAns", monAns);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-chi-tiet-thuc-don.jsp");

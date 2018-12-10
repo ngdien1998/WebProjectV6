@@ -23,7 +23,8 @@
     <div class="col-9 contact-bar-functions">
         <c:choose>
             <c:when test="${sessionScope.nguoiDungHienTai != null}">
-                <a href="/sua-thong-tin-ca-nhan">Chào mừng ${sessionScope.nguoiDungHienTai.hoDem} ${sessionScope.nguoiDungHienTai.ten} đến với website</a>
+                <a href="/sua-thong-tin-ca-nhan">Chào
+                    mừng ${sessionScope.nguoiDungHienTai.hoDem} ${sessionScope.nguoiDungHienTai.ten} đến với website</a>
                 <a href="/dang-xuat">Đăng xuất</a>
                 <c:if test="${sessionScope.nguoiDungHienTai.quanTriVien}">
                     <a href="/admin/ket-noi-database">Quản trị</a>
@@ -64,8 +65,8 @@
                         món ăn</a>
                 </li>
                 <%--<li class="nav-item">--%>
-                    <%--<a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài--%>
-                        <%--viết</a>--%>
+                <%--<a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài--%>
+                <%--viết</a>--%>
                 <%--</li>--%>
                 <li class="nav-item">
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/gioi-thieu">Nhà
@@ -150,8 +151,9 @@
                             <p class="col-8 food-name" style="line-height: 30px">${monAn.tenMonAn}</p>
                             <p class="col-4 price">${monAn.gia} đ</p>
                         </div>
-                        <p class="price old-price" style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '': monAn.gia + (monAn*khuyenMai) }
-                            </p>
+                        <p class="price old-price"
+                           style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '': monAn.gia + (monAn.gia*khuyenMai)/100 }
+                        </p>
                     </a>
                 </div>
             </c:forEach>
@@ -230,7 +232,7 @@
         <div class="row">
             <c:forEach var="thucDon" items="${requestScope.thucDons}">
                 <div class="food-item col-md-3 col-sm-6 col-12">
-                    <a href="#!">
+                    <a href="/chi-tiet-thuc-don?idThucDon=${thucDon.idThucDon}">
                         <div class="food-img">
                             <img src="${thucDon.hinhThucDon}" height="170px"/>
                         </div>
@@ -238,8 +240,8 @@
                             <p class="col-6 food-name" style="line-height: 30px">${thucDon.tenThucDon}</p>
                             <p class="col-6 price">${thucDon.gia} đ</p>
                         </div>
-                        <%--<p class="price old-price"--%>
-                           <%--style="position: absolute; right: 17px;top: 208px;">${thucDon.phanTramKhuyenMai == 0 ? '' : thucDon.gia + (thucDon*phanTramKhuyenMai)} đ</p>--%>
+                            <%--<p class="price old-price"--%>
+                            <%--style="position: absolute; right: 17px;top: 208px;">${thucDon.phanTramKhuyenMai == 0 ? '' : thucDon.gia + (thucDon*phanTramKhuyenMai)} đ</p>--%>
                     </a>
                 </div>
             </c:forEach>
@@ -276,7 +278,9 @@
                     <div class="carousel-item">
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
-                            <i>Tôi rất hài lòng với sự phục vụ nhiệt tình của nhân viên nhà hàng này, rất chu đáo, nhiệt tình cũng như chất lượng thức ăn tốt. Tôi thích món Heo Massage tại đây. Cảm ơn Nhà hàng!
+                            <i>Tôi rất hài lòng với sự phục vụ nhiệt tình của nhân viên nhà hàng này, rất chu đáo, nhiệt
+                                tình cũng như chất lượng thức ăn tốt. Tôi thích món Heo Massage tại đây. Cảm ơn Nhà
+                                hàng!
                             </i>
                         </p>
                     </div>
@@ -284,7 +288,8 @@
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
                             <i>
-                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng  rất ngon và rẻ, vừa túi tiền, phục vụ tận tình chu đáo.
+                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng rất ngon và rẻ, vừa túi
+                                tiền, phục vụ tận tình chu đáo.
                             </i>
                         </p>
                     </div>
@@ -292,7 +297,8 @@
                         <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
                         <p class="cmt-text">
                             <i>
-                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng Năm Nhỏ, rất ngon và rẻ, vừa túi tiền, phục vụ tận tình chu đáo.
+                                Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng Năm Nhỏ, rất ngon và
+                                rẻ, vừa túi tiền, phục vụ tận tình chu đáo.
                             </i>
                         </p>
                     </div>
@@ -321,54 +327,17 @@
         </p>
     </div>
     <div class="row blog-list">
-        <div class="blog col-md-3 col-sm-6 col-12">
-            <a href="#!">
-                <img src="assests/images/bun-mam.jpg"/>
-                <p class="post-date">8/10/2018</p>
-                <p class="post-sumary">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                    an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                    has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged
-                </p>
-            </a>
-        </div>
-        <div class="blog col-md-3 col-sm-6 col-12">
-            <a href="#!">
-                <img src="assests/images/bun-mam.jpg"/>
-                <p class="post-date">8/10/2018</p>
-                <p class="post-sumary">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                    an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                    has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged
-                </p>
-            </a>
-        </div>
-        <div class="blog col-md-3 col-sm-6 col-12">
-            <a href="#!">
-                <img src="assests/images/bun-mam.jpg"/>
-                <p class="post-date">8/10/2018</p>
-                <p class="post-sumary">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                    an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                    has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged
-                </p>
-            </a>
-        </div>
-        <div class="blog col-md-3 col-sm-6 col-12">
-            <a href="#!">
-                <img src="assests/images/bun-mam.jpg"/>
-                <p class="post-date">8/10/2018</p>
-                <p class="post-sumary">Lorem Ipsum is simply dummy text of the printing and typesetting
-                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                    an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                    has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged
-                </p>
-            </a>
-        </div>
+        <c:forEach var="baiViet" items="${requestScope.baiViets}">
+            <div class="blog col-md-3 col-sm-6 col-12">
+                <a href="">
+                    <img src="${baiViet.hinh}"/>
+                    <p class="post-date">${baiViet.ngayViet}</p>
+                    <p class="post-sumary">
+                            ${baiViet.moTa}
+                    </p>
+                </a>
+            </div>
+        </c:forEach>
     </div>
 </div>
 

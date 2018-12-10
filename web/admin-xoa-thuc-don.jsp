@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-4">
-                <img src="" alt="${requestScope.thucDon.tenThucDon}">
+                <img src="${requestScope.thucDon.hinhThucDon}" width="310ox" height="275px" alt="${requestScope.thucDon.tenThucDon}">
             </div>
             <div class="col-8">
                 <table class="table table-hover" style="margin: 16px 0;">

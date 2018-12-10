@@ -9,7 +9,7 @@
         <p class="card-description">
         Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>
-        <form class="forms-sample" action="/admin/sua-thuc-don" method="post">
+        <form class="forms-sample" action="/admin/sua-thuc-don" method="post" enctype="multipart/form-data" >
             <div class="form-row">
                 <input type="hidden" name="txtIdThucDon" value="${requestScope.thucDon.idThucDon}">
                 <div class="col-md-6 col-sm-12 form-group">
@@ -109,6 +109,13 @@
             <textarea rows="5" class="form-control" id="mota" placeholder="Mô tả thực đơn"
                       name="txtMoTa">${requestScope.thucDon.moTa}</textarea>
             <small class="text-danger" id="validate-mota"></small>
+            <br>
+            <div>
+                <label for="mota">Ảnh</label>
+                <br>
+                <input type="file" name="filecover">
+                <br>
+            </div>
             <br>
             <div class="form-row justify-content-center">
                 <input type="submit" class="btn btn-primary btn-rounded mr-2" id="btn-submit"

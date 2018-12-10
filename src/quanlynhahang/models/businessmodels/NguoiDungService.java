@@ -190,8 +190,8 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         statement.setString(3, model.getTen());
         statement.setDate(4, model.getNgaySinh());
         statement.setBoolean(5, model.isNu());
-        statement.setString(6, model.getDienThoai());
-        statement.setString(7, model.getDiaChi());
+        statement.setString(6, model.getDiaChi());
+        statement.setString(7, model.getDienThoai());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();

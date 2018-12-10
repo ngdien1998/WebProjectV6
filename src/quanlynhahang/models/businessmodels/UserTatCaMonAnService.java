@@ -28,11 +28,12 @@ public class UserTatCaMonAnService extends ConnectDatabase{
             monAn.setTenMonAn(res.getString(2));
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
 
             monAns.add(monAn);
         }
@@ -55,11 +56,12 @@ public class UserTatCaMonAnService extends ConnectDatabase{
             monAn.setTenMonAn(res.getString(2));
             monAn.setDonViTinh(res.getString(3));
             monAn.setMoTa(res.getString(4));
-            monAn.setGia(res.getInt(5));
-            monAn.setHinhMonAn(res.getString(6));
-            monAn.setKhuyenMai(res.getInt(7));
-            monAn.setNgayThem(res.getDate(8));
-            monAn.setIdLoaiMon(res.getInt(9));
+            monAn.setMoTaChiTiet(res.getString(5));
+            monAn.setGia(res.getInt(6));
+            monAn.setHinhMonAn(res.getString(7));
+            monAn.setKhuyenMai(res.getInt(8));
+            monAn.setNgayThem(res.getDate(9));
+            monAn.setIdLoaiMon(res.getInt(10));
 
             monAns.add(monAn);
         }

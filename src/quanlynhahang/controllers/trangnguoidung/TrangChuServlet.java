@@ -2,6 +2,7 @@ package quanlynhahang.controllers.trangnguoidung;
 
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.UserTrangChuService;
+import quanlynhahang.models.datamodels.BaiViet;
 import quanlynhahang.models.datamodels.MonAn;
 import quanlynhahang.models.datamodels.ThucDon;
 
@@ -25,9 +26,11 @@ public class TrangChuServlet extends HttpServlet {
             UserTrangChuService trangChuService = new UserTrangChuService(DbAccess.getValue(request));
             ArrayList<MonAn> monAns = trangChuService.getBonMonAnMoiNhat();
             ArrayList<ThucDon> thucDons = trangChuService.getBonThucDonMoiNhat();
+            ArrayList<BaiViet> baiViets = trangChuService.getBonBaiVietMoiNhat();
 
             request.setAttribute("monAns", monAns);
             request.setAttribute("thucDons", thucDons);
+            request.setAttribute("baiViets", baiViets);
 
         } catch (Exception e) {
             e.printStackTrace();

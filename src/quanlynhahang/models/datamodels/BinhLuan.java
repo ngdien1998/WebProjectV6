@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class BinhLuan {
     private int idBinhLuan;
-    private int idDanhMucLienQuan;
-    private String loai;
+    private int idMonAn;
+    private int idBaiViet;
     private Date thoiGian;
     private String noiDung;
     private String email;
@@ -13,10 +13,10 @@ public class BinhLuan {
     public BinhLuan() {
     }
 
-    public BinhLuan(int idBinhLuan, int idDanhMucLienQuan, String loai, Date thoiGian, String noiDung, String email) {
+    public BinhLuan(int idBinhLuan, int idMonAn, int idBaiViet, Date thoiGian, String noiDung, String email) {
         this.idBinhLuan = idBinhLuan;
-        this.idDanhMucLienQuan = idDanhMucLienQuan;
-        this.loai = loai;
+        this.idMonAn = idMonAn;
+        this.idBaiViet = idBaiViet;
         this.thoiGian = thoiGian;
         this.noiDung = noiDung;
         this.email = email;
@@ -30,20 +30,20 @@ public class BinhLuan {
         this.idBinhLuan = idBinhLuan;
     }
 
-    public int getIdDanhMucLienQuan() {
-        return idDanhMucLienQuan;
+    public int getIdMonAn() {
+        return idMonAn;
     }
 
-    public void setIdDanhMucLienQuan(int idDanhMucLienQuan) {
-        this.idDanhMucLienQuan = idDanhMucLienQuan;
+    public void setIdMonAn(int idMonAn) {
+        this.idMonAn = idMonAn;
     }
 
-    public String getLoai() {
-        return loai;
+    public int getIdBaiViet() {
+        return idBaiViet;
     }
 
-    public void setLoai(String loai) {
-        this.loai = loai;
+    public void setIdBaiViet(int idBaiViet) {
+        this.idBaiViet = idBaiViet;
     }
 
     public Date getThoiGian() {

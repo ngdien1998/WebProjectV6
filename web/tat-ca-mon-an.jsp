@@ -19,9 +19,51 @@
     <link rel="stylesheet" href="./assests/css/style.tat-ca-mon-an.css">
     <link rel="stylesheet" href="./assests//css/global.css">
     <link rel="stylesheet" href="./assests/css/style.trang-chu.css">
-    <%--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"--%>
-    <%--integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"--%>
-    <%--crossorigin="anonymous">--%>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
+    <!-- JS tạo nút bấm di chuyển trang start -->
+    <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
+    <!-- JS tạo nút bấm di chuyển trang end -->
+    <script type="text/javascript">
+        $(function () {
+            var pageSize = 12; // Hiển thị 6 sản phẩm trên 1 trang
+            showPage = function(page) {
+                $(".contentPage").hide();
+                $(".contentPage").each(function(n) {
+                    if (n >= pageSize * (page - 1) && n < pageSize * page)
+                        $(this).show();
+                });
+            }
+            showPage(1);
+            ///** Cần truyền giá trị vào đây **///
+            var totalRows = ${requestScope.soLuong}; // Tổng số sản phẩm hiển thị
+            var btnPage = 3; // Số nút bấm hiển thị di chuyển trang
+            var iTotalPages = Math.ceil(totalRows / pageSize);
+
+            var obj = $('#pagination').twbsPagination({
+                totalPages: iTotalPages,
+                visiblePages: btnPage,
+                onPageClick: function (event, page) {
+                    /* console.info(page); */
+                    showPage(page);
+                }
+            });
+            /*console.info(obj.data());*/
+        });
+    </script>
+    <style>
+        /* CSS căn id pagination ra giữa màn hình */
+        #pagination {
+            display: flex;
+            display: -webkit-flex; /* Safari 8 */
+            flex-wrap: wrap;
+            -webkit-flex-wrap: wrap; /* Safari 8 */
+            justify-content: center;
+            -webkit-justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -57,8 +99,11 @@
                     <ul class="left-margin">
                         <li>
                             <span class="font-weight-bold"> Giá</span>
-                            <input type="range" class="custom-range" id="customRange" name="points1">
-                            <span class="left-price ml-65">0đ - 5000000đ</span>
+                            <div id="slider-range"></div>
+                            <span class="left-price ml-65">
+                                  <input type="text" id="amount" readonly
+                                         style="border:0; color:#f6931f; font-weight:bold;">
+                            </span>
                         </li>
                         <li>
                             <span class="font-weight-bold">Màu sắc</span>
@@ -83,7 +128,7 @@
                                  style="width:140px; height: 100px;">
                             <span class="info pl-3">
                                 <div class="name">${baMonAnMoiNhat.tenMonAn}</div>
-                                <div class="gia">${baMonAnMoiNhat.gia}</div>
+                                <div class="gia text-danger">${baMonAnMoiNhat.gia}đ</div>
                             </span>
                         </div>
                     </c:forEach>
@@ -104,12 +149,12 @@
                             <%--<button class="btn btn-success"><i class="fas fa-list-ul"></i></button>--%>
                             <%--</a>--%>
                             <%--&nbsp; &nbsp;--%>
-                            <label>Sắp xếp theo : &nbsp;</label>
+                            <label style="margin-top:10px">Sắp xếp theo : &nbsp;</label>
                             <div class="form-group tabfilter">
-                                <select class="form-control" id="sel1">
-                                    <option>Mới nhất</option>
-                                    <option>Khuyến mãi</option>
-                                    <option>Bán chạy nhất</option>
+                                <select class="form-control" id="filter-mon-an">
+                                    <option value="tat-ca">Tất cả món ăn</option>
+                                    <option value="moi-nhat">Mới nhất</option>
+                                    <option value="khuyen-mai">Khuyến mãi</option>
                                 </select>
                             </div>
                         </div>
@@ -119,7 +164,7 @@
                     <div class="monan">
                         <div class="row">
                             <c:forEach var="monAn" items="${requestScope.monAns}">
-                                <div class="food-item col-md-4 col-sm-6 col-12 mb-5">
+                                <div class="food-item col-md-4 col-sm-6 col-12 mb-5 contentPage">
                                     <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
                                         <div class="food-img">
                                             <img src="${monAn.hinhMonAn}" height="170px"/>
@@ -128,21 +173,16 @@
                                             <p class="col-8 food-name" style="line-height: 30px">${monAn.tenMonAn}</p>
                                             <p class="col-4 price">${monAn.gia} đ</p>
                                         </div>
-                                        <p class="price old-price" style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '' : monAn.gia + (monAn.gia * monAn.khuyenMai)/100}</p>
+                                        <p class="price old-price"
+                                           style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '' : monAn.gia + (monAn.gia * monAn.khuyenMai)/100}</p>
                                     </a>
                                 </div>
                             </c:forEach>
                         </div>
-
-                        <div class="mt-1">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">Trang trước</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0);">Trang sau</a></li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div style="margin-left:260px">
+                        <!-- Hiên thị nút bấm -->
+                        <ul id="pagination" class="text-center"></ul>
                     </div>
                 </div>
             </div>
@@ -150,4 +190,24 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $("#filter-mon-an").change(() => {
+        let selectedVal = $("#filter-mon-an").val();
+        $.post("/admin/ajax-filter-mon-an", {typeFilter: selectedVal}, content => $(".monan").html(content));
+    });
+
+    $(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 3000000,
+            values: [120000, 550000],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+            " - $" + $("#slider-range").slider("values", 1));
+    });
+</script>
 <jsp:include page="_shared/user/footer.jsp" flush="true"/>

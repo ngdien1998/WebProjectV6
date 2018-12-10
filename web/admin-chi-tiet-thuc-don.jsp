@@ -24,6 +24,7 @@
                     <th>Giá</th>
                     <th>Khuyến mãi</th>
                     <th>Ngày thêm</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,7 @@
                         <td>${monAn.gia}đ</td>
                         <td>${monAn.khuyenMai}%</td>
                         <td>${monAn.ngayThem}</td>
+                        <td><a href="/admin/xoa-mon-an-khoi-thuc-don?idThucDon=${requestScope.idThucDon}&idMonAn=${monAn.idMonAn}">Xóa</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>

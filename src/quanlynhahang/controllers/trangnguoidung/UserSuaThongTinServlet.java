@@ -21,10 +21,9 @@ import java.util.Date;
 @WebServlet(name = "UserSuaThongTinServlet", urlPatterns = {"/sua-thong-tin-ca-nhan"})
 public class UserSuaThongTinServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
-            request.setCharacterEncoding("utf-8");
-            response.setContentType("text/html;charset=UTF-8");
-
             NguoiDung nguoiDung = new NguoiDung();
             nguoiDung.setEmail(request.getParameter("txtEmail"));
             nguoiDung.setHoDem(request.getParameter("txtHoDem"));
@@ -47,6 +46,7 @@ public class UserSuaThongTinServlet extends HttpServlet {
 
             NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             service.suaThongTinCaNhan(nguoiDung);
+
         } catch (ParseException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,7 @@
         <p class="card-description">
             Vui lòng nhập đầy đủ thông tin yêu cầu
         </p>
-        <form class="forms-sample" action="/admin/them-thuc-don" method="post">
+        <form class="forms-sample" action="/admin/them-thuc-don" method="post" enctype="multipart/form-data" >
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 form-group">
                     <label for="ten">Tên thực đơn (bắt buộc)</label>
@@ -47,6 +47,12 @@
             <label for="mota">Mô tả</label>
             <textarea rows="5" class="form-control" id="mota" placeholder="Mô tả"></textarea>
             <small class="text-danger"></small>
+            <br>
+            <div>
+                <label for="mota">Ảnh</label>
+                <br>
+                <input type="file" name="filecover">
+            </div>
             <br>
             <div class="form-row">
                 <input type="submit" class="btn btn-primary btn-rounded mr-2" id="btn-submit"
