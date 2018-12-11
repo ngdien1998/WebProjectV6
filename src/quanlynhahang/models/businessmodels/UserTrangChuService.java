@@ -19,7 +19,7 @@ public class UserTrangChuService extends ConnectDatabase {
         ArrayList<MonAn> monAns = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM LAY_4_MONAN_MOINHAT";
+        String sql = "SELECT * FROM LAY_12_MONAN_MOINHAT";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

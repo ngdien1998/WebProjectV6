@@ -61,8 +61,10 @@
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/thuc-don">Thực đơn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Tất cả
-                        món ăn</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Món ăn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/dat-mon-nhom">Đặt món nhóm</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài
@@ -142,7 +144,7 @@
     <div class="menu-foods container">
         <div class="row mb-4">
             <c:forEach var="monAn" items="${requestScope.monAns}">
-                <div class="food-item col-md-3 col-sm-6 col-12">
+                <div class="food-item col-md-3 col-sm-6 col-12 mb-5">
                     <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
                         <div class="food-img">
                             <img src="${monAn.hinhMonAn}" height="170px"/>
@@ -157,29 +159,6 @@
                     </a>
                 </div>
             </c:forEach>
-        </div>
-        <div class="row">
-            <div class="food-ads food-ads-left col-3">
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-            </div>
-            <div class="food-ads food-ads-center col-6">
-                <div class="food-ads-main-item">
-                    <img src="assests/images/bun-mam.jpg"/>
-                </div>
-            </div>
-            <div class="food-ads food-ads-right col-3">
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-                <div class="food-ads food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -329,7 +308,7 @@
     <div class="row blog-list">
         <c:forEach var="baiViet" items="${requestScope.baiViets}">
             <div class="blog col-md-3 col-sm-6 col-12">
-                <a href="">
+                <a href="/chi-tiet-bai-viet?idBaiViet=${baiViet.idBaiViet}">
                     <img src="${baiViet.hinh}"/>
                     <p class="post-date">${baiViet.ngayViet}</p>
                     <p class="post-sumary">${baiViet.moTa}</p>
