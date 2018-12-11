@@ -6,7 +6,7 @@
 
 <%--<%--%>
     <%--NguoiDung user = new NguoiDung();--%>
-    <%--user.setEmail("ngdien1998@gmail.com");--%>
+    <%--user.setEmail("admin@gmail.com");--%>
     <%--user.setMatKhau("123");--%>
     <%--user.setKichHoat(true);--%>
     <%--user.setQuanTriVien(true);--%>
@@ -20,4 +20,4 @@
     <%--session.setAttribute(Consts.USER_DB_CONNECT, admin);--%>
 <%--%>--%>
 
-<c:redirect url="/dat-mon-nhom" />
+<c:redirect url="/dang-ky" />
