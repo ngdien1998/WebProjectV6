@@ -25,8 +25,6 @@ public class DangNhapServlet extends HttpServlet {
             NguoiDung loginUser = service.dangNhap(email, matKhau);
             if (loginUser != null) {
                 UserDbConnect userDbConnect = new UserDbConnect();
-                userDbConnect.setUsername(loginUser.getEmail());
-                userDbConnect.setPassword(loginUser.getMatKhau());
                 userDbConnect.setAdmin(loginUser.isQuanTriVien());
 
                 HttpSession session = request.getSession();

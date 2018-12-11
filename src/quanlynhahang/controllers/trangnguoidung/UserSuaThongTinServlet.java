@@ -22,7 +22,6 @@ import java.util.Date;
 @WebServlet(name = "UserSuaThongTinServlet", urlPatterns = {"/sua-thong-tin-ca-nhan"})
 public class UserSuaThongTinServlet extends HttpServlet {
     private String getFileName(final Part part) {
-        final String partHeader = part.getHeader("content-disposition");
 
         for (String content : part.getHeader("content-disposition").split(";")) {
             if (content.trim().startsWith("filename")) {
@@ -36,19 +35,14 @@ public class UserSuaThongTinServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out1 = response.getWriter()) {
+        try {
             NguoiDung nguoiDung = new NguoiDung();
             nguoiDung.setEmail(request.getParameter("txtEmail"));
             nguoiDung.setHoDem(request.getParameter("txtHoDem"));
             nguoiDung.setTen(request.getParameter("txtTen"));
             int gioiTinh = Integer.parseInt(request.getParameter("slGioiTinh"));
-            Boolean setNu;
-            if(gioiTinh == 0){
-                setNu = false;
-            }
-            else {
-                setNu = true;
-            }
+            boolean setNu;
+            setNu = gioiTinh != 0;
             nguoiDung.setNu(setNu);
             if (request.getParameter("dteNgaySinh") != null) {
                 Date ngaySinh = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("dteNgaySinh"));
@@ -58,24 +52,22 @@ public class UserSuaThongTinServlet extends HttpServlet {
             nguoiDung.setDiaChi(request.getParameter("txtDiaChi"));
 
             // Hình
-
             Part filePart = request.getPart("filecover");
 
             String photo = "";
-            String path = "F:\\BK11_12\\WebProjectV6\\web\\assests\\images\\nguoidung";
-            String path1 = "F:\\BK11_12\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\nguoidung";
+            String path = "E:\\JSP Servlet\\WebProjectV6\\web\\assests\\images\\nguoidung";
+            String path1 = "E:\\JSP Servlet\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\nguoidung";
             File file = new File(path);
             File file1 = new File(path1);
             file.mkdir();
             file1.mkdir();
             String fileName = getFileName(filePart);
 
-            OutputStream out = null;
-            OutputStream out0 = null;
+            OutputStream out;
+            OutputStream out0;
 
-            InputStream filecontent = null;
+            InputStream filecontent;
 
-            PrintWriter writer = response.getWriter();
             out = new FileOutputStream(new File(path + File.separator
                     + fileName));
             out0 = new FileOutputStream(new File(path1 + File.separator
@@ -93,8 +85,6 @@ public class UserSuaThongTinServlet extends HttpServlet {
 
                 photo = "../assests/images/nguoidung/" + fileName;
             }
-
-//            // =========================================================
             nguoiDung.setAvatar(photo);
 
             NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
@@ -113,12 +103,9 @@ public class UserSuaThongTinServlet extends HttpServlet {
         try {
             NguoiDung nguoiDung = nguoiDungService.get(email);
             request.setAttribute("nguoiDung", nguoiDung);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/sua-thong-tin-ca-nhan.jsp");
         dispatcher.forward(request,response);
     }

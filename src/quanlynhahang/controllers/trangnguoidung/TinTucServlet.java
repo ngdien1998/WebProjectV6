@@ -23,13 +23,28 @@ public class TinTucServlet extends HttpServlet {
             BaiVietService service = new BaiVietService(DbAccess.getValue(request));
             LoaiBaiVietService service1 = new LoaiBaiVietService(DbAccess.getValue(request));
             ArrayList<LoaiBaiViet> loaiBaiViets = service1.getData();
-            ArrayList<BaiViet> baiViets = null;
+            ArrayList<BaiViet> baiViets;
             if (loaiBaiViet == null) {
                  baiViets = service.getData();
             } else {
                 baiViets = service.layBaiVietTheoDanhMuc(Integer.parseInt(loaiBaiViet));
             }
-            request.setAttribute("baiViets", baiViets);
+
+            if (baiViets.size() > 0) {
+                request.setAttribute("baiViet1", baiViets.get(0));
+            }
+            if (baiViets.size() > 1) {
+                request.setAttribute("baiViet2", baiViets.get(1));
+            }
+            if (baiViets.size() > 2) {
+                request.setAttribute("baiViet3", baiViets.get(2));
+            }
+
+            ArrayList<BaiViet> temp = new ArrayList<>();
+            for (int i = 3; i < baiViets.size(); i++) {
+                temp.add(baiViets.get(i));
+            }
+            request.setAttribute("baiViets", temp);
             request.setAttribute("loaiBaiViets", loaiBaiViets);
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/tin-tuc.jsp");
             dispatcher.forward(request, response);

@@ -5,12 +5,6 @@
      <div class="col-3 contact-bar-greeting">
          <i>Hân hạnh được phục vụ quý khách</i>
      </div>
-     <%----%>
-     <%--<div class="col-9 contact-bar-functions">--%>
-     <%--<a href="/dang-nhap">Đăng nhập</a>--%>
-     <%--<a href="/dang-ky">Đăng ký</a>--%>
-     <%--<a href="#!">Giỏ hàng</a>--%>
-     <%--</div>--%>
 
      <div class="col-9 contact-bar-functions">
          <c:choose>
@@ -51,11 +45,13 @@
                 <a class="nav-link font-blonde-script text-dark font-size-h5" href="./thuc-don">Thực đơn</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an">Tất cả món ăn</a>
+                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an">Món ăn</a>
+            </li><li class="nav-item">
+                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an">Đặt món nhóm</a>
             </li>
-            <%--<li class="nav-item">--%>
-                <%--<a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc-blog">Bài viết</a>--%>
-            <%--</li>--%>
+            <li class="nav-item">
+                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc-blog">Bài viết</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link font-blonde-script text-dark font-size-h5" href="./gioi-thieu">Nhà hàng</a>
             </li>

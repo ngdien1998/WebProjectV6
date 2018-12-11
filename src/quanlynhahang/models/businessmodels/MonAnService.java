@@ -238,7 +238,7 @@ public class MonAnService extends ConnectDatabase implements Businesses<MonAn> {
     public ArrayList<MonAn> layMonAnTheoThucDon(int idMonAn) throws SQLException, ClassNotFoundException {
         openConnection();
         ArrayList<MonAn> monAns = new ArrayList<>();
-        String sql = "SELECT * FROM LayMonAnTheoThucDon(?)";
+        String sql = "SELECT * FROM LayMonAnNhomTheoThucDon(?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, idMonAn);
         ResultSet res = statement.executeQuery();

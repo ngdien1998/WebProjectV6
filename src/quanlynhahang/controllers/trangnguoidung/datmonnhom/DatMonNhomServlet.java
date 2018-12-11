@@ -39,8 +39,8 @@ public class DatMonNhomServlet extends HttpServlet {
             }
             MonAnService monAnService = new MonAnService(value);
             request.setAttribute("monAns", monAnService.getData());
-            request.setAttribute("monAnNhanhs", monAnService.layMonAnTheoThucDon(9));
-            request.setAttribute("doUongs", monAnService.layMonAnTheoThucDon(10));
+            request.setAttribute("monAnNhanhs", monAnService.layMonAnTheoThucDon(3));
+            request.setAttribute("doUongs", monAnService.layMonAnTheoThucDon(4));
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dat-mon-nhom.jsp");
             dispatcher.forward(request, response);

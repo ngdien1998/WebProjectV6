@@ -2,6 +2,7 @@ package quanlynhahang.controllers.nguoidung;
 
 import quanlynhahang.common.Consts;
 import quanlynhahang.common.DbAccess;
+import quanlynhahang.common.Mailer;
 import quanlynhahang.models.businessmodels.NguoiDungService;
 
 import javax.mail.*;
@@ -27,15 +28,13 @@ public class QuenMatKhauServlet extends HttpServlet {
             String newPass = generatePassword();
 
             String emailTo = request.getParameter("txtEmail");
-            String emailFrom = "ngdien1998@gmail.com";
-            String pass = "Continuum10";
             String subject = "Khôi phục mật khẩu người dùng";
             String content = "Mật khẩu mới của bạn là '" + newPass + "'. Hãy đổi mật khẩu sau khi đăng nhập lại.";
 
             NguoiDungService service = new NguoiDungService(DbAccess.getValue(request));
             service.suaMatKhaunguoiDung(emailTo, newPass);
 
-            sendEmail(emailFrom, pass, emailTo, subject, content);
+            Mailer.sendEmail(emailTo, subject, content);
             HttpSession session = request.getSession();
             session.setAttribute(Consts.FORGOT_PASSWORD_MSG, "Vui lòng kiểm tra email để lấy lại mật khẩu");
             response.sendRedirect("/dang-nhap");
@@ -74,33 +73,5 @@ public class QuenMatKhauServlet extends HttpServlet {
             sb.append(Integer.toHexString((b & 0xFF) | 0x100), 1, 3);
         }
         return sb.toString();
-    }
-
-    private boolean sendEmail(String from, String pass, String to, String subject, String content) {
-        try {
-            Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.port", "587");
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.enable", "true");
-
-            Session session = Session.getInstance(props, new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(from, pass);
-                }
-            });
-
-            MimeMessage message = new MimeMessage(session);
-            message.setHeader("Content-Type", "text/plain; charset=UTF-8");
-            message.setFrom(new InternetAddress(from));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject, "UTF-8");
-            message.setText(content, "UTF-8");
-            Transport.send(message);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 }
