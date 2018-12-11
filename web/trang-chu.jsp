@@ -61,8 +61,10 @@
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/thuc-don">Thực đơn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Tất cả
-                        món ăn</a>
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Món ăn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/dat-mon-nhom">Đặt món nhóm</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài
@@ -306,7 +308,7 @@
     <div class="row blog-list">
         <c:forEach var="baiViet" items="${requestScope.baiViets}">
             <div class="blog col-md-3 col-sm-6 col-12">
-                <a href="">
+                <a href="/chi-tiet-bai-viet?idBaiViet=${baiViet.idBaiViet}">
                     <img src="${baiViet.hinh}"/>
                     <p class="post-date">${baiViet.ngayViet}</p>
                     <p class="post-sumary">${baiViet.moTa}</p>
