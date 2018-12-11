@@ -58,8 +58,8 @@ public class ThemThucDonServlet extends HttpServlet implements ActionPermissionI
             Part filePart = request.getPart("filecover");
 
             String photo = "";
-            String path = "F:\\WebProjectV6\\web\\assests\\images\\thucdon";
-            String path1 = "F:\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\thucdon";
+            String path = "F:\\BK11_12\\WebProjectV6\\web\\assests\\images\\thucdon";
+            String path1 = "F:\\BK11_12\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\thucdon";
             File file = new File(path);
             File file1 = new File(path1);
             file.mkdir();

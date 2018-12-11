@@ -1,8 +1,6 @@
 package quanlynhahang.models.businessmodels;
 
-import quanlynhahang.models.datamodels.ThongKeMonAn;
-import quanlynhahang.models.datamodels.ThongKeThucDon;
-import quanlynhahang.models.datamodels.ThongKeTongThu;
+import quanlynhahang.models.datamodels.*;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
@@ -101,5 +99,76 @@ public class ThongKeService extends ConnectDatabase {
 
         closeConnection();
         return thongKeTongThus;
+    }
+
+    public ArrayList<ThongKeDatBanChiTiet> thongKeDatBanChiTiet() throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeDatBanChiTiet> thongKeDatBans = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM ThongKeDatBanChiTiet";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeDatBanChiTiet thongKeDatBan = new ThongKeDatBanChiTiet();
+            thongKeDatBan.setEmail(res.getString(1));
+            thongKeDatBan.setThoiGian(res.getString(2));
+            thongKeDatBan.setNgay(res.getDate(3));
+            thongKeDatBan.setSoLuongNguoi(res.getInt(4));
+            thongKeDatBan.setGhiChu(res.getString(5));
+            thongKeDatBan.setHoTen(res.getString(6));
+            thongKeDatBan.setSdt(res.getString(7));
+
+            thongKeDatBans.add(thongKeDatBan);
+        }
+
+        closeConnection();
+        return thongKeDatBans;
+    }
+
+    public ArrayList<ThongKeDatBanBieuDo> thongKeDatBanBieuDo() throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeDatBanBieuDo> thongKeDatBans = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM ThongKeDatBanBieuDo";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeDatBanBieuDo thongKeDatBan = new ThongKeDatBanBieuDo();
+            thongKeDatBan.setSoLuong(res.getInt(1));
+            thongKeDatBan.setNgay(res.getInt(2));
+
+            thongKeDatBans.add(thongKeDatBan);
+        }
+
+        closeConnection();
+        return thongKeDatBans;
+    }
+
+    public ArrayList<ThongKeBinhLuanBieuDo> thongKeBinhLuanBieuDo() throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeBinhLuanBieuDo> thongKeBinhLuanBieuDos = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM ThongKeBinhLuanBieuDo";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeBinhLuanBieuDo thongKeBinhLuanBieuDo = new ThongKeBinhLuanBieuDo();
+            thongKeBinhLuanBieuDo.setSoLuong(res.getInt(1));
+            thongKeBinhLuanBieuDo.setNgay(res.getInt(2));
+
+            thongKeBinhLuanBieuDos.add(thongKeBinhLuanBieuDo);
+        }
+
+        closeConnection();
+        return thongKeBinhLuanBieuDos;
     }
 }

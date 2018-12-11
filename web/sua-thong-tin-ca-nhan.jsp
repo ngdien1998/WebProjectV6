@@ -54,7 +54,7 @@
                 <div class="profile-sidebar">
                     <div class="profile-userpic">
                         <img
-                                src="https://hocwebgiare.com/thiet_ke_web_chuan_demo/bootstrap_user_profile/images/profile_user.jpg"
+                                src="${requestScope.nguoiDung.avatar}"
                                 class="img-responsive"
                                 alt="Thông tin cá nhân"
                         />
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <form action="/sua-thong-tin-ca-nhan" method="post">
+                <form action="/sua-thong-tin-ca-nhan" method="post" enctype="multipart/form-data">
                     <div class="profile-content">
                         <h2>Sửa thông tin cá nhân</h2>
                         <div class="row">
@@ -155,7 +155,12 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div>
+                            <label>Ảnh đại diện</label>
+                            <br>
+                            <input type="file" name="filecover">
+                        </div>
+                        <br>
                         <button class="btn btn-success">Sửa thông tin</button>
                     </div>
                 </form>

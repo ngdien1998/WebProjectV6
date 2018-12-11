@@ -142,7 +142,7 @@
     <div class="menu-foods container">
         <div class="row mb-4">
             <c:forEach var="monAn" items="${requestScope.monAns}">
-                <div class="food-item col-md-3 col-sm-6 col-12">
+                <div class="food-item col-md-3 col-sm-6 col-12 mb-5">
                     <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
                         <div class="food-img">
                             <img src="${monAn.hinhMonAn}" height="170px"/>
@@ -157,29 +157,6 @@
                     </a>
                 </div>
             </c:forEach>
-        </div>
-        <div class="row">
-            <div class="food-ads food-ads-left col-3">
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-            </div>
-            <div class="food-ads food-ads-center col-6">
-                <div class="food-ads-main-item">
-                    <img src="assests/images/bun-mam.jpg"/>
-                </div>
-            </div>
-            <div class="food-ads food-ads-right col-3">
-                <div class="food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-                <div class="food-ads food-ads-sub-item">
-                    <img src="assests/images/banh-xeo.jpg" alt="food">
-                </div>
-            </div>
         </div>
     </div>
 </div>
