@@ -109,7 +109,7 @@
                     <c:forEach var="binhLuan" items="${requestScope.binhLuans}">
                         <div class="comment">
                             <div class="user-avatar">
-                                <img src="./assests/images/people.jpg" alt="user-avatar" width="50" height="50"
+                                <img src="${requestScope.nguoiDung.avatar}" alt="user-avatar" width="50" height="50"
                                      style="border-radius:50%" style="border-radius:50%">
                             </div>
 
@@ -137,29 +137,29 @@
             </div>
 
         </div>
-    </div>
-    <h3 class="title-san-pham-khac" style="color: red">Sản phẩm khác</h3>
-    <hr>
-    <div class="other-product">
-        <div class="row">
-            <c:forEach var="monAn" items="${requestScope.listMonAn}">
-                <div class="food-item col-md-3 col-sm-6 col-12">
-                    <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
-                        <div class="food-img">
-                            <img src="${monAn.hinhMonAn}" width="175px"/>
-                        </div>
-                        <div class="row">
-                            <p class="col-6 food-name">${monAn.tenMonAn}</p>
-                            <p class="col-6 price">${monAn.gia}đ</p>
-                        </div>
-                        <p class="price old-price">${monAn.khuyenMai == 0 ? '' : monAn.gia+(monAn.gia * monAn.khuyenMai)}</p>
-                    </a>
-                </div>
-            </c:forEach>
+        <h3 class="title-san-pham-khac" style="color: red">Sản phẩm khác</h3>
+        <hr>
+        <div class="other-product">
+            <div class="row">
+                <c:forEach var="monAn" items="${requestScope.listMonAn}">
+                    <div class="food-item col-md-3 col-sm-6 col-12">
+                        <a href="/chi-tiet-mon-an?idMonAn=${monAn.idMonAn}">
+                            <div class="food-img">
+                                <img src="${monAn.hinhMonAn}" width="175px" height="175px"/>
+                            </div>
+                            <div class="row">
+                                <p class="col-6 food-name">${monAn.tenMonAn}</p>
+                                <p class="col-6 price">${monAn.gia}đ</p>
+                            </div>
+                            <p class="price old-price" style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '' : monAn.gia+(monAn.gia * monAn.khuyenMai)}</p>
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
     </div>
 </div>
-</div>
+
 
 <footer>
     <div class="footer parallax-window" data-parallax="scroll"

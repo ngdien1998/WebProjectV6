@@ -174,23 +174,23 @@
         <div class="emp-list">
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12 emp">
-                    <img src="assests/images/people.jpg"/>
-                    <p>Nguyễn Lê Điền
+                    <img src="../assests/images/nguoidung/dien.jpg"/>
+                    <p style="font-size: 30px;">Nguyễn Lê Điền
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
-                    <img src="assests/images/people.jpg"/>
-                    <p>Nguyễn Trường Tráng
+                    <img src="../assests/images/nguoidung/trang.jpg"/>
+                    <p style="font-size: 30px;">Nguyễn Trường Tráng
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
-                    <img src="assests/images/people.jpg"/>
-                    <p>Nguyễn Thanh Tân
+                    <img src="../assests/images/nguoidung/thinh.jpg"/>
+                    <p style="font-size: 30px;">Phạm Gia Thịnh
                     </p>
                 </div>
                 <div class="col-md-3 col-sm-6 col-12 emp">
-                    <img src="assests/images/people.jpg"/>
-                    <p>Phạm Ngọc Diêu
+                    <img src="../assests/images/nguoidung/dieu.jpg"/>
+                    <p style="font-size: 30px;">Phạm Ngọc Diêu
                     </p>
                 </div>
             </div>
@@ -230,7 +230,7 @@
     <div class="container">
         <div class="comment-title">
             <h1 class="font-blonde-script">Nhận Xét Nhà Hàng</h1>
-            <img src="assests/images/logo.png" alt="logo" width="100" height="100">
+            <img src="../assests/images/2Restoran.png" alt="logo" width="100" height="100">
             <p>
                 <i>Những nhận xét của khách hàng đóng góp có vai trò rất quan trọng trong việc phát triển nhà hàng
                 </i>
@@ -245,7 +245,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
+                        <img class="avatar-people-cmt" src="../assests/images/nguoidung/khach-duyen.jpg"/>
                         <p class="cmt-text">
                             <i>
                                 Nhà hàng có thức ăn khá ngon, nội thất cũng như view rất đẹp. Tuyệt
@@ -253,7 +253,7 @@
                         </p>
                     </div>
                     <div class="carousel-item">
-                        <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
+                        <img class="avatar-people-cmt" src="../assests/images/nguoidung/khach-duong.jpg"/>
                         <p class="cmt-text">
                             <i>Tôi rất hài lòng với sự phục vụ nhiệt tình của nhân viên nhà hàng này, rất chu đáo, nhiệt
                                 tình cũng như chất lượng thức ăn tốt. Tôi thích món Heo Massage tại đây. Cảm ơn Nhà
@@ -262,7 +262,7 @@
                         </p>
                     </div>
                     <div class="carousel-item">
-                        <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
+                        <img class="avatar-people-cmt" src="../assests/images/nguoidung/khach-xuan-nguyen.jpg"/>
                         <p class="cmt-text">
                             <i>
                                 Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng rất ngon và rẻ, vừa túi
@@ -271,7 +271,7 @@
                         </p>
                     </div>
                     <div class="carousel-item">
-                        <img class="avatar-people-cmt" src="assests/images/people.jpg"/>
+                        <img class="avatar-people-cmt" src="../assests/images/nguoidung/tan.jpg"/>
                         <p class="cmt-text">
                             <i>
                                 Những món ăn đặc sản miền Tây sông nước của quê tôi tại Nhà hàng Năm Nhỏ, rất ngon và

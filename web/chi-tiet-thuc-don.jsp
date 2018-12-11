@@ -22,16 +22,16 @@
     <%--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"--%>
     <%--integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"--%>
     <%--crossorigin="anonymous">--%>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <!-- JS tạo nút bấm di chuyển trang start -->
     <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
     <!-- JS tạo nút bấm di chuyển trang end -->
     <script type="text/javascript">
         $(function () {
             var pageSize = 12; // Hiển thị 6 sản phẩm trên 1 trang
-            showPage = function(page) {
+            showPage = function (page) {
                 $(".contentPage").hide();
-                $(".contentPage").each(function(n) {
+                $(".contentPage").each(function (n) {
                     if (n >= pageSize * (page - 1) && n < pageSize * page)
                         $(this).show();
                 });
@@ -85,13 +85,19 @@
 <div class="maincontent">
     <div class="container">
         <div class="row">
-            <div class="col-xs-5">
-                <img src="${requestScope.thucDon.hinhThucDon}" alt="" width="500px" height="250px">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <img src="${requestScope.thucDon.hinhThucDon}" alt="" width="400px" height="250px">
             </div>
-            <div class="col-xs-7">
-                <h1 class="title">${requestScope.thucDon.tenThucDon}</h1>
-                <p>${requestScope.thucDon.moTa}</p>
+            <div class="col-sm-4 ml-5">
+                <h2 class="title">Mô tả thực đơn</h2>
+                <hr>
+                <h1 class="title text-danger">${requestScope.thucDon.tenThucDon}</h1>
+                <h3 class="title">Mô tả : ${requestScope.thucDon.moTa}</h3>
+                <h3 class="title">Giá: ${requestScope.thucDon.gia}</h3>
+                <h3 class="title">Phần trăm khuyến mãi : ${requestScope.thucDon.phanTramKhuyenMai} %</h3>
             </div>
+            <div class="col-sm-2"></div>
         </div>
         <hr>
         <h1 class="text-center title">Các món ăn trong thực đơn</h1>
@@ -106,7 +112,8 @@
                             <p class="col-8 food-name" style="line-height: 30px">${monAn.tenMonAn}</p>
                             <p class="col-4 price">${monAn.gia} đ</p>
                         </div>
-                        <p class="price old-price" style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '' : monAn.gia + (monAn.gia * monAn.khuyenMai)/100}</p>
+                        <p class="price old-price"
+                           style="position: absolute; right: 17px;top: 208px;">${monAn.khuyenMai == 0 ? '' : monAn.gia + (monAn.gia * monAn.khuyenMai)/100}</p>
                     </a>
                 </div>
             </c:forEach>
