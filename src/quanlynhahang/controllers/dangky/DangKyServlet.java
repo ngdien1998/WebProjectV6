@@ -41,8 +41,8 @@ public class DangKyServlet extends HttpServlet {
                 String code = String.valueOf(rd.nextInt(9999 - 1000 + 1) + 1000);
                 session.setAttribute(Consts.SAVED_CODE, code);
                 String subject = "Mã xác nhận đăng ký tài khoản mới";
-                Mailer.sendEmail(email, subject, code);
-
+                Thread sendingEmail = new Thread(() -> Mailer.sendEmail(email, subject, code));
+                sendingEmail.start();
                 response.sendRedirect("/xac-nhan-dang-ky");
                 return;
             }

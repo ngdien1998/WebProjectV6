@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="_shared/admin/top-of-page.jsp" flush="true"/>
 <title>Quản lý món ăn</title>
-
 <style>
     thead tr th {
         font-weight: bold !important;

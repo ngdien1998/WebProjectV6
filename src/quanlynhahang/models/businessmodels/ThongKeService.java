@@ -1,12 +1,17 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.*;
+import quanlynhahang.models.viewmodels.HoaDonReport;
+import quanlynhahang.models.viewmodels.MonAnVM;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ThongKeService extends ConnectDatabase {
     public ThongKeService(UserDbConnect user) {
@@ -219,5 +224,46 @@ public class ThongKeService extends ConnectDatabase {
 
         closeConnection();
         return thongKeBinhLuanBieuDos;
+    }
+
+    public ArrayList<HoaDonReport> reportHoaDonExcel(int thang) throws SQLException, ClassNotFoundException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        ArrayList<HoaDonReport> hoaDons = new ArrayList<>();
+        openConnection();
+        String sql = "EXEC ThongKeChiTietTongThu ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            int idHoaDon = res.getInt(1);
+            String email = res.getString(2);
+            Date thoiGian = sdf.parse(res.getString(6));
+            MonAnVM monAn = new MonAnVM();
+            monAn.setTenMonAn(res.getString(3));
+            monAn.setSoLuong(res.getInt(4));
+            monAn.setGia(res.getInt(5));
+            add(hoaDons, idHoaDon, email, thoiGian, monAn);
+
+        }
+        closeConnection();
+        return hoaDons;
+    }
+
+    private void add(ArrayList<HoaDonReport> hoaDons, int idHoaDon, String email, Date thoiGian, MonAnVM monAn) {
+        boolean found = false;
+        for (HoaDonReport hoaDon : hoaDons) {
+            if (hoaDon.getMaHoaDon() == idHoaDon) {
+                hoaDon.add(monAn);
+                found = true;
+            }
+        }
+        if (!found) {
+            HoaDonReport hoaDon = new HoaDonReport();
+            hoaDon.setMaHoaDon(idHoaDon);
+            hoaDon.setEmail(email);
+            hoaDon.setThoiGian(thoiGian);
+            hoaDon.add(monAn);
+            hoaDons.add(hoaDon);
+        }
     }
 }

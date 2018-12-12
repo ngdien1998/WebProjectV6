@@ -225,4 +225,21 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         closeConnection();
         return res.next();
     }
+
+    public boolean doiMatKhau(String email, String oldPass, String newPass) throws SQLException, ClassNotFoundException {
+        openConnection();
+
+        String sql = "EXEC DoiMatKhau ?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, email);
+        statement.setString(2, oldPass);
+        statement.setString(3,newPass);
+
+        ResultSet res = statement.executeQuery();
+        if (res.next()) {
+            return res.getBoolean(1);
+        }
+        closeConnection();
+        return false;
+    }
 }

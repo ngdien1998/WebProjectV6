@@ -22,7 +22,7 @@ public class DatBanService extends ConnectDatabase implements Businesses<DatBan>
         ArrayList<DatBan> datBans = new ArrayList<>();
         openConnection();
 
-        String sql = "exec  LayDatBan";
+        String sql = "select * from dbo.LayDatBan";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
