@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.common.ExcelExport;
 import quanlynhahang.models.businessmodels.ThongKeService;
-import quanlynhahang.models.viewmodels.HoaDonReport;
+import quanlynhahang.models.datamodels.DatBan;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "ExcelReportTongThuTheoThangServlet", urlPatterns = { "/admin/excel-report/doanh-thu-theo-thang" })
-public class ExcelReportTongThuTheoThangServlet extends HttpServlet {
+@WebServlet(name = "ExcelReportDatbanServlet", urlPatterns = {"/admin/excel-report/dat-ban"})
+public class ExcelReportDatbanServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             response.setContentType("application/json");
@@ -26,21 +26,21 @@ public class ExcelReportTongThuTheoThangServlet extends HttpServlet {
                 response.sendError(400);
                 return;
             }
-
             ThongKeService service = new ThongKeService(DbAccess.getValue(request));
-            ArrayList<HoaDonReport> hoaDonReports = service.reportHoaDonToExcel(Integer.parseInt(thang));
+            ArrayList<DatBan> datBans = service.reportDatBanToExcel(Integer.parseInt(thang));
             JsonObject result = new JsonObject();
-            if (hoaDonReports.size() <= 0) {
+            if (datBans.size() <= 0) {
                 result.addProperty("res", "null");
             } else {
+                String fileName = "thong-ke-dat-ban-thang-" + thang;
                 ExcelExport report = new ExcelExport();
-                String fileName = report.thongKeDoanhThuThang(hoaDonReports, "hoa-don-thang-" + thang, "Hóa đơn tháng " + thang);
+                fileName = report.thongKeDatBanTheoThang(datBans, fileName, "Thống kê đặt bàn tháng " + thang);
                 result.addProperty("res", fileName);
             }
             response.getWriter().print(result);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(500, e.toString());
+            response.sendError(500);
         }
     }
 }
