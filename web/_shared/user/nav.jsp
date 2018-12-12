@@ -50,7 +50,7 @@
                 <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tat-ca-mon-an">Đặt món nhóm</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc-blog">Bài viết</a>
+                <a class="nav-link font-blonde-script text-dark font-size-h5" href="./tin-tuc">Bài viết</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font-blonde-script text-dark font-size-h5" href="./gioi-thieu">Nhà hàng</a>

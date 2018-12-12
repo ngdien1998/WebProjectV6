@@ -23,6 +23,84 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Giới thiệu</title>
+    <style>
+        .footer {
+            padding: 64px 0;
+            color: #fff;
+        }
+
+        .footer .row {
+            margin-top: 32px;
+        }
+
+        .footer-title {
+            text-align: center;
+        }
+
+        .send-contact form .form-row {
+            padding-bottom: 10px;
+        }
+
+        .content-header {
+            margin-bottom: 32px;
+        }
+
+        .send-contact input[type = submit], .send-contact input[type = button] {
+            margin-top: 10px;
+        }
+
+        .table, tr {
+            border-top: none;
+            border-bottom: 1px solid;
+        }
+
+        .email-input input[type = text] {
+            border-top-left-radius: 24px;
+            border-bottom-left-radius: 24px;
+        }
+
+        .email-input input[type = submit] {
+            border-top-right-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .footer-content *:not(h1) {
+            font-size: 14px;
+        }
+
+        .footer-content table td {
+            padding-left: 0;
+            padding-right: 0;
+            border: unset;
+        }
+
+        #doi-ngu-nhan-vien {
+            background-image: url("/assests/images/pabecue.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 96px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        #nhan-xet-khach-hang {
+            background-image: url("/assests/images/paralax2.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 96px 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        #footer {
+            background-image: url("/assests/images/footer-img.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 64px 0;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,20 +120,16 @@
     <div class="container">
         <div class="row">
             <div class="col-7">
-                <h2 class="font-blonde-script">FOUNDER</h2>
+                <h2 class="font-blonde-script">NHÀ SÁNG LẬP</h2>
                 <blockquote class="text-center">
                     <p>
-                        Pellentesque mi purus, eleifend sedt commodo vel, sagittis elts
-                        vesti ulum dui sagittis mlste sagittis elts. Exercitation photo
-                        booth that is end stumptown tote bag Banksy, elit small batch
-                        freegan sed craft a beer elit seitan exercitation, photo booth
-                        et kale chips hillwave deep laborum mlste sagittis sunt culpa
-                        only oficia Excepteur sit occaecat cupidatan is proident, one
-                        sunt in culpa qui officia deserunt mollit anim Ut Excepteur sit
-                        occaecat cupidatan is proident end stumptown tote bag Banksy.
+                        Nhà hàng TTD với diện tích hơn 2 nghìn hecta được thành lập bởi Nguyễn Lê Điền.
+                        Nguyễn Lê Điền là một sinh viên khoa Công nghệ thông tin của trường Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh.
+                        Vào một ngày đẹp trời, khi được hỏi tên nhà hàng là gì, Điền đã trả lời rằng : "Ai biết, muốn đặt gì đặt đi, gì cũng được hết á".
+                        Và thế là cái tên nhà hàng TTD đã ra đời.
                     </p>
                     <footer class="blockquote-footer">
-                        Someone famous in <cite title="Source Title">Source Title</cite>
+                        Sinh viên <cite title="Source Title">Phạm Gia Thịnh</cite> cho biết.
                     </footer>
                 </blockquote>
             </div>
@@ -83,30 +157,28 @@
                 </picture>
             </div>
             <div class="col-6">
-                <h2 class="font-blonde-script">OUR HISTORY</h2>
+                <h2 class="font-blonde-script">LỊCH SỬ NHÀ HÀNG</h2>
                 <i
-                >Excepteur sit occaecat cupidatan is proident, one sunt in culpa
-                    qui officia deserunt mollit anim Ut minim veniam laboreua dolore
-                    magna aliqua. Consequuntur magni dolores eos ratione voluptatem
-                    nesciunt natus error voluptatem accusantium tempo doloremque
-                    Excepteur sit occaecat cupidatan is proident, one sunt in
-                    culpa.</i
+                >Theo Kỷ lục Thế giới Guinness, nhà hàng Botín do đầu bếp Jean Botín và vợ khai trương vào năm 1725, nổi tiếng là nhà hàng lâu đời nhất thế giới. Bên trong vẫn còn giữ lại nội thất của thế kỷ 18, ngay cả bếp để nấu cũng vẫn sử dụng chiếc bếp từ khi khai trương.
+
+                    Sau khi vợ chồng Botín qua đời, do họ không có con nên nhà hàng này được Nguyễn Trường Tráng kế thừa và cùng 2 người bạn đổi tên thành TTD. </i
                 >
 
-                <i
-                >Excepteur sit occaecat cupidatan is proident, one sunt in culpa
-                    qui officia deserunt mollit anim Ut Excepteur sit occaecat
-                    cupidatan is proident, one sunt in culpa qui minim veniam
-                    laboreua.</i
-                >
-                <i
-                >Consequuntur magni dolores eos ratione voluptatem nesciunt natus
-                    error voluptatem accusantium tempo doloremque. Excepteur sit
-                    occaecat cupidatan is proident.</i
-                >
+                <%--<i--%>
+                <%-->Excepteur sit occaecat cupidatan is proident, one sunt in culpa--%>
+                    <%--qui officia deserunt mollit anim Ut Excepteur sit occaecat--%>
+                    <%--cupidatan is proident, one sunt in culpa qui minim veniam--%>
+                    <%--laboreua.</i--%>
+                <%-->--%>
+                <%--<i--%>
+                <%-->Consequuntur magni dolores eos ratione voluptatem nesciunt natus--%>
+                    <%--error voluptatem accusantium tempo doloremque. Excepteur sit--%>
+                    <%--occaecat cupidatan is proident.</i--%>
+                <%-->--%>
             </div>
         </div>
     </div>
 </div>
+<br>
 
 <jsp:include page="_shared/user/footer.jsp" flush="true"/>
