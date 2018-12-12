@@ -1,6 +1,6 @@
 package quanlynhahang.controllers.trangnguoidung;
 
-import javafx.util.converter.DateTimeStringConverter;
+
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.DatBanService;
 import quanlynhahang.models.datamodels.DatBan;
@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @WebServlet(name = "UserDatBanServlet", urlPatterns = {"/dat-ban"})
