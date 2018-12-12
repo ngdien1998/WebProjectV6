@@ -163,7 +163,7 @@ public class BaiVietService extends ConnectDatabase implements Businesses<BaiVie
             baiViet.setNguoiViet(res.getString(4));
             baiViet.setMoTa(res.getString(5));
             baiViet.setNoiDung(res.getString(6));
-            baiViet.setIdBaiViet(res.getInt(7));
+            baiViet.setIdLoaiBaiViet(res.getInt(7));
             baiViet.setLoaiBaiViet(res.getString(8));
         }
         closeConnection();

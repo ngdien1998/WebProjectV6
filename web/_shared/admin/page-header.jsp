@@ -253,6 +253,8 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/admin/thong-ke-tong-thu">Tổng thu</a>
                             </li>
+                            <li class="nav-item"><a class="nav-link" href="/admin/xuat-pdf">Xuất báo cáo</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

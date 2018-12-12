@@ -63,9 +63,6 @@ public class FilterMonAnAjax extends HttpServlet {
                 sb.append("</div>");
             }
             sb.append("</div>\n");
-//            sb.append("<div>\n");
-//            sb.append(" <ul id=\"pagination\"></ul>\n");
-//            sb.append("</div>\n");
 
             response.getWriter().print(sb.toString());
         } catch (Exception e) {

@@ -116,13 +116,13 @@
                             <!-- Values -->
                             <div class="row">
                                 <div class="range-value col-sm-6">
-                                    <span id="value-min">đ</span>
+                                    <span id="value-min"></span> đ
                                 </div>
                                 <div class="range-value col-sm-6 text-right">
-                                    <span id="value-max">đ</span>
+                                    <span id="value-max"></span> đ
                                 </div>
                             </div>
-                            <a class="btn btn-primary mb-4" id="btn-loc-gia" style="margin-left:100px;" onclick="location.href='/loc-mon-an-theo-gia?gia-min='+document.getElementById('value-min').innerHTML+'&gia-max='+document.getElementById('value-max').innerHTML">Lọc</a>
+                            <a class="btn btn-primary mb-4 text-white" id="btn-loc-gia" style="margin-left:100px;" onclick="location.href='/loc-mon-an-theo-gia?gia-min='+document.getElementById('value-min').innerHTML+'&gia-max='+document.getElementById('value-max').innerHTML">Lọc</a>
                         </li>
                         <li>
                             <span class="font-weight-bold">Loại món</span>
@@ -267,7 +267,7 @@
     var pmdSliderValueRange = document.getElementById('pmd-slider-value-range');
 
     noUiSlider.create(pmdSliderValueRange, {
-        start: [ 120000, 800000 ], // Handle start position
+        start: [ 70000, 800000 ], // Handle start position
         connect: true, // Display a colored bar between the handles
         tooltips: [ wNumb({ decimals: 0 }), wNumb({ decimals: 0 }) ],
         format: wNumb({
@@ -277,7 +277,7 @@
         }),
         range: { // Slider can select '0' to '100'
             'min': 25000,
-            'max': 1500000
+            'max': 1000000
         }
     });
 

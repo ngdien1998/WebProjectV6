@@ -124,6 +124,50 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="danhgia">
+                <form action="/binh-luan-bai-viet" method="post">
+                    <input type="hidden" name="txtIdBaiViet" value="${requestScope.baiViet.idBaiViet}">
+                    <textarea class="form-control" rows="3" id="comment"
+                              placeholder="Nhập góp ý của quý khách" name="comment"></textarea>
+                    <br>
+                    <button class="btn btn-success margin-top-8px" style="float:right" id="binh-luan-mon-an">
+                        Góp ý
+                    </button>
+                    <script>
+
+                    </script>
+                </form>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div id="user-comments">
+                <c:forEach var="binhLuan" items="${requestScope.binhLuans}">
+                    <div class="comment" style="margin-top: 16px">
+                        <div class="user-avatar" style="float: left; width: 64px">
+                            <img src="${binhLuan.avatar}" alt="user-avatar" width="50" height="50"
+                                 style="border-radius:50%" style="border-radius:50%">
+                        </div>
+
+                        <div class="user-comment" style="float: right; width: calc(100% - 64px); border-bottom: 1px dashed #DDD;">
+                            <div class="user-name" >
+                                <p class="no-margin">
+                                    <b>${binhLuan.email}</b>
+                                </p>
+                                <p class="date-comment" class="small-text" style="color: #858585;margin-top: 2px;font-size: 12px">${binhLuan.thoiGian}</p>
+                            </div>
+                            <p class="comment-text" class="lighten-text">
+                                    ${binhLuan.noiDung}
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </div>
 </div>
 
 <jsp:include page="/_shared/user/footer.jsp" flush="true" />

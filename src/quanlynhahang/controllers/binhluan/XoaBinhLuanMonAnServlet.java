@@ -33,9 +33,15 @@ public class XoaBinhLuanMonAnServlet extends HttpServlet implements ActionPermis
                 return;
             }
 
+            String idBinhLuan = request.getParameter("idBinhLuan");
+            if (idBinhLuan == null || idBinhLuan.trim().isEmpty()) {
+                response.setStatus(400);
+                return;
+            }
+
             BinhLuanService binhLuanService = new BinhLuanService(DbAccess.getValue(request));
 
-            binhLuanService.deleteBinhLuanMonAn(Integer.parseInt(idMonAn));
+            binhLuanService.deleteBinhLuanMonAn(Integer.parseInt(idMonAn), Integer.parseInt(idBinhLuan));
 
             response.sendRedirect("/admin/mon-an");
         } catch (SQLException | ClassNotFoundException e) {

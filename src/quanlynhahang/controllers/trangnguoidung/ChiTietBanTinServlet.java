@@ -2,7 +2,9 @@ package quanlynhahang.controllers.trangnguoidung;
 
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BaiVietService;
+import quanlynhahang.models.businessmodels.BinhLuanService;
 import quanlynhahang.models.datamodels.BaiViet;
+import quanlynhahang.models.datamodels.BinhLuan;
 import quanlynhahang.models.viewmodels.ChiTietBaiViet;
 
 import javax.servlet.RequestDispatcher;
@@ -33,6 +35,11 @@ public class ChiTietBanTinServlet extends HttpServlet {
 
             request.setAttribute("baiViets", baiViets);
             request.setAttribute("baiViet", baiViet);
+
+            BinhLuanService binhLuanService = new BinhLuanService(DbAccess.getValue(request));
+            ArrayList<BinhLuan> binhLuans = binhLuanService.getBinhLuanBaiViet(Integer.parseInt(idBaiViet));
+            request.setAttribute("binhLuans", binhLuans);
+
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/chi-tiet-bai-viet.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
