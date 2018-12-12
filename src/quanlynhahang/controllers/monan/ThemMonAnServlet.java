@@ -69,13 +69,13 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
             monAn.setNgayThem(ngayThem);
             monAn.setIdLoaiMon(Integer.parseInt(request.getParameter("cmbLoaiMon")));
 
-            //            // Hình
+            // Hình
 
             Part filePart = request.getPart("filecover");
 
             String photo = "";
-            String path = "F:\\WebProjectV6\\web\\assests\\images\\monan";
-            String path1 = "F:\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\monan";
+            String path = "C:\\Users\\Windows 10\\Desktop\\WebProjectV6\\web\\assests\\images\\monan";
+            String path1 = "C:\\Users\\Windows 10\\Desktop\\WebProjectV6\\out\\artifacts\\WebProjectV6_war_exploded\\assests\\images\\monan";
             File file = new File(path);
             File file1 = new File(path1);
             file.mkdir();
@@ -106,8 +106,8 @@ public class ThemMonAnServlet extends HttpServlet implements ActionPermissionID 
                 photo = "../assests/images/monan/" + fileName;
             }
 
-//            // =========================================================
 
+            // =========================================================
             monAn.setHinhMonAn(photo);
 
 

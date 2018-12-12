@@ -181,7 +181,7 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         }
         openConnection();
 
-        String sql = "EXEC SuaThongTinCaNhan ?,?,?,?,?,?,?";
+        String sql = "EXEC SuaThongTinCaNhan ?,?,?,?,?,?,?,?";
         PreparedStatement  statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -192,6 +192,7 @@ public class NguoiDungService extends ConnectDatabase implements Businesses<Nguo
         statement.setBoolean(5, model.isNu());
         statement.setString(6, model.getDiaChi());
         statement.setString(7, model.getDienThoai());
+        statement.setString(8, model.getAvatar());
 
         int rowAffected = statement.executeUpdate();
         closeConnection();

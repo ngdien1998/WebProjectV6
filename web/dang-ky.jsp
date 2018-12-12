@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="assests/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="assests/images/favicon.png" />
+    <link rel="shortcut icon" href="assests/images/favicon.png"/>
 </head>
 
 <body>
@@ -31,40 +31,44 @@
                     <div class="row">
                         <div class="col-lg-6 bg-white">
                             <div class="auth-form-light text-left p-5">
+                                <p class="text-danger">${requestScope.message}</p>
                                 <h2>Đăng ký tài khoản</h2>
                                 <h4 class="font-weight-light">Chào mừng bạn đến với website nhà hàng</h4>
                                 <form class="pt-4" action="/dang-ky" method="post">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="txt-email">Email</label>
-                                            <input type="email" name="txtEmail" class="form-control" id="txt-email" aria-describedby="emailHelp" placeholder="Nhập email">
-                                            <i class="mdi mdi-account"></i>
+                                    <div class="form-group">
+                                        <label for="txt-email">Email</label>
+                                        <input type="email" name="txtEmail" class="form-control" id="txt-email"
+                                                aria-describedby="emailHelp" placeholder="Nhập email">
+                                        <i class="mdi mdi-account"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txt-mat-khau">Mật khẩu</label>
+                                        <input type="password" name="txtMatKhau" class="form-control" id="txt-mat-khau"
+                                                placeholder="Nhập mật khẩu">
+                                        <i class="mdi mdi-eye"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="txt-re-pass">Password</label>
+                                        <input type="password" name="txtReMatKhau" class="form-control" id="txt-re-pass"
+                                                placeholder="Xác nhận mật khẩu">
+                                        <i class="mdi mdi-eye"></i>
+                                    </div>
+                                    <div class="mt-5">
+                                        <input type="submit" class="btn btn-block btn-primary btn-rounded"
+                                                value="Đăng ký"/>
+                                    </div>
+                                    <div class="mt-2 w-75 mx-auto">
+                                        <div class="form-check form-check-flat">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" checked>
+                                                Đồng ý điều khoản của website
+                                            </label>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="txt-mat-khau">Mật khẩu</label>
-                                            <input type="password" name="txtMatKhau" class="form-control" id="txt-mat-khau" placeholder="Nhập mật khẩu">
-                                            <i class="mdi mdi-eye"></i>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="txt-re-pass">Password</label>
-                                            <input type="password" name="txtReMatKhau" class="form-control" id="txt-re-pass" placeholder="Xác nhận mật khẩu">
-                                            <i class="mdi mdi-eye"></i>
-                                        </div>
-                                        <div class="mt-5">
-                                            <input type="submit" class="btn btn-block btn-primary btn-rounded" value="Đăng ký" />
-                                        </div>
-                                        <div class="mt-2 w-75 mx-auto">
-                                            <div class="form-check form-check-flat">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" checked>
-                                                    Đồng ý điều khoản của website
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="mt-2 text-center">
-                                            <a href="dang-nhap.html" class="auth-link text-black">Đã có tài khoản? <span class="font-weight-medium">Đăng nhập</span></a>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div class="mt-2 text-center">
+                                        <a href="dang-nhap.html" class="auth-link text-black">Đã có tài khoản? <span
+                                                class="font-weight-medium">Đăng nhập</span></a>
+                                    </div>
                                 </form>
                             </div>
                         </div>

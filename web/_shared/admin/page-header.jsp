@@ -249,7 +249,7 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item d-none d-lg-block"><a class="nav-link"
                                                                       href="/admin/mon-an-thuc-don">Món ăn - Thực đơn</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/admin/dich-vu">Dịch vụ</a>
+                            <li class="nav-item"><a class="nav-link" href="/admin/thong-ke-dich-vu">Dịch vụ</a>
                             </li>
                             <li class="nav-item"><a class="nav-link" href="/admin/thong-ke-tong-thu">Tổng thu</a>
                             </li>

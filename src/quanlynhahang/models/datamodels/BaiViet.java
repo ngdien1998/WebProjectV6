@@ -6,7 +6,7 @@ public class BaiViet  {
     private int idBaiViet;
     private String tenBaiViet;
     private String moTa;
-    private String NoiDung;
+    private String noiDung;
     private Date ngayViet;
     private String hinh;
     private String email;
@@ -15,19 +15,11 @@ public class BaiViet  {
     public BaiViet() {
     }
 
-    public String getHinh() {
-        return hinh;
-    }
-
-    public void setHinh(String hinh) {
-        this.hinh = hinh;
-    }
-
     public BaiViet(int idBaiViet, String tenBaiViet, String moTa, String noiDung, Date ngayViet, String email, int idLoaiBaiViet) {
         this.idBaiViet = idBaiViet;
         this.tenBaiViet = tenBaiViet;
         this.moTa = moTa;
-        NoiDung = noiDung;
+        this.noiDung = noiDung;
         this.ngayViet = ngayViet;
         this.email = email;
         this.idLoaiBaiViet = idLoaiBaiViet;
@@ -58,11 +50,11 @@ public class BaiViet  {
     }
 
     public String getNoiDung() {
-        return NoiDung;
+        return noiDung;
     }
 
     public void setNoiDung(String noiDung) {
-        NoiDung = noiDung;
+        this.noiDung = noiDung;
     }
 
     public Date getNgayViet() {
@@ -87,5 +79,13 @@ public class BaiViet  {
 
     public void setIdLoaiBaiViet(int idLoaiBaiViet) {
         this.idLoaiBaiViet = idLoaiBaiViet;
+    }
+
+    public String getHinh() {
+        return hinh;
+    }
+
+    public void setHinh(String hinh) {
+        this.hinh = hinh;
     }
 }

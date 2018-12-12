@@ -1,11 +1,14 @@
 package quanlynhahang.controllers.trangnguoidung;
 
+import quanlynhahang.common.Consts;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.BinhLuanService;
+import quanlynhahang.models.businessmodels.NguoiDungService;
 import quanlynhahang.models.businessmodels.UserChiTietMonAnService;
 import quanlynhahang.models.businessmodels.UserTrangChuService;
 import quanlynhahang.models.datamodels.BinhLuan;
 import quanlynhahang.models.datamodels.MonAn;
+import quanlynhahang.models.datamodels.NguoiDung;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,6 +37,10 @@ public class UserChiTietMonAnServlet extends HttpServlet {
 
             ArrayList<MonAn> listMonAn = userTrangChuService.getBonMonAnMoiNhat();
             request.setAttribute("listMonAn", listMonAn);
+
+            NguoiDungService nguoiDungService = new NguoiDungService(DbAccess.getValue(request));
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

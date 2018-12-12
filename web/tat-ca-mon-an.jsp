@@ -16,22 +16,34 @@
     <script type="text/javascript" src="assests/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assests/css/bootstrap.min.css"/>
 
+    <%----%>
+    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">--%>
+
+    <link rel="stylesheet" href="http://propeller.in/components/range-slider/css/nouislider.min.css">
+
+    <link rel="stylesheet" href="http://propeller.in/components/textfield/css/textfield.css">
+
+    <link rel="stylesheet" href="http://propeller.in/components/checkbox/css/checkbox.css">
+
+    <link rel="stylesheet" href="http://propeller.in/components/range-slider/css/range-slider.css">
+    <%----%>
+
     <link rel="stylesheet" href="./assests/css/style.tat-ca-mon-an.css">
     <link rel="stylesheet" href="./assests//css/global.css">
     <link rel="stylesheet" href="./assests/css/style.trang-chu.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <!-- JS tạo nút bấm di chuyển trang start -->
     <script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
     <!-- JS tạo nút bấm di chuyển trang end -->
     <script type="text/javascript">
         $(function () {
             var pageSize = 12; // Hiển thị 6 sản phẩm trên 1 trang
-            showPage = function(page) {
+            showPage = function (page) {
                 $(".contentPage").hide();
-                $(".contentPage").each(function(n) {
+                $(".contentPage").each(function (n) {
                     if (n >= pageSize * (page - 1) && n < pageSize * page)
                         $(this).show();
                 });
@@ -64,6 +76,7 @@
             -webkit-justify-content: center;
         }
     </style>
+
 </head>
 
 <body>
@@ -99,23 +112,33 @@
                     <ul class="left-margin">
                         <li>
                             <span class="font-weight-bold"> Giá</span>
-                            <div id="slider-range"></div>
-                            <span class="left-price ml-65">
-                                  <input type="text" id="amount" readonly
-                                         style="border:0; color:#f6931f; font-weight:bold;">
-                            </span>
+                            <div id="pmd-slider-value-range" class="pmd-range-slider mt-4"></div>
+                            <!-- Values -->
+                            <div class="row">
+                                <div class="range-value col-sm-6">
+                                    <span id="value-min">đ</span>
+                                </div>
+                                <div class="range-value col-sm-6 text-right">
+                                    <span id="value-max">đ</span>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary mb-4" id="btn-loc-gia" style="margin-left:100px;" onclick="location.href='/loc-mon-an-theo-gia?gia-min='+document.getElementById('value-min').innerHTML+'&gia-max='+document.getElementById('value-max').innerHTML">Lọc</a>
                         </li>
                         <li>
-                            <span class="font-weight-bold">Màu sắc</span>
+                            <span class="font-weight-bold">Loại món</span>
                             <ul class="left-margin">
-                                <span class="badge badge-danger">Đỏ</span>
-                                <span class="badge badge-warning">Vàng</span>
-                                <span class="badge badge-primary">Xanh dương</span>
-                                <span class="badge badge-success">Xanh lá</span>
-                                <span class="badge badge-info">Xanh nhạt</span>
-                                <span class="badge badge-secondary">Xám</span>
-                                <span class="badge badge-light">Màu sáng</span>
-                                <span class="badge badge-dark">Màu tối</span>
+                                <a class="badge badge-danger" href="/lay-mon-an-theo-loai-mon?idLoaiMon=11">Món khai
+                                    vị</a>
+                                <a class="badge badge-warning" href="/lay-mon-an-theo-loai-mon?idLoaiMon=12">Món
+                                    chính</a>
+                                <a class="badge badge-primary" href="/lay-mon-an-theo-loai-mon?idLoaiMon=13">Món tráng
+                                    miệng</a>
+                                <a class="badge badge-success" href="/lay-mon-an-theo-loai-mon?idLoaiMon=1">Món
+                                    nướng</a>
+                                <a class="badge badge-info" href="/lay-mon-an-theo-loai-mon?idLoaiMon=2">Món lẩu</a>
+                                <a class="badge badge-secondary" href="/lay-mon-an-theo-loai-mon?idLoaiMon=7">Món
+                                    hấp</a>
+                                <a class="badge badge-light" href="/lay-mon-an-theo-loai-mon?idLoaiMon=10">Món xào</a>
                             </ul>
                         </li>
                     </ul>
@@ -140,15 +163,6 @@
 
                         <h3 class="right-title">Tất cả món ăn</h3>
                         <div class="option  alert alert-secondary">
-                            <%--<a href="#">--%>
-                            <%--<button class="btn btn-success"><i class="fas fa-th-large"></i></button>--%>
-                            <%--</a>--%>
-                            <%--&nbsp;--%>
-
-                            <%--<a href="#">--%>
-                            <%--<button class="btn btn-success"><i class="fas fa-list-ul"></i></button>--%>
-                            <%--</a>--%>
-                            <%--&nbsp; &nbsp;--%>
                             <label style="margin-top:10px">Sắp xếp theo : &nbsp;</label>
                             <div class="form-group tabfilter">
                                 <select class="form-control" id="filter-mon-an">
@@ -190,6 +204,44 @@
     </div>
 </div>
 
+
+<!-- Jquery js -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- JS tạo nút bấm di chuyển trang start -->
+<script src="http://1892.yn.lt/blogger/JQuery/Pagging/js/jquery.twbsPagination.js" type="text/javascript"></script>
+<!-- JS tạo nút bấm di chuyển trang end -->
+<script type="text/javascript">
+    $(function () {
+        var pageSize = 12; // Hiển thị 6 sản phẩm trên 1 trang
+        showPage = function (page) {
+            $(".contentPage").hide();
+            $(".contentPage").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        }
+        showPage(1);
+        ///** Cần truyền giá trị vào đây **///
+        var totalRows = ${requestScope.soLuong}; // Tổng số sản phẩm hiển thị
+        var btnPage = 3; // Số nút bấm hiển thị di chuyển trang
+        var iTotalPages = Math.ceil(totalRows / pageSize);
+
+        var obj = $('#pagination').twbsPagination({
+            totalPages: iTotalPages,
+            visiblePages: btnPage,
+            onPageClick: function (event, page) {
+                /* console.info(page); */
+                showPage(page);
+            }
+        });
+        /*console.info(obj.data());*/
+    });
+</script>
+<!-- Slider js -->
+<script src="http://propeller.in/components/range-slider/js/wNumb.js"></script>
+<script src="http://propeller.in/components/range-slider/js/nouislider.js"></script>
+
 <script type="text/javascript">
     $("#filter-mon-an").change(() => {
         let selectedVal = $("#filter-mon-an").val();
@@ -209,5 +261,37 @@
         $("#amount").val("$" + $("#slider-range").slider("values", 0) +
             " - $" + $("#slider-range").slider("values", 1));
     });
+</script>
+<script>
+    // multiple handled with value
+    var pmdSliderValueRange = document.getElementById('pmd-slider-value-range');
+
+    noUiSlider.create(pmdSliderValueRange, {
+        start: [ 120000, 800000 ], // Handle start position
+        connect: true, // Display a colored bar between the handles
+        tooltips: [ wNumb({ decimals: 0 }), wNumb({ decimals: 0 }) ],
+        format: wNumb({
+            decimals: 0,
+            thousand: '',
+            postfix: '',
+        }),
+        range: { // Slider can select '0' to '100'
+            'min': 25000,
+            'max': 1500000
+        }
+    });
+
+    var valueMax = document.getElementById('value-max'),
+        valueMin = document.getElementById('value-min');
+
+    // When the slider value changes, update the input and span
+    pmdSliderValueRange.noUiSlider.on('update', function( values, handle ) {
+        if ( handle ) {
+            valueMax.innerHTML = values[handle];
+        } else {
+            valueMin.innerHTML = values[handle];
+        }
+    });
+
 </script>
 <jsp:include page="_shared/user/footer.jsp" flush="true"/>

@@ -1,6 +1,5 @@
 package quanlynhahang.models.businessmodels;
 
-import com.google.gson.JsonObject;
 import quanlynhahang.models.viewmodels.HoaDonNhom;
 import quanlynhahang.models.viewmodels.MonAnNhom;
 import quanlynhahang.models.viewmodels.UserDbConnect;
@@ -131,7 +130,7 @@ public class MonAnNhomService extends ConnectDatabase {
         }
         int gia = set.getInt(1);
         Date now = Calendar.getInstance().getTime();
-
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         sql = "EXEC ThemMonAnNhom ?,?,?,?,?,?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, idGioHang);
@@ -139,7 +138,7 @@ public class MonAnNhomService extends ConnectDatabase {
         statement.setString(3, email);
         statement.setInt(4, gia);
         statement.setInt(5, 1);
-        statement.setDate(6, new java.sql.Date(now.getTime()));
+        statement.setString(6, sdf.format(now));
 
         int rowsAffected = statement.executeUpdate();
         closeConnection();

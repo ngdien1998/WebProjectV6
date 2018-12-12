@@ -59,8 +59,10 @@
                 <a class="nav-link font-blonde-script text-white font-size-h5" href="/thuc-don">Thực đơn</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Tất cả
-                    món ăn</a>
+                <a class="nav-link font-blonde-script text-white font-size-h5" href="/tat-ca-mon-an">Món ăn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-blonde-script text-white font-size-h5" href="/dat-mon-nhom">Đặt món nhóm</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài
@@ -89,7 +91,7 @@
     </div>
 </nav>
 <div class="main-content row">
-    <div class="col-sm-12 col-md-2">
+    <div class="col-sm-12 col-md-3">
         <div class="card" id="danh-muc">
             <div class="card-header">Danh mục bài viết</div>
             <ul class="list-group list-group-flush">
@@ -101,11 +103,11 @@
             </ul>
         </div>
     </div>
-    <div class="col-sm-12 col-md-10">
+    <div class="col-sm-12 col-md-9">
         <div class="card" id="tin-tuc">
             <div class="card-header row">
-                <div class="col-3"><h5 style="line-height: unset;">Danh sách bài viết</h5></div>
-                <div class="col-9">
+                <div class="col-md-3 col-sm-12"><h5 style="line-height: unset;">Danh sách bài viết</h5></div>
+                <div class="col-md-9 col-sm-12">
                     <form action="/tim-tin-tuc" method="post">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Nhập bài viết muốn tìm">
@@ -119,41 +121,64 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8 col-sm-12 newest-bai-viet-main">
-                        <a href="#">
-                            <img src="assests/images/ga-hap-la-chanh-3.jpg" alt=""/>
-                            <div class="new-title">
-                                <h4>Nhượng quyền và mở chuỗi - Ngã rẽ không dễ chọn khi kinh doanh thực phẩm sạch</h4>
-                                <small>2018-11-15</small>
-                            </div>
-                        </a>
+                        <c:if test="${requestScope.baiViet1 != null}">
+                            <a href="/chi-tiet-bai-viet?idBaiViet=${requestScope.baiViet1.idBaiViet}">
+                                <img src="${requestScope.baiViet1.hinh}" alt=""/>
+                                <div class="new-title">
+                                    <h4>${requestScope.baiViet1.tenBaiViet}</h4>
+                                    <small class="date">${requestScope.baiViet1.ngayViet}</small>
+                                </div>
+                            </a>
+                        </c:if>
                     </div>
                     <div class="col-md-4 col-sm-12" style="padding: 0;">
                         <div class="row">
                             <div class="col newest-bai-viet-sub">
-                                <a href="#">
-                                    <img src="assests/images/ga-hap-la-chanh-3.jpg" alt=""/>
-                                    <div class="new-title">
-                                        <h6>Nhượng quyền và mở chuỗi - Ngã rẽ không dễ chọn khi kinh doanh thực phẩm sạch</h6>
-                                        <small>2018-11-15</small>
-                                    </div>
-                                </a>
+                                <c:if test="${requestScope.baiViet2 != null}">
+                                    <a href="/chi-tiet-bai-viet?idBaiViet=${requestScope.baiViet2.idBaiViet}">
+                                        <img src="${requestScope.baiViet2.hinh}" alt=""/>
+                                        <div class="new-title">
+                                            <h5>${requestScope.baiViet2.tenBaiViet}</h5>
+                                            <small class="date">${requestScope.baiViet2.ngayViet}</small>
+                                        </div>
+                                    </a>
+                                </c:if>
                             </div>
                             <div class="w-100" style="padding-bottom: 16px;"></div>
                             <div class="col newest-bai-viet-sub">
-                                <a href="#">
-                                    <img src="assests/images/ga-hap-la-chanh-3.jpg" alt=""/>
-                                    <div class="new-title">
-                                        <h6>Nhượng quyền và mở chuỗi - Ngã rẽ không dễ chọn khi kinh doanh thực phẩm sạch</h6>
-                                        <small>2018-11-15</small>
-                                    </div>
-                                </a>
+                                <c:if test="${requestScope.baiViet3 != null}">
+                                    <a href="/chi-tiet-bai-viet?idBaiViet=${requestScope.baiViet3.idBaiViet}">
+                                        <img src="${requestScope.baiViet3.hinh}" alt=""/>
+                                        <div class="new-title">
+                                            <h5>${requestScope.baiViet3.tenBaiViet}</h5>
+                                            <small class="date">${requestScope.baiViet3.ngayViet}</small>
+                                        </div>
+                                    </a>
+                                </c:if>
                             </div>
                         </div>
-                    </div
+                    </div>
                 </div>
+
+                <c:forEach var="baiViet" items="${requestScope.baiViets}" varStatus="stt">
+                    <div class="other-news">
+                        <a href="/chi-tiet-bai-viet?idBaiViet=${baiViet.idBaiViet}">
+                            <div class="row">
+                                <div class="news-img col-md-4 col-12">
+                                    <img src="${baiViet.hinh}" alt="">
+                                </div>
+                                <div class="news-content col-md-8 col-12">
+                                    <h5>${baiViet.tenBaiViet}</h5>
+                                    <p>${baiViet.ngayViet}</p>
+                                    <p class="sumary">${baiViet.moTa}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>
 </div>
-</div>
-</body>
+
+<jsp:include page="_shared/user/footer.jsp" />

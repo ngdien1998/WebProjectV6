@@ -16,7 +16,7 @@ body {
   float: none;
   margin: 0 25%;
   width: 50%;
-  height: 50%;
+  height: 125px;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   border-radius: 50% !important;
