@@ -20,7 +20,7 @@ public class LienHeService extends ConnectDatabase implements Businesses<LienHe>
     public ArrayList<LienHe> getData() throws SQLException, ClassNotFoundException {
         ArrayList<LienHe> lienHes=new ArrayList<>();
         openConnection();
-        String sql="exec LayLienHe";
+        String sql="select *from LayLienHe";
         PreparedStatement statement=connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
