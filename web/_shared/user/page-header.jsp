@@ -89,7 +89,7 @@
                     món ăn</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-item-text" href="/bai-viet">Bài
+                <a class="nav-link nav-item-text" href="/tin-tuc">Bài
                     viết</a>
             </li>
             <li class="nav-item">

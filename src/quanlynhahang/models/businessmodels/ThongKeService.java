@@ -84,6 +84,28 @@ public class ThongKeService extends ConnectDatabase {
         return thongKeTongThus;
     }
 
+    public ArrayList<ThongKeTongThu> thongKeTongThuTungNgayTrongThangNay() throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
+        openConnection();
+
+        String sql = "SELECT * FROM ThongKeTongThuTungNgayTrongThangNay";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeTongThu thongKeTongThu = new ThongKeTongThu();
+            thongKeTongThu.setTongTien(res.getInt(1));
+            thongKeTongThu.setThoiGian(res.getInt(2));
+
+            thongKeTongThus.add(thongKeTongThu);
+        }
+
+        closeConnection();
+        return thongKeTongThus;
+    }
+
     public ArrayList<ThongKeTongThu> thongKeTongThuTungThang() throws SQLException, ClassNotFoundException {
         ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
         openConnection();
@@ -106,11 +128,38 @@ public class ThongKeService extends ConnectDatabase {
         return thongKeTongThus;
     }
 
+    public ArrayList<ThongKeTongThuChiTiet> thongKeTongThuChiTietTungThang(int thang) throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeTongThuChiTiet> thongKeTongThus = new ArrayList<>();
+        openConnection();
+
+        String sql = "EXEC [ThongKeChiTietTongThu] ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeTongThuChiTiet thongKeTongThuChiTiet = new ThongKeTongThuChiTiet();
+            thongKeTongThuChiTiet.setIdHoaDon(res.getInt(1));
+            thongKeTongThuChiTiet.setEmail(res.getString(2));
+            thongKeTongThuChiTiet.setTenMonAn(res.getString(3));
+            thongKeTongThuChiTiet.setSoLuong(res.getInt(4));
+            thongKeTongThuChiTiet.setDonGia(res.getInt(5));
+            thongKeTongThuChiTiet.setThoiGian(res.getDate(6));
+
+            thongKeTongThus.add(thongKeTongThuChiTiet);
+        }
+
+        closeConnection();
+        return thongKeTongThus;
+    }
+
     public ArrayList<ThongKeDatBanChiTiet> thongKeDatBanChiTiet() throws SQLException, ClassNotFoundException {
         ArrayList<ThongKeDatBanChiTiet> thongKeDatBans = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKeDatBanChiTiet";
+        String sql = "EXEC ThongKeDatBanChiTiet";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

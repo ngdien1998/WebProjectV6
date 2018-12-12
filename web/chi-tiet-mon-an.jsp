@@ -97,9 +97,12 @@
                         <input type="hidden" name="txtIdMonAn" value="${requestScope.monAn.idMonAn}">
                         <textarea class="form-control" rows="3" id="comment"
                                   placeholder="Nhập góp ý của quý khách" name="comment"></textarea>
-                        <button class="btn btn-success margin-top-8px" style="float:right">
+                        <button class="btn btn-success margin-top-8px" style="float:right" id="binh-luan-mon-an">
                             Góp ý
                         </button>
+                        <script>
+
+                        </script>
                     </form>
                 </div>
 
@@ -107,18 +110,18 @@
 
                 <div id="user-comments">
                     <c:forEach var="binhLuan" items="${requestScope.binhLuans}">
-                        <div class="comment">
-                            <div class="user-avatar">
-                                <img src="${requestScope.nguoiDung.avatar}" alt="user-avatar" width="50" height="50"
+                        <div class="comment" style="margin-top: 16px">
+                            <div class="user-avatar" style="float: left; width: 64px">
+                                <img src="${binhLuan.avatar}" alt="user-avatar" width="50" height="50"
                                      style="border-radius:50%" style="border-radius:50%">
                             </div>
 
-                            <div class="user-comment">
-                                <div class="user-name">
+                            <div style="float: right; width: calc(100% - 64px); border-bottom: 1px dashed #DDD;">
+                                <div class="user-name" >
                                     <p class="no-margin">
                                         <b>${binhLuan.email}</b>
                                     </p>
-                                    <p class="date-comment" class="small-text">${binhLuan.thoiGian}</p>
+                                    <p class="date-comment" class="small-text" style="color: #858585;margin-top: 2px;font-size: 12px">${binhLuan.thoiGian}</p>
                                 </div>
                                 <p class="comment-text" class="lighten-text">
                                         ${binhLuan.noiDung}

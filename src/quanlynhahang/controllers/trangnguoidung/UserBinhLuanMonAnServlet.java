@@ -1,5 +1,6 @@
 package quanlynhahang.controllers.trangnguoidung;
 
+import quanlynhahang.common.AuthorizePermission;
 import quanlynhahang.common.Consts;
 import quanlynhahang.common.DbAccess;
 import quanlynhahang.models.businessmodels.UserBinhLuanService;
@@ -19,6 +20,10 @@ public class UserBinhLuanMonAnServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=UTF-8");
+        if (!AuthorizePermission.islogined(request)) {
+            response.sendRedirect("/dang-nhap");
+            return;
+        }
         try {
             String idMonAn = request.getParameter("txtIdMonAn");
             String noiDung = request.getParameter("comment");
