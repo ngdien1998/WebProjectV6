@@ -25,6 +25,9 @@ public class ThongKeTongThuServlet extends HttpServlet {
             ArrayList<ThongKeTongThu> thongKeTongThus = thongKeService.thongKeTongThuTungNgayTrongThang();
             request.setAttribute("thongKeTongThu", thongKeTongThus);
 
+            ArrayList<ThongKeTongThu> thongKeTongThusThangNay = thongKeService.thongKeTongThuTungNgayTrongThangNay();
+            request.setAttribute("thongKeTongThuThangnay", thongKeTongThusThangNay);
+
             ArrayList<ThongKeTongThu> thongKeTongThus1 = thongKeService.thongKeTongThuTungThang();
             request.setAttribute("thongKeTongThuTungThang", thongKeTongThus1);
         } catch (SQLException e) {

@@ -24,4 +24,18 @@ public class UserBinhLuanService  extends  ConnectDatabase {
         closeConnection();
         return rowAffected;
     }
+
+    public int addBinhLuanBaiViet(String idBaiViet, String noiDung, String email) throws SQLException, ClassNotFoundException {
+        openConnection();
+        String sql = "EXEC ThemBinhLuanBaiViet ?,?,?,?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, Integer.parseInt(idBaiViet));
+        statement.setDate(2, Date.valueOf(java.time.LocalDate.now()));
+        statement.setString(3, noiDung);
+        statement.setString(4, email);
+
+        int rowAffected = statement.executeUpdate();
+        closeConnection();
+        return rowAffected;
+    }
 }

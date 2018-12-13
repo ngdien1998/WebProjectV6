@@ -51,6 +51,9 @@ public class UserThucDonServlet extends HttpServlet {
             ArrayList<MonAn> monAns1 = thucDonUserService.layBonMonAnCuaThucDonToi();
             request.setAttribute("bonMonAnThucDonToi", monAns1);
 
+            ArrayList<ThucDon> tatCaThucDons = thucDonUserService.getTatCaThucDon();
+            request.setAttribute("tatCaThucDons", tatCaThucDons);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("/thuc-don.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {

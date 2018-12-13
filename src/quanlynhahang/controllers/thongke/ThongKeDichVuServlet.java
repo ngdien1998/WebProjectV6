@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "ThongKeDichVuServlet", urlPatterns = {"/admin/thong-ke-dich-vu"})
 public class ThongKeDichVuServlet extends HttpServlet {
@@ -36,6 +37,10 @@ public class ThongKeDichVuServlet extends HttpServlet {
 
             ArrayList<ThongKeBinhLuanBieuDo> thongKeBinhLuanBieuDos = thongKeService.thongKeBinhLuanBieuDo();
             request.setAttribute("thongKeBinhLuanBieuDo", thongKeBinhLuanBieuDos);
+
+//            int[] arrNgay = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
+//            request.setAttribute("objectNgay", arrNgay);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

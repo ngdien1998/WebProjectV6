@@ -40,16 +40,18 @@ public class XoaThucDonServlet extends HttpServlet implements ActionPermissionID
             ThucDonService thucDonService = new ThucDonService(DbAccess.getValue(request));
             thucDonService.delete(Integer.parseInt(idThucDon));
 
-            ThucDon thucDon = thucDonService.get(idThucDon);
-            File file = new File(thucDon.getHinhThucDon());
-            if(file.delete()){
-                response.sendRedirect("/admin/thuc-don");
-            }
-            else{
-                response.setStatus(400);
-                return;
-            }
-
+//            ThucDonService thucDonService1 = new ThucDonService(DbAccess.getValue(request));
+//
+//            ThucDon thucDon = thucDonService1.getThucDon(idThucDon);
+//            File file = new File(thucDon.getHinhThucDon());
+//            if(file.delete()){
+//                response.sendRedirect("/admin/thuc-don");
+//            }
+//            else{
+//                response.setStatus(400);
+//                return;
+//            }
+            response.sendRedirect("/admin/thuc-don");
 
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

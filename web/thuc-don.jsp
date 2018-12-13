@@ -131,5 +131,28 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <div class="top-menus-title">
+        <h1 class="font-blonde-script">Tất cả thực đơn</h1>
+    </div>
+    <hr>
+    <div class="top-menu-items container">
+        <div class="row">
+            <c:forEach var="thucDon" items="${requestScope.tatCaThucDons}">
+                <div class="top-menu-item col-12 col-sm-6 col-md-3 mb-5">
+                    <a href="/chi-tiet-thuc-don?idThucDon=${thucDon.idThucDon}">
+                        <div class="menu-image">
+                            <img src="${thucDon.hinhThucDon}" height="170px">
+                        </div>
+                        <div class="row mt-2">
+                            <p class="col-8 menu-name">${thucDon.tenThucDon}</p>
+                            <p class="col-4 menu-price">${thucDon.gia}đ</p>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
 </div>
 <jsp:include page="_shared/user/footer.jsp" flush="true"/>

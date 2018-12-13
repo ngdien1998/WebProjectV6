@@ -175,33 +175,33 @@ a.small-text {
   padding: 16px 32px;
 }
 
-.comment {
-  margin-top: 16px;
-}
+/*.comment {*/
+  /*margin-top: 16px;*/
+/*}*/
 
-.comment #user-avatar {
-  float: left;
-  width: 64px;
-}
+/*.comment #user-avatar {*/
+  /*float: left;*/
+  /*width: 64px;*/
+/*}*/
 
-.comment #user-comment {
-  float: right;
-  width: calc(100% - 64px);
-  border-bottom: 1px dashed #DDD;         
-}
+/*.comment #user-comment {*/
+  /*float: right;*/
+  /*width: calc(100% - 64px);*/
+  /*border-bottom: 1px dashed #DDD;         */
+/*}*/
 
-#date-comment {
-  color: #858585;
-  margin: 0;
-  margin-top: 2px;
-}
-.comment:last-child #user-comment {
-  border: none;
-}
+/*#date-comment {*/
+  /*color: #858585;*/
+  /*margin: 0;*/
+  /*margin-top: 2px;*/
+/*}*/
+/*.comment:last-child #user-comment {*/
+  /*border: none;*/
+/*}*/
 
-#user-comments > div:last-child {
-  text-align: center;
-}
+/*#user-comments > div:last-child {*/
+  /*text-align: center;*/
+/*}*/
 
 .with-margin {
   margin: 24px 0;

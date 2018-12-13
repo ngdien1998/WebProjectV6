@@ -38,8 +38,6 @@ public class UserChiTietMonAnServlet extends HttpServlet {
             ArrayList<MonAn> listMonAn = userTrangChuService.getBonMonAnMoiNhat();
             request.setAttribute("listMonAn", listMonAn);
 
-            NguoiDungService nguoiDungService = new NguoiDungService(DbAccess.getValue(request));
-
 
         } catch (SQLException e) {
             e.printStackTrace();

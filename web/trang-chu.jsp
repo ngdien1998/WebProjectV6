@@ -67,7 +67,7 @@
                     <a class="nav-link font-blonde-script text-white font-size-h5" href="/dat-mon-nhom">Đặt món nhóm</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/bai-viet">Bài
+                    <a class="nav-link font-blonde-script text-white font-size-h5" href="/tin-tuc">Bài
                         viết</a>
                 </li>
                 <li class="nav-item">

@@ -94,8 +94,8 @@
                 <hr>
                 <h1 class="title text-danger">${requestScope.thucDon.tenThucDon}</h1>
                 <h3 class="title">Mô tả : ${requestScope.thucDon.moTa}</h3>
-                <h3 class="title">Giá: ${requestScope.thucDon.gia}</h3>
-                <h3 class="title">Phần trăm khuyến mãi : ${requestScope.thucDon.phanTramKhuyenMai} %</h3>
+                <h3 class="title text-primary">Giá: ${requestScope.thucDon.gia}đ</h3>
+                <h3 class="title text-warning">Phần trăm khuyến mãi : ${requestScope.thucDon.phanTramKhuyenMai} %</h3>
             </div>
             <div class="col-sm-2"></div>
         </div>

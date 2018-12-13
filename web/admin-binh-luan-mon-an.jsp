@@ -22,7 +22,7 @@
                     <td>${binhLuan.email}</td>
                     <td>${binhLuan.noiDung}</td>
                     <td>
-                        <a href="/admin/xoa-binh-luan-mon-an?idMonAn=${requestScope.monAn.idMonAn}">Xóa</a>
+                        <a href="/admin/xoa-binh-luan-mon-an?idMonAn=${requestScope.monAn.idMonAn}&idBinhLuan=${binhLuan.idBinhLuan}">Xóa</a>
                     </td>
                 </tr>
             </c:forEach>

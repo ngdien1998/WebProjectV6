@@ -26,7 +26,7 @@
                 <thead>
                 <tr>
                     <th>Tên thực đơn</th>
-                    <th>Mô tả</th>
+                    <th style="width:220px">Mô tả</th>
                     <th>Giá</th>
                     <th>KM</th>
                     <th>Thứ</th>

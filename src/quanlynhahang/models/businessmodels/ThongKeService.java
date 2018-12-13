@@ -1,12 +1,17 @@
 package quanlynhahang.models.businessmodels;
 
 import quanlynhahang.models.datamodels.*;
+import quanlynhahang.models.viewmodels.HoaDonReport;
+import quanlynhahang.models.viewmodels.MonAnVM;
 import quanlynhahang.models.viewmodels.UserDbConnect;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ThongKeService extends ConnectDatabase {
     public ThongKeService(UserDbConnect user) {
@@ -17,7 +22,7 @@ public class ThongKeService extends ConnectDatabase {
         ArrayList<ThongKeMonAn> thongKeMonAns = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKe10MonAnBanChayNhatThangTruoc";
+        String sql = "EXEC ThongKe10MonAnBanChayNhatThangTruoc";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -61,7 +66,29 @@ public class ThongKeService extends ConnectDatabase {
         ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKeTongThuTungNgay";
+        String sql = "EXEC ThongKeTongThuTungNgayTrongThangTruoc";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeTongThu thongKeTongThu = new ThongKeTongThu();
+            thongKeTongThu.setTongTien(res.getInt(1));
+            thongKeTongThu.setThoiGian(res.getInt(2));
+
+            thongKeTongThus.add(thongKeTongThu);
+        }
+
+        closeConnection();
+        return thongKeTongThus;
+    }
+
+    public ArrayList<ThongKeTongThu> thongKeTongThuTungNgayTrongThangNay() throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
+        openConnection();
+
+        String sql = "EXEC ThongKeTongThuTungNgayTrongThangNay";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -101,11 +128,38 @@ public class ThongKeService extends ConnectDatabase {
         return thongKeTongThus;
     }
 
+    public ArrayList<ThongKeTongThuChiTiet> thongKeTongThuChiTietTungThang(int thang) throws SQLException, ClassNotFoundException {
+        ArrayList<ThongKeTongThuChiTiet> thongKeTongThus = new ArrayList<>();
+        openConnection();
+
+        String sql = "EXEC [ThongKeChiTietTongThu] ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setEscapeProcessing(true);
+        statement.setQueryTimeout(90);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+
+        while(res.next()){
+            ThongKeTongThuChiTiet thongKeTongThuChiTiet = new ThongKeTongThuChiTiet();
+            thongKeTongThuChiTiet.setIdHoaDon(res.getInt(1));
+            thongKeTongThuChiTiet.setEmail(res.getString(2));
+            thongKeTongThuChiTiet.setTenMonAn(res.getString(3));
+            thongKeTongThuChiTiet.setSoLuong(res.getInt(4));
+            thongKeTongThuChiTiet.setDonGia(res.getInt(5));
+            thongKeTongThuChiTiet.setThoiGian(res.getDate(6));
+
+            thongKeTongThus.add(thongKeTongThuChiTiet);
+        }
+
+        closeConnection();
+        return thongKeTongThus;
+    }
+
     public ArrayList<ThongKeDatBanChiTiet> thongKeDatBanChiTiet() throws SQLException, ClassNotFoundException {
         ArrayList<ThongKeDatBanChiTiet> thongKeDatBans = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKeDatBanChiTiet";
+        String sql = "EXEC ThongKeDatBanChiTiet";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -170,5 +224,68 @@ public class ThongKeService extends ConnectDatabase {
 
         closeConnection();
         return thongKeBinhLuanBieuDos;
+    }
+
+    public ArrayList<HoaDonReport> reportHoaDonToExcel(int thang) throws SQLException, ClassNotFoundException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        ArrayList<HoaDonReport> hoaDons = new ArrayList<>();
+        openConnection();
+        String sql = "EXEC ThongKeChiTietTongThu ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            int idHoaDon = res.getInt(1);
+            String email = res.getString(2);
+            Date thoiGian = sdf.parse(res.getString(6));
+            MonAnVM monAn = new MonAnVM();
+            monAn.setTenMonAn(res.getString(3));
+            monAn.setSoLuong(res.getInt(4));
+            monAn.setGia(res.getInt(5));
+            add(hoaDons, idHoaDon, email, thoiGian, monAn);
+
+        }
+        closeConnection();
+        return hoaDons;
+    }
+
+    private void add(ArrayList<HoaDonReport> hoaDons, int idHoaDon, String email, Date thoiGian, MonAnVM monAn) {
+        boolean found = false;
+        for (HoaDonReport hoaDon : hoaDons) {
+            if (hoaDon.getMaHoaDon() == idHoaDon) {
+                hoaDon.add(monAn);
+                found = true;
+            }
+        }
+        if (!found) {
+            HoaDonReport hoaDon = new HoaDonReport();
+            hoaDon.setMaHoaDon(idHoaDon);
+            hoaDon.setEmail(email);
+            hoaDon.setThoiGian(thoiGian);
+            hoaDon.add(monAn);
+            hoaDons.add(hoaDon);
+        }
+    }
+
+    public ArrayList<DatBan> reportDatBanToExcel(int thang) throws SQLException, ClassNotFoundException {
+        ArrayList<DatBan> datBans = new ArrayList<>();
+        openConnection();
+        String sql = "select * from DatBan where MONTH(Ngay) = ? order by Ngay";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            DatBan datBan = new DatBan();
+            datBan.setEmail(res.getString(1));
+            datBan.setThoiGian(res.getString(2));
+            datBan.setNgay(res.getDate(3));
+            datBan.setSoLuong(res.getInt(4));
+            datBan.setGhiChu(res.getString(5));
+            datBan.setHoTen(res.getString(6));
+            datBan.setSoDT(res.getString(7));
+            datBans.add(datBan);
+        }
+        closeConnection();
+        return datBans;
     }
 }
