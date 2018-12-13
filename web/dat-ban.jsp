@@ -20,7 +20,7 @@
       type="text/css"
       href="assests/css/bootstrap.min.css"
     />
-
+    <link rel="stylesheet" type="text/css" href="assests/css/global.css"/>
     <link rel="stylesheet" href="./assests/css/style.trang-chu.css" />
     <link rel="stylesheet" href="./assests/css/style.lien-he.css" />
     <!--
@@ -116,7 +116,7 @@
             <div class="row">
               <div class="col-lg-12 ">
                 <div class="t-center">
-                  <h3 class="tit3 t-center m-b-35 m-t-2 title-dat-ban">
+                  <h3 class="tit3 t-center m-b-35 m-t-2 title-dat-ban text-center">
                     Đặt Bàn
                   </h3>
                 </div>
