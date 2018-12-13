@@ -41,6 +41,7 @@ public final class AuthorizePermission {
     public static final int SUA_LOAI_BAI_VIET = 35;
     public static final int THEM_LOAI_BAI_VIET = 36;
     public static final int XOA_LOAI_BAI_VIET = 37;
+    public static final int DAT_BAN=38;
 
     public static boolean checkPermissionAllowed(HttpServletRequest request, int permissionId) throws SQLException, ClassNotFoundException {
         HttpSession session = request.getSession();
