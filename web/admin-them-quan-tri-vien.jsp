@@ -100,17 +100,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Ảnh đại diện</label>
-                <input type="file" name="anhDaiDien" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                    <input type="text" class="form-control file-upload-info" readonly placeholder="Ảnh đại diện"
-                            name="txtAvatar">
-                    <span class="input-group-append">
-                          <button class="btn btn-primary" type="button">Duyệt Server</button>
-                        </span>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="dia-chi">Địa chỉ</label>
                 <input type="text" class="form-control" id="dia-chi" placeholder="Địa chỉ" name="txtDiaChi">
             </div>

@@ -77,7 +77,7 @@ public class QuanTriVienService extends ConnectDatabase implements Businesses<Ng
         statement.setString(4, model.getMatKhau());
         statement.setDate(5, model.getNgaySinh());
         statement.setBoolean(6, model.isNu());
-        statement.setString(7, model.getAvatar());
+        statement.setString(7, "../assests/images/profile.jpg");
         statement.setString(8, model.getDienThoai());
         statement.setString(9, model.getDiaChi());
         statement.setBoolean(10, model.isQuanTriVien());

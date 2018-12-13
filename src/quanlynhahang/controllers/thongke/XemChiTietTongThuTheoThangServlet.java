@@ -36,11 +36,12 @@ public class XemChiTietTongThuTheoThangServlet extends HttpServlet {
             ArrayList<ThongKeTongThuChiTiet> thongKeTongThuChiTiets = thongKeService.thongKeTongThuChiTietTungThang(Integer.parseInt(thang));
             request.setAttribute("thongKeTongThuChiTietTungThang", thongKeTongThuChiTiets);
 
+            request.setAttribute("thang", thang);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/admin-thong-ke-tong-thu.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

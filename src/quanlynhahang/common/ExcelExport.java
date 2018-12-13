@@ -72,7 +72,7 @@ public class ExcelExport {
                 cell = row.createCell(3, CellType.NUMERIC);
                 cell.setCellValue(df.format(monAn.getGia()));
 
-                tongDonHang += monAn.getSoLuong() * monAn.getGia();
+                tongDonHang += monAn.getGia();
                 rownum++;
             }
             row = sheet.createRow(rownum);

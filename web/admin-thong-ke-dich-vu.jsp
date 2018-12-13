@@ -26,29 +26,6 @@
             <c:forEach var="datBan" items="${requestScope.thongKeDatBanBieuDo}">
                 [  ${datBan.ngay}, ${datBan.soLuong}],
             </c:forEach>
-            <%--<c:forEach var="ngay" items="${requestScope.objectNgay}">--%>
-                <%--<c:forEach var="ngayBieuDo" items="${requestScope.thongKeDatBansBieuDo}">--%>
-                    <%--<c:choose>--%>
-                        <%--<c:when test="${ngay == ngayBieuDo}">--%>
-                            <%--[${ngayBieuDo.ngay}, ${ngayBieuDo.soLuong}],--%>
-                        <%--</c:when>--%>
-                        <%--<c:otherwise>--%>
-                            <%--[${ngay}, 0],--%>
-                        <%--</c:otherwise>--%>
-                    <%--</c:choose>--%>
-                <%--</c:forEach>--%>
-            <%--</c:forEach>--%>
-
-            <%--<c:forEach begin="1" end="31" varStatus="loop" var="thongKe" items="${requestScope.thongKeDatBanBieuDo}">--%>
-                <%--<c:choose>--%>
-                    <%--<c:when test="${loop == thongKe.ngay}">--%>
-                        <%--[${thongKe.ngay}, ${thongKe.soLuong}],--%>
-                    <%--</c:when>--%>
-                    <%--<c:otherwise>--%>
-                        <%--[${loop}, 0],--%>
-                    <%--</c:otherwise>--%>
-                <%--</c:choose> --%>
-            <%--</c:forEach>--%>
         ]);
 
         var options = {
@@ -102,6 +79,7 @@
         <div id="chart"></div>
         <br>
         <h1 class="text-center text-danger">Chi tiết</h1>
+        <button type="button" onclick="xuatBaoCao();" id="btn-bao-cao" class="btn btn-primary">Xuất báo cáo</button>
         <div class="table-responsive table-wrapper-scroll-y">
             <table class="table table-hover">
                 <thead>
@@ -135,6 +113,23 @@
         <div id="chart_2"></div>
     </div>
 </div>
+<script>
+    function xuatBaoCao() {
+        $("#btn-bao-cao").html("Đang tạo file");
+        let date = new Date();
+        let month = date.getMonth().toString();
+        $.get("/admin/excel-report/dat-ban", {thang: month}, content => {
+            if (content.res !== null) {
+                $("#btn-bao-cao").attr("onclick", "downloadReport('" + content.res + "')");
+                $("#btn-bao-cao").html("Tải xuống");
+            }
+        });
+    }
 
+    function downloadReport(fileName) {
+        let url = "/document/download?fileName=" + fileName;
+        window.open(url, "_blank");
+    }
+</script>
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true" />
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true" />

@@ -45,7 +45,6 @@ public class ThemQuanTriVienServlet extends HttpServlet implements ActionPermiss
                 ngaySinh = new java.sql.Date(temp.getTime());
             }
             qtv.setNgaySinh(ngaySinh);
-            qtv.setAvatar(request.getParameter("txtAvatar"));
             qtv.setDienThoai(request.getParameter("txtDienThoai"));
             qtv.setDiaChi(request.getParameter("txtDiaChi"));
             qtv.setChoPhep(request.getParameter("chkChoPhep") != null);

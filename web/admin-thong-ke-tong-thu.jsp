@@ -139,6 +139,9 @@
             <%--onclick="location.href='/admin/chi-tiet-thong-thu-theo-thang?thang='+document.getElementById('tong-thu-theo-thang').innerHTML">Xem--%>
             <%--chi tiết</a>--%>
             <button class="btn btn-success">Xem chi tiết</button>
+            <c:if test="${requestScope.thang != null}">
+                <button type="button" onclick="xuatBaoCao('${requestScope.thang}');" id="btn-bao-cao" class="btn btn-primary">Xuất excel</button>
+            </c:if>
         </form>
 
         <c:choose>
@@ -176,6 +179,21 @@
         </c:choose>
     </div>
 </div>
+<script>
+    function xuatBaoCao(thang) {
+        $("#btn-bao-cao").html("Đang tạo file");
+        $.get("/admin/excel-report/doanh-thu-theo-thang", { thang: thang }, content => {
+            if (content.res !== null) {
+                $("#btn-bao-cao").attr("onclick", "downloadReport('" + content.res + "')");
+                $("#btn-bao-cao").html("Tải xuống");
+            }
+        });
+    }
 
+    function downloadReport(fileName) {
+        let url = "/document/download?fileName=" + fileName;
+        window.open(url, "_blank");
+    }
+</script>
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>

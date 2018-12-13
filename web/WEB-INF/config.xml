@@ -17,7 +17,7 @@
 	Configure the location of uploaded files. See the following article for more details:
 	http://docs.cksource.com/CKFinder_2.x/Developers_Guide/Java/Configuration/baseURL_and_baseDir
 	-->
-	<baseDir>E:/JSP Servlet/WebProjectV6/web/assests/content/upload/</baseDir>
+	<baseDir>F:/BK11_12/WebProjectV6/web/assests/content/upload/</baseDir>
 	<baseURL>/assests/content/upload/</baseURL>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>
@@ -69,7 +69,7 @@
 		<type name="Images">
 			<url>%BASE_URL%images/</url>
 			<directory>%BASE_DIR%images</directory>
-			<maxSize>5000</maxSize>
+			<maxSize>50000</maxSize>
 			<allowedExtensions>bmp,gif,jpeg,jpg,png</allowedExtensions>
 			<deniedExtensions></deniedExtensions>
 		</type>
