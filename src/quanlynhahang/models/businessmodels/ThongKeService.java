@@ -226,7 +226,7 @@ public class ThongKeService extends ConnectDatabase {
         return thongKeBinhLuanBieuDos;
     }
 
-    public ArrayList<HoaDonReport> reportHoaDonExcel(int thang) throws SQLException, ClassNotFoundException, ParseException {
+    public ArrayList<HoaDonReport> reportHoaDonToExcel(int thang) throws SQLException, ClassNotFoundException, ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         ArrayList<HoaDonReport> hoaDons = new ArrayList<>();
         openConnection();
@@ -265,5 +265,27 @@ public class ThongKeService extends ConnectDatabase {
             hoaDon.add(monAn);
             hoaDons.add(hoaDon);
         }
+    }
+
+    public ArrayList<DatBan> reportDatBanToExcel(int thang) throws SQLException, ClassNotFoundException {
+        ArrayList<DatBan> datBans = new ArrayList<>();
+        openConnection();
+        String sql = "select * from DatBan where MONTH(Ngay) = ? order by Ngay";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, thang);
+        ResultSet res = statement.executeQuery();
+        while (res.next()) {
+            DatBan datBan = new DatBan();
+            datBan.setEmail(res.getString(1));
+            datBan.setThoiGian(res.getString(2));
+            datBan.setNgay(res.getDate(3));
+            datBan.setSoLuong(res.getInt(4));
+            datBan.setGhiChu(res.getString(5));
+            datBan.setHoTen(res.getString(6));
+            datBan.setSoDT(res.getString(7));
+            datBans.add(datBan);
+        }
+        closeConnection();
+        return datBans;
     }
 }

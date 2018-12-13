@@ -9,4 +9,5 @@ public class Consts {
     public static final String EMAIL = "email";
     public static final String MESSAGE = "message";
     public static final String SAVED_CODE = "savedCode";
+    public static final String DOCUMENT_PATH = "E:/JSP Servlet/WebProjectV6/web/assests/content/document/";
 }
