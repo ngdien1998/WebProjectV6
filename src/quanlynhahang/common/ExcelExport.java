@@ -67,7 +67,7 @@ public class ExcelExport {
             rowNum += 2;
         }
 
-        String fullFileName = "E:/JSP Servlet/WebProjectV6/web/assests/content/document/" + fileName + ".xlsx";
+        String fullFileName = "F:/BK11_12/WebProjectV6/web/assests/content/document/" + fileName + ".xlsx";
         File saveFile = new File(fullFileName);
 
         FileOutputStream fout = new FileOutputStream(saveFile);

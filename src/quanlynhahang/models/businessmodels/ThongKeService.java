@@ -22,7 +22,7 @@ public class ThongKeService extends ConnectDatabase {
         ArrayList<ThongKeMonAn> thongKeMonAns = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKe10MonAnBanChayNhatThangTruoc";
+        String sql = "EXEC ThongKe10MonAnBanChayNhatThangTruoc";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -66,7 +66,7 @@ public class ThongKeService extends ConnectDatabase {
         ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKeTongThuTungNgay";
+        String sql = "EXEC ThongKeTongThuTungNgayTrongThangTruoc";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);
@@ -88,7 +88,7 @@ public class ThongKeService extends ConnectDatabase {
         ArrayList<ThongKeTongThu> thongKeTongThus = new ArrayList<>();
         openConnection();
 
-        String sql = "SELECT * FROM ThongKeTongThuTungNgayTrongThangNay";
+        String sql = "EXEC ThongKeTongThuTungNgayTrongThangNay";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setEscapeProcessing(true);
         statement.setQueryTimeout(90);

@@ -161,11 +161,11 @@
                         <tbody>
                         <c:forEach var="thongKe" items="${requestScope.thongKeTongThuChiTietTungThang}">
                             <tr>
-                                <td>${thongKe.idHoaDon}</td>
+                                <td>ID: ${thongKe.idHoaDon}</td>
                                 <td>${thongKe.email}</td>
                                 <td>${thongKe.tenMonAn}</td>
-                                <td>${thongKe.soLuong}</td>
-                                <td>${thongKe.donGia}</td>
+                                <td>${thongKe.soLuong} đơn vị</td>
+                                <td>${thongKe.donGia}đ</td>
                                 <td>${thongKe.thoiGian}</td>
                             </tr>
                         </c:forEach>
