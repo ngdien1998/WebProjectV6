@@ -11,6 +11,4 @@
 </div>
 
 <jsp:include page="_shared/admin/page-footer.jsp" flush="true"/>
-<script>
-</script>
 <jsp:include page="_shared/admin/end-of-file.jsp" flush="true"/>
